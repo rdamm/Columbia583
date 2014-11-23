@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Columbia583", "Columbia583\Columbia583.shproj", "{8EA00A33-0B79-45F3-8457-594E0955FA57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Columbia583.Android", "Android\Columbia583.Android.csproj", "{774ECB81-08BA-4DC7-9122-9E7BAA0587D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{774ECB81-08BA-4DC7-9122-9E7BAA0587D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{774ECB81-08BA-4DC7-9122-9E7BAA0587D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{774ECB81-08BA-4DC7-9122-9E7BAA0587D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{774ECB81-08BA-4DC7-9122-9E7BAA0587D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Android\Columbia583.Android.csproj
+	EndGlobalSection
+EndGlobal
