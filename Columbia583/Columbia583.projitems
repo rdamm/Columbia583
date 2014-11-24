@@ -10,5 +10,26 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Business_Layer\Business_Layer_Search_Trails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Access_Layer\Data_Access_Layer_Search_Trails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Layer\Data_Layer_Search_Trails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service_Access_Layer\Service_Access_Layer_Search_Trails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Trail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Difficulty.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Activity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\SearchFilter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Amenity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Application_Layer\Application_Layer_Search_Trails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)User_Interface_Layer\User_Interface_Layer_Search_Trails.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Data_Layer\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data_Access_Layer\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Business_Layer\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Service_Access_Layer\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Application_Layer\" />
+    <Folder Include="$(MSBuildThisFileDirectory)User_Interface_Layer\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data_Classes\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\" />
   </ItemGroup>
 </Project>
