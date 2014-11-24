@@ -1,13 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (KitKat)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\MainActivity.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\MainMenuActivity.cs">
     <Files>
-      <File FileName="Columbia583\App.cs" Line="1" Column="1" />
-      <File FileName="Android\MainActivity.cs" Line="1" Column="1" />
+      <File FileName="Android\MainMenuActivity.cs" Line="51" Column="51" />
+      <File FileName="Android\SearchTrailsActivity.cs" Line="63" Column="63" />
+      <File FileName="Android\ViewTrailActivity.cs" Line="45" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Columbia583.Android MonoForAntroid.PreferredDevice="Nexus 4" />
 </Properties>

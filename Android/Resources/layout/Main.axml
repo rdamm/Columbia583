@@ -4,38 +4,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
     <TextView
-        android:text="Directions to Trail Head"
+        android:text="Main Menu"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
-    <ScrollView
-        android:minWidth="25px"
-        android:minHeight="25px"
+        android:id="@+id/textView_mainMenuLabel" />
+    <Button
+        android:text="Search Trails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollView2">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/textView3"
-            android:hint="Sample Directions Here" />
-    </ScrollView>
-    <TextView
-        android:text="Trail Head Features"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
-    <ScrollView
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView1">
-        <Gallery
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/gallery1" />
-    </ScrollView>
+        android:id="@+id/button_searchTrails" />
 </LinearLayout>

@@ -1,8 +1,10 @@
 C:\Users\RPrime\Documents\Projects\Columbia583\Android\bin\Debug\Columbia583.Android.dll
-C:\Users\RPrime\Documents\Projects\Columbia583\packages\Xamarin.Android.Support.v4.19.0.2\lib\MonoAndroid10\Xamarin.Android.Support.v4.dll
-C:\Users\RPrime\Documents\Projects\Columbia583\packages\Xamarin.Forms.1.0.6186\lib\MonoAndroid10\Xamarin.Forms.Core.dll
-C:\Users\RPrime\Documents\Projects\Columbia583\packages\Xamarin.Forms.1.0.6186\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll
-C:\Users\RPrime\Documents\Projects\Columbia583\packages\Xamarin.Forms.1.0.6186\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll
+C:\Users\RPrime\Documents\Projects\Columbia583\packages\Xamarin.Forms.1.2.3.6257\lib\MonoAndroid10\FormsViewGroup.dll
+C:\Users\RPrime\Documents\Projects\Columbia583\packages\Xamarin.Android.Support.v13.20.0.0.4\lib\MonoAndroid32\Xamarin.Android.Support.v13.dll
+C:\Users\RPrime\Documents\Projects\Columbia583\packages\Xamarin.Android.Support.v4.20.0.0.4\lib\MonoAndroid32\Xamarin.Android.Support.v4.dll
+C:\Users\RPrime\Documents\Projects\Columbia583\packages\Xamarin.Forms.1.2.3.6257\lib\MonoAndroid10\Xamarin.Forms.Core.dll
+C:\Users\RPrime\Documents\Projects\Columbia583\packages\Xamarin.Forms.1.2.3.6257\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll
+C:\Users\RPrime\Documents\Projects\Columbia583\packages\Xamarin.Forms.1.2.3.6257\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Collections.Concurrent.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Collections.dll
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.ComponentModel.Annotations.dll

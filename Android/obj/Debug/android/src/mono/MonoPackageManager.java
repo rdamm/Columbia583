@@ -68,6 +68,8 @@ public class MonoPackageManager {
 class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
 		"Columbia583.Android.dll",
+		"FormsViewGroup.dll",
+		"Xamarin.Android.Support.v13.dll",
 		"Xamarin.Android.Support.v4.dll",
 		"Xamarin.Forms.Core.dll",
 		"Xamarin.Forms.Platform.Android.dll",

@@ -13,8 +13,8 @@ using Xamarin.Forms.Platform.Android;
 
 namespace Columbia583.Android
 {
-	[Activity (Label = "Columbia583.Android.Android", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-	public class MainActivity : AndroidActivity
+	[Activity (Label = "Columbia583.Android_View_Trail", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	public class ViewTrailActivity : AndroidActivity
 	{
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -22,7 +22,9 @@ namespace Columbia583.Android
 
 			Xamarin.Forms.Forms.Init (this, bundle);
 
-			SetPage (App.GetMainPage ());
+			SetPage (App.GetViewTrailPage ());
+
+			SetContentView (Resource.Layout.ViewTrail);
 		}
 	}
 }

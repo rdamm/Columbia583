@@ -4,14 +4,14 @@ namespace Columbia583
 {
 	public class SearchFilter
 	{
-		private Activity[] activities;
+		private string[] activities;
 		private Difficulty[] difficulties;
 		private int minDuration;
 		private int maxDuration;
 		private int minDistance;
 		private int maxDistance;
 
-		public SearchFilter (Activity[] activities, Difficulty[] difficulties, int minDuration, int maxDuration, int minDistance, int maxDistance)
+		public SearchFilter (string[] activities, Difficulty[] difficulties, int minDuration, int maxDuration, int minDistance, int maxDistance)
 		{
 			this.activities = activities;
 			this.difficulties = difficulties;
@@ -21,7 +21,7 @@ namespace Columbia583
 			this.maxDistance = maxDistance;
 		}
 
-		public Activity[] Activities {
+		public string[] Activities {
 			get {
 				return activities;
 			}

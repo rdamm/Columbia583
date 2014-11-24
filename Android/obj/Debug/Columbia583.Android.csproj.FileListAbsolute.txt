@@ -18,3 +18,7 @@ C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\values\stri
 C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\drawable\icon.png
 C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\R.cs.flag
 C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\uploadflags.txt
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\bin\Debug\FormsViewGroup.dll
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\bin\Debug\Xamarin.Android.Support.v13.dll
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\layout\viewtrail.xml
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\layout\searchtrails.xml
