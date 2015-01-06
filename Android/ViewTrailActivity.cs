@@ -16,6 +16,9 @@ namespace Columbia583.Android
 	[Activity (Label = "Columbia583.Android_View_Trail", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class ViewTrailActivity : AndroidActivity
 	{
+		protected TextView directions = null;
+		protected RatingBar difficultyRank = null;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -25,6 +28,10 @@ namespace Columbia583.Android
 			SetPage (App.GetViewTrailPage ());
 
 			SetContentView (Resource.Layout.ViewTrail);
+
+			// Get the controls.
+			difficultyRank = FindViewById<RatingBar> (Resource.Id.difficultyRating);
+			directions = FindViewById<TextView> (Resource.Id.directions);
 		}
 	}
 }

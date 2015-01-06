@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/textView3"
+            android:id="@+id/directions"
             android:hint="Sample Directions Here" />
     </ScrollView>
     <TextView
@@ -38,4 +38,15 @@
             android:layout_height="match_parent"
             android:id="@+id/gallery1" />
     </ScrollView>
+    <TextView
+        android:text="Trail Difficulty"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4" />
+    <RatingBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/difficultyRating"
+        android:layout_marginLeft="0.0dp" />
 </LinearLayout>

@@ -156,6 +156,8 @@
             android:columnCount="4"
             android:rowCount="2"
             android:id="@+id/gridLayout_searchResults">
+        <!-- Search Results Inside -->
+        <!--
             <TextView
                 android:text="Edgewater Trail"
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -204,6 +206,8 @@
                 android:text="0.59 km"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:id="@+id/textView_testLabel12" />
+            -->
+        <!-- /Search Results Inside -->
         </GridLayout>
         <Button
             android:id="@+id/button_viewTrail"

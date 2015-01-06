@@ -40,6 +40,9 @@ namespace Columbia583.Android
 		protected GridLayout searchResultsGrid = null;
 		protected Button viewTrailButton = null;
 
+		// Debug
+		protected bool debugSearchResults = true;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -66,6 +69,14 @@ namespace Columbia583.Android
 			updateSearchResultsButton = FindViewById<Button> (Resource.Id.button_updateSearchResults);
 			searchResultsGrid = FindViewById<GridLayout> (Resource.Id.gridLayout_searchResults);
 			viewTrailButton = FindViewById<Button> (Resource.Id.button_viewTrail);
+
+			if (debugSearchResults) {
+				Trail[] debugTrails = new Trail[3];
+				debugTrails[0] = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69 km", "10 h", "", "", Difficulty.Easiest, new Rating(4), "", "", "", "", true, true, DateTime.Now);
+				debugTrails[1] = new Trail(0, 0, 0, "Niles", "BC", "", "", "113.12 km", "20 h", "", "", Difficulty.Very_Difficult, new Rating(3), "", "", "", "", true, true, DateTime.Now);
+				debugTrails[2] = new Trail(0, 0, 0, "Findlay Creek Trail 2", "AB", "", "", "0.59 km", "0.45 h", "", "", Difficulty.Extremely_Difficult, new Rating(5), "", "", "", "", true, true, DateTime.Now);
+				this.setSearchResults(debugTrails);
+			}
 
 			// Assign an event handler to the update search results button.
 			if (updateSearchResultsButton != null) {
@@ -164,24 +175,24 @@ namespace Columbia583.Android
 				if (trails != null) {
 					foreach(Trail trail in trails) {
 //						// TODO: Display the trail name.
-//						searchResultsGrid.AddView(new TextView {
-//							Text = trail.Name
-//						});
+						TextView trailName = new TextView (this);
+						trailName.Text = trail.Name;
+						searchResultsGrid.AddView(trailName);
 //
-//						// TODO: Display the trail rating.
-//						searchResultsGrid.AddView(new TextView {
-//							Text = ""
-//						});
+						// TODO: Display the trail rating.
+						TextView rating = new TextView (this);
+						rating.Text = trail.Rating.RatingStars;
+						searchResultsGrid.AddView(rating);
 //
 //						// TODO: Display the trail difficulty.
-//						searchResultsGrid.AddView(new TextView {
-//							Text = trail.Difficulty
-//						});
+						TextView difficulty = new TextView (this);
+						difficulty.Text = trail.Difficulty.ToString().Replace("_", " ");
+						searchResultsGrid.AddView(difficulty);
 //
 //						// TODO: Display the trail distance.
-//						searchResultsGrid.AddView(new TextView {
-//							Text = trail.Distance
-//						});
+						TextView distance = new TextView (this);
+						distance.Text = trail.Distance;
+						searchResultsGrid.AddView(distance);
 					}
 				}
 			}

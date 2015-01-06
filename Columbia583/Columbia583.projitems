@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\SearchFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Amenity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Application_Layer\Application_Layer_Search_Trails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Rating.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data_Layer\" />
