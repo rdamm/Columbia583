@@ -72,9 +72,9 @@ namespace Columbia583.Android
 
 			if (debugSearchResults) {
 				Trail[] debugTrails = new Trail[3];
-				debugTrails[0] = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69 km", "10 h", "", "", Difficulty.Easiest, new Rating(4), "", "", "", "", true, true, DateTime.Now);
-				debugTrails[1] = new Trail(0, 0, 0, "Niles", "BC", "", "", "113.12 km", "20 h", "", "", Difficulty.Very_Difficult, new Rating(3), "", "", "", "", true, true, DateTime.Now);
-				debugTrails[2] = new Trail(0, 0, 0, "Findlay Creek Trail 2", "AB", "", "", "0.59 km", "0.45 h", "", "", Difficulty.Extremely_Difficult, new Rating(5), "", "", "", "", true, true, DateTime.Now);
+				debugTrails[0] = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69", "10", "Lorem ipsum", "three steps north, then turn right", Difficulty.Easiest, new Rating(4), "", "", "", "", true, true, DateTime.Now);
+				debugTrails[1] = new Trail(0, 0, 0, "Niles", "BC", "", "", "113.12", "20", "", "", Difficulty.Very_Difficult, new Rating(3), "", "", "", "", true, true, DateTime.Now);
+				debugTrails[2] = new Trail(0, 0, 0, "Findlay Creek Trail 2", "AB", "", "", "0.59", "0.45", "", "", Difficulty.Extremely_Difficult, new Rating(5), "", "", "", "", true, true, DateTime.Now);
 				this.setSearchResults(debugTrails);
 			}
 
@@ -100,6 +100,10 @@ namespace Columbia583.Android
 
 					// Load the view trail page.
 					var intent = new Intent(this, typeof(ViewTrailActivity));
+					// JSON serialization works
+					Trail t1 = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69", "10", "Lorem ipsum", "three steps north, then turn right", Difficulty.Easiest, new Rating(4), "", "", "", "", true, true, DateTime.Now);
+					string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(t1);
+					intent.PutExtra("viewedTrail", trailJSONStr);
 					StartActivity(intent);
 
 				};
@@ -177,6 +181,13 @@ namespace Columbia583.Android
 //						// TODO: Display the trail name.
 						TextView trailName = new TextView (this);
 						trailName.Text = trail.Name;
+						/*
+						trailName.SetOnClickListener (new OnClickListener () {
+							public void onClick(View v) {
+								// set trail to be viewed
+							}
+						});
+						*/
 						searchResultsGrid.AddView(trailName);
 //
 						// TODO: Display the trail rating.
@@ -191,7 +202,7 @@ namespace Columbia583.Android
 //
 //						// TODO: Display the trail distance.
 						TextView distance = new TextView (this);
-						distance.Text = trail.Distance;
+						distance.Text = trail.Distance + " km";
 						searchResultsGrid.AddView(distance);
 					}
 				}

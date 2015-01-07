@@ -32,6 +32,11 @@ namespace Columbia583.Android
 			// Get the controls.
 			difficultyRank = FindViewById<RatingBar> (Resource.Id.difficultyRating);
 			directions = FindViewById<TextView> (Resource.Id.directions);
+
+			// Get trail data.
+			string trailJSONStr = Intent.GetStringExtra ("viewedTrail") ?? "No trail displayed";
+			Trail trail = Newtonsoft.Json.JsonConvert.DeserializeObject<Trail> (trailJSONStr);
+			directions.Text = trail.Directions;
 		}
 	}
 }
