@@ -22,7 +22,6 @@ C:\Users\RPrime\Documents\Projects\Columbia583\Android\bin\Debug\FormsViewGroup.
 C:\Users\RPrime\Documents\Projects\Columbia583\Android\bin\Debug\Xamarin.Android.Support.v13.dll
 C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\layout\viewtrail.xml
 C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\layout\searchtrails.xml
-C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\Columbia583.Android.csprojResolveAssemblyReference.cache
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\bin\Debug\Columbia583.Android.dll
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\bin\Debug\Columbia583.Android.pdb
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\bin\Debug\Columbia583.Android.dll.mdb
