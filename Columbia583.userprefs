@@ -1,17 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\ViewTrailActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\App.cs">
     <Files>
       <File FileName="Android\MainMenuActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\SearchTrailsActivity.cs" Line="43" Column="43" />
-      <File FileName="Android\ViewTrailActivity.cs" Line="24" Column="24" />
+      <File FileName="Android\SearchTrailsActivity.cs" Line="1" Column="1" />
+      <File FileName="Android\ViewTrailActivity.cs" Line="39" Column="39" />
       <File FileName="Columbia583\Application_Layer\Application_Layer_Search_Trails.cs" Line="1" Column="1" />
       <File FileName="Columbia583\Business_Layer\Business_Layer_Search_Trails.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Classes\Trail.cs" Line="21" Column="21" />
+      <File FileName="Columbia583\Data_Classes\Trail.cs" Line="1" Column="1" />
       <File FileName="Columbia583\Data_Classes\Difficulty.cs" Line="1" Column="1" />
       <File FileName="Columbia583\Data_Classes\Rating.cs" Line="1" Column="1" />
       <File FileName="Columbia583\Service_Access_Layer\Service_Access_Layer_Search_Trails.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Search_Trails.cs" Line="10" Column="10" />
+      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Search_Trails.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\App.cs" Line="6" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

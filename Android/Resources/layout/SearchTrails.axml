@@ -97,6 +97,53 @@
             </LinearLayout>
         </LinearLayout>
     <!-- /Difficulties -->
+    <!-- Rating -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+            <TextView
+                android:text="Select a Rating"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView1" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingsOptions">
+                <CheckBox
+                    android:text="*"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/checkBox_rating_1" />
+                <CheckBox
+                    android:text="**"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/checkBox_rating_2" />
+                <CheckBox
+                    android:text="***"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/checkBox_rating_3" />
+                <CheckBox
+                    android:text="****"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/checkBox_rating_4" />
+                <CheckBox
+                    android:text="*****"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/checkBox_rating_5" />
+            </LinearLayout>
+        </LinearLayout>
+    <!-- /Rating -->
     <!-- Duration -->
         <LinearLayout
             android:orientation="vertical"

@@ -29,6 +29,10 @@ namespace Columbia583.Android
 		protected CheckBox veryDifficultCheckBox = null;
 		protected CheckBox extremelyDifficultCheckBox = null;
 
+		// Ratings.
+		protected LinearLayout ratingsOptions = null;
+		protected CheckBox[] ratingsCheckBoxes = null;
+
 		// Duration.
 		protected EditText durationEditText = null;
 
@@ -64,6 +68,13 @@ namespace Columbia583.Android
 			moreDifficultCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_moreDifficult);
 			veryDifficultCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_veryDifficult);
 			extremelyDifficultCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_extremelyDifficult);
+			ratingsOptions = FindViewById<LinearLayout> (Resource.Id.ratingsOptions);
+			ratingsCheckBoxes = new CheckBox[5];
+			ratingsCheckBoxes[0] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_1);
+			ratingsCheckBoxes[1] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_2);
+			ratingsCheckBoxes[2] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_3);
+			ratingsCheckBoxes[3] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_4);
+			ratingsCheckBoxes[4] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_5);
 			durationEditText = FindViewById<EditText> (Resource.Id.editText_maxDuration);
 			distanceEditText = FindViewById<EditText> (Resource.Id.editText_maxDistance);
 			updateSearchResultsButton = FindViewById<Button> (Resource.Id.button_updateSearchResults);
@@ -118,6 +129,7 @@ namespace Columbia583.Android
 		{
 			List<Difficulty> difficultiesList = new List<Difficulty>();
 			List<string> activitiesList = new List<string>();
+			List<int> ratingsList = new List<int>();
 
 			// Get the search filter parameters from the controls.
 			// TODO: Enumerations or strings for activities?
@@ -146,6 +158,11 @@ namespace Columbia583.Android
 			if (extremelyDifficultCheckBox != null && extremelyDifficultCheckBox.Checked == true) {
 				difficultiesList.Add(Difficulty.Extremely_Difficult);
 			}
+			for (int i = 0; i < ratingsCheckBoxes.Length; i++) {
+				if (ratingsCheckBoxes[i] != null && ratingsCheckBoxes[i].Checked) {
+					ratingsList.Add(i + 1);
+				}
+			}
 			int minDuration = 0;
 			int maxDuration = minDuration;
 			if (durationEditText != null && durationEditText.Text != "") {
@@ -158,7 +175,7 @@ namespace Columbia583.Android
 			}
 
 			// Encapsulate the filter parameters.
-			SearchFilter searchFilter = new SearchFilter(activitiesList.ToArray(), difficultiesList.ToArray(), minDuration, maxDuration, minDistance, maxDistance);
+			SearchFilter searchFilter = new SearchFilter(activitiesList.ToArray(), difficultiesList.ToArray(), ratingsList.ToArray(), minDuration, maxDuration, minDistance, maxDistance);
 
 			return searchFilter;
 		}

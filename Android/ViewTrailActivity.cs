@@ -30,7 +30,7 @@ namespace Columbia583.Android
 			Xamarin.Forms.Forms.Init (this, bundle);
 
 			SetPage (App.GetViewTrailPage ());
-
+			/*
 			SetContentView (Resource.Layout.ViewTrail);
 
 			// Get the controls.
@@ -51,6 +51,7 @@ namespace Columbia583.Android
 			difficultyRating.Text = trail.Difficulty.ToString();
 			//rating.NumStars = 5;
 			rating.Rating = trail.Rating.RatingNumber;
+			*/
 		}
 	}
 }
