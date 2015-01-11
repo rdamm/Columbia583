@@ -2,7 +2,7 @@ package columbia583.android;
 
 
 public class ViewTrailActivity
-	extends xamarin.forms.platform.android.AndroidActivity
+	extends android.support.v4.app.FragmentActivity
 	implements
 		mono.android.IGCUserPeer
 {

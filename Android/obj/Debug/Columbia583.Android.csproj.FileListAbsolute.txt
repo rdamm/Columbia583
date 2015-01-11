@@ -45,6 +45,6 @@ C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\values\string
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\drawable\icon.png
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\layout\viewtrail.xml
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\layout\searchtrails.xml
+C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\layout\viewtrailbase.xml
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\R.cs.flag
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\uploadflags.txt
-C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\Columbia583.Android.csprojResolveAssemblyReference.cache

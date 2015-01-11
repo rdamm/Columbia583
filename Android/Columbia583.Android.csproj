@@ -63,6 +63,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.7\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -70,6 +71,8 @@
     <Compile Include="MainMenuActivity.cs" />
     <Compile Include="ViewTrailActivity.cs" />
     <Compile Include="SearchTrailsActivity.cs" />
+    <Compile Include="MyFragmentPagerAdapter.cs" />
+    <Compile Include="ViewPagerFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -83,6 +86,7 @@
     <AndroidResource Include="Resources\drawable\Icon.png" />
     <AndroidResource Include="Resources\layout\ViewTrail.axml" />
     <AndroidResource Include="Resources\layout\SearchTrails.axml" />
+    <AndroidResource Include="Resources\layout\ViewTrailBase.axml" />
   </ItemGroup>
   <Import Project="..\Columbia583\Columbia583.projitems" Label="Shared" Condition="Exists('..\Columbia583\Columbia583.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

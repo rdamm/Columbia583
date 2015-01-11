@@ -188,7 +188,6 @@ namespace Columbia583.Android
 		{
 			// Display the trails in the view.
 			if (searchResultsGrid != null) {
-
 				// Empty the list.
 				searchResultsGrid.RemoveAllViews();
 

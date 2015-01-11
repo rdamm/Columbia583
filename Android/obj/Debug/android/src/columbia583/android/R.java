@@ -30,35 +30,38 @@ public final class R {
         public static final int checkBox_rating_3=0x7f050011;
         public static final int checkBox_rating_4=0x7f050012;
         public static final int checkBox_rating_5=0x7f050013;
-        public static final int description=0x7f05001e;
-        public static final int difficultyRating=0x7f050025;
-        public static final int directions=0x7f050021;
-        public static final int distance=0x7f05001b;
-        public static final int duration=0x7f05001c;
+        public static final int description=0x7f05001f;
+        public static final int difficultyRating=0x7f050026;
+        public static final int directions=0x7f050022;
+        public static final int distance=0x7f05001c;
+        public static final int duration=0x7f05001d;
         public static final int editText_maxDistance=0x7f050017;
         public static final int editText_maxDuration=0x7f050015;
-        public static final int gallery1=0x7f050023;
+        public static final int gallery1=0x7f050024;
         public static final int gridLayout_searchResults=0x7f050019;
+        public static final int layout1=0x7f05001b;
         public static final int linearLayout2=0x7f050003;
-        public static final int rating=0x7f050027;
+        public static final int rating=0x7f050028;
         public static final int ratingsOptions=0x7f05000e;
-        public static final int scrollView1=0x7f050022;
-        public static final int scrollView2=0x7f050020;
+        public static final int scrollView1=0x7f050023;
+        public static final int scrollView2=0x7f050021;
         public static final int textView1=0x7f05000d;
-        public static final int textView2=0x7f05001f;
-        public static final int textView4=0x7f050024;
-        public static final int textView5=0x7f05001d;
-        public static final int textView6=0x7f050026;
+        public static final int textView2=0x7f050020;
+        public static final int textView4=0x7f050025;
+        public static final int textView5=0x7f05001e;
+        public static final int textView6=0x7f050027;
         public static final int textView_activityLabel=0x7f050002;
         public static final int textView_difficultyLabel=0x7f050007;
         public static final int textView_mainMenuLabel=0x7f050000;
         public static final int textView_maxDistanceLabel=0x7f050016;
         public static final int textView_maxDurationLabel=0x7f050014;
+        public static final int viewpager=0x7f050029;
     }
     public static final class layout {
         public static final int main=0x7f030000;
         public static final int searchtrails=0x7f030001;
         public static final int viewtrail=0x7f030002;
+        public static final int viewtrailbase=0x7f030003;
     }
     public static final class string {
         public static final int app_name=0x7f040002;

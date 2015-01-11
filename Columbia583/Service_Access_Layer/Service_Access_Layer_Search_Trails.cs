@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 
 namespace Columbia583
 {
@@ -16,8 +17,14 @@ namespace Columbia583
 		public Trail[] getTrailsByFilters(SearchFilter searchFilter)
 		{
 			// TODO: Instantiate SOAP library.
+			string searchurl = "http://trails.greenways.ca/api/v1/GetAll";
+			HttpWebRequest httpreq = (HttpWebRequest)HttpWebRequest.Create (new Uri (searchurl));
 
 			// TODO: Query the webservices.
+			HttpWebResponse resp = (HttpWebResponse)httpreq.GetResponse ();
+			if (resp.StatusCode != HttpStatusCode.OK) {
+				// Not OK
+			}
 			Trail[] trails = new Trail[0];
 
 			// Return query results.
