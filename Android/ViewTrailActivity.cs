@@ -21,8 +21,6 @@ namespace Columbia583.Android
 	[Activity (Label = "Columbia583.Android_View_Trail", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class ViewTrailActivity : FragmentActivity
 	{
-		protected const int NUM_PAGES = 2;
-
 		protected ViewPager pager = null;
 		protected MyFragmentPagerAdapter adapter = null;
 		//protected ViewSwitcher viewSwitcher = null;
@@ -75,8 +73,7 @@ namespace Columbia583.Android
 			);
 			adapter.AddFragmentView((i, v, b) =>
 				{
-					// Debug version shows main screen
-					var view = LayoutInflater.Inflate(Resource.Layout.Main, v, false);
+					var view = LayoutInflater.Inflate(Resource.Layout.ViewTrail2, v, false);
 					return view;
 				}
 			);

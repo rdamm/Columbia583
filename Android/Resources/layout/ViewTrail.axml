@@ -44,23 +44,6 @@
             android:hint="Sample Directions Here" />
     </ScrollView>
     <TextView
-        android:text="Trail Head Features"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
-    <ScrollView
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView1">
-        <Gallery
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/gallery1" />
-    </ScrollView>
-    <TextView
         android:text="Trail Difficulty"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
