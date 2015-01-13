@@ -42,7 +42,7 @@ namespace Columbia583.Android
 		// Other controls.
 		protected Button updateSearchResultsButton = null;
 		protected GridLayout searchResultsGrid = null;
-		protected Button viewTrailButton = null;
+		//protected Button viewTrailButton = null;
 
 		// Debug
 		protected bool debugSearchResults = true;
@@ -79,13 +79,14 @@ namespace Columbia583.Android
 			distanceEditText = FindViewById<EditText> (Resource.Id.editText_maxDistance);
 			updateSearchResultsButton = FindViewById<Button> (Resource.Id.button_updateSearchResults);
 			searchResultsGrid = FindViewById<GridLayout> (Resource.Id.gridLayout_searchResults);
-			viewTrailButton = FindViewById<Button> (Resource.Id.button_viewTrail);
+			//viewTrailButton = FindViewById<Button> (Resource.Id.button_viewTrail);
+
+			Trail[] debugTrails = new Trail[3];
 
 			if (debugSearchResults) {
-				Trail[] debugTrails = new Trail[3];
-				debugTrails[0] = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69", "10", "Lorem ipsum", "three steps north, then turn right", Difficulty.Easiest, new Rating(4), null, null, "", "", "", "", true, true, DateTime.Now);
-				debugTrails[1] = new Trail(0, 0, 0, "Niles", "BC", "", "", "113.12", "20", "", "", Difficulty.Very_Difficult, new Rating(3), null, null, "", "", "", "", true, true, DateTime.Now);
-				debugTrails[2] = new Trail(0, 0, 0, "Findlay Creek Trail 2", "AB", "", "", "0.59", "0.45", "", "", Difficulty.Extremely_Difficult, new Rating(5), null, null, "", "", "", "", true, true, DateTime.Now);
+				debugTrails[0] = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69", "10", "Lorem ipsum", "three steps north, then turn right", Difficulty.Easiest, 4, null, null, "", "", "", "", true, true, DateTime.Now);
+				debugTrails[1] = new Trail(0, 0, 0, "Niles", "BC", "", "", "113.12", "20", "dolores umbridge", "Go to Neverland", Difficulty.Very_Difficult, 3, null, null, "", "", "", "", true, true, DateTime.Now);
+				debugTrails[2] = new Trail(0, 0, 0, "Findlay Creek Trail 2", "AB", "", "", "0.59", "0.45", "Presumably, there's a Findlay Creek Trail 1, but this isn't it", "1337 d1r3c710n5", Difficulty.Extremely_Difficult, 5, null, null, "", "", "", "", true, true, DateTime.Now);
 				this.setSearchResults(debugTrails);
 			}
 
@@ -105,6 +106,7 @@ namespace Columbia583.Android
 				};
 			}
 
+			/*
 			// Assign an event handler to the view trail button.
 			if (viewTrailButton != null) {
 				viewTrailButton.Click += (sender, e) => {
@@ -112,13 +114,13 @@ namespace Columbia583.Android
 					// Load the view trail page.
 					var intent = new Intent(this, typeof(ViewTrailActivity));
 					// JSON serialization works
-					Trail t1 = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69", "10", "Lorem ipsum", "three steps north, then turn right", Difficulty.Easiest, new Rating(4), null, null, "", "", "", "", true, true, DateTime.Now);
-					string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(t1);
+					string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(debugTrails[0]);
 					intent.PutExtra("viewedTrail", trailJSONStr);
 					StartActivity(intent);
 
 				};
 			}
+			*/
 		}
 
 
@@ -197,28 +199,65 @@ namespace Columbia583.Android
 //						// TODO: Display the trail name.
 						TextView trailName = new TextView (this);
 						trailName.Text = trail.Name;
-						/*
-						trailName.SetOnClickListener (new OnClickListener () {
-							public void onClick(View v) {
-								// set trail to be viewed
-							}
-						});
-						*/
+						trailName.Click += (sender, e) => {
+
+							// Load the view trail page.
+							var intent = new Intent(this, typeof(ViewTrailActivity));
+							// JSON serialization works
+							string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(trail);
+							intent.PutExtra("viewedTrail", trailJSONStr);
+							StartActivity(intent);
+
+						};
 						searchResultsGrid.AddView(trailName);
 //
 						// TODO: Display the trail rating.
 						TextView rating = new TextView (this);
-						rating.Text = trail.Rating.RatingStars;
+						string ratingStars = "";
+						for (int i = 0; i < trail.Rating; i++) {
+							ratingStars += "*";
+						}
+						rating.Text = ratingStars;
+						rating.Click += (sender, e) => {
+
+							// Load the view trail page.
+							var intent = new Intent(this, typeof(ViewTrailActivity));
+							// JSON serialization works
+							string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(trail);
+							intent.PutExtra("viewedTrail", trailJSONStr);
+							StartActivity(intent);
+
+						};
 						searchResultsGrid.AddView(rating);
 //
 //						// TODO: Display the trail difficulty.
 						TextView difficulty = new TextView (this);
 						difficulty.Text = trail.Difficulty.ToString().Replace("_", " ");
+						difficulty.Click += (sender, e) => {
+
+							// Load the view trail page.
+							var intent = new Intent(this, typeof(ViewTrailActivity));
+							// JSON serialization works
+							string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(trail);
+							intent.PutExtra("viewedTrail", trailJSONStr);
+							StartActivity(intent);
+
+						};
 						searchResultsGrid.AddView(difficulty);
 //
 //						// TODO: Display the trail distance.
 						TextView distance = new TextView (this);
 						distance.Text = trail.Distance + " km";
+						distance.Click += (sender, e) => {
+
+							// Load the view trail page.
+							var intent = new Intent(this, typeof(ViewTrailActivity));
+							// JSON serialization works
+							string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(trail);
+							intent.PutExtra("viewedTrail", trailJSONStr);
+							StartActivity(intent);
+
+						};
 						searchResultsGrid.AddView(distance);
 					}
 				}

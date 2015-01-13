@@ -65,8 +65,8 @@ namespace Columbia583.Android
 					duration.Text = trail.Duration + " h";
 					description.Text = trail.Description;
 					directions.Text = trail.Directions;
-					difficultyRating.Text = trail.Difficulty.ToString();
-					rating.Rating = trail.Rating.RatingNumber;
+					difficultyRating.Text = trail.Difficulty.ToString().Replace("_", " ");
+					rating.Rating = trail.Rating;
 
 					return view;
 				}

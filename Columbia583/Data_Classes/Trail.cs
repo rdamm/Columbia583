@@ -16,7 +16,7 @@ namespace Columbia583
 		private string description;
 		private string directions;
 		private Difficulty difficulty;
-		private Rating rating;
+		private int rating;
 		private Activity[] activities;
 		private Amenity[] amenities;
 		private string hazards;
@@ -29,7 +29,7 @@ namespace Columbia583
 
 		public Trail (int id, int userId, int orgId, string name, string location, string kmlUrl,
 			string kmlContent, string distance, string duration, string description, string directions,
-			Difficulty difficulty, Rating rating, Activity[] activities, Amenity[] amenities, string hazards, string surface, string landAccess, string maintenance,
+			Difficulty difficulty, int rating, Activity[] activities, Amenity[] amenities, string hazards, string surface, string landAccess, string maintenance,
 			bool open, bool active, DateTime timestamp)
 		{
 			this.id = id;
@@ -163,7 +163,7 @@ namespace Columbia583
 			}
 		}
 
-		public Rating Rating {
+		public int Rating {
 			get {
 				return rating;
 			}
