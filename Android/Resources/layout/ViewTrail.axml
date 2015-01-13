@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout1"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/distance"
+        android:hint="x km" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/duration"
+        android:hint="y-z h" />
+    <TextView
+        android:text="Trail Description"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/description"
+        android:hint="Sample Description Here" />
     <TextView
         android:text="Directions to Trail Head"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -18,24 +40,31 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/textView3"
+            android:id="@+id/directions"
             android:hint="Sample Directions Here" />
     </ScrollView>
     <TextView
-        android:text="Trail Head Features"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Trail Difficulty"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
-    <ScrollView
-        android:minWidth="25px"
-        android:minHeight="25px"
+        android:id="@+id/textView4" />
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollView1">
-        <Gallery
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/gallery1" />
-    </ScrollView>
+        android:id="@+id/difficultyRating"
+        android:hint="Easiest?" />
+    <TextView
+        android:text="Trail Ranking"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6" />
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rating"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:stepSize="1.0" />
 </LinearLayout>

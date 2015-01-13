@@ -29,6 +29,10 @@ namespace Columbia583.Android
 		protected CheckBox veryDifficultCheckBox = null;
 		protected CheckBox extremelyDifficultCheckBox = null;
 
+		// Ratings.
+		protected LinearLayout ratingsOptions = null;
+		protected CheckBox[] ratingsCheckBoxes = null;
+
 		// Duration.
 		protected EditText durationEditText = null;
 
@@ -38,7 +42,10 @@ namespace Columbia583.Android
 		// Other controls.
 		protected Button updateSearchResultsButton = null;
 		protected GridLayout searchResultsGrid = null;
-		protected Button viewTrailButton = null;
+		//protected Button viewTrailButton = null;
+
+		// Debug
+		protected bool debugSearchResults = true;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -61,11 +68,27 @@ namespace Columbia583.Android
 			moreDifficultCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_moreDifficult);
 			veryDifficultCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_veryDifficult);
 			extremelyDifficultCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_extremelyDifficult);
+			ratingsOptions = FindViewById<LinearLayout> (Resource.Id.ratingsOptions);
+			ratingsCheckBoxes = new CheckBox[5];
+			ratingsCheckBoxes[0] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_1);
+			ratingsCheckBoxes[1] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_2);
+			ratingsCheckBoxes[2] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_3);
+			ratingsCheckBoxes[3] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_4);
+			ratingsCheckBoxes[4] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_5);
 			durationEditText = FindViewById<EditText> (Resource.Id.editText_maxDuration);
 			distanceEditText = FindViewById<EditText> (Resource.Id.editText_maxDistance);
 			updateSearchResultsButton = FindViewById<Button> (Resource.Id.button_updateSearchResults);
 			searchResultsGrid = FindViewById<GridLayout> (Resource.Id.gridLayout_searchResults);
-			viewTrailButton = FindViewById<Button> (Resource.Id.button_viewTrail);
+			//viewTrailButton = FindViewById<Button> (Resource.Id.button_viewTrail);
+
+			Trail[] debugTrails = new Trail[3];
+
+			if (debugSearchResults) {
+				debugTrails[0] = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69", "10", "Lorem ipsum", "three steps north, then turn right", Difficulty.Easiest, 4, null, null, "", "", "", "", true, true, DateTime.Now);
+				debugTrails[1] = new Trail(0, 0, 0, "Niles", "BC", "", "", "113.12", "20", "dolores umbridge", "Go to Neverland", Difficulty.Very_Difficult, 3, null, null, "", "", "", "", true, true, DateTime.Now);
+				debugTrails[2] = new Trail(0, 0, 0, "Findlay Creek Trail 2", "AB", "", "", "0.59", "0.45", "Presumably, there's a Findlay Creek Trail 1, but this isn't it", "1337 d1r3c710n5", Difficulty.Extremely_Difficult, 5, null, null, "", "", "", "", true, true, DateTime.Now);
+				this.setSearchResults(debugTrails);
+			}
 
 			// Assign an event handler to the update search results button.
 			if (updateSearchResultsButton != null) {
@@ -83,16 +106,21 @@ namespace Columbia583.Android
 				};
 			}
 
+			/*
 			// Assign an event handler to the view trail button.
 			if (viewTrailButton != null) {
 				viewTrailButton.Click += (sender, e) => {
 
 					// Load the view trail page.
 					var intent = new Intent(this, typeof(ViewTrailActivity));
+					// JSON serialization works
+					string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(debugTrails[0]);
+					intent.PutExtra("viewedTrail", trailJSONStr);
 					StartActivity(intent);
 
 				};
 			}
+			*/
 		}
 
 
@@ -103,6 +131,7 @@ namespace Columbia583.Android
 		{
 			List<Difficulty> difficultiesList = new List<Difficulty>();
 			List<string> activitiesList = new List<string>();
+			List<int> ratingsList = new List<int>();
 
 			// Get the search filter parameters from the controls.
 			// TODO: Enumerations or strings for activities?
@@ -131,6 +160,11 @@ namespace Columbia583.Android
 			if (extremelyDifficultCheckBox != null && extremelyDifficultCheckBox.Checked == true) {
 				difficultiesList.Add(Difficulty.Extremely_Difficult);
 			}
+			for (int i = 0; i < ratingsCheckBoxes.Length; i++) {
+				if (ratingsCheckBoxes[i] != null && ratingsCheckBoxes[i].Checked) {
+					ratingsList.Add(i + 1);
+				}
+			}
 			int minDuration = 0;
 			int maxDuration = minDuration;
 			if (durationEditText != null && durationEditText.Text != "") {
@@ -143,7 +177,7 @@ namespace Columbia583.Android
 			}
 
 			// Encapsulate the filter parameters.
-			SearchFilter searchFilter = new SearchFilter(activitiesList.ToArray(), difficultiesList.ToArray(), minDuration, maxDuration, minDistance, maxDistance);
+			SearchFilter searchFilter = new SearchFilter(activitiesList.ToArray(), difficultiesList.ToArray(), ratingsList.ToArray(), minDuration, maxDuration, minDistance, maxDistance);
 
 			return searchFilter;
 		}
@@ -156,7 +190,6 @@ namespace Columbia583.Android
 		{
 			// Display the trails in the view.
 			if (searchResultsGrid != null) {
-
 				// Empty the list.
 				searchResultsGrid.RemoveAllViews();
 
@@ -164,24 +197,68 @@ namespace Columbia583.Android
 				if (trails != null) {
 					foreach(Trail trail in trails) {
 //						// TODO: Display the trail name.
-//						searchResultsGrid.AddView(new TextView {
-//							Text = trail.Name
-//						});
+						TextView trailName = new TextView (this);
+						trailName.Text = trail.Name;
+						trailName.Click += (sender, e) => {
+
+							// Load the view trail page.
+							var intent = new Intent(this, typeof(ViewTrailActivity));
+							// JSON serialization works
+							string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(trail);
+							intent.PutExtra("viewedTrail", trailJSONStr);
+							StartActivity(intent);
+
+						};
+						searchResultsGrid.AddView(trailName);
 //
-//						// TODO: Display the trail rating.
-//						searchResultsGrid.AddView(new TextView {
-//							Text = ""
-//						});
+						// TODO: Display the trail rating.
+						TextView rating = new TextView (this);
+						string ratingStars = "";
+						for (int i = 0; i < trail.Rating; i++) {
+							ratingStars += "*";
+						}
+						rating.Text = ratingStars;
+						rating.Click += (sender, e) => {
+
+							// Load the view trail page.
+							var intent = new Intent(this, typeof(ViewTrailActivity));
+							// JSON serialization works
+							string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(trail);
+							intent.PutExtra("viewedTrail", trailJSONStr);
+							StartActivity(intent);
+
+						};
+						searchResultsGrid.AddView(rating);
 //
 //						// TODO: Display the trail difficulty.
-//						searchResultsGrid.AddView(new TextView {
-//							Text = trail.Difficulty
-//						});
+						TextView difficulty = new TextView (this);
+						difficulty.Text = trail.Difficulty.ToString().Replace("_", " ");
+						difficulty.Click += (sender, e) => {
+
+							// Load the view trail page.
+							var intent = new Intent(this, typeof(ViewTrailActivity));
+							// JSON serialization works
+							string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(trail);
+							intent.PutExtra("viewedTrail", trailJSONStr);
+							StartActivity(intent);
+
+						};
+						searchResultsGrid.AddView(difficulty);
 //
 //						// TODO: Display the trail distance.
-//						searchResultsGrid.AddView(new TextView {
-//							Text = trail.Distance
-//						});
+						TextView distance = new TextView (this);
+						distance.Text = trail.Distance + " km";
+						distance.Click += (sender, e) => {
+
+							// Load the view trail page.
+							var intent = new Intent(this, typeof(ViewTrailActivity));
+							// JSON serialization works
+							string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(trail);
+							intent.PutExtra("viewedTrail", trailJSONStr);
+							StartActivity(intent);
+
+						};
+						searchResultsGrid.AddView(distance);
 					}
 				}
 			}

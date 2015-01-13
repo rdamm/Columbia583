@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="Columbia583.Android">
-  <uses-sdk android:minSdkVersion="19" />
+  <uses-sdk android:minSdkVersion="14" />
   <application android:label="Columbia583.Android" android:name="mono.android.app.Application" android:debuggable="true">
     <activity android:configChanges="orientation|screenSize" android:label="Columbia583.Android_Main_Menu" android:name="columbia583.android.MainMenuActivity">
       <intent-filter>
