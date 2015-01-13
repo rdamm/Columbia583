@@ -55,7 +55,8 @@ public final class R {
         public static final int textView_mainMenuLabel=0x7f050000;
         public static final int textView_maxDistanceLabel=0x7f050016;
         public static final int textView_maxDurationLabel=0x7f050014;
-        public static final int viewpager=0x7f050029;
+        public static final int trailName=0x7f050029;
+        public static final int viewpager=0x7f05002a;
     }
     public static final class layout {
         public static final int main=0x7f030000;

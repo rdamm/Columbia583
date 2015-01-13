@@ -196,69 +196,41 @@ namespace Columbia583.Android
 				// Show a summary of each matching trail.
 				if (trails != null) {
 					foreach(Trail trail in trails) {
+						const int NUM_ELEMENTS_PER_TRAIL = 4;
+						TextView[] trailElements = new TextView[NUM_ELEMENTS_PER_TRAIL];
 //						// TODO: Display the trail name.
-						TextView trailName = new TextView (this);
-						trailName.Text = trail.Name;
-						trailName.Click += (sender, e) => {
-
-							// Load the view trail page.
-							var intent = new Intent(this, typeof(ViewTrailActivity));
-							// JSON serialization works
-							string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(trail);
-							intent.PutExtra("viewedTrail", trailJSONStr);
-							StartActivity(intent);
-
-						};
-						searchResultsGrid.AddView(trailName);
+						trailElements[0] = new TextView (this);
+						trailElements[0].Text = trail.Name;
 //
 						// TODO: Display the trail rating.
-						TextView rating = new TextView (this);
+						trailElements[1] = new TextView (this);
 						string ratingStars = "";
 						for (int i = 0; i < trail.Rating; i++) {
 							ratingStars += "*";
 						}
-						rating.Text = ratingStars;
-						rating.Click += (sender, e) => {
-
-							// Load the view trail page.
-							var intent = new Intent(this, typeof(ViewTrailActivity));
-							// JSON serialization works
-							string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(trail);
-							intent.PutExtra("viewedTrail", trailJSONStr);
-							StartActivity(intent);
-
-						};
-						searchResultsGrid.AddView(rating);
+						trailElements[1].Text = ratingStars;
 //
 //						// TODO: Display the trail difficulty.
-						TextView difficulty = new TextView (this);
-						difficulty.Text = trail.Difficulty.ToString().Replace("_", " ");
-						difficulty.Click += (sender, e) => {
-
-							// Load the view trail page.
-							var intent = new Intent(this, typeof(ViewTrailActivity));
-							// JSON serialization works
-							string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(trail);
-							intent.PutExtra("viewedTrail", trailJSONStr);
-							StartActivity(intent);
-
-						};
-						searchResultsGrid.AddView(difficulty);
+						trailElements[2] = new TextView (this);
+						trailElements[2].Text = trail.Difficulty.ToString().Replace("_", " ");
 //
 //						// TODO: Display the trail distance.
-						TextView distance = new TextView (this);
-						distance.Text = trail.Distance + " km";
-						distance.Click += (sender, e) => {
+						trailElements[3] = new TextView (this);
+						trailElements[3].Text = trail.Distance + " km";
 
-							// Load the view trail page.
-							var intent = new Intent(this, typeof(ViewTrailActivity));
-							// JSON serialization works
-							string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject(trail);
-							intent.PutExtra("viewedTrail", trailJSONStr);
-							StartActivity(intent);
+						for (int i = 0; i < NUM_ELEMENTS_PER_TRAIL; i++) {
+							trailElements[i].Click += (sender, e) => {
 
-						};
-						searchResultsGrid.AddView(distance);
+								// Load the view trail page.
+								var intent = new Intent (this, typeof(ViewTrailActivity));
+								// JSON serialization works
+								string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject (trail);
+								intent.PutExtra ("viewedTrail", trailJSONStr);
+								StartActivity (intent);
+
+							};
+							searchResultsGrid.AddView (trailElements[i]);
+						}
 					}
 				}
 			}

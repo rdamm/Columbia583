@@ -184,7 +184,10 @@ namespace Columbia583.Android
 			public const int textView_maxDurationLabel = 2131034132;
 			
 			// aapt resource value: 0x7f050029
-			public const int viewpager = 2131034153;
+			public const int trailName = 2131034153;
+			
+			// aapt resource value: 0x7f05002a
+			public const int viewpager = 2131034154;
 			
 			static Id()
 			{

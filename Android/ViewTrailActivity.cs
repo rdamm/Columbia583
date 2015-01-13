@@ -23,6 +23,7 @@ namespace Columbia583.Android
 	{
 		protected ViewPager pager = null;
 		protected MyFragmentPagerAdapter adapter = null;
+		protected TextView trailName = null;
 		//protected ViewSwitcher viewSwitcher = null;
 		protected LinearLayout layout1 = null;
 		protected TextView distance = null;
@@ -43,7 +44,12 @@ namespace Columbia583.Android
 			SetContentView (Resource.Layout.ViewTrailBase);
 
 			pager = FindViewById<ViewPager> (Resource.Id.viewpager);
+			trailName = FindViewById<TextView> (Resource.Id.trailName);
 			adapter = new MyFragmentPagerAdapter (SupportFragmentManager);
+
+			string trailJSONStr = Intent.GetStringExtra ("viewedTrail") ?? "No trail displayed";
+			Trail trail = Newtonsoft.Json.JsonConvert.DeserializeObject<Trail> (trailJSONStr);
+			trailName.Text = trail.Name;
 
 			adapter.AddFragmentView((i, v, b) =>
 				{
@@ -59,8 +65,6 @@ namespace Columbia583.Android
 					rating = view.FindViewById<RatingBar> (Resource.Id.rating);
 
 					// Get trail data.
-					string trailJSONStr = Intent.GetStringExtra ("viewedTrail") ?? "No trail displayed";
-					Trail trail = Newtonsoft.Json.JsonConvert.DeserializeObject<Trail> (trailJSONStr);
 					distance.Text = trail.Distance + " km";
 					duration.Text = trail.Duration + " h";
 					description.Text = trail.Description;
