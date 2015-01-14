@@ -5,6 +5,7 @@ namespace Columbia583
 	public class SearchFilter
 	{
 		private string[] activities;
+		private string[] amenities;
 		private Difficulty[] difficulties;
 		private int[] ratingNums;
 		private int minDuration;
@@ -12,9 +13,10 @@ namespace Columbia583
 		private int minDistance;
 		private int maxDistance;
 
-		public SearchFilter (string[] activities, Difficulty[] difficulties, int[] ratingNums, int minDuration, int maxDuration, int minDistance, int maxDistance)
+		public SearchFilter (string[] activities, string[] amenities, Difficulty[] difficulties, int[] ratingNums, int minDuration, int maxDuration, int minDistance, int maxDistance)
 		{
 			this.activities = activities;
+			this.amenities = amenities;
 			this.difficulties = difficulties;
 			this.ratingNums = ratingNums;
 			this.minDuration = minDuration;
@@ -29,6 +31,15 @@ namespace Columbia583
 			}
 			set {
 				activities = value;
+			}
+		}
+
+		public string[] Amenities {
+			get {
+				return amenities;
+			}
+			set {
+				amenities = value;
 			}
 		}
 

@@ -22,6 +22,10 @@ namespace Columbia583.Android
 		protected CheckBox skiingCheckBox = null;
 		protected CheckBox bikingCheckBox = null;
 
+		// Amenities.
+		protected LinearLayout amenityOptions = null;
+		protected CheckBox[] amenityCheckBoxes = null;
+
 		// Difficulties.
 		protected CheckBox easiestCheckBox = null;
 		protected CheckBox easyCheckBox = null;
@@ -63,6 +67,7 @@ namespace Columbia583.Android
 			hikingCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_activity_hiking);
 			skiingCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_activity_skiing);
 			bikingCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_activity_biking);
+			amenityOptions = FindViewById<LinearLayout> (Resource.Id.amenityOptions);
 			easiestCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_easiest);
 			easyCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_easy);
 			moreDifficultCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_moreDifficult);
@@ -82,12 +87,31 @@ namespace Columbia583.Android
 			//viewTrailButton = FindViewById<Button> (Resource.Id.button_viewTrail);
 
 			Trail[] debugTrails = new Trail[3];
+			Activity[] debugActivities = new Activity[2];
+			Amenity[] debugAmenities = new Amenity[2];
 
 			if (debugSearchResults) {
-				debugTrails[0] = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69", "10", "Lorem ipsum", "three steps north, then turn right", Difficulty.Easiest, 4, null, null, "", "", "", "", true, true, DateTime.Now);
-				debugTrails[1] = new Trail(0, 0, 0, "Niles", "BC", "", "", "113.12", "20", "dolores umbridge", "Go to Neverland", Difficulty.Very_Difficult, 3, null, null, "", "", "", "", true, true, DateTime.Now);
-				debugTrails[2] = new Trail(0, 0, 0, "Findlay Creek Trail 2", "AB", "", "", "0.59", "0.45", "Presumably, there's a Findlay Creek Trail 1, but this isn't it", "1337 d1r3c710n5", Difficulty.Extremely_Difficult, 5, null, null, "", "", "", "", true, true, DateTime.Now);
+				debugTrails[0] = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69", "10", "Lorem ipsum", "three steps north, then turn right", Difficulty.Easiest, 4, new int[]{1, 2}, new int[]{2}, "", "", "", "", true, true, DateTime.Now);
+				debugTrails[1] = new Trail(0, 0, 0, "Niles", "BC", "", "", "113.12", "20", "dolores umbridge", "Go to Neverland", Difficulty.Very_Difficult, 3, new int[]{1}, new int[]{1, 2}, "", "", "", "", true, true, DateTime.Now);
+				debugTrails[2] = new Trail(0, 0, 0, "Findlay Creek Trail 2", "AB", "", "", "0.59", "0.45", "Presumably, there's a Findlay Creek Trail 1, but this isn't it", "1337 d1r3c710n5", Difficulty.Extremely_Difficult, 5, new int[]{1, 2}, new int[]{1, 2}, "", "", "", "", true, true, DateTime.Now);
+
+				debugActivities [0] = new Activity (1, "Hiking", "images/activities/activity-hike.png", DateTime.Now);
+				debugActivities[1] = new Activity(2, "Mountain Biking", "images/activities/activity-bike.png", DateTime.Now);
+
+				debugAmenities [0] = new Amenity (1, "restrooms", "images/amenities/restrooms_32.png", DateTime.Now);
+				debugAmenities[1] = new Amenity(2, "camping", "images/amenities/camping_32.png", DateTime.Now);
+
+				amenityCheckBoxes = new CheckBox[debugAmenities.Length];
+
 				this.setSearchResults(debugTrails);
+			}
+
+			for (int i = 0; i < amenityCheckBoxes.Length; i++) {
+				amenityCheckBoxes [i] = new CheckBox (this);
+				if (debugSearchResults) {
+					amenityCheckBoxes [i].Text = debugAmenities [i].AmenityName;
+				}
+				amenityOptions.AddView (amenityCheckBoxes [i]);
 			}
 
 			// Assign an event handler to the update search results button.
@@ -131,6 +155,7 @@ namespace Columbia583.Android
 		{
 			List<Difficulty> difficultiesList = new List<Difficulty>();
 			List<string> activitiesList = new List<string>();
+			List<string> amenitiesList = new List<string> ();
 			List<int> ratingsList = new List<int>();
 
 			// Get the search filter parameters from the controls.
@@ -144,6 +169,11 @@ namespace Columbia583.Android
 			}
 			if (bikingCheckBox != null && bikingCheckBox.Checked == true) {
 				activitiesList.Add("biking");
+			}
+			for (int i = 0; i < amenityCheckBoxes.Length; i++) {
+				if (amenityCheckBoxes[i] != null && amenityCheckBoxes[i].Checked) {
+					amenitiesList.Add (amenityCheckBoxes[i].Text);
+				}
 			}
 			if (easiestCheckBox != null && easiestCheckBox.Checked == true) {
 				difficultiesList.Add(Difficulty.Easiest);
@@ -177,7 +207,7 @@ namespace Columbia583.Android
 			}
 
 			// Encapsulate the filter parameters.
-			SearchFilter searchFilter = new SearchFilter(activitiesList.ToArray(), difficultiesList.ToArray(), ratingsList.ToArray(), minDuration, maxDuration, minDistance, maxDistance);
+			SearchFilter searchFilter = new SearchFilter(activitiesList.ToArray(), amenitiesList.ToArray(), difficultiesList.ToArray(), ratingsList.ToArray(), minDuration, maxDuration, minDistance, maxDistance);
 
 			return searchFilter;
 		}

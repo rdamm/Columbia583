@@ -52,6 +52,28 @@
             </LinearLayout>
         </LinearLayout>
     <!-- /Activities -->
+    <!-- Amenities -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <TextView
+                android:text="Select an Amenity"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_amenityLabel" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="59.7dp"
+                android:layout_weight="1"
+                android:id="@+id/amenityOptions" />
+        </LinearLayout>
+    <!-- /Amenities -->
     <!-- Difficulties -->
         <LinearLayout
             android:orientation="vertical"
