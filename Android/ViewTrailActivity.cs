@@ -32,6 +32,9 @@ namespace Columbia583.Android
 		protected TextView directions = null;
 		protected TextView difficultyRating = null;
 		protected RatingBar rating = null;
+		protected TextView openStatus = null;
+		protected TextView season = null;
+		protected TextView maintenance = null;
 		//private GestureDetector _gestureDetector;
 
 		protected bool debugTrailA = true;
@@ -76,6 +79,9 @@ namespace Columbia583.Android
 					directions = view.FindViewById<TextView> (Resource.Id.directions);
 					difficultyRating = view.FindViewById<TextView> (Resource.Id.difficultyRating);
 					rating = view.FindViewById<RatingBar> (Resource.Id.rating);
+					openStatus = view.FindViewById<TextView>(Resource.Id.openStatus);
+					season = view.FindViewById<TextView>(Resource.Id.season);
+					maintenance = view.FindViewById<TextView>(Resource.Id.maintenance);
 
 					// Get trail data.
 					distance.Text = trail.Distance + " km";
@@ -84,6 +90,13 @@ namespace Columbia583.Android
 					directions.Text = trail.Directions;
 					difficultyRating.Text = trail.Difficulty.ToString().Replace("_", " ");
 					rating.Rating = trail.Rating;
+					if (trail.Open) {
+						openStatus.Text = "Open";
+					} else {
+						openStatus.Text = "Closed";
+					}
+					season.Text = "Season: " + trail.Season;
+					maintenance.Text = trail.Maintenance;
 
 					return view;
 				}

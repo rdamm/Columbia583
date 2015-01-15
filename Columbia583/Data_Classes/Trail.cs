@@ -23,13 +23,14 @@ namespace Columbia583
 		private string surface;
 		private string landAccess;
 		private string maintenance;
+		private string season;
 		private bool open;
 		private bool active;
 		private DateTime timestamp;
 
 		public Trail (int id, int userId, int orgId, string name, string location, string kmlUrl,
 			string kmlContent, string distance, string duration, string description, string directions,
-			Difficulty difficulty, int rating, int[] activityIDs, int[] amenityIDs, string hazards, string surface, string landAccess, string maintenance,
+			Difficulty difficulty, int rating, int[] activityIDs, int[] amenityIDs, string hazards, string surface, string landAccess, string maintenance, string season,
 			bool open, bool active, DateTime timestamp)
 		{
 			this.id = id;
@@ -51,6 +52,7 @@ namespace Columbia583
 			this.surface = surface;
 			this.landAccess = landAccess;
 			this.maintenance = maintenance;
+			this.season = season;
 			this.open = open;
 			this.active = active;
 			this.timestamp = timestamp;
@@ -224,6 +226,15 @@ namespace Columbia583
 			}
 			set {
 				maintenance = value;
+			}
+		}
+
+		public string Season {
+			get {
+				return season;
+			}
+			set {
+				season = value;
 			}
 		}
 

@@ -4,7 +4,13 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="1">                      // kjnguyen ++
+    android:weightSum="1">
+    <TextView
+        android:text="Trail Statistics"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,8 +31,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/description"
-        android:hint="Sample Description Here"  
-        android:layout_weight="0.16" />         // kjnguyen ++
+        android:hint="Sample Description Here"
+        android:layout_weight="0.16" />
+    <TextView
+        android:text="Trail Status"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7" />
+    <TextView
+        android:text="Open"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/openStatus" />
+    <TextView
+        android:text="Season: All year"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/season" />
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/maintenance"
+        android:text="Maintenance here" />
     <TextView
         android:text="Directions to Trail Head"
         android:textAppearance="?android:attr/textAppearanceLarge"
