@@ -49,4 +49,3 @@ C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\layout\viewtr
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\layout\viewtrail2.xml
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\R.cs.flag
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\uploadflags.txt
-C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\Columbia583.Android.csprojResolveAssemblyReference.cache

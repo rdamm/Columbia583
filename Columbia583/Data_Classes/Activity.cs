@@ -4,10 +4,15 @@ namespace Columbia583
 {
 	public class Activity
 	{
-		private int id;
-		private string activityName;
-		private string activityIcon;
-		private DateTime timestamp;
+		public int id { get; set; }
+		public string activityName { get; set; }
+		public string activityIcon { get; set; }
+		public DateTime timestamp { get; set; }
+
+		public Activity()
+		{
+
+		}
 
 		public Activity (int id, string activityName, string activityIcon, DateTime timestamp)
 		{
@@ -15,42 +20,6 @@ namespace Columbia583
 			this.activityName = activityName;
 			this.activityIcon = activityIcon;
 			this.timestamp = timestamp;
-		}
-
-		public int Id {
-			get {
-				return id;
-			}
-			set {
-				id = value;
-			}
-		}
-
-		public string ActivityName {
-			get {
-				return activityName;
-			}
-			set {
-				activityName = value;
-			}
-		}
-
-		public string ActivityIcon {
-			get {
-				return activityIcon;
-			}
-			set {
-				activityIcon = value;
-			}
-		}
-
-		public DateTime Timestamp {
-			get {
-				return timestamp;
-			}
-			set {
-				timestamp = value;
-			}
 		}
 	}
 }

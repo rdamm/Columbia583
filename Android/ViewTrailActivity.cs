@@ -54,7 +54,7 @@ namespace Columbia583.Android
 
 			string trailJSONStr = Intent.GetStringExtra ("viewedTrail") ?? "No trail displayed";
 			Trail trail = Newtonsoft.Json.JsonConvert.DeserializeObject<Trail> (trailJSONStr);
-			trailName.Text = trail.Name;
+			trailName.Text = trail.name;
 
 			Activity[] debugActivities = new Activity[2];
 			Amenity[] debugAmenities = new Amenity[2];
@@ -84,19 +84,19 @@ namespace Columbia583.Android
 					maintenance = view.FindViewById<TextView>(Resource.Id.maintenance);
 
 					// Get trail data.
-					distance.Text = trail.Distance + " km";
-					duration.Text = trail.Duration + " h";
-					description.Text = trail.Description;
-					directions.Text = trail.Directions;
-					difficultyRating.Text = trail.Difficulty.ToString().Replace("_", " ");
-					rating.Rating = trail.Rating;
-					if (trail.Open) {
+					distance.Text = trail.distance + " km";
+					duration.Text = trail.duration + " h";
+					description.Text = trail.description;
+					directions.Text = trail.directions;
+					difficultyRating.Text = trail.difficulty.ToString().Replace("_", " ");
+					rating.Rating = trail.rating;
+					if (trail.open) {
 						openStatus.Text = "Open";
 					} else {
 						openStatus.Text = "Closed";
 					}
-					season.Text = "Season: " + trail.Season;
-					maintenance.Text = trail.Maintenance;
+					season.Text = "Season: " + trail.season;
+					maintenance.Text = trail.maintenance;
 
 					return view;
 				}
