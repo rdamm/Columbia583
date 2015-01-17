@@ -109,7 +109,8 @@ namespace Columbia583.Android
 			for (int i = 0; i < amenityCheckBoxes.Length; i++) {
 				amenityCheckBoxes [i] = new CheckBox (this);
 				if (debugSearchResults) {
-					amenityCheckBoxes [i].Text = debugAmenities [i].AmenityName;
+					amenityCheckBoxes [i].Text = debugAmenities [i].amenityName;
+					amenityCheckBoxes [i].Hint = debugAmenities [i].id.ToString();
 				}
 				amenityOptions.AddView (amenityCheckBoxes [i]);
 			}
@@ -153,46 +154,52 @@ namespace Columbia583.Android
 		 * */
 		protected SearchFilter getSearchFilter()
 		{
-			List<Difficulty> difficultiesList = new List<Difficulty>();
-			List<string> activitiesList = new List<string>();
-			List<string> amenitiesList = new List<string> ();
-			List<int> ratingsList = new List<int>();
+			List<int> activitiesList = new List<int>();
+			List<int> amenitiesList = new List<int> ();
+			Difficulty difficulty = Difficulty.Easiest;
+			int rating = 1;
+
+			// TODO: Reference the database for activity and amenity enumerations.
+			int hikingEnum = 1;
+			int skiingEnum = 2;
+			int bikingEnum = 3;
 
 			// Get the search filter parameters from the controls.
-			// TODO: Enumerations or strings for activities?
 			// TODO: Get the min duration and distances.
+			// TODO: Get the minimum star rating.
 			if (hikingCheckBox != null && hikingCheckBox.Checked == true) {
-				activitiesList.Add("hiking");
+				activitiesList.Add(hikingEnum);
 			}
 			if (skiingCheckBox != null && skiingCheckBox.Checked == true) {
-				activitiesList.Add("skiing");
+				activitiesList.Add(skiingEnum);
 			}
 			if (bikingCheckBox != null && bikingCheckBox.Checked == true) {
-				activitiesList.Add("biking");
+				activitiesList.Add(bikingEnum);
 			}
+
 			for (int i = 0; i < amenityCheckBoxes.Length; i++) {
 				if (amenityCheckBoxes[i] != null && amenityCheckBoxes[i].Checked) {
-					amenitiesList.Add (amenityCheckBoxes[i].Text);
+					amenitiesList.Add (int.Parse(amenityCheckBoxes[i].Hint));
 				}
 			}
 			if (easiestRadioButton != null && easiestRadioButton.Checked == true) {
-				difficultiesList.Add(Difficulty.Easiest);
+				difficulty = Difficulty.Easiest;
 			}
 			if (easyRadioButton != null && easyRadioButton.Checked == true) {
-				difficultiesList.Add(Difficulty.Easy);
+				difficulty = Difficulty.Easy;
 			}
 			if (moreDifficultRadioButton != null && moreDifficultRadioButton.Checked == true) {
-				difficultiesList.Add(Difficulty.More_Difficult);
+				difficulty = Difficulty.More_Difficult;
 			}
 			if (veryDifficultRadioButton!= null && veryDifficultRadioButton.Checked == true) {
-				difficultiesList.Add(Difficulty.Very_Difficult);
+				difficulty = Difficulty.Very_Difficult;
 			}
 			if (extremelyDifficultRadioButton != null && extremelyDifficultRadioButton.Checked == true) {
-				difficultiesList.Add(Difficulty.Extremely_Difficult);
+				difficulty = Difficulty.Extremely_Difficult;
 			}
 			for (int i = 0; i < ratingsRadioButtons.Length; i++) {
 				if (ratingsRadioButtons[i] != null && ratingsRadioButtons[i].Checked) {
-					ratingsList.Add(i + 1);
+					rating = i + 1;
 				}
 			}
 			int minDuration = 0;
@@ -207,7 +214,7 @@ namespace Columbia583.Android
 			}
 
 			// Encapsulate the filter parameters.
-			SearchFilter searchFilter = new SearchFilter(activitiesList.ToArray(), amenitiesList.ToArray(), difficultiesList.ToArray(), ratingsList.ToArray(), minDuration, maxDuration, minDistance, maxDistance);
+			SearchFilter searchFilter = new SearchFilter(activitiesList.ToArray(), amenitiesList.ToArray(), difficulty, rating, minDuration, maxDuration, minDistance, maxDistance);
 
 			return searchFilter;
 		}
@@ -230,23 +237,23 @@ namespace Columbia583.Android
 						TextView[] trailElements = new TextView[NUM_ELEMENTS_PER_TRAIL];
 //						// TODO: Display the trail name.
 						trailElements[0] = new TextView (this);
-						trailElements[0].Text = trail.Name;
+						trailElements[0].Text = trail.name;
 //
 						// TODO: Display the trail rating.
 						trailElements[1] = new TextView (this);
 						string ratingStars = "";
-						for (int i = 0; i < trail.Rating; i++) {
+						for (int i = 0; i < trail.rating; i++) {
 							ratingStars += "*";
 						}
 						trailElements[1].Text = ratingStars;
 //
 //						// TODO: Display the trail difficulty.
 						trailElements[2] = new TextView (this);
-						trailElements[2].Text = trail.Difficulty.ToString().Replace("_", " ");
+						trailElements[2].Text = trail.difficulty.ToString().Replace("_", " ");
 //
 //						// TODO: Display the trail distance.
 						trailElements[3] = new TextView (this);
-						trailElements[3].Text = trail.Distance + " km";
+						trailElements[3].Text = trail.distance + " km";
 
 						for (int i = 0; i < NUM_ELEMENTS_PER_TRAIL; i++) {
 							trailElements[i].Click += (sender, e) => {
