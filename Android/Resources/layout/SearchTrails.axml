@@ -91,31 +91,40 @@
                 android:layout_width="fill_parent"
                 android:layout_height="59.7dp"
                 android:layout_weight="1">
-                <CheckBox
-                    android:text="Easiest"
-                    android:layout_width="82.5dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox_difficulty_easiest" />
-                <CheckBox
-                    android:text="Easy"
-                    android:layout_width="82.5dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox_difficulty_easy" />
-                <CheckBox
-                    android:text="More Difficult"
-                    android:layout_width="82.5dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox_difficulty_moreDifficult" />
-                <CheckBox
-                    android:text="Very Difficult"
-                    android:layout_width="82.5dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox_difficulty_veryDifficult" />
-                <CheckBox
-                    android:text="Extremely Difficult"
-                    android:layout_width="82.5dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox_difficulty_extremelyDifficult" />
+                <RadioGroup
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/radioGroup_difficulties"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Easiest"
+                        android:id="@+id/radioButton_difficulty_easiest" />
+                    <RadioButton
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        android:text="Easy"
+                        android:id="@+id/radioButton_difficulty_easy" />
+                    <RadioButton
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        android:text="More Difficult"
+                        android:id="@+id/radioButton_difficulty_moreDifficult" />
+                    <RadioButton
+                        android:text="Very Difficult"
+                        android:layout_width="75dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/radioButton_difficulty_veryDifficult" />
+                    <RadioButton
+                        android:text="Extremely Difficult"
+                        android:layout_width="75dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/radioButton_difficulty_extremelyDifficult" />
+                </RadioGroup>
             </LinearLayout>
         </LinearLayout>
     <!-- /Difficulties -->
@@ -126,7 +135,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1">
             <TextView
-                android:text="Select a Rating"
+                android:text="Select a Minimum Rating"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -138,31 +147,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/ratingsOptions">
-                <CheckBox
-                    android:text="*"
+                <RadioGroup
+                    android:minWidth="25px"
+                    android:minHeight="25px"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:id="@+id/checkBox_rating_1" />
-                <CheckBox
-                    android:text="**"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/checkBox_rating_2" />
-                <CheckBox
-                    android:text="***"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/checkBox_rating_3" />
-                <CheckBox
-                    android:text="****"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/checkBox_rating_4" />
-                <CheckBox
-                    android:text="*****"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/checkBox_rating_5" />
+                    android:orientation="horizontal"
+                    android:id="@+id/radioGroup_ratings">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:id="@+id/radioButton_rating_1"
+                        android:text="*" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioButton_rating_2"
+                        android:text="**" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioButton_rating_3"
+                        android:text="***" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioButton_rating_4"
+                        android:text="****" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioButton_rating_5"
+                        android:text="*****" />
+                </RadioGroup>
             </LinearLayout>
         </LinearLayout>
     <!-- /Rating -->

@@ -27,15 +27,15 @@ namespace Columbia583.Android
 		protected CheckBox[] amenityCheckBoxes = null;
 
 		// Difficulties.
-		protected CheckBox easiestCheckBox = null;
-		protected CheckBox easyCheckBox = null;
-		protected CheckBox moreDifficultCheckBox = null;
-		protected CheckBox veryDifficultCheckBox = null;
-		protected CheckBox extremelyDifficultCheckBox = null;
+		protected RadioButton easiestRadioButton = null;
+		protected RadioButton easyRadioButton = null;
+		protected RadioButton moreDifficultRadioButton = null;
+		protected RadioButton veryDifficultRadioButton = null;
+		protected RadioButton extremelyDifficultRadioButton = null;
 
 		// Ratings.
 		protected LinearLayout ratingsOptions = null;
-		protected CheckBox[] ratingsCheckBoxes = null;
+		protected RadioButton[] ratingsRadioButtons = null;
 
 		// Duration.
 		protected EditText durationEditText = null;
@@ -68,18 +68,18 @@ namespace Columbia583.Android
 			skiingCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_activity_skiing);
 			bikingCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_activity_biking);
 			amenityOptions = FindViewById<LinearLayout> (Resource.Id.amenityOptions);
-			easiestCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_easiest);
-			easyCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_easy);
-			moreDifficultCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_moreDifficult);
-			veryDifficultCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_veryDifficult);
-			extremelyDifficultCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_extremelyDifficult);
+			easiestRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_easiest);
+			easyRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_easy);
+			moreDifficultRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_moreDifficult);
+			veryDifficultRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_veryDifficult);
+			extremelyDifficultRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_extremelyDifficult);
 			ratingsOptions = FindViewById<LinearLayout> (Resource.Id.ratingsOptions);
-			ratingsCheckBoxes = new CheckBox[5];
-			ratingsCheckBoxes[0] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_1);
-			ratingsCheckBoxes[1] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_2);
-			ratingsCheckBoxes[2] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_3);
-			ratingsCheckBoxes[3] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_4);
-			ratingsCheckBoxes[4] = FindViewById<CheckBox> (Resource.Id.checkBox_rating_5);
+			ratingsRadioButtons = new RadioButton[5];
+			ratingsRadioButtons[0] = FindViewById<RadioButton> (Resource.Id.radioButton_rating_1);
+			ratingsRadioButtons[1] = FindViewById<RadioButton> (Resource.Id.radioButton_rating_2);
+			ratingsRadioButtons[2] = FindViewById<RadioButton> (Resource.Id.radioButton_rating_3);
+			ratingsRadioButtons[3] = FindViewById<RadioButton> (Resource.Id.radioButton_rating_4);
+			ratingsRadioButtons[4] = FindViewById<RadioButton> (Resource.Id.radioButton_rating_5);
 			durationEditText = FindViewById<EditText> (Resource.Id.editText_maxDuration);
 			distanceEditText = FindViewById<EditText> (Resource.Id.editText_maxDistance);
 			updateSearchResultsButton = FindViewById<Button> (Resource.Id.button_updateSearchResults);
@@ -175,23 +175,23 @@ namespace Columbia583.Android
 					amenitiesList.Add (amenityCheckBoxes[i].Text);
 				}
 			}
-			if (easiestCheckBox != null && easiestCheckBox.Checked == true) {
+			if (easiestRadioButton != null && easiestRadioButton.Checked == true) {
 				difficultiesList.Add(Difficulty.Easiest);
 			}
-			if (easyCheckBox != null && easyCheckBox.Checked == true) {
+			if (easyRadioButton != null && easyRadioButton.Checked == true) {
 				difficultiesList.Add(Difficulty.Easy);
 			}
-			if (moreDifficultCheckBox != null && moreDifficultCheckBox.Checked == true) {
+			if (moreDifficultRadioButton != null && moreDifficultRadioButton.Checked == true) {
 				difficultiesList.Add(Difficulty.More_Difficult);
 			}
-			if (veryDifficultCheckBox != null && veryDifficultCheckBox.Checked == true) {
+			if (veryDifficultRadioButton!= null && veryDifficultRadioButton.Checked == true) {
 				difficultiesList.Add(Difficulty.Very_Difficult);
 			}
-			if (extremelyDifficultCheckBox != null && extremelyDifficultCheckBox.Checked == true) {
+			if (extremelyDifficultRadioButton != null && extremelyDifficultRadioButton.Checked == true) {
 				difficultiesList.Add(Difficulty.Extremely_Difficult);
 			}
-			for (int i = 0; i < ratingsCheckBoxes.Length; i++) {
-				if (ratingsCheckBoxes[i] != null && ratingsCheckBoxes[i].Checked) {
+			for (int i = 0; i < ratingsRadioButtons.Length; i++) {
+				if (ratingsRadioButtons[i] != null && ratingsRadioButtons[i].Checked) {
 					ratingsList.Add(i + 1);
 				}
 			}
