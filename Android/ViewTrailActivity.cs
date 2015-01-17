@@ -56,12 +56,13 @@ namespace Columbia583.Android
 			Trail trail = Newtonsoft.Json.JsonConvert.DeserializeObject<Trail> (trailJSONStr);
 			trailName.Text = trail.name;
 
-			Activity[] debugActivities = new Activity[2];
+			Activity[] debugActivities = new Activity[3];
 			Amenity[] debugAmenities = new Amenity[2];
 
 			if (debugTrailA) {
 				debugActivities [0] = new Activity (1, "Hiking", "images/activities/activity-hike.png", DateTime.Now);
 				debugActivities[1] = new Activity(2, "Mountain Biking", "images/activities/activity-bike.png", DateTime.Now);
+				debugActivities [2] = new Activity (3, "Skiing", "", DateTime.Now);
 
 				debugAmenities [0] = new Amenity (1, "restrooms", "images/amenities/restrooms_32.png", DateTime.Now);
 				debugAmenities[1] = new Amenity(2, "camping", "images/amenities/camping_32.png", DateTime.Now);

@@ -18,12 +18,12 @@ namespace Columbia583.Android
 	public class SearchTrailsActivity : AndroidActivity
 	{
 		// Activities.
-		protected CheckBox hikingCheckBox = null;
-		protected CheckBox skiingCheckBox = null;
-		protected CheckBox bikingCheckBox = null;
+		protected LinearLayout activityOptions = null;
+		protected CheckBox[] activityCheckBoxes = null;
 
 		// Amenities.
 		protected LinearLayout amenityOptions = null;
+		protected ScrollView amenityOptionsScroll = null;
 		protected CheckBox[] amenityCheckBoxes = null;
 
 		// Difficulties.
@@ -64,10 +64,9 @@ namespace Columbia583.Android
 			SetContentView (Resource.Layout.SearchTrails);
 
 			// Get the controls.
-			hikingCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_activity_hiking);
-			skiingCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_activity_skiing);
-			bikingCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_activity_biking);
+			activityOptions = FindViewById<LinearLayout> (Resource.Id.activityOptions);
 			amenityOptions = FindViewById<LinearLayout> (Resource.Id.amenityOptions);
+			amenityOptionsScroll = FindViewById<ScrollView> (Resource.Id.amenityOptionsScroll);
 			easiestRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_easiest);
 			easyRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_easy);
 			moreDifficultRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_moreDifficult);
@@ -87,23 +86,34 @@ namespace Columbia583.Android
 			//viewTrailButton = FindViewById<Button> (Resource.Id.button_viewTrail);
 
 			Trail[] debugTrails = new Trail[3];
-			Activity[] debugActivities = new Activity[2];
+			Activity[] debugActivities = new Activity[3];
 			Amenity[] debugAmenities = new Amenity[2];
 
 			if (debugSearchResults) {
 				debugTrails[0] = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69", "10", "Lorem ipsum", "three steps north, then turn right", Difficulty.Easiest, 4, new int[]{1, 2}, new int[]{2}, "falling rocks", "", "", "A work bee is planned for 15 July 2014, weather pending. Some sections of the trail may be closed. Please come out with your shovels and rakes from 10am-1pm and enjoy a bbq afterwards.", "December through January", true, true, DateTime.Now);
-				debugTrails[1] = new Trail(0, 0, 0, "Niles", "BC", "", "", "113.12", "20", "dolores umbridge", "Go to Neverland", Difficulty.Very_Difficult, 3, new int[]{1}, new int[]{1, 2}, "", "", "", "", "All year", true, true, DateTime.Now);
-				debugTrails[2] = new Trail(0, 0, 0, "Findlay Creek Trail 2", "AB", "", "", "0.59", "0.45", "Presumably, there's a Findlay Creek Trail 1, but this isn't it", "1337 d1r3c710n5", Difficulty.Extremely_Difficult, 5, new int[]{1, 2}, new int[]{1, 2}, "", "", "", "rwerwer", "Summer", true, true, DateTime.Now);
+				debugTrails[1] = new Trail(0, 0, 0, "Niles", "BC", "", "", "113.12", "20", "dolores umbridge", "Go to Neverland", Difficulty.Very_Difficult, 3, new int[]{1}, new int[]{1, 3}, "", "", "", "", "All year", true, true, DateTime.Now);
+				debugTrails[2] = new Trail(0, 0, 0, "Findlay Creek Trail 2", "AB", "", "", "0.59", "0.45", "Presumably, there's a Findlay Creek Trail 1, but this isn't it", "1337 d1r3c710n5", Difficulty.Extremely_Difficult, 5, new int[]{1, 2, 3}, new int[]{1, 2}, "", "", "", "rwerwer", "Summer", true, true, DateTime.Now);
 
 				debugActivities [0] = new Activity (1, "Hiking", "images/activities/activity-hike.png", DateTime.Now);
 				debugActivities[1] = new Activity(2, "Mountain Biking", "images/activities/activity-bike.png", DateTime.Now);
+				debugActivities [2] = new Activity (3, "Skiing", "", DateTime.Now);
 
 				debugAmenities [0] = new Amenity (1, "restrooms", "images/amenities/restrooms_32.png", DateTime.Now);
 				debugAmenities[1] = new Amenity(2, "camping", "images/amenities/camping_32.png", DateTime.Now);
 
+				activityCheckBoxes = new CheckBox[debugActivities.Length];
 				amenityCheckBoxes = new CheckBox[debugAmenities.Length];
 
 				this.setSearchResults(debugTrails);
+			}
+
+			for (int i = 0; i < activityCheckBoxes.Length; i++) {
+				activityCheckBoxes [i] = new CheckBox (this);
+				if (debugSearchResults) {
+					activityCheckBoxes [i].Text = debugActivities [i].activityName;
+					activityCheckBoxes [i].Hint = debugActivities [i].id.ToString();
+				}
+				activityOptions.AddView (activityCheckBoxes [i]);
 			}
 
 			for (int i = 0; i < amenityCheckBoxes.Length; i++) {
@@ -160,21 +170,14 @@ namespace Columbia583.Android
 			int rating = 1;
 
 			// TODO: Reference the database for activity and amenity enumerations.
-			int hikingEnum = 1;
-			int skiingEnum = 2;
-			int bikingEnum = 3;
 
 			// Get the search filter parameters from the controls.
 			// TODO: Get the min duration and distances.
 			// TODO: Get the minimum star rating.
-			if (hikingCheckBox != null && hikingCheckBox.Checked == true) {
-				activitiesList.Add(hikingEnum);
-			}
-			if (skiingCheckBox != null && skiingCheckBox.Checked == true) {
-				activitiesList.Add(skiingEnum);
-			}
-			if (bikingCheckBox != null && bikingCheckBox.Checked == true) {
-				activitiesList.Add(bikingEnum);
+			for (int i = 0; i < activityCheckBoxes.Length; i++) {
+				if (activityCheckBoxes[i] != null && activityCheckBoxes[i].Checked) {
+					activitiesList.Add (int.Parse(activityCheckBoxes[i].Hint));
+				}
 			}
 
 			for (int i = 0; i < amenityCheckBoxes.Length; i++) {
