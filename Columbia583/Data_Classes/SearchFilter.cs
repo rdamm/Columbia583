@@ -4,75 +4,30 @@ namespace Columbia583
 {
 	public class SearchFilter
 	{
-		private string[] activities;
-		private Difficulty[] difficulties;
-		private int minDuration;
-		private int maxDuration;
-		private int minDistance;
-		private int maxDistance;
+		public int[] activities { get; set; }
+		public int[] amenities { get; set; }
+		public Difficulty difficulty { get; set; }
+		public int rating { get; set; }
+		public int minDuration { get; set; }
+		public int maxDuration { get; set; }
+		public int minDistance { get; set; }
+		public int maxDistance { get; set; }
 
-		public SearchFilter (string[] activities, Difficulty[] difficulties, int minDuration, int maxDuration, int minDistance, int maxDistance)
+		public SearchFilter()
+		{
+
+		}
+
+		public SearchFilter (int[] activities, int[] amenities, Difficulty difficulty, int rating, int minDuration, int maxDuration, int minDistance, int maxDistance)
 		{
 			this.activities = activities;
-			this.difficulties = difficulties;
+			this.amenities = amenities;
+			this.difficulty = difficulty;
+			this.rating = rating;
 			this.minDuration = minDuration;
 			this.maxDuration = maxDuration;
 			this.minDistance = minDistance;
 			this.maxDistance = maxDistance;
-		}
-
-		public string[] Activities {
-			get {
-				return activities;
-			}
-			set {
-				activities = value;
-			}
-		}
-
-		public Difficulty[] Difficulties {
-			get {
-				return difficulties;
-			}
-			set {
-				difficulties = value;
-			}
-		}
-
-		public int MinDuration {
-			get {
-				return minDuration;
-			}
-			set {
-				minDuration = value;
-			}
-		}
-
-		public int MaxDuration {
-			get {
-				return maxDuration;
-			}
-			set {
-				maxDuration = value;
-			}
-		}
-
-		public int MinDistance {
-			get {
-				return minDistance;
-			}
-			set {
-				minDistance = value;
-			}
-		}
-
-		public int MaxDistance {
-			get {
-				return maxDistance;
-			}
-			set {
-				maxDistance = value;
-			}
 		}
 	}
 }

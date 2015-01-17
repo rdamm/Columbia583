@@ -101,35 +101,41 @@ namespace Columbia583.Android
 		 * */
 		protected SearchFilter getSearchFilter()
 		{
-			List<Difficulty> difficultiesList = new List<Difficulty>();
-			List<string> activitiesList = new List<string>();
+			List<int> activitiesList = new List<int>();
+			List<int> amenitiesList = new List<int> ();
+
+			// TODO: Reference the database for activity and amenity enumerations.
+			int hikingEnum = 1;
+			int skiingEnum = 2;
+			int bikingEnum = 3;
 
 			// Get the search filter parameters from the controls.
-			// TODO: Enumerations or strings for activities?
 			// TODO: Get the min duration and distances.
+			// TODO: Get the minimum star rating.
 			if (hikingCheckBox != null && hikingCheckBox.Checked == true) {
-				activitiesList.Add("hiking");
+				activitiesList.Add(hikingEnum);
 			}
 			if (skiingCheckBox != null && skiingCheckBox.Checked == true) {
-				activitiesList.Add("skiing");
+				activitiesList.Add(skiingEnum);
 			}
 			if (bikingCheckBox != null && bikingCheckBox.Checked == true) {
-				activitiesList.Add("biking");
+				activitiesList.Add(bikingEnum);
 			}
+			Difficulty difficulty = Difficulty.Easiest;
 			if (easiestCheckBox != null && easiestCheckBox.Checked == true) {
-				difficultiesList.Add(Difficulty.Easiest);
+				difficulty = Difficulty.Easiest;
 			}
 			if (easyCheckBox != null && easyCheckBox.Checked == true) {
-				difficultiesList.Add(Difficulty.Easy);
+				difficulty = Difficulty.Easy;
 			}
 			if (moreDifficultCheckBox != null && moreDifficultCheckBox.Checked == true) {
-				difficultiesList.Add(Difficulty.More_Difficult);
+				difficulty = Difficulty.More_Difficult;
 			}
 			if (veryDifficultCheckBox != null && veryDifficultCheckBox.Checked == true) {
-				difficultiesList.Add(Difficulty.Very_Difficult);
+				difficulty = Difficulty.Very_Difficult;
 			}
 			if (extremelyDifficultCheckBox != null && extremelyDifficultCheckBox.Checked == true) {
-				difficultiesList.Add(Difficulty.Extremely_Difficult);
+				difficulty = Difficulty.Extremely_Difficult;
 			}
 			int minDuration = 0;
 			int maxDuration = minDuration;
@@ -141,9 +147,10 @@ namespace Columbia583.Android
 			if (distanceEditText != null && distanceEditText.Text != "") {
 				maxDistance = Convert.ToInt32(distanceEditText.Text);
 			}
+			int rating = 1;
 
 			// Encapsulate the filter parameters.
-			SearchFilter searchFilter = new SearchFilter(activitiesList.ToArray(), difficultiesList.ToArray(), minDuration, maxDuration, minDistance, maxDistance);
+			SearchFilter searchFilter = new SearchFilter(activitiesList.ToArray(), amenitiesList.ToArray(), difficulty, rating, minDuration, maxDuration, minDistance, maxDistance);
 
 			return searchFilter;
 		}

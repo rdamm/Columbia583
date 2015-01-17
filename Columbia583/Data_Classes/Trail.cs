@@ -4,25 +4,30 @@ namespace Columbia583
 {
 	public class Trail
 	{
-		private int id;
-		private int userId;
-		private int orgId;
-		private string name;
-		private string location;
-		private string kmlUrl;
-		private string kmlContent;
-		private string distance;
-		private string duration;
-		private string description;
-		private string directions;
-		private Difficulty difficulty;
-		private string hazards;
-		private string surface;
-		private string landAccess;
-		private string maintenance;
-		private bool open;
-		private bool active;
-		private DateTime timestamp;
+		public int id { get; set; }
+		public int userId { get; set; }
+		public int orgId { get; set; }
+		public string name { get; set; }
+		public string location { get; set; }
+		public string kmlUrl { get; set; }
+		public string kmlContent { get; set; }
+		public string distance { get; set; }
+		public string duration { get; set; }
+		public string description { get; set; }
+		public string directions { get; set; }
+		public Difficulty difficulty { get; set; }
+		public string hazards { get; set; }
+		public string surface { get; set; }
+		public string landAccess { get; set; }
+		public string maintenance { get; set; }
+		public bool open { get; set; }
+		public bool active { get; set; }
+		public DateTime timestamp { get; set; }
+
+		public Trail()
+		{
+
+		}
 
 		public Trail (int id, int userId, int orgId, string name, string location, string kmlUrl,
 			string kmlContent, string distance, string duration, string description, string directions,
@@ -48,177 +53,6 @@ namespace Columbia583
 			this.open = open;
 			this.active = active;
 			this.timestamp = timestamp;
-		}
-
-		public int Id {
-			get {
-				return id;
-			}
-			set {
-				id = value;
-			}
-		}
-
-		public int UserId {
-			get {
-				return userId;
-			}
-			set {
-				userId = value;
-			}
-		}
-
-		public int OrgId {
-			get {
-				return orgId;
-			}
-			set {
-				orgId = value;
-			}
-		}
-
-		public string Name {
-			get {
-				return name;
-			}
-			set {
-				name = value;
-			}
-		}
-
-		public string Location {
-			get {
-				return location;
-			}
-			set {
-				location = value;
-			}
-		}
-
-		public string KmlUrl {
-			get {
-				return kmlUrl;
-			}
-			set {
-				kmlUrl = value;
-			}
-		}
-
-		public string KmlContent {
-			get {
-				return kmlContent;
-			}
-			set {
-				kmlContent = value;
-			}
-		}
-
-		public string Distance {
-			get {
-				return distance;
-			}
-			set {
-				distance = value;
-			}
-		}
-
-		public string Duration {
-			get {
-				return duration;
-			}
-			set {
-				duration = value;
-			}
-		}
-
-		public string Description {
-			get {
-				return description;
-			}
-			set {
-				description = value;
-			}
-		}
-
-		public string Directions {
-			get {
-				return directions;
-			}
-			set {
-				directions = value;
-			}
-		}
-
-		public Difficulty Difficulty {
-			get {
-				return difficulty;
-			}
-			set {
-				difficulty = value;
-			}
-		}
-
-		public string Hazards {
-			get {
-				return hazards;
-			}
-			set {
-				hazards = value;
-			}
-		}
-
-		public string Surface {
-			get {
-				return surface;
-			}
-			set {
-				surface = value;
-			}
-		}
-
-		public string LandAccess {
-			get {
-				return landAccess;
-			}
-			set {
-				landAccess = value;
-			}
-		}
-
-		public string Maintenance {
-			get {
-				return maintenance;
-			}
-			set {
-				maintenance = value;
-			}
-		}
-
-		public bool Open {
-			get {
-				return open;
-			}
-			set {
-				open = value;
-			}
-		}
-
-		public bool Active {
-			get {
-				return active;
-			}
-			set {
-				active = value;
-			}
-		}
-
-		public DateTime Timestamp {
-			get {
-				return timestamp;
-			}
-			set {
-				timestamp = value;
-			}
 		}
 	}
 }
