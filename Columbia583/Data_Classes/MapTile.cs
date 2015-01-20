@@ -1,10 +1,15 @@
 ﻿using System;
+using SQLite;
 
 namespace Columbia583
 {
 	public class MapTile
 	{
+		// Keys and references.
+		[PrimaryKey, AutoIncrement]
 		public int id { get; set; }
+
+		// Data.
 		public double originLon { get; set; }
 		public double originLat { get; set; }
 		public double sizeLon { get; set; }

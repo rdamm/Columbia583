@@ -20,6 +20,19 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\SearchFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Amenity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Application_Layer\Application_Layer_Search_Trails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Layer\Data_Layer_Common.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\MapTile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Media.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Organization.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Point.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Role.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SQLite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\TrailsToActivities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\TrailsToAmenities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\IdTimestampCombo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\IdTimestampComboList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Layer\Data_Layer_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data_Layer\" />

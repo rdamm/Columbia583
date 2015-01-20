@@ -70,6 +70,8 @@ class MonoPackageManager_Resources {
 		"Columbia583.Android.dll",
 		"FormsViewGroup.dll",
 		"Newtonsoft.Json.dll",
+		"SQLite.Net.dll",
+		"SQLiteNetExtensions.dll",
 		"Xamarin.Android.Support.v13.dll",
 		"Xamarin.Android.Support.v4.dll",
 		"Xamarin.Forms.Core.dll",
