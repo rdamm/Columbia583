@@ -17,20 +17,20 @@
         android:isIndicator="true"
         android:numStars="5"
         android:stepSize="1.0"
-        android:layout_marginLeft="135.0dp" />
+        android:layout_marginLeft="140.0dp" />
     <TextView
         android:text="x km"
         android:layout_width="40.0dp"
         android:layout_height="wrap_content"
         android:id="@+id/distance"
-        android:layout_marginLeft="335.0dp" />
+        android:layout_marginLeft="340.0dp" />
     <TextView
         android:text="y - z hrs"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="60.0dp"
         android:layout_height="wrap_content"
         android:id="@+id/duration"
-        android:layout_marginLeft="315.0dp" />
+        android:layout_marginLeft="320.0dp" />
     <TextView
         android:text="Trail Description"
         android:textAppearance="?android:attr/textAppearanceLarge"
