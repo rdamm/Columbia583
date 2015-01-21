@@ -84,8 +84,8 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f05001b
 			public const int button_updateSearchResults = 2131034139;
 			
-			// aapt resource value: 0x7f050033
-			public const int commentsList = 2131034163;
+			// aapt resource value: 0x7f050030
+			public const int commentsList = 2131034160;
 			
 			// aapt resource value: 0x7f050024
 			public const int description = 2131034148;
@@ -107,12 +107,6 @@ namespace Columbia583.Android
 			
 			// aapt resource value: 0x7f050018
 			public const int editText_maxDuration = 2131034136;
-			
-			// aapt resource value: 0x7f050030
-			public const int gallery1 = 2131034160;
-			
-			// aapt resource value: 0x7f050032
-			public const int gallery2 = 2131034162;
 			
 			// aapt resource value: 0x7f05001c
 			public const int gridLayout_searchResults = 2131034140;
@@ -216,14 +210,14 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f050017
 			public const int textView_maxDurationLabel = 2131034135;
 			
+			// aapt resource value: 0x7f050032
+			public const int trailGallery = 2131034162;
+			
+			// aapt resource value: 0x7f050033
+			public const int trailName = 2131034163;
+			
 			// aapt resource value: 0x7f050034
-			public const int trailGallery = 2131034164;
-			
-			// aapt resource value: 0x7f050035
-			public const int trailName = 2131034165;
-			
-			// aapt resource value: 0x7f050036
-			public const int viewpager = 2131034166;
+			public const int viewpager = 2131034164;
 			
 			static Id()
 			{
