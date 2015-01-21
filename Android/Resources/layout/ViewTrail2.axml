@@ -9,11 +9,7 @@
         android:layout_height="160.0dp"
         android:id="@+id/imageView1" />
     <TextView
-<<<<<<< HEAD
         android:text="Trail Activities"
-=======
-        android:text="Directions to Trail Head"
->>>>>>> Stash
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
