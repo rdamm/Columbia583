@@ -1,20 +1,8 @@
-﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\SearchTrailsActivity.cs">
+﻿<Properties StartupItem="Android\Columbia583.Android.csproj" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\SQL_Script\CreateTables.txt">
     <Files>
-      <File FileName="Android\MainMenuActivity.cs" Line="33" Column="33" />
-      <File FileName="Android\SearchTrailsActivity.cs" Line="4" Column="4" />
-      <File FileName="Android\ViewTrailActivity.cs" Line="26" Column="26" />
-      <File FileName="Columbia583\Data_Classes\Trail.cs" Line="33" Column="33" />
-      <File FileName="Columbia583\Data_Classes\Difficulty.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Service_Access_Layer\Service_Access_Layer_Search_Trails.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Search_Trails.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\App.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Classes\SearchFilter.cs" Line="1" Column="1" />
-      <File FileName="Android\MyFragmentPagerAdapter.cs" Line="1" Column="1" />
-      <File FileName="Android\ViewPagerFragment.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Classes\Activity.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Classes\Amenity.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\SQL_Script\CreateTables.txt" Line="2" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

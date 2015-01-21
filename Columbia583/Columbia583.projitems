@@ -29,5 +29,9 @@
     <Folder Include="$(MSBuildThisFileDirectory)Application_Layer\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data_Classes\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />
+    <Folder Include="$(MSBuildThisFileDirectory)SQL_Script\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)SQL_Script\CreateTables.txt" />
   </ItemGroup>
 </Project>
