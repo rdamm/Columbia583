@@ -17,7 +17,7 @@ namespace Columbia583.Android
 	public class MainMenuActivity : AndroidActivity
 	{
 		protected Button searchTrailsButton = null;
-		protected Button databaseTestsButton = null;
+		protected Button testDatabaseButton = null;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -33,7 +33,7 @@ namespace Columbia583.Android
 
 			// Get the controls.
 			searchTrailsButton = FindViewById<Button> (Resource.Id.button_searchTrails);
-			databaseTestsButton = FindViewById<Button> (Resource.Id.button_databaseTests);
+			testDatabaseButton = FindViewById<Button> (Resource.Id.button_databaseTests);
 
 			// Assign an event handler to the button.
 			if (searchTrailsButton != null) {
@@ -45,8 +45,8 @@ namespace Columbia583.Android
 
 				};
 			}
-			if (databaseTestsButton != null) {
-				databaseTestsButton.Click += (sender, e) => {
+			if (testDatabaseButton != null) {
+				testDatabaseButton.Click += (sender, e) => {
 
 					// Load the database tests page.
 					var intent = new Intent(this, typeof(TestDatabaseActivity));

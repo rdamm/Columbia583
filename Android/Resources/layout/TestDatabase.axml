@@ -20,10 +20,30 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnInsertTables" />
     <Button
+        android:text="Get ID Timestamp Combos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGetIdTimestampCombos" />
+    <Button
         android:text="Get Activities"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnGetActivities" />
+    <Button
+        android:text="Get Amenities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGetAmenities" />
+    <Button
+        android:text="Get Trails By Search Filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGetTrailsBySearchFilter" />
+    <Button
+        android:text="Get Trail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGetTrail" />
     <Button
         android:text="Delete Some From Tables"
         android:layout_width="match_parent"

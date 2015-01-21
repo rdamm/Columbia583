@@ -20,7 +20,11 @@ namespace Columbia583.Android
 	{
 		protected Button createTablesButton = null;
 		protected Button insertTablesButton = null;
+		protected Button getIdTimestampCombosButton = null;
 		protected Button getActivitiesButton = null;
+		protected Button getAmenitiesButton = null;
+		protected Button getTrailsBySearchFilterButton = null;
+		protected Button getTrailButton = null;
 		protected Button deleteSomeFromTablesButton = null;
 		protected Button deleteAllFromTablesButton = null;
 		protected Button dropTablesButton = null;
@@ -40,7 +44,11 @@ namespace Columbia583.Android
 			// Get the controls.
 			createTablesButton = FindViewById<Button> (Resource.Id.btnCreateTables);
 			insertTablesButton = FindViewById<Button> (Resource.Id.btnInsertTables);
+			getIdTimestampCombosButton = FindViewById<Button> (Resource.Id.btnGetIdTimestampCombos);
 			getActivitiesButton = FindViewById<Button> (Resource.Id.btnGetActivities);
+			getAmenitiesButton = FindViewById<Button> (Resource.Id.btnGetAmenities);
+			getTrailsBySearchFilterButton = FindViewById<Button> (Resource.Id.btnGetTrailsBySearchFilter);
+			getTrailButton = FindViewById<Button> (Resource.Id.btnGetTrail);
 			deleteSomeFromTablesButton = FindViewById<Button> (Resource.Id.btnDeleteSomeFromTables);
 			deleteAllFromTablesButton = FindViewById<Button> (Resource.Id.btnDeleteAllFromTables);
 			dropTablesButton = FindViewById<Button> (Resource.Id.btnDropTables);
@@ -60,10 +68,38 @@ namespace Columbia583.Android
 					Console.WriteLine(response);
 				};
 			}
+			if (getIdTimestampCombosButton != null) {
+				getIdTimestampCombosButton.Click += (sender, e) => {
+					Data_Layer_Tests dataLayerTests = new Data_Layer_Tests();
+					string response = dataLayerTests.getAllIdTimestampCombos();
+					Console.WriteLine(response);
+				};
+			}
 			if (getActivitiesButton != null) {
 				getActivitiesButton.Click += (sender, e) => {
 					Data_Layer_Tests dataLayerTests = new Data_Layer_Tests();
 					string response = dataLayerTests.getActivities();
+					Console.WriteLine(response);
+				};
+			}
+			if (getAmenitiesButton != null) {
+				getAmenitiesButton.Click += (sender, e) => {
+					Data_Layer_Tests dataLayerTests = new Data_Layer_Tests();
+					string response = dataLayerTests.getAmenities();
+					Console.WriteLine(response);
+				};
+			}
+			if (getTrailsBySearchFilterButton != null) {
+				getTrailsBySearchFilterButton.Click += (sender, e) => {
+					Data_Layer_Tests dataLayerTests = new Data_Layer_Tests();
+					string response = dataLayerTests.getTrailsBySearchFilter();
+					Console.WriteLine(response);
+				};
+			}
+			if (getTrailButton != null) {
+				getTrailButton.Click += (sender, e) => {
+					Data_Layer_Tests dataLayerTests = new Data_Layer_Tests();
+					string response = dataLayerTests.getTrail();
 					Console.WriteLine(response);
 				};
 			}

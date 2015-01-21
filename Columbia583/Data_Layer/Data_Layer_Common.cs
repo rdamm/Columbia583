@@ -62,35 +62,6 @@ namespace Columbia583
 			}
 		}
 
-		
-		/**
-		 * Get the IDs and timestamps for every table in the database that contains them.
-		 * */
-		public IdTimestampComboList getAllIdTimestampCombos()
-		{
-			IdTimestampComboList idsAndTimestamps = null;
-
-			try
-			{
-				// Open connection to local database.
-				var connection = new SQLiteConnection(getPathToDatabase());
-
-				// Get all ID and timestamps in the database.
-				// TODO: Figure out how to perform a SELECT WHERE query.
-				idsAndTimestamps = new IdTimestampComboList();
-
-				// Close connection to local database.
-				connection.Close();
-			}
-			catch (SQLiteException ex)
-			{
-				// TODO: Log the error message.
-				Console.WriteLine (ex.Message);
-			}
-
-			return idsAndTimestamps;
-		}
-
 
 		/**
 		 * Insert the given rows.
@@ -132,6 +103,35 @@ namespace Columbia583
 
 
 		/**
+		 * Get the IDs and timestamps for every table in the database that contains them.
+		 * */
+		public IdTimestampComboList getAllIdTimestampCombos()
+		{
+			IdTimestampComboList idsAndTimestamps = null;
+
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get all ID and timestamps in the database.
+				// TODO: Figure out how to perform a limited SELECT WHERE query.
+				idsAndTimestamps = new IdTimestampComboList();
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return idsAndTimestamps;
+		}
+
+
+		/**
 		 * Gets all activities.
 		 * */
 		public List<Activity> getActivities()
@@ -160,6 +160,139 @@ namespace Columbia583
 			}
 
 			return activities;
+		}
+
+
+		/**
+		 * Gets all amenities.
+		 * */
+		public List<Amenity> getAmenities()
+		{
+			List<Amenity> amenities = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get all amenities.
+				var query = connection.Table<Amenity>();
+				amenities = new List<Amenity>();
+				foreach(Amenity amenity in query)
+				{
+					amenities.Add(amenity);
+				}
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return amenities;
+		}
+
+
+		/**
+		 * Gets the trails by their search filter.
+		 * */
+		public List<SearchResult> getTrailsBySearchFilter(SearchFilter searchFilter)
+		{
+			List<SearchResult> searchResults = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				/*
+				 * public int[] activities { get; set; }
+				public int[] amenities { get; set; }
+				public Difficulty difficulty { get; set; }
+				public int rating { get; set; }
+				public int minDuration { get; set; }
+				public int maxDuration { get; set; }
+				public int minDistance { get; set; }
+				public int maxDistance { get; set; }*/
+				
+				// Get all trails that match the search filter.
+				// TODO: Add the rest of the search filter parameters.
+				var response = connection.Query<Trail>("SELECT * FROM Trail WHERE rating >= ?", searchFilter.rating);
+
+				// For each matching trail, get its points, activities, and amenities.
+				searchResults = new List<SearchResult>();
+				foreach (Trail trailRow in response)
+				{
+					List<Point> points = new List<Point>();
+					List<Activity> activities = new List<Activity>();
+					List<Amenity> amenities = new List<Amenity>();
+
+					// Get the points.
+					var pointsQueryResponse = connection.Query<Point>("SELECT * FROM Point WHERE trailId = ?", trailRow.id);
+					foreach(Point point in pointsQueryResponse)
+					{
+						points.Add(point);
+					}
+
+					// Get the activities.
+					var activitiesQueryResponse = connection.Query<Activity>("SELECT * FROM Activity INNER JOIN TrailsToActivities ON Activity.id = TrailsToActivities.activityId WHERE trailId = ?", trailRow.id);
+					foreach(Activity activity in activitiesQueryResponse)
+					{
+						activities.Add(activity);
+					}
+
+					// Get the amenities.
+					var amenitiesQueryResponse = connection.Query<Amenity>("SELECT * FROM Amenity INNER JOIN TrailsToAmenities ON Amenity.id = TrailsToAmenities.amenityId WHERE trailId = ?", trailRow.id);
+					foreach(Amenity amenity in amenitiesQueryResponse)
+					{
+						amenities.Add(amenity);
+					}
+
+					// Encapsulate the data into a search result and add it to the list.
+					SearchResult searchResult = new SearchResult(trailRow, points.ToArray(), activities.ToArray(), amenities.ToArray());
+					searchResults.Add(searchResult);
+				}
+				
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return searchResults;
+		}
+
+
+		/**
+		 * Gets a given trail.
+		 * */
+		public Trail getTrail(int trailId)
+		{
+			Trail trail = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+				
+				// Get the trail.
+				// TODO: Get the other necessary trail information (eg. Media)
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				trail = connection.Find<Trail>(trailId);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return trail;
 		}
 
 
