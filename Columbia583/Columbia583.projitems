@@ -33,6 +33,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\IdTimestampCombo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\IdTimestampComboList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Layer\Data_Layer_Tests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\SearchResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data_Layer\" />

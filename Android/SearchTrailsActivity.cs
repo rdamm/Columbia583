@@ -94,9 +94,9 @@ namespace Columbia583.Android
 				debugTrails[1] = new Trail(0, 0, 0, "Niles", "BC", "", "", "113.12", "20", "dolores umbridge", "Go to Neverland", Difficulty.Very_Difficult, 3, "", "", "", "", "All year", true, true, DateTime.Now);
 				debugTrails[2] = new Trail(0, 0, 0, "Findlay Creek Trail 2", "AB", "", "", "0.59", "0.45", "Presumably, there's a Findlay Creek Trail 1, but this isn't it", "1337 d1r3c710n5", Difficulty.Extremely_Difficult, 5, "", "", "", "rwerwer", "Summer", true, true, DateTime.Now);
 
-				debugActivities [0] = new Activity (1, "Hiking", "images/activities/activity-hike.png", DateTime.Now);
-				debugActivities[1] = new Activity(2, "Mountain Biking", "images/activities/activity-bike.png", DateTime.Now);
-				debugActivities [2] = new Activity (3, "Skiing", "", DateTime.Now);
+				debugActivities [0] = new Activity (1, "Hiking", "hiking.png", DateTime.Now);
+				debugActivities[1] = new Activity(2, "Mountain Biking", "biking.png", DateTime.Now);
+				debugActivities [2] = new Activity (3, "Skiing", "skiing.png", DateTime.Now);
 
 				debugAmenities [0] = new Amenity (1, "restrooms", "images/amenities/restrooms_32.png", DateTime.Now);
 				debugAmenities[1] = new Amenity(2, "camping", "images/amenities/camping_32.png", DateTime.Now);
@@ -114,6 +114,13 @@ namespace Columbia583.Android
 					activityCheckBoxes [i].Hint = debugActivities [i].id.ToString();
 				}
 				activityOptions.AddView (activityCheckBoxes [i]);
+
+				// Display the icon beside the checkbox.
+				ImageView icon = new ImageView (this);
+				icon.SetImageResource (Resource.Drawable.biking);
+				icon.SetMaxHeight (16);
+				icon.SetMaxWidth (16);
+				activityOptions.AddView (icon);
 			}
 
 			for (int i = 0; i < amenityCheckBoxes.Length; i++) {

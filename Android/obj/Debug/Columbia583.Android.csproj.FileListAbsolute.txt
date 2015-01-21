@@ -56,3 +56,6 @@ C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\layout\view
 C:\Users\RPrime\Documents\Projects\Columbia583\Android\bin\Debug\SQLite.Net.dll
 C:\Users\RPrime\Documents\Projects\Columbia583\Android\bin\Debug\SQLiteNetExtensions.dll
 C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\layout\testdatabase.xml
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\drawable\biking.png
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\drawable\hiking.png
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\drawable\skiing.png
