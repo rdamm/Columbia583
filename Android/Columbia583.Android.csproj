@@ -88,6 +88,8 @@
     <AndroidResource Include="Resources\layout\SearchTrails.axml" />
     <AndroidResource Include="Resources\layout\ViewTrailBase.axml" />
     <AndroidResource Include="Resources\layout\ViewTrail2.axml" />
+    <AndroidResource Include="Resources\layout\ViewTrail3.axml" />
+    <AndroidResource Include="Resources\layout\ViewTrail4.axml" />
   </ItemGroup>
   <Import Project="..\Columbia583\Columbia583.projitems" Label="Shared" Condition="Exists('..\Columbia583\Columbia583.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
