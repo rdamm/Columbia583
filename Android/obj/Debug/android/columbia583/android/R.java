@@ -14,8 +14,10 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
+        public static final int activities=0x7f05002f;
         public static final int activityOptions=0x7f050004;
         public static final int activityOptionsScroll=0x7f050003;
+        public static final int amenities=0x7f050030;
         public static final int amenityOptions=0x7f050007;
         public static final int amenityOptionsScroll=0x7f050006;
         public static final int button_searchTrails=0x7f050001;
@@ -27,8 +29,6 @@ public final class R {
         public static final int duration=0x7f050020;
         public static final int editText_maxDistance=0x7f05001a;
         public static final int editText_maxDuration=0x7f050018;
-        public static final int gallery1=0x7f05002f;
-        public static final int gallery2=0x7f050030;
         public static final int gridLayout_searchResults=0x7f05001c;
         public static final int layout1=0x7f05001d;
         public static final int maintenance=0x7f050026;

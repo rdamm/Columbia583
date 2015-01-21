@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
     <TextView
-        android:text="Trail Head Features"
+        android:text="Trail Activities"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,10 +15,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView1">
-        <Gallery
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activities" />
+    <!--<Gallery
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/gallery1" />
+            android:id="@+id/gallery1" />-->
     </ScrollView>
     <TextView
         android:text="Trail Amenities"
@@ -32,9 +39,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView2">
-        <Gallery
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/amenities" />
+    <!--<Gallery
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/gallery2" />
+            android:id="@+id/gallery2" />-->
     </ScrollView>
 </LinearLayout>

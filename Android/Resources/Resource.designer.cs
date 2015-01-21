@@ -60,11 +60,17 @@ namespace Columbia583.Android
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f05002f
+			public const int activities = 2131034159;
+			
 			// aapt resource value: 0x7f050004
 			public const int activityOptions = 2131034116;
 			
 			// aapt resource value: 0x7f050003
 			public const int activityOptionsScroll = 2131034115;
+			
+			// aapt resource value: 0x7f050030
+			public const int amenities = 2131034160;
 			
 			// aapt resource value: 0x7f050007
 			public const int amenityOptions = 2131034119;
@@ -98,12 +104,6 @@ namespace Columbia583.Android
 			
 			// aapt resource value: 0x7f050018
 			public const int editText_maxDuration = 2131034136;
-			
-			// aapt resource value: 0x7f05002f
-			public const int gallery1 = 2131034159;
-			
-			// aapt resource value: 0x7f050030
-			public const int gallery2 = 2131034160;
 			
 			// aapt resource value: 0x7f05001c
 			public const int gridLayout_searchResults = 2131034140;

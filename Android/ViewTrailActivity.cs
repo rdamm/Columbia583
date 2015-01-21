@@ -25,7 +25,8 @@ namespace Columbia583.Android
 		protected MyFragmentPagerAdapter adapter = null;
 		protected TextView trailName = null;
 		//protected ViewSwitcher viewSwitcher = null;
-		protected LinearLayout layout1 = null;
+		protected LinearLayout activitiesLayout = null;
+		protected LinearLayout amenitiesLayout = null;
 		protected TextView distance = null;
 		protected TextView duration = null;
 		protected TextView description = null;
@@ -56,13 +57,16 @@ namespace Columbia583.Android
 			Trail trail = Newtonsoft.Json.JsonConvert.DeserializeObject<Trail> (trailJSONStr);
 			trailName.Text = trail.name;
 
-			Activity[] debugActivities = new Activity[3];
+			Activity[] debugActivities = new Activity[6];
 			Amenity[] debugAmenities = new Amenity[2];
 
 			if (debugTrailA) {
 				debugActivities [0] = new Activity (1, "Hiking", "images/activities/activity-hike.png", DateTime.Now);
 				debugActivities[1] = new Activity(2, "Mountain Biking", "images/activities/activity-bike.png", DateTime.Now);
 				debugActivities [2] = new Activity (3, "Skiing", "", DateTime.Now);
+				debugActivities [3] = new Activity (4, "Swimming", "", DateTime.Now);
+				debugActivities [4] = new Activity (5, "Snowboarding", "", DateTime.Now);
+				debugActivities [5] = new Activity (6, "Boating", "", DateTime.Now);
 
 				debugAmenities [0] = new Amenity (1, "restrooms", "images/amenities/restrooms_32.png", DateTime.Now);
 				debugAmenities[1] = new Amenity(2, "camping", "images/amenities/camping_32.png", DateTime.Now);
@@ -72,8 +76,6 @@ namespace Columbia583.Android
 				{
 					var view = LayoutInflater.Inflate(Resource.Layout.ViewTrail, v, false);
 					// Get the controls.
-					layout1 = view.FindViewById<LinearLayout> (Resource.Id.layout1);
-
 					distance = view.FindViewById<TextView> (Resource.Id.distance);
 					duration = view.FindViewById<TextView> (Resource.Id.duration);
 					description = view.FindViewById<TextView> (Resource.Id.description);
@@ -105,6 +107,22 @@ namespace Columbia583.Android
 			adapter.AddFragmentView((i, v, b) =>
 				{
 					var view = LayoutInflater.Inflate(Resource.Layout.ViewTrail2, v, false);
+					activitiesLayout = view.FindViewById<LinearLayout>(Resource.Id.activities);
+					amenitiesLayout = view.FindViewById<LinearLayout>(Resource.Id.amenities);
+
+					if (debugTrailA) {
+						for (int j = 0; j < trail.activityIDs.Length; j++) {
+							TextView activityName = new TextView(this);
+							activityName.Text = debugActivities[trail.activityIDs[j]-1].activityName;
+							activitiesLayout.AddView(activityName);
+						}
+
+						for (int j = 0; j < trail.amenityIDs.Length; j++) {
+							TextView amenityName = new TextView(this);
+							amenityName.Text = debugAmenities[trail.amenityIDs[j]-1].amenityName;
+							amenitiesLayout.AddView(amenityName);
+						}
+					}
 					return view;
 				}
 			);
