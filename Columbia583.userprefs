@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\SQL_Script\CreateTables.txt">
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Columbia583\SQL_Script\CreateTables.txt" Line="2" Column="2" />
     </Files>
