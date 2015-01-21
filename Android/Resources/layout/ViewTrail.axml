@@ -19,11 +19,18 @@
         android:stepSize="1.0"
         android:layout_marginLeft="145.0dp" />
     <TextView
-        android:text="x km | y -z hrs"
-        android:layout_width="100.0dp"
-        android:layout_height="35.0dp"
-        android:id="@+id/textView9"
-        android:layout_marginLeft="285.0dp" />
+        android:text="x km"
+        android:layout_width="40.0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/distance"
+        android:layout_marginLeft="345.0dp" />
+    <TextView
+        android:text="y - z hrs"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="60.0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/duration"
+        android:layout_marginLeft="325.0dp" />
     <TextView
         android:text="Trail Description"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -41,7 +48,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/textView8" />
+            android:id="@+id/description" />
     </ScrollView>
     <TextView
         android:text="Trail Status"

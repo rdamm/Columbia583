@@ -84,8 +84,23 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f05001b
 			public const int button_updateSearchResults = 2131034139;
 			
-			// aapt resource value: 0x7f050029
-			public const int difficultyRating = 2131034153;
+			// aapt resource value: 0x7f050033
+			public const int commentsList = 2131034163;
+			
+			// aapt resource value: 0x7f050024
+			public const int description = 2131034148;
+			
+			// aapt resource value: 0x7f05002a
+			public const int difficultyRating = 2131034154;
+			
+			// aapt resource value: 0x7f05002e
+			public const int directions = 2131034158;
+			
+			// aapt resource value: 0x7f050020
+			public const int distance = 2131034144;
+			
+			// aapt resource value: 0x7f050021
+			public const int duration = 2131034145;
 			
 			// aapt resource value: 0x7f05001a
 			public const int editText_maxDistance = 2131034138;
@@ -96,8 +111,8 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f050030
 			public const int gallery1 = 2131034160;
 			
-			// aapt resource value: 0x7f050031
-			public const int gallery2 = 2131034161;
+			// aapt resource value: 0x7f050032
+			public const int gallery2 = 2131034162;
 			
 			// aapt resource value: 0x7f05001c
 			public const int gridLayout_searchResults = 2131034140;
@@ -108,11 +123,11 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f05001d
 			public const int layout1 = 2131034141;
 			
-			// aapt resource value: 0x7f050027
-			public const int maintenance = 2131034151;
+			// aapt resource value: 0x7f050028
+			public const int maintenance = 2131034152;
 			
-			// aapt resource value: 0x7f050025
-			public const int openStatus = 2131034149;
+			// aapt resource value: 0x7f050026
+			public const int openStatus = 2131034150;
 			
 			// aapt resource value: 0x7f05000a
 			public const int radioButton_difficulty_easiest = 2131034122;
@@ -159,38 +174,29 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f05002b
 			public const int scrollView1 = 2131034155;
 			
-			// aapt resource value: 0x7f05002e
-			public const int scrollView2 = 2131034158;
+			// aapt resource value: 0x7f050031
+			public const int scrollView2 = 2131034161;
 			
-			// aapt resource value: 0x7f050022
-			public const int scrollView3 = 2131034146;
+			// aapt resource value: 0x7f050023
+			public const int scrollView3 = 2131034147;
 			
-			// aapt resource value: 0x7f05002a
-			public const int scrollView4 = 2131034154;
-			
-			// aapt resource value: 0x7f050026
-			public const int season = 2131034150;
+			// aapt resource value: 0x7f050027
+			public const int season = 2131034151;
 			
 			// aapt resource value: 0x7f05000f
 			public const int textView1 = 2131034127;
 			
+			// aapt resource value: 0x7f050029
+			public const int textView4 = 2131034153;
+			
+			// aapt resource value: 0x7f050022
+			public const int textView5 = 2131034146;
+			
 			// aapt resource value: 0x7f05002d
-			public const int textView2 = 2131034157;
+			public const int textView6 = 2131034157;
 			
-			// aapt resource value: 0x7f050028
-			public const int textView4 = 2131034152;
-			
-			// aapt resource value: 0x7f050021
-			public const int textView5 = 2131034145;
-			
-			// aapt resource value: 0x7f050024
-			public const int textView7 = 2131034148;
-			
-			// aapt resource value: 0x7f050023
-			public const int textView8 = 2131034147;
-			
-			// aapt resource value: 0x7f050020
-			public const int textView9 = 2131034144;
+			// aapt resource value: 0x7f050025
+			public const int textView7 = 2131034149;
 			
 			// aapt resource value: 0x7f050002
 			public const int textView_activityLabel = 2131034114;
@@ -210,11 +216,14 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f050017
 			public const int textView_maxDurationLabel = 2131034135;
 			
-			// aapt resource value: 0x7f050032
-			public const int trailName = 2131034162;
+			// aapt resource value: 0x7f050034
+			public const int trailGallery = 2131034164;
 			
-			// aapt resource value: 0x7f050033
-			public const int viewpager = 2131034163;
+			// aapt resource value: 0x7f050035
+			public const int trailName = 2131034165;
+			
+			// aapt resource value: 0x7f050036
+			public const int viewpager = 2131034166;
 			
 			static Id()
 			{

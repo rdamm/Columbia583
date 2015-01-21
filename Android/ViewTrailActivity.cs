@@ -14,6 +14,8 @@ using Xamarin.Forms.Platform.Android;
 
 using Android.Support.V4.View;
 using Android.Support.V4.App;
+using Android.Widget;
+using Android.Widget;
 
 
 namespace Columbia583.Android
@@ -36,6 +38,8 @@ namespace Columbia583.Android
 		protected TextView openStatus = null;
 		protected TextView season = null;
 		protected TextView maintenance = null;
+		//protected Android.Widget.ScrollView commentsList = null;
+		protected Gallery trailGallery = null;
 		//private GestureDetector _gestureDetector;
 
 		protected bool debugTrailA = true;
@@ -79,7 +83,6 @@ namespace Columbia583.Android
 					distance = view.FindViewById<TextView> (Resource.Id.distance);
 					duration = view.FindViewById<TextView> (Resource.Id.duration);
 					description = view.FindViewById<TextView> (Resource.Id.description);
-					directions = view.FindViewById<TextView> (Resource.Id.directions);
 					difficultyRating = view.FindViewById<TextView> (Resource.Id.difficultyRating);
 					rating = view.FindViewById<RatingBar> (Resource.Id.rating);
 					openStatus = view.FindViewById<TextView>(Resource.Id.openStatus);
@@ -90,7 +93,6 @@ namespace Columbia583.Android
 					distance.Text = trail.distance + " km";
 					duration.Text = trail.duration + " h";
 					description.Text = trail.description;
-					directions.Text = trail.directions;
 					difficultyRating.Text = trail.difficulty.ToString().Replace("_", " ");
 					rating.Rating = trail.rating;
 					if (trail.open) {
@@ -109,6 +111,9 @@ namespace Columbia583.Android
 					var view = LayoutInflater.Inflate(Resource.Layout.ViewTrail2, v, false);
 					activitiesLayout = view.FindViewById<LinearLayout>(Resource.Id.activities);
 					amenitiesLayout = view.FindViewById<LinearLayout>(Resource.Id.amenities);
+					directions = view.FindViewById<TextView> (Resource.Id.directions);
+
+					directions.Text = trail.directions;
 
 					if (debugTrailA) {
 						for (int j = 0; j < trail.activityIDs.Length; j++) {
@@ -123,6 +128,22 @@ namespace Columbia583.Android
 							amenitiesLayout.AddView(amenityName);
 						}
 					}
+					return view;
+				}
+			);
+			adapter.AddFragmentView((i, v, b) =>
+				{
+					var view = LayoutInflater.Inflate(Resource.Layout.ViewTrail3, v, false);
+					//commentsList = view.FindViewById<LinearLayout>(Resource.Id.commentsList);
+
+					return view;
+				}
+			);
+			adapter.AddFragmentView((i, v, b) =>
+				{
+					var view = LayoutInflater.Inflate(Resource.Layout.ViewTrail4, v, false);
+					//trailGallery = view.FindViewById<LinearLayout>(Resource.Id.trailGallery);
+
 					return view;
 				}
 			);

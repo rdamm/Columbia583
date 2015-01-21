@@ -36,5 +36,5 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="473.2dp"
-        android:id="@+id/scrollView3" />
+        android:id="@+id/commentsList" />
 </LinearLayout>

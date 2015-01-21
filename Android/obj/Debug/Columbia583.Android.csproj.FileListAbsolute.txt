@@ -77,3 +77,5 @@ C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\layout\viewtr
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\layout\viewtrail2.xml
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\R.cs.flag
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\uploadflags.txt
+C:\Users\nguye_000\Documents\rdamm\Columbia583\Android\obj\Debug\res\layout\viewtrail3.xml
+C:\Users\nguye_000\Documents\rdamm\Columbia583\Android\obj\Debug\res\layout\viewtrail4.xml
