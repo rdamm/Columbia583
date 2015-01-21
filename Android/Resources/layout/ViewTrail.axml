@@ -9,7 +9,8 @@
         android:src="@android:drawable/ic_menu_gallery"
         android:layout_width="match_parent"
         android:layout_height="160.0dp"
-        android:id="@+id/imageView1" />
+        android:id="@+id/imageView1"
+        android:layout_marginLeft="3.0dp" />
     <RatingBar
         android:layout_width="240.7dp"
         android:layout_height="wrap_content"
@@ -17,20 +18,20 @@
         android:isIndicator="true"
         android:numStars="5"
         android:stepSize="1.0"
-        android:layout_marginLeft="140.0dp" />
+        android:layout_marginLeft="110.0dp" />
     <TextView
         android:text="x km"
-        android:layout_width="40.0dp"
+        android:layout_width="75.0dp"
         android:layout_height="wrap_content"
         android:id="@+id/distance"
-        android:layout_marginLeft="340.0dp" />
+        android:layout_marginLeft="305.0dp" />
     <TextView
-        android:text="y - z hrs"
+        android:text="y - z h"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_width="60.0dp"
+        android:layout_width="75.0dp"
         android:layout_height="wrap_content"
         android:id="@+id/duration"
-        android:layout_marginLeft="320.0dp" />
+        android:layout_marginLeft="305.0dp" />
     <TextView
         android:text="Trail Description"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -42,7 +43,7 @@
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="47.4dp"
+        android:layout_height="50.0dp"
         android:id="@+id/scrollView3">
         <TextView
             android:text="Description Here"

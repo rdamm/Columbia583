@@ -22,7 +22,7 @@ public final class R {
         public static final int amenityOptionsScroll=0x7f050006;
         public static final int button_searchTrails=0x7f050001;
         public static final int button_updateSearchResults=0x7f05001b;
-        public static final int commentsList=0x7f050033;
+        public static final int commentsList=0x7f050030;
         public static final int description=0x7f050024;
         public static final int difficultyRating=0x7f05002a;
         public static final int directions=0x7f05002e;
@@ -30,8 +30,6 @@ public final class R {
         public static final int duration=0x7f050021;
         public static final int editText_maxDistance=0x7f05001a;
         public static final int editText_maxDuration=0x7f050018;
-        public static final int gallery1=0x7f050030;
-        public static final int gallery2=0x7f050032;
         public static final int gridLayout_searchResults=0x7f05001c;
         public static final int imageView1=0x7f05001e;
         public static final int layout1=0x7f05001d;
@@ -66,9 +64,9 @@ public final class R {
         public static final int textView_mainMenuLabel=0x7f050000;
         public static final int textView_maxDistanceLabel=0x7f050019;
         public static final int textView_maxDurationLabel=0x7f050017;
-        public static final int trailGallery=0x7f050034;
-        public static final int trailName=0x7f050035;
-        public static final int viewpager=0x7f050036;
+        public static final int trailGallery=0x7f050032;
+        public static final int trailName=0x7f050033;
+        public static final int viewpager=0x7f050034;
     }
     public static final class layout {
         public static final int main=0x7f030000;

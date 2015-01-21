@@ -14,9 +14,6 @@ using Xamarin.Forms.Platform.Android;
 
 using Android.Support.V4.View;
 using Android.Support.V4.App;
-using Android.Widget;
-using Android.Widget;
-
 
 namespace Columbia583.Android
 {
