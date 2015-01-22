@@ -1,13 +1,8 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\ViewPagerFragment.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Android\Resources\Resource.designer.cs" Line="1" Column="1" />
-      <File FileName="Android\MainMenuActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\ViewTrailActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\ViewPagerFragment.cs" Line="30" Column="30" />
-      <File FileName="Android\MyFragmentPagerAdapter.cs" Line="1" Column="1" />
-      <File FileName="Android\ViewPagerIndicator.cs" Line="5" Column="5" />
+      <File FileName="Android\ViewTrailActivity.cs" Line="37" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
