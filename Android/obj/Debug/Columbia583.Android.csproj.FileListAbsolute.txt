@@ -50,6 +50,8 @@ C:\Users\nguye_000\Documents\rdamm\Columbia583\Android\obj\Debug\res\layout\view
 C:\Users\nguye_000\Documents\rdamm\Columbia583\Android\obj\Debug\R.cs.flag
 C:\Users\nguye_000\Documents\rdamm\Columbia583\Android\obj\Debug\uploadflags.txt
 C:\Users\nguye_000\Documents\rdamm\Columbia583\Android\obj\Debug\Columbia583.Android.csprojResolveAssemblyReference.cache
+C:\Users\nguye_000\Documents\rdamm\Columbia583\Android\obj\Debug\res\layout\viewtrail3.xml
+C:\Users\nguye_000\Documents\rdamm\Columbia583\Android\obj\Debug\res\layout\viewtrail4.xml
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\bin\Debug\Columbia583.Android.dll
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\bin\Debug\Columbia583.Android.pdb
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\bin\Debug\Columbia583.Android.dll.mdb
@@ -65,6 +67,7 @@ C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\bin\Debug\Xamarin.Forms.Xam
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\bin\Debug\Xamarin.Forms.Core.xml
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\bin\Debug\Xamarin.Forms.Xaml.xml
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\Columbia583.Android.csprojResolveAssemblyReference.cache
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\Columbia583.Android.dll
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\Columbia583.Android.pdb
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\android\bin\Columbia583.Android.apk
@@ -75,7 +78,7 @@ C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\layout\viewtr
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\layout\searchtrails.xml
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\layout\viewtrailbase.xml
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\layout\viewtrail2.xml
+C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\layout\viewtrail3.xml
+C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\res\layout\viewtrail4.xml
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\R.cs.flag
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\obj\Debug\uploadflags.txt
-C:\Users\nguye_000\Documents\rdamm\Columbia583\Android\obj\Debug\res\layout\viewtrail3.xml
-C:\Users\nguye_000\Documents\rdamm\Columbia583\Android\obj\Debug\res\layout\viewtrail4.xml

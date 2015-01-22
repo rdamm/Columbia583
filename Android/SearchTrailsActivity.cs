@@ -27,11 +27,11 @@ namespace Columbia583.Android
 		protected CheckBox[] amenityCheckBoxes = null;
 
 		// Difficulties.
-		protected RadioButton easiestRadioButton = null;
-		protected RadioButton easyRadioButton = null;
-		protected RadioButton moreDifficultRadioButton = null;
-		protected RadioButton veryDifficultRadioButton = null;
-		protected RadioButton extremelyDifficultRadioButton = null;
+		protected CheckBox easiestCheckBox = null;
+		protected CheckBox easyCheckBox = null;
+		protected CheckBox moreDifficultCheckBox = null;
+		protected CheckBox veryDifficultCheckBox = null;
+		protected CheckBox extremelyDifficultCheckBox = null;
 
 		// Ratings.
 		protected LinearLayout ratingsOptions = null;
@@ -67,11 +67,11 @@ namespace Columbia583.Android
 			activityOptions = FindViewById<GridLayout> (Resource.Id.activityOptions);
 			amenityOptions = FindViewById<LinearLayout> (Resource.Id.amenityOptions);
 			amenityOptionsScroll = FindViewById<ScrollView> (Resource.Id.amenityOptionsScroll);
-			easiestRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_easiest);
-			easyRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_easy);
-			moreDifficultRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_moreDifficult);
-			veryDifficultRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_veryDifficult);
-			extremelyDifficultRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_extremelyDifficult);
+			easiestCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_easiest);
+			easyCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_easy);
+			moreDifficultCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_moreDifficult);
+			veryDifficultCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_veryDifficult);
+			extremelyDifficultCheckBox = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_extremelyDifficult);
 			ratingsOptions = FindViewById<LinearLayout> (Resource.Id.ratingsOptions);
 			ratingsRadioButtons = new RadioButton[5];
 			ratingsRadioButtons[0] = FindViewById<RadioButton> (Resource.Id.radioButton_rating_1);
@@ -188,19 +188,19 @@ namespace Columbia583.Android
 					amenitiesList.Add (int.Parse(amenityCheckBoxes[i].Hint));
 				}
 			}
-			if (easiestRadioButton != null && easiestRadioButton.Checked == true) {
+			if (easiestCheckBox != null && easiestCheckBox.Checked == true) {
 				difficulty = Difficulty.Easiest;
 			}
-			if (easyRadioButton != null && easyRadioButton.Checked == true) {
+			if (easyCheckBox != null && easyCheckBox.Checked == true) {
 				difficulty = Difficulty.Easy;
 			}
-			if (moreDifficultRadioButton != null && moreDifficultRadioButton.Checked == true) {
+			if (moreDifficultCheckBox != null && moreDifficultCheckBox.Checked == true) {
 				difficulty = Difficulty.More_Difficult;
 			}
-			if (veryDifficultRadioButton!= null && veryDifficultRadioButton.Checked == true) {
+			if (veryDifficultCheckBox!= null && veryDifficultCheckBox.Checked == true) {
 				difficulty = Difficulty.Very_Difficult;
 			}
-			if (extremelyDifficultRadioButton != null && extremelyDifficultRadioButton.Checked == true) {
+			if (extremelyDifficultCheckBox != null && extremelyDifficultCheckBox.Checked == true) {
 				difficulty = Difficulty.Extremely_Difficult;
 			}
 			for (int i = 0; i < ratingsRadioButtons.Length; i++) {
