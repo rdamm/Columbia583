@@ -1,8 +1,8 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\ViewTrailActivity.cs">
     <Files>
-      <File FileName="Android\ViewTrailActivity.cs" Line="37" Column="37" />
+      <File FileName="Android\ViewTrailActivity.cs" Line="63" Column="63" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

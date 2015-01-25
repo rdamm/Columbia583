@@ -26,10 +26,240 @@ namespace Columbia583.Android
 		
 		public static void UpdateIdValues()
 		{
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.centered = global::Columbia583.Android.Resource.Attribute.centered;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.clipPadding = global::Columbia583.Android.Resource.Attribute.clipPadding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.fadeDelay = global::Columbia583.Android.Resource.Attribute.fadeDelay;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.fadeLength = global::Columbia583.Android.Resource.Attribute.fadeLength;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.fades = global::Columbia583.Android.Resource.Attribute.fades;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.fillColor = global::Columbia583.Android.Resource.Attribute.fillColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.footerColor = global::Columbia583.Android.Resource.Attribute.footerColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.footerIndicatorHeight = global::Columbia583.Android.Resource.Attribute.footerIndicatorHeight;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.footerIndicatorStyle = global::Columbia583.Android.Resource.Attribute.footerIndicatorStyle;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.footerIndicatorUnderlinePadding = global::Columbia583.Android.Resource.Attribute.footerIndicatorUnderlinePadding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.footerLineHeight = global::Columbia583.Android.Resource.Attribute.footerLineHeight;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.footerPadding = global::Columbia583.Android.Resource.Attribute.footerPadding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.gapWidth = global::Columbia583.Android.Resource.Attribute.gapWidth;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.linePosition = global::Columbia583.Android.Resource.Attribute.linePosition;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.lineWidth = global::Columbia583.Android.Resource.Attribute.lineWidth;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.pageColor = global::Columbia583.Android.Resource.Attribute.pageColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.radius = global::Columbia583.Android.Resource.Attribute.radius;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.selectedBold = global::Columbia583.Android.Resource.Attribute.selectedBold;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.selectedColor = global::Columbia583.Android.Resource.Attribute.selectedColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.snap = global::Columbia583.Android.Resource.Attribute.snap;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.strokeColor = global::Columbia583.Android.Resource.Attribute.strokeColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.strokeWidth = global::Columbia583.Android.Resource.Attribute.strokeWidth;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.titlePadding = global::Columbia583.Android.Resource.Attribute.titlePadding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.topPadding = global::Columbia583.Android.Resource.Attribute.topPadding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.unselectedColor = global::Columbia583.Android.Resource.Attribute.unselectedColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.vpiCirclePageIndicatorStyle = global::Columbia583.Android.Resource.Attribute.vpiCirclePageIndicatorStyle;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.vpiIconPageIndicatorStyle = global::Columbia583.Android.Resource.Attribute.vpiIconPageIndicatorStyle;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.vpiLinePageIndicatorStyle = global::Columbia583.Android.Resource.Attribute.vpiLinePageIndicatorStyle;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.vpiTabPageIndicatorStyle = global::Columbia583.Android.Resource.Attribute.vpiTabPageIndicatorStyle;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.vpiTitlePageIndicatorStyle = global::Columbia583.Android.Resource.Attribute.vpiTitlePageIndicatorStyle;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.vpiUnderlinePageIndicatorStyle = global::Columbia583.Android.Resource.Attribute.vpiUnderlinePageIndicatorStyle;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Boolean.default_circle_indicator_centered = global::Columbia583.Android.Resource.Boolean.default_circle_indicator_centered;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Boolean.default_circle_indicator_snap = global::Columbia583.Android.Resource.Boolean.default_circle_indicator_snap;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Boolean.default_line_indicator_centered = global::Columbia583.Android.Resource.Boolean.default_line_indicator_centered;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Boolean.default_title_indicator_selected_bold = global::Columbia583.Android.Resource.Boolean.default_title_indicator_selected_bold;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Boolean.default_underline_indicator_fades = global::Columbia583.Android.Resource.Boolean.default_underline_indicator_fades;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_circle_indicator_fill_color = global::Columbia583.Android.Resource.Color.default_circle_indicator_fill_color;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_circle_indicator_page_color = global::Columbia583.Android.Resource.Color.default_circle_indicator_page_color;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_circle_indicator_stroke_color = global::Columbia583.Android.Resource.Color.default_circle_indicator_stroke_color;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_line_indicator_selected_color = global::Columbia583.Android.Resource.Color.default_line_indicator_selected_color;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_line_indicator_unselected_color = global::Columbia583.Android.Resource.Color.default_line_indicator_unselected_color;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_title_indicator_footer_color = global::Columbia583.Android.Resource.Color.default_title_indicator_footer_color;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_title_indicator_selected_color = global::Columbia583.Android.Resource.Color.default_title_indicator_selected_color;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_title_indicator_text_color = global::Columbia583.Android.Resource.Color.default_title_indicator_text_color;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_underline_indicator_selected_color = global::Columbia583.Android.Resource.Color.default_underline_indicator_selected_color;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__background_holo_dark = global::Columbia583.Android.Resource.Color.vpi__background_holo_dark;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__background_holo_light = global::Columbia583.Android.Resource.Color.vpi__background_holo_light;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__bright_foreground_disabled_holo_dark = global::Columbia583.Android.Resource.Color.vpi__bright_foreground_disabled_holo_dark;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__bright_foreground_disabled_holo_light = global::Columbia583.Android.Resource.Color.vpi__bright_foreground_disabled_holo_light;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__bright_foreground_holo_dark = global::Columbia583.Android.Resource.Color.vpi__bright_foreground_holo_dark;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__bright_foreground_holo_light = global::Columbia583.Android.Resource.Color.vpi__bright_foreground_holo_light;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__bright_foreground_inverse_holo_dark = global::Columbia583.Android.Resource.Color.vpi__bright_foreground_inverse_holo_dark;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__bright_foreground_inverse_holo_light = global::Columbia583.Android.Resource.Color.vpi__bright_foreground_inverse_holo_light;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__dark_theme = global::Columbia583.Android.Resource.Color.vpi__dark_theme;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__light_theme = global::Columbia583.Android.Resource.Color.vpi__light_theme;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_circle_indicator_radius = global::Columbia583.Android.Resource.Dimension.default_circle_indicator_radius;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_circle_indicator_stroke_width = global::Columbia583.Android.Resource.Dimension.default_circle_indicator_stroke_width;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_line_indicator_gap_width = global::Columbia583.Android.Resource.Dimension.default_line_indicator_gap_width;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_line_indicator_line_width = global::Columbia583.Android.Resource.Dimension.default_line_indicator_line_width;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_line_indicator_stroke_width = global::Columbia583.Android.Resource.Dimension.default_line_indicator_stroke_width;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_clip_padding = global::Columbia583.Android.Resource.Dimension.default_title_indicator_clip_padding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_footer_indicator_height = global::Columbia583.Android.Resource.Dimension.default_title_indicator_footer_indicator_height;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_footer_indicator_underline_padding = global::Columbia583.Android.Resource.Dimension.default_title_indicator_footer_indicator_underline_padding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_footer_line_height = global::Columbia583.Android.Resource.Dimension.default_title_indicator_footer_line_height;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_footer_padding = global::Columbia583.Android.Resource.Dimension.default_title_indicator_footer_padding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_text_size = global::Columbia583.Android.Resource.Dimension.default_title_indicator_text_size;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_title_padding = global::Columbia583.Android.Resource.Dimension.default_title_indicator_title_padding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_top_padding = global::Columbia583.Android.Resource.Dimension.default_title_indicator_top_padding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Drawable.vpi__tab_indicator = global::Columbia583.Android.Resource.Drawable.vpi__tab_indicator;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Drawable.vpi__tab_selected_focused_holo = global::Columbia583.Android.Resource.Drawable.vpi__tab_selected_focused_holo;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Drawable.vpi__tab_selected_holo = global::Columbia583.Android.Resource.Drawable.vpi__tab_selected_holo;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Drawable.vpi__tab_selected_pressed_holo = global::Columbia583.Android.Resource.Drawable.vpi__tab_selected_pressed_holo;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Drawable.vpi__tab_unselected_focused_holo = global::Columbia583.Android.Resource.Drawable.vpi__tab_unselected_focused_holo;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Drawable.vpi__tab_unselected_holo = global::Columbia583.Android.Resource.Drawable.vpi__tab_unselected_holo;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Drawable.vpi__tab_unselected_pressed_holo = global::Columbia583.Android.Resource.Drawable.vpi__tab_unselected_pressed_holo;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Id.bottom = global::Columbia583.Android.Resource.Id.bottom;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Id.none = global::Columbia583.Android.Resource.Id.none;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Id.top = global::Columbia583.Android.Resource.Id.top;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Id.triangle = global::Columbia583.Android.Resource.Id.triangle;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Id.underline = global::Columbia583.Android.Resource.Id.underline;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Integer.default_circle_indicator_orientation = global::Columbia583.Android.Resource.Integer.default_circle_indicator_orientation;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Integer.default_title_indicator_footer_indicator_style = global::Columbia583.Android.Resource.Integer.default_title_indicator_footer_indicator_style;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Integer.default_title_indicator_line_position = global::Columbia583.Android.Resource.Integer.default_title_indicator_line_position;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Integer.default_underline_indicator_fade_delay = global::Columbia583.Android.Resource.Integer.default_underline_indicator_fade_delay;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Integer.default_underline_indicator_fade_length = global::Columbia583.Android.Resource.Integer.default_underline_indicator_fade_length;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Style.TextAppearance_TabPageIndicator = global::Columbia583.Android.Resource.Style.TextAppearance_TabPageIndicator;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Style.Theme_PageIndicatorDefaults = global::Columbia583.Android.Resource.Style.Theme_PageIndicatorDefaults;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Style.Widget = global::Columbia583.Android.Resource.Style.Widget;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Style.Widget_IconPageIndicator = global::Columbia583.Android.Resource.Style.Widget_IconPageIndicator;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Style.Widget_TabPageIndicator = global::Columbia583.Android.Resource.Style.Widget_TabPageIndicator;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator = global::Columbia583.Android.Resource.Styleable.CirclePageIndicator;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_android_background = global::Columbia583.Android.Resource.Styleable.CirclePageIndicator_android_background;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_android_orientation = global::Columbia583.Android.Resource.Styleable.CirclePageIndicator_android_orientation;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_centered = global::Columbia583.Android.Resource.Styleable.CirclePageIndicator_centered;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_fillColor = global::Columbia583.Android.Resource.Styleable.CirclePageIndicator_fillColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_pageColor = global::Columbia583.Android.Resource.Styleable.CirclePageIndicator_pageColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_radius = global::Columbia583.Android.Resource.Styleable.CirclePageIndicator_radius;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_snap = global::Columbia583.Android.Resource.Styleable.CirclePageIndicator_snap;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_strokeColor = global::Columbia583.Android.Resource.Styleable.CirclePageIndicator_strokeColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_strokeWidth = global::Columbia583.Android.Resource.Styleable.CirclePageIndicator_strokeWidth;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator = global::Columbia583.Android.Resource.Styleable.LinePageIndicator;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator_android_background = global::Columbia583.Android.Resource.Styleable.LinePageIndicator_android_background;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator_centered = global::Columbia583.Android.Resource.Styleable.LinePageIndicator_centered;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator_gapWidth = global::Columbia583.Android.Resource.Styleable.LinePageIndicator_gapWidth;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator_lineWidth = global::Columbia583.Android.Resource.Styleable.LinePageIndicator_lineWidth;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator_selectedColor = global::Columbia583.Android.Resource.Styleable.LinePageIndicator_selectedColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator_strokeWidth = global::Columbia583.Android.Resource.Styleable.LinePageIndicator_strokeWidth;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator_unselectedColor = global::Columbia583.Android.Resource.Styleable.LinePageIndicator_unselectedColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_android_background = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_android_background;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_android_textColor = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_android_textColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_android_textSize = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_android_textSize;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_clipPadding = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_clipPadding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_footerColor = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_footerColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_footerIndicatorHeight = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_footerIndicatorHeight;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_footerIndicatorStyle = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_footerIndicatorStyle;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_footerIndicatorUnderlinePadding = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_footerIndicatorUnderlinePadding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_footerLineHeight = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_footerLineHeight;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_footerPadding = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_footerPadding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_linePosition = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_linePosition;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_selectedBold = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_selectedBold;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_selectedColor = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_selectedColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_titlePadding = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_titlePadding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_topPadding = global::Columbia583.Android.Resource.Styleable.TitlePageIndicator_topPadding;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.UnderlinePageIndicator = global::Columbia583.Android.Resource.Styleable.UnderlinePageIndicator;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.UnderlinePageIndicator_android_background = global::Columbia583.Android.Resource.Styleable.UnderlinePageIndicator_android_background;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.UnderlinePageIndicator_fadeDelay = global::Columbia583.Android.Resource.Styleable.UnderlinePageIndicator_fadeDelay;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.UnderlinePageIndicator_fadeLength = global::Columbia583.Android.Resource.Styleable.UnderlinePageIndicator_fadeLength;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.UnderlinePageIndicator_fades = global::Columbia583.Android.Resource.Styleable.UnderlinePageIndicator_fades;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.UnderlinePageIndicator_selectedColor = global::Columbia583.Android.Resource.Styleable.UnderlinePageIndicator_selectedColor;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator = global::Columbia583.Android.Resource.Styleable.ViewPagerIndicator;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiCirclePageIndicatorStyle = global::Columbia583.Android.Resource.Styleable.ViewPagerIndicator_vpiCirclePageIndicatorStyle;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiIconPageIndicatorStyle = global::Columbia583.Android.Resource.Styleable.ViewPagerIndicator_vpiIconPageIndicatorStyle;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiLinePageIndicatorStyle = global::Columbia583.Android.Resource.Styleable.ViewPagerIndicator_vpiLinePageIndicatorStyle;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiTabPageIndicatorStyle = global::Columbia583.Android.Resource.Styleable.ViewPagerIndicator_vpiTabPageIndicatorStyle;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiTitlePageIndicatorStyle = global::Columbia583.Android.Resource.Styleable.ViewPagerIndicator_vpiTitlePageIndicatorStyle;
+			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiUnderlinePageIndicatorStyle = global::Columbia583.Android.Resource.Styleable.ViewPagerIndicator_vpiUnderlinePageIndicatorStyle;
 		}
 		
 		public partial class Attribute
 		{
+			
+			// aapt resource value: 0x7f010006
+			public const int centered = 2130771974;
+			
+			// aapt resource value: 0x7f010011
+			public const int clipPadding = 2130771985;
+			
+			// aapt resource value: 0x7f01001d
+			public const int fadeDelay = 2130771997;
+			
+			// aapt resource value: 0x7f01001e
+			public const int fadeLength = 2130771998;
+			
+			// aapt resource value: 0x7f01001c
+			public const int fades = 2130771996;
+			
+			// aapt resource value: 0x7f01000a
+			public const int fillColor = 2130771978;
+			
+			// aapt resource value: 0x7f010012
+			public const int footerColor = 2130771986;
+			
+			// aapt resource value: 0x7f010015
+			public const int footerIndicatorHeight = 2130771989;
+			
+			// aapt resource value: 0x7f010014
+			public const int footerIndicatorStyle = 2130771988;
+			
+			// aapt resource value: 0x7f010016
+			public const int footerIndicatorUnderlinePadding = 2130771990;
+			
+			// aapt resource value: 0x7f010013
+			public const int footerLineHeight = 2130771987;
+			
+			// aapt resource value: 0x7f010017
+			public const int footerPadding = 2130771991;
+			
+			// aapt resource value: 0x7f010010
+			public const int gapWidth = 2130771984;
+			
+			// aapt resource value: 0x7f010018
+			public const int linePosition = 2130771992;
+			
+			// aapt resource value: 0x7f01000f
+			public const int lineWidth = 2130771983;
+			
+			// aapt resource value: 0x7f01000b
+			public const int pageColor = 2130771979;
+			
+			// aapt resource value: 0x7f01000c
+			public const int radius = 2130771980;
+			
+			// aapt resource value: 0x7f010019
+			public const int selectedBold = 2130771993;
+			
+			// aapt resource value: 0x7f010007
+			public const int selectedColor = 2130771975;
+			
+			// aapt resource value: 0x7f01000d
+			public const int snap = 2130771981;
+			
+			// aapt resource value: 0x7f01000e
+			public const int strokeColor = 2130771982;
+			
+			// aapt resource value: 0x7f010008
+			public const int strokeWidth = 2130771976;
+			
+			// aapt resource value: 0x7f01001a
+			public const int titlePadding = 2130771994;
+			
+			// aapt resource value: 0x7f01001b
+			public const int topPadding = 2130771995;
+			
+			// aapt resource value: 0x7f010009
+			public const int unselectedColor = 2130771977;
+			
+			// aapt resource value: 0x7f010000
+			public const int vpiCirclePageIndicatorStyle = 2130771968;
+			
+			// aapt resource value: 0x7f010001
+			public const int vpiIconPageIndicatorStyle = 2130771969;
+			
+			// aapt resource value: 0x7f010002
+			public const int vpiLinePageIndicatorStyle = 2130771970;
+			
+			// aapt resource value: 0x7f010004
+			public const int vpiTabPageIndicatorStyle = 2130771972;
+			
+			// aapt resource value: 0x7f010003
+			public const int vpiTitlePageIndicatorStyle = 2130771971;
+			
+			// aapt resource value: 0x7f010005
+			public const int vpiUnderlinePageIndicatorStyle = 2130771973;
 			
 			static Attribute()
 			{
@@ -41,11 +271,182 @@ namespace Columbia583.Android
 			}
 		}
 		
+		public partial class Boolean
+		{
+			
+			// aapt resource value: 0x7f060000
+			public const int default_circle_indicator_centered = 2131099648;
+			
+			// aapt resource value: 0x7f060001
+			public const int default_circle_indicator_snap = 2131099649;
+			
+			// aapt resource value: 0x7f060002
+			public const int default_line_indicator_centered = 2131099650;
+			
+			// aapt resource value: 0x7f060003
+			public const int default_title_indicator_selected_bold = 2131099651;
+			
+			// aapt resource value: 0x7f060004
+			public const int default_underline_indicator_fades = 2131099652;
+			
+			static Boolean()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Boolean()
+			{
+			}
+		}
+		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f050008
+			public const int default_circle_indicator_fill_color = 2131034120;
+			
+			// aapt resource value: 0x7f050009
+			public const int default_circle_indicator_page_color = 2131034121;
+			
+			// aapt resource value: 0x7f05000a
+			public const int default_circle_indicator_stroke_color = 2131034122;
+			
+			// aapt resource value: 0x7f05000b
+			public const int default_line_indicator_selected_color = 2131034123;
+			
+			// aapt resource value: 0x7f05000c
+			public const int default_line_indicator_unselected_color = 2131034124;
+			
+			// aapt resource value: 0x7f05000d
+			public const int default_title_indicator_footer_color = 2131034125;
+			
+			// aapt resource value: 0x7f05000e
+			public const int default_title_indicator_selected_color = 2131034126;
+			
+			// aapt resource value: 0x7f05000f
+			public const int default_title_indicator_text_color = 2131034127;
+			
+			// aapt resource value: 0x7f050010
+			public const int default_underline_indicator_selected_color = 2131034128;
+			
+			// aapt resource value: 0x7f050000
+			public const int vpi__background_holo_dark = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int vpi__background_holo_light = 2131034113;
+			
+			// aapt resource value: 0x7f050004
+			public const int vpi__bright_foreground_disabled_holo_dark = 2131034116;
+			
+			// aapt resource value: 0x7f050005
+			public const int vpi__bright_foreground_disabled_holo_light = 2131034117;
+			
+			// aapt resource value: 0x7f050002
+			public const int vpi__bright_foreground_holo_dark = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int vpi__bright_foreground_holo_light = 2131034115;
+			
+			// aapt resource value: 0x7f050006
+			public const int vpi__bright_foreground_inverse_holo_dark = 2131034118;
+			
+			// aapt resource value: 0x7f050007
+			public const int vpi__bright_foreground_inverse_holo_light = 2131034119;
+			
+			// aapt resource value: 0x7f050011
+			public const int vpi__dark_theme = 2131034129;
+			
+			// aapt resource value: 0x7f050012
+			public const int vpi__light_theme = 2131034130;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
+		public partial class Dimension
+		{
+			
+			// aapt resource value: 0x7f080000
+			public const int default_circle_indicator_radius = 2131230720;
+			
+			// aapt resource value: 0x7f080001
+			public const int default_circle_indicator_stroke_width = 2131230721;
+			
+			// aapt resource value: 0x7f080003
+			public const int default_line_indicator_gap_width = 2131230723;
+			
+			// aapt resource value: 0x7f080002
+			public const int default_line_indicator_line_width = 2131230722;
+			
+			// aapt resource value: 0x7f080004
+			public const int default_line_indicator_stroke_width = 2131230724;
+			
+			// aapt resource value: 0x7f080005
+			public const int default_title_indicator_clip_padding = 2131230725;
+			
+			// aapt resource value: 0x7f080007
+			public const int default_title_indicator_footer_indicator_height = 2131230727;
+			
+			// aapt resource value: 0x7f080008
+			public const int default_title_indicator_footer_indicator_underline_padding = 2131230728;
+			
+			// aapt resource value: 0x7f080006
+			public const int default_title_indicator_footer_line_height = 2131230726;
+			
+			// aapt resource value: 0x7f080009
+			public const int default_title_indicator_footer_padding = 2131230729;
+			
+			// aapt resource value: 0x7f08000a
+			public const int default_title_indicator_text_size = 2131230730;
+			
+			// aapt resource value: 0x7f08000b
+			public const int default_title_indicator_title_padding = 2131230731;
+			
+			// aapt resource value: 0x7f08000c
+			public const int default_title_indicator_top_padding = 2131230732;
+			
+			static Dimension()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Dimension()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
 			// aapt resource value: 0x7f020000
 			public const int Icon = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int vpi__tab_indicator = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int vpi__tab_selected_focused_holo = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int vpi__tab_selected_holo = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int vpi__tab_selected_pressed_holo = 2130837508;
+			
+			// aapt resource value: 0x7f020005
+			public const int vpi__tab_unselected_focused_holo = 2130837509;
+			
+			// aapt resource value: 0x7f020006
+			public const int vpi__tab_unselected_holo = 2130837510;
+			
+			// aapt resource value: 0x7f020007
+			public const int vpi__tab_unselected_pressed_holo = 2130837511;
 			
 			static Drawable()
 			{
@@ -60,161 +461,179 @@ namespace Columbia583.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f05002b
-			public const int activities = 2131034155;
+			// aapt resource value: 0x7f040030
+			public const int activities = 2130968624;
 			
-			// aapt resource value: 0x7f050004
-			public const int activityOptions = 2131034116;
+			// aapt resource value: 0x7f040009
+			public const int activityOptions = 2130968585;
 			
-			// aapt resource value: 0x7f050003
-			public const int activityOptionsScroll = 2131034115;
+			// aapt resource value: 0x7f040008
+			public const int activityOptionsScroll = 2130968584;
 			
-			// aapt resource value: 0x7f05002e
-			public const int amenities = 2131034158;
+			// aapt resource value: 0x7f040033
+			public const int amenities = 2130968627;
 			
-			// aapt resource value: 0x7f050007
-			public const int amenityOptions = 2131034119;
+			// aapt resource value: 0x7f04000c
+			public const int amenityOptions = 2130968588;
 			
-			// aapt resource value: 0x7f050006
-			public const int amenityOptionsScroll = 2131034118;
+			// aapt resource value: 0x7f04000b
+			public const int amenityOptionsScroll = 2130968587;
 			
-			// aapt resource value: 0x7f050001
-			public const int button_searchTrails = 2131034113;
+			// aapt resource value: 0x7f040003
+			public const int bottom = 2130968579;
 			
-			// aapt resource value: 0x7f05001a
-			public const int button_updateSearchResults = 2131034138;
+			// aapt resource value: 0x7f040006
+			public const int button_searchTrails = 2130968582;
 			
-			// aapt resource value: 0x7f050009
-			public const int checkBox_difficulty_easiest = 2131034121;
+			// aapt resource value: 0x7f04001f
+			public const int button_updateSearchResults = 2130968607;
 			
-			// aapt resource value: 0x7f05000a
-			public const int checkBox_difficulty_easy = 2131034122;
+			// aapt resource value: 0x7f04000e
+			public const int checkBox_difficulty_easiest = 2130968590;
 			
-			// aapt resource value: 0x7f05000d
-			public const int checkBox_difficulty_extremelyDifficult = 2131034125;
+			// aapt resource value: 0x7f04000f
+			public const int checkBox_difficulty_easy = 2130968591;
 			
-			// aapt resource value: 0x7f05000b
-			public const int checkBox_difficulty_moreDifficult = 2131034123;
+			// aapt resource value: 0x7f040012
+			public const int checkBox_difficulty_extremelyDifficult = 2130968594;
 			
-			// aapt resource value: 0x7f05000c
-			public const int checkBox_difficulty_veryDifficult = 2131034124;
+			// aapt resource value: 0x7f040010
+			public const int checkBox_difficulty_moreDifficult = 2130968592;
 			
-			// aapt resource value: 0x7f05002f
-			public const int commentsList = 2131034159;
+			// aapt resource value: 0x7f040011
+			public const int checkBox_difficulty_veryDifficult = 2130968593;
 			
-			// aapt resource value: 0x7f050023
-			public const int description = 2131034147;
+			// aapt resource value: 0x7f040034
+			public const int commentsList = 2130968628;
 			
-			// aapt resource value: 0x7f050029
-			public const int difficultyRating = 2131034153;
+			// aapt resource value: 0x7f040028
+			public const int description = 2130968616;
 			
-			// aapt resource value: 0x7f05002d
-			public const int directions = 2131034157;
+			// aapt resource value: 0x7f04002e
+			public const int difficultyRating = 2130968622;
 			
-			// aapt resource value: 0x7f05001f
-			public const int distance = 2131034143;
+			// aapt resource value: 0x7f040032
+			public const int directions = 2130968626;
 			
-			// aapt resource value: 0x7f050020
-			public const int duration = 2131034144;
+			// aapt resource value: 0x7f040024
+			public const int distance = 2130968612;
 			
-			// aapt resource value: 0x7f050019
-			public const int editText_maxDistance = 2131034137;
+			// aapt resource value: 0x7f040025
+			public const int duration = 2130968613;
 			
-			// aapt resource value: 0x7f050017
-			public const int editText_maxDuration = 2131034135;
+			// aapt resource value: 0x7f04001e
+			public const int editText_maxDistance = 2130968606;
 			
-			// aapt resource value: 0x7f05001b
-			public const int gridLayout_searchResults = 2131034139;
+			// aapt resource value: 0x7f04001c
+			public const int editText_maxDuration = 2130968604;
 			
-			// aapt resource value: 0x7f05001d
-			public const int imageView1 = 2131034141;
+			// aapt resource value: 0x7f040020
+			public const int gridLayout_searchResults = 2130968608;
 			
-			// aapt resource value: 0x7f05001c
-			public const int layout1 = 2131034140;
+			// aapt resource value: 0x7f040022
+			public const int imageView1 = 2130968610;
 			
-			// aapt resource value: 0x7f050027
-			public const int maintenance = 2131034151;
+			// aapt resource value: 0x7f040021
+			public const int layout1 = 2130968609;
 			
-			// aapt resource value: 0x7f050025
-			public const int openStatus = 2131034149;
+			// aapt resource value: 0x7f04002c
+			public const int maintenance = 2130968620;
 			
-			// aapt resource value: 0x7f050011
-			public const int radioButton_rating_1 = 2131034129;
+			// aapt resource value: 0x7f040000
+			public const int none = 2130968576;
 			
-			// aapt resource value: 0x7f050012
-			public const int radioButton_rating_2 = 2131034130;
+			// aapt resource value: 0x7f04002a
+			public const int openStatus = 2130968618;
 			
-			// aapt resource value: 0x7f050013
-			public const int radioButton_rating_3 = 2131034131;
+			// aapt resource value: 0x7f040039
+			public const int pageIndicator = 2130968633;
 			
-			// aapt resource value: 0x7f050014
-			public const int radioButton_rating_4 = 2131034132;
+			// aapt resource value: 0x7f040016
+			public const int radioButton_rating_1 = 2130968598;
 			
-			// aapt resource value: 0x7f050015
-			public const int radioButton_rating_5 = 2131034133;
+			// aapt resource value: 0x7f040017
+			public const int radioButton_rating_2 = 2130968599;
 			
-			// aapt resource value: 0x7f050010
-			public const int radioGroup_ratings = 2131034128;
+			// aapt resource value: 0x7f040018
+			public const int radioButton_rating_3 = 2130968600;
 			
-			// aapt resource value: 0x7f05001e
-			public const int rating = 2131034142;
+			// aapt resource value: 0x7f040019
+			public const int radioButton_rating_4 = 2130968601;
 			
-			// aapt resource value: 0x7f05000f
-			public const int ratingsOptions = 2131034127;
+			// aapt resource value: 0x7f04001a
+			public const int radioButton_rating_5 = 2130968602;
 			
-			// aapt resource value: 0x7f05002a
-			public const int scrollView1 = 2131034154;
+			// aapt resource value: 0x7f040015
+			public const int radioGroup_ratings = 2130968597;
 			
-			// aapt resource value: 0x7f050030
-			public const int scrollView2 = 2131034160;
+			// aapt resource value: 0x7f040023
+			public const int rating = 2130968611;
 			
-			// aapt resource value: 0x7f050022
-			public const int scrollView3 = 2131034146;
+			// aapt resource value: 0x7f040014
+			public const int ratingsOptions = 2130968596;
 			
-			// aapt resource value: 0x7f050026
-			public const int season = 2131034150;
+			// aapt resource value: 0x7f04002f
+			public const int scrollView1 = 2130968623;
 			
-			// aapt resource value: 0x7f05000e
-			public const int textView1 = 2131034126;
+			// aapt resource value: 0x7f040035
+			public const int scrollView2 = 2130968629;
 			
-			// aapt resource value: 0x7f050028
-			public const int textView4 = 2131034152;
+			// aapt resource value: 0x7f040027
+			public const int scrollView3 = 2130968615;
 			
-			// aapt resource value: 0x7f050021
-			public const int textView5 = 2131034145;
+			// aapt resource value: 0x7f04002b
+			public const int season = 2130968619;
 			
-			// aapt resource value: 0x7f05002c
-			public const int textView6 = 2131034156;
+			// aapt resource value: 0x7f040013
+			public const int textView1 = 2130968595;
 			
-			// aapt resource value: 0x7f050024
-			public const int textView7 = 2131034148;
+			// aapt resource value: 0x7f04002d
+			public const int textView4 = 2130968621;
 			
-			// aapt resource value: 0x7f050002
-			public const int textView_activityLabel = 2131034114;
+			// aapt resource value: 0x7f040026
+			public const int textView5 = 2130968614;
 			
-			// aapt resource value: 0x7f050005
-			public const int textView_amenityLabel = 2131034117;
+			// aapt resource value: 0x7f040031
+			public const int textView6 = 2130968625;
 			
-			// aapt resource value: 0x7f050008
-			public const int textView_difficultyLabel = 2131034120;
+			// aapt resource value: 0x7f040029
+			public const int textView7 = 2130968617;
 			
-			// aapt resource value: 0x7f050000
-			public const int textView_mainMenuLabel = 2131034112;
+			// aapt resource value: 0x7f040007
+			public const int textView_activityLabel = 2130968583;
 			
-			// aapt resource value: 0x7f050018
-			public const int textView_maxDistanceLabel = 2131034136;
+			// aapt resource value: 0x7f04000a
+			public const int textView_amenityLabel = 2130968586;
 			
-			// aapt resource value: 0x7f050016
-			public const int textView_maxDurationLabel = 2131034134;
+			// aapt resource value: 0x7f04000d
+			public const int textView_difficultyLabel = 2130968589;
 			
-			// aapt resource value: 0x7f050031
-			public const int trailGallery = 2131034161;
+			// aapt resource value: 0x7f040005
+			public const int textView_mainMenuLabel = 2130968581;
 			
-			// aapt resource value: 0x7f050032
-			public const int trailName = 2131034162;
+			// aapt resource value: 0x7f04001d
+			public const int textView_maxDistanceLabel = 2130968605;
 			
-			// aapt resource value: 0x7f050033
-			public const int viewpager = 2131034163;
+			// aapt resource value: 0x7f04001b
+			public const int textView_maxDurationLabel = 2130968603;
+			
+			// aapt resource value: 0x7f040004
+			public const int top = 2130968580;
+			
+			// aapt resource value: 0x7f040036
+			public const int trailGallery = 2130968630;
+			
+			// aapt resource value: 0x7f040037
+			public const int trailName = 2130968631;
+			
+			// aapt resource value: 0x7f040001
+			public const int triangle = 2130968577;
+			
+			// aapt resource value: 0x7f040002
+			public const int underline = 2130968578;
+			
+			// aapt resource value: 0x7f040038
+			public const int viewpager = 2130968632;
 			
 			static Id()
 			{
@@ -222,6 +641,34 @@ namespace Columbia583.Android
 			}
 			
 			private Id()
+			{
+			}
+		}
+		
+		public partial class Integer
+		{
+			
+			// aapt resource value: 0x7f070000
+			public const int default_circle_indicator_orientation = 2131165184;
+			
+			// aapt resource value: 0x7f070001
+			public const int default_title_indicator_footer_indicator_style = 2131165185;
+			
+			// aapt resource value: 0x7f070002
+			public const int default_title_indicator_line_position = 2131165186;
+			
+			// aapt resource value: 0x7f070003
+			public const int default_underline_indicator_fade_delay = 2131165187;
+			
+			// aapt resource value: 0x7f070004
+			public const int default_underline_indicator_fade_length = 2131165188;
+			
+			static Integer()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Integer()
 			{
 			}
 		}
@@ -263,14 +710,14 @@ namespace Columbia583.Android
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040002
-			public const int app_name = 2130968578;
+			// aapt resource value: 0x7f0a0002
+			public const int app_name = 2131361794;
 			
-			// aapt resource value: 0x7f040000
-			public const int button_updateSearchResults = 2130968576;
+			// aapt resource value: 0x7f0a0000
+			public const int button_updateSearchResults = 2131361792;
 			
-			// aapt resource value: 0x7f040001
-			public const int button_viewTrail = 2130968577;
+			// aapt resource value: 0x7f0a0001
+			public const int button_viewTrail = 2131361793;
 			
 			static String()
 			{
@@ -278,6 +725,225 @@ namespace Columbia583.Android
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f090003
+			public const int TextAppearance_TabPageIndicator = 2131296259;
+			
+			// aapt resource value: 0x7f090000
+			public const int Theme_PageIndicatorDefaults = 2131296256;
+			
+			// aapt resource value: 0x7f090001
+			public const int Widget = 2131296257;
+			
+			// aapt resource value: 0x7f090004
+			public const int Widget_IconPageIndicator = 2131296260;
+			
+			// aapt resource value: 0x7f090002
+			public const int Widget_TabPageIndicator = 2131296258;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
+			{
+			}
+		}
+		
+		public partial class Styleable
+		{
+			
+			public static int[] CirclePageIndicator = new int[] {
+					16842948,
+					16842964,
+					2130771974,
+					2130771976,
+					2130771978,
+					2130771979,
+					2130771980,
+					2130771981,
+					2130771982};
+			
+			// aapt resource value: 1
+			public const int CirclePageIndicator_android_background = 1;
+			
+			// aapt resource value: 0
+			public const int CirclePageIndicator_android_orientation = 0;
+			
+			// aapt resource value: 2
+			public const int CirclePageIndicator_centered = 2;
+			
+			// aapt resource value: 4
+			public const int CirclePageIndicator_fillColor = 4;
+			
+			// aapt resource value: 5
+			public const int CirclePageIndicator_pageColor = 5;
+			
+			// aapt resource value: 6
+			public const int CirclePageIndicator_radius = 6;
+			
+			// aapt resource value: 7
+			public const int CirclePageIndicator_snap = 7;
+			
+			// aapt resource value: 8
+			public const int CirclePageIndicator_strokeColor = 8;
+			
+			// aapt resource value: 3
+			public const int CirclePageIndicator_strokeWidth = 3;
+			
+			public static int[] LinePageIndicator = new int[] {
+					16842964,
+					2130771974,
+					2130771975,
+					2130771976,
+					2130771977,
+					2130771983,
+					2130771984};
+			
+			// aapt resource value: 0
+			public const int LinePageIndicator_android_background = 0;
+			
+			// aapt resource value: 1
+			public const int LinePageIndicator_centered = 1;
+			
+			// aapt resource value: 6
+			public const int LinePageIndicator_gapWidth = 6;
+			
+			// aapt resource value: 5
+			public const int LinePageIndicator_lineWidth = 5;
+			
+			// aapt resource value: 2
+			public const int LinePageIndicator_selectedColor = 2;
+			
+			// aapt resource value: 3
+			public const int LinePageIndicator_strokeWidth = 3;
+			
+			// aapt resource value: 4
+			public const int LinePageIndicator_unselectedColor = 4;
+			
+			public static int[] TitlePageIndicator = new int[] {
+					16842901,
+					16842904,
+					16842964,
+					2130771975,
+					2130771985,
+					2130771986,
+					2130771987,
+					2130771988,
+					2130771989,
+					2130771990,
+					2130771991,
+					2130771992,
+					2130771993,
+					2130771994,
+					2130771995};
+			
+			// aapt resource value: 2
+			public const int TitlePageIndicator_android_background = 2;
+			
+			// aapt resource value: 1
+			public const int TitlePageIndicator_android_textColor = 1;
+			
+			// aapt resource value: 0
+			public const int TitlePageIndicator_android_textSize = 0;
+			
+			// aapt resource value: 4
+			public const int TitlePageIndicator_clipPadding = 4;
+			
+			// aapt resource value: 5
+			public const int TitlePageIndicator_footerColor = 5;
+			
+			// aapt resource value: 8
+			public const int TitlePageIndicator_footerIndicatorHeight = 8;
+			
+			// aapt resource value: 7
+			public const int TitlePageIndicator_footerIndicatorStyle = 7;
+			
+			// aapt resource value: 9
+			public const int TitlePageIndicator_footerIndicatorUnderlinePadding = 9;
+			
+			// aapt resource value: 6
+			public const int TitlePageIndicator_footerLineHeight = 6;
+			
+			// aapt resource value: 10
+			public const int TitlePageIndicator_footerPadding = 10;
+			
+			// aapt resource value: 11
+			public const int TitlePageIndicator_linePosition = 11;
+			
+			// aapt resource value: 12
+			public const int TitlePageIndicator_selectedBold = 12;
+			
+			// aapt resource value: 3
+			public const int TitlePageIndicator_selectedColor = 3;
+			
+			// aapt resource value: 13
+			public const int TitlePageIndicator_titlePadding = 13;
+			
+			// aapt resource value: 14
+			public const int TitlePageIndicator_topPadding = 14;
+			
+			public static int[] UnderlinePageIndicator = new int[] {
+					16842964,
+					2130771975,
+					2130771996,
+					2130771997,
+					2130771998};
+			
+			// aapt resource value: 0
+			public const int UnderlinePageIndicator_android_background = 0;
+			
+			// aapt resource value: 3
+			public const int UnderlinePageIndicator_fadeDelay = 3;
+			
+			// aapt resource value: 4
+			public const int UnderlinePageIndicator_fadeLength = 4;
+			
+			// aapt resource value: 2
+			public const int UnderlinePageIndicator_fades = 2;
+			
+			// aapt resource value: 1
+			public const int UnderlinePageIndicator_selectedColor = 1;
+			
+			public static int[] ViewPagerIndicator = new int[] {
+					2130771968,
+					2130771969,
+					2130771970,
+					2130771971,
+					2130771972,
+					2130771973};
+			
+			// aapt resource value: 0
+			public const int ViewPagerIndicator_vpiCirclePageIndicatorStyle = 0;
+			
+			// aapt resource value: 1
+			public const int ViewPagerIndicator_vpiIconPageIndicatorStyle = 1;
+			
+			// aapt resource value: 2
+			public const int ViewPagerIndicator_vpiLinePageIndicatorStyle = 2;
+			
+			// aapt resource value: 4
+			public const int ViewPagerIndicator_vpiTabPageIndicatorStyle = 4;
+			
+			// aapt resource value: 3
+			public const int ViewPagerIndicator_vpiTitlePageIndicatorStyle = 3;
+			
+			// aapt resource value: 5
+			public const int ViewPagerIndicator_vpiUnderlinePageIndicatorStyle = 5;
+			
+			static Styleable()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Styleable()
 			{
 			}
 		}

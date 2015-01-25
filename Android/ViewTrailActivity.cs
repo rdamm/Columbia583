@@ -15,6 +15,8 @@ using Xamarin.Forms.Platform.Android;
 using Android.Support.V4.View;
 using Android.Support.V4.App;
 
+using DK.Ostebaronen.Droid.ViewPagerIndicator;
+
 namespace Columbia583.Android
 {
 	[Activity (Label = "Columbia583.Android_View_Trail", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -22,6 +24,7 @@ namespace Columbia583.Android
 	{
 		protected ViewPager pager = null;
 		protected MyFragmentPagerAdapter adapter = null;
+		protected CirclePageIndicator pageIndicator = null;
 		protected TextView trailName = null;
 		//protected ViewSwitcher viewSwitcher = null;
 		protected LinearLayout activitiesLayout = null;
@@ -52,6 +55,7 @@ namespace Columbia583.Android
 
 			pager = FindViewById<ViewPager> (Resource.Id.viewpager);
 			trailName = FindViewById<TextView> (Resource.Id.trailName);
+			pageIndicator = FindViewById<CirclePageIndicator> (Resource.Id.pageIndicator);
 			adapter = new MyFragmentPagerAdapter (SupportFragmentManager);
 
 			string trailJSONStr = Intent.GetStringExtra ("viewedTrail") ?? "No trail displayed";
@@ -145,6 +149,7 @@ namespace Columbia583.Android
 				}
 			);
 			pager.Adapter = adapter;
+			pageIndicator.SetViewPager(pager);
 
 		}
 	}
