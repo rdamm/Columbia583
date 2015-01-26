@@ -21,17 +21,17 @@
         android:layout_marginLeft="110.0dp" />
     <TextView
         android:text="x km"
-        android:layout_width="75.0dp"
+        android:layout_width="100.0dp"
         android:layout_height="wrap_content"
         android:id="@+id/distance"
-        android:layout_marginLeft="305.0dp" />
+        android:layout_marginLeft="280.0dp" />
     <TextView
         android:text="y - z h"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_width="75.0dp"
+        android:layout_width="100.0dp"
         android:layout_height="wrap_content"
         android:id="@+id/duration"
-        android:layout_marginLeft="305.0dp" />
+        android:layout_marginLeft="280.0dp" />
     <TextView
         android:text="Trail Description"
         android:textAppearance="?android:attr/textAppearanceLarge"
