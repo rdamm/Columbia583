@@ -1,42 +1,63 @@
-﻿CREATE TABLE Activity
+CREATE SCHEMA IF NOT ECISTS 'columbia583_app' DEFAULT CHARACTER SET utf8;
+USE 'columbia583_app';
+
+-- ----------------------------------------------------------
+-- Table 'columbia583_app'.'Activity'
+-- ----------------------------------------------------------
+DROP TABLE IF EXISTS 'columbia583_app'.'Activity';
+
+CREATE TABLE IF NOT EXISTS 'columbia583'.'Activity'
 (
-	activityID INTEGER NOT NULL PRIMARY KEY,
-	activityName varchar(63),
-	activityIcon varchar(63),
-	timestamp TIMESTAMP
+	'activityID' INT NOT NULL AUTO_INCREMENT,
+	'activityName' VARCHAR(63),
+	'activityIcon' VARCHAR(63),
+	'timestamp' TIMESTAMP,
+	PRIMARY KEY ('activityID')
 );
 
-CREATE TABLE Amenity
+-- ----------------------------------------------------------
+-- Table 'columbia583_app'.'Amenity'
+-- ----------------------------------------------------------
+DROP TABLE IF EXISTS 'columbia583_app'.'Amenity';
+
+CREATE TABLE IF NOT EXISTS 'columbia583'.'Amenity'
 (
-	amenityID INTEGER NOT NULL PRIMARY KEY,
-	amenityName varchar(63),
-	amenityIcon varchar(63),
-	timestamp TIMESTAMP
+	'amenityID' INT NOT NULL AUTO_INCREMENT,
+	'amenityName' VARCHAR(63),
+	'amenityIcon' VARCHAR(63),
+	'timestamp' TIMESTAMP,
+	PRIMARY KEY ('amenityID')
 );
 
-CREATE TABLE Trail
+-- ----------------------------------------------------------
+-- Table 'columbia583_app'.'Trail'
+-- ----------------------------------------------------------
+DROP TABLE IF EXISTS 'columbia583_app'.'Trail';
+
+CREATE TABLE IF NOT EXISTS 'columbia583'.'Trail'
 (
-	trailID INTEGER NOT NULL PRIMARY KEY,
-	userID INTEGER,
-	orgID INTEGER,
-	trailName varchar(63),
-	trailLocation varchar(255),
-	trailKmlURL varchar(255),
-	trailKmlContent varchar(255),
-	trailDistance varchar(15),
-	trailDuration varchar(15),
-	trailDescription varchar(255),
-	trailDirections varchar(255),
-	trailDifficulty INTEGER,
-	trailRating INTEGER,
-	trailActivityIDs ARRAY,
-	trailAmenityIDs ARRAY,
-	trailHazards varchar(255),
-	trailSurface varchar(31),
-	trailLandAccess varchar(63),
-	trailMaintenance varchar(255),
-	trailSeason varchar(15),
-	trailOpen BOOLEAN,
-	trailActive BOOLEAN,
-	trailTimeStamp TIMESTAMP
+	'trailID' INT NOT NULL AUTO_INCREMENT,
+	'userID' INT,
+	'orgID' INT,
+	'trailName' VARCHAR(63),
+	'trailLocation' VARCHAR(255),
+	'trailKmlURL' VARCHAR(255),
+	'trailKmlContent' VARCHAR(255),
+	'trailDistance' VARCHAR(15),
+	'trailDuration' VARCHAR(15),
+	'trailDescription' VARCHAR(255),
+	'trailDirections' VARCHAR(255),
+	'trailDifficulty' INT,
+	'trailRating' INT,
+	'trailActivityIDs' ARRAY,
+	'trailAmenityIDs' ARRAY,
+	'trailHazards' VARCHAR(255),
+	'trailSurface' VARCHAR(31),
+	'trailLandAccess' VARCHAR(63),
+	'trailMaintenance' VARCHAR(255),
+	'trailSeason' VARCHAR(15),
+	'trailOpen' BOOLEAN,
+	'trailActive' BOOLEAN,
+	'trailTimeStamp' TIMESTAMP,
+	PRIMARY KEY ('trailID')
 );
