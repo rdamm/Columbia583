@@ -2,12 +2,22 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Android\ViewTrailActivity.cs">
     <Files>
-      <File FileName="Android\ViewTrailActivity.cs" Line="63" Column="63" />
+      <File FileName="Android\ViewTrailActivity.cs" Line="7" Column="7" />
+      <File FileName="Android\SearchTrailsActivity.cs" Line="85" Column="85" />
+      <File FileName="Columbia583\Data_Classes\Trail.cs" Line="1" Column="1" />
+      <File FileName="Android\MainMenuActivity.cs" Line="1" Column="1" />
+      <File FileName="Android\TestDatabaseActivity.cs" Line="51" Column="51" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Tests.cs" Line="66" Column="66" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Common.cs" Line="7" Column="7" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Classes\SearchFilter.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Columbia583.Android MonoForAntroid.PreferredDevice="Nexus 4" />
+  <DisabledProjects>
+    <String>ViewPagerIndicator-master\Library\Library.csproj</String>
+  </DisabledProjects>
 </Properties>
