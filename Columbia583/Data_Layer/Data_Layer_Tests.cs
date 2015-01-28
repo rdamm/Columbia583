@@ -106,6 +106,23 @@ namespace Columbia583
 
 
 		/// <summary>
+		/// Sets the datetime of the last database update.
+		/// </summary>
+		/// <returns>The database last updated.</returns>
+		public string setDatabaseLastUpdated()
+		{
+			// Get the current datetime.
+			DateTime databaseLastUpdated = DateTime.Now;
+
+			// Set the database last updated date.
+			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			dataLayer.setDatabaseLastUpdated (databaseLastUpdated);
+
+			return "Successfully set the datetime of the last database update.";
+		}
+
+
+		/// <summary>
 		/// Gets the activities.
 		/// </summary>
 		/// <returns>The activities.</returns>
@@ -208,24 +225,7 @@ namespace Columbia583
 			}
 		}
 
-
-		/// <summary>
-		/// Sets the datetime of the last database update.
-		/// </summary>
-		/// <returns>The database last updated.</returns>
-		public string setDatabaseLastUpdated()
-		{
-			// Get the current datetime.
-			DateTime databaseLastUpdated = DateTime.Now;
-
-			// Set the database last updated date.
-			Data_Layer_Common dataLayer = new Data_Layer_Common ();
-			dataLayer.setDatabaseLastUpdated (databaseLastUpdated);
-
-			return "Successfully set the datetime of the last database update.";
-		}
-
-
+		
 		/// <summary>
 		/// Updates the tables with sample data.
 		/// </summary>
@@ -243,19 +243,19 @@ namespace Columbia583
 		/// <returns>The some from tables.</returns>
 		public string deleteSomeFromTables()
 		{
-			// Create rows to delete.
-			Activity[] activities = new Activity[1];
-			activities [0] = new Activity { id = 2 };
+			// Define the rows to delete.
+			int[] activities = new int[1];
+			activities [0] = 2;
 
-			// Create the rest of the arrays.
-			Amenity[] amenities = new Amenity[0];
-			MapTile[] mapTiles = new MapTile[0];
-			Media[] media = new Media[0];
-			Organization[] organizations = new Organization[0];
-			Role[] roles = new Role[0];
-			User[] users = new User[0];
-			Trail[] trails = new Trail[0];
-			Point[] points = new Point[0];
+			// Define the rest of the arrays.
+			int[] amenities = new int[0];
+			int[] mapTiles = new int[0];
+			int[] media = new int[0];
+			int[] organizations = new int[0];
+			int[] roles = new int[0];
+			int[] users = new int[0];
+			int[] trails = new int[0];
+			int[] points = new int[0];
 			TrailsToActivities[] trailsToActivities = new TrailsToActivities[0];
 			TrailsToAmenities[] trailsToAmenities = new TrailsToAmenities[0];
 

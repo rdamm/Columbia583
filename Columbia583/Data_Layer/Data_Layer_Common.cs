@@ -153,6 +153,35 @@ namespace Columbia583
 			return databaseLastUpdated;
 		}
 
+
+		/// <summary>
+		/// Sets the datetime of the last database update.
+		/// </summary>
+		/// <param name="newUpdateTime">The new datetime for the last database update.</param>
+		public void setDatabaseLastUpdated(DateTime newUpdateTime)
+		{
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Encapsulate the given datetime in an object.
+				DatabaseLastUpdated databaseLastUpdated = new DatabaseLastUpdated(newUpdateTime);
+
+				// Set the last time the database was updated.
+				connection.DeleteAll<DatabaseLastUpdated>();
+				connection.Insert(databaseLastUpdated);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+		}
+
 		
 		/// <summary>
 		/// Gets the activities.
@@ -219,35 +248,6 @@ namespace Columbia583
 			return amenities;
 		}
 
-
-		/// <summary>
-		/// Sets the datetime of the last database update.
-		/// </summary>
-		/// <param name="newUpdateTime">The new datetime for the last database update.</param>
-		public void setDatabaseLastUpdated(DateTime newUpdateTime)
-		{
-			try
-			{
-				// Open connection to local database.
-				var connection = new SQLiteConnection(getPathToDatabase());
-
-				// Encapsulate the given datetime in an object.
-				DatabaseLastUpdated databaseLastUpdated = new DatabaseLastUpdated(newUpdateTime);
-
-				// Set the last time the database was updated.
-				connection.DeleteAll<DatabaseLastUpdated>();
-				connection.Insert(databaseLastUpdated);
-
-				// Close connection to local database.
-				connection.Close();
-			}
-			catch (SQLiteException ex)
-			{
-				// TODO: Log the error message.
-				Console.WriteLine (ex.Message);
-			}
-		}
-
 		
 		/// <summary>
 		/// Updates the rows.
@@ -312,28 +312,28 @@ namespace Columbia583
 		/// <param name="trailsToActivities">Trails to activities.</param>
 		/// <param name="trailsToAmenities">Trails to amenities.</param>
 		/// <param name="users">Users.</param>
-		public void deleteRows(Activity[] activities, Amenity[] amenities, MapTile[] mapTiles, Media[] media, Organization[] organizations,
-			Point[] points, Role[] roles, Trail[] trails, TrailsToActivities[] trailsToActivities, TrailsToAmenities[] trailsToAmenities, User[] users)
+		public void deleteRows(int[] activities, int[] amenities, int[] mapTiles, int[] media, int[] organizations,
+			int[] points, int[] roles, int[] trails, TrailsToActivities[] trailsToActivities, TrailsToAmenities[] trailsToAmenities, int[] users)
 		{
 			try
 			{
 				// Open connection to local database.
 				var connection = new SQLiteConnection(getPathToDatabase());
-
+				
 				// Delete the data that has foreign keys.
 				foreach(var row in trailsToActivities)	connection.Delete(row);
 				foreach(var row in trailsToAmenities)	connection.Delete(row);
-				foreach(var row in points)				connection.Delete(row);
-				foreach(var row in trails)				connection.Delete(row);
-				foreach(var row in users)				connection.Delete(row);
+				foreach(int id in points)				connection.Delete<Point>(id);
+				foreach(int id in trails)				connection.Delete<Trail>(id);
+				foreach(int id in users)				connection.Delete<User>(id);
 				
 				// Delete the data that has no foreign keys.
-				foreach(var row in activities)			connection.Delete(row);
-				foreach(var row in amenities)			connection.Delete(row);
-				foreach(var row in mapTiles)			connection.Delete(row);
-				foreach(var row in media)				connection.Delete(row);
-				foreach(var row in organizations)		connection.Delete(row);
-				foreach(var row in roles)				connection.Delete(row);
+				foreach(int id in activities)		connection.Delete<Activity>(id);
+				foreach(int id in amenities)		connection.Delete<Amenity>(id);
+				foreach(int id in mapTiles)			connection.Delete<MapTile>(id);
+				foreach(int id in media)			connection.Delete<Media>(id);
+				foreach(int id in organizations)	connection.Delete<Organization>(id);
+				foreach(int id in roles)			connection.Delete<Role>(id);
 
 				// Close connection to local database.
 				connection.Close();

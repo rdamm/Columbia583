@@ -62,35 +62,35 @@ namespace Columbia583
 			// TODO: Call the webservice to get the rows that must be inserted, updated, and deleted.
 			Activity[] activitiesToInsert = new Activity[0];
 			Activity[] activitiesToUpdate = new Activity[0];
-			Activity[] activitiesToDelete = new Activity[0];
+			int[] activitiesToDelete = new int[0];
 
 			Amenity[] amenitiesToInsert = new Amenity[0];
 			Amenity[] amenitiesToUpdate = new Amenity[0];
-			Amenity[] amenitiesToDelete = new Amenity[0];
+			int[] amenitiesToDelete = new int[0];
 
 			MapTile[] mapTilesToInsert = new MapTile[0];
 			MapTile[] mapTilesToUpdate = new MapTile[0];
-			MapTile[] mapTilesToDelete = new MapTile[0];
+			int[] mapTilesToDelete = new int[0];
 
 			Media[] mediaToInsert = new Media[0];
 			Media[] mediaToUpdate = new Media[0];
-			Media[] mediaToDelete = new Media[0];
+			int[] mediaToDelete = new int[0];
 
 			Organization[] organizationsToInsert = new Organization[0];
 			Organization[] organizationsToUpdate = new Organization[0];
-			Organization[] organizationsToDelete = new Organization[0];
+			int[] organizationsToDelete = new int[0];
 
 			Point[] pointsToInsert = new Point[0];
 			Point[] pointsToUpdate = new Point[0];
-			Point[] pointsToDelete = new Point[0];
+			int[] pointsToDelete = new int[0];
 
 			Role[] rolesToInsert = new Role[0];
 			Role[] rolesToUpdate = new Role[0];
-			Role[] rolesToDelete = new Role[0];
+			int[] rolesToDelete = new int[0];
 
 			Trail[] trailsToInsert = new Trail[0];
 			Trail[] trailsToUpdate = new Trail[0];
-			Trail[] trailsToDelete = new Trail[0];
+			int[] trailsToDelete = new int[0];
 
 			TrailsToActivities[] trailsToActivitiesToInsert = new TrailsToActivities[0];
 			TrailsToActivities[] trailsToActivitiesToUpdate = new TrailsToActivities[0];
@@ -102,7 +102,7 @@ namespace Columbia583
 
 			User[] usersToInsert = new User[0];
 			User[] usersToUpdate = new User[0];
-			User[] usersToDelete = new User[0];
+			int[] usersToDelete = new int[0];
 			
 			// Insert the rows that must be inserted.
 			dataLayer.insertRows (activitiesToInsert, amenitiesToInsert, mapTilesToInsert, mediaToInsert, organizationsToInsert, pointsToInsert, rolesToInsert, trailsToInsert, trailsToActivitiesToInsert,
