@@ -20,10 +20,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnInsertTables" />
     <Button
-        android:text="Get ID Timestamp Combos"
+        android:text="Get Database Last Updated"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnGetIdTimestampCombos" />
+        android:id="@+id/btnGetDatabaseLastUpdated" />
+    <Button
+        android:text="Set Database Last Updated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSetDatabaseLastUpdated" />
     <Button
         android:text="Get Activities"
         android:layout_width="match_parent"

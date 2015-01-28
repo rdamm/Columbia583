@@ -8,7 +8,6 @@ namespace Columbia583
 	public class TrailsToAmenities
 	{
 		// Keys and references.
-		// TODO: Set up joint primary key between trail ID and amenity ID.
 		[ForeignKey(typeof(Trail))]
 		public int trailId { get; set; }
 		[ForeignKey(typeof(Amenity))]

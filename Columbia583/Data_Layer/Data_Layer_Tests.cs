@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace Columbia583
 {
+	/// <summary>
+	/// Data layer tests is a series of sample methods that can be called to determine whether or not the database
+	/// queries are functioning correctly.
+	/// </summary>
 	public class Data_Layer_Tests
 	{
 		public Data_Layer_Tests ()
@@ -11,9 +15,10 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Creates all the tables.
-		 * */
+		/// <summary>
+		/// Creates the tables.
+		/// </summary>
+		/// <returns>The tables.</returns>
 		public string createTables()
 		{
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
@@ -23,9 +28,10 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Inserts some sample data into the tables.
-		 * */
+		/// <summary>
+		/// Inserts some sample data into the into tables.
+		/// </summary>
+		/// <returns>The into tables.</returns>
 		public string insertIntoTables()
 		{
 			// Create rows without foreign keys.
@@ -71,8 +77,7 @@ namespace Columbia583
 			trailsToAmenities [1] = new TrailsToAmenities (1, 2);
 			trailsToAmenities [2] = new TrailsToAmenities (2, 1);
 			trailsToAmenities [3] = new TrailsToAmenities (3, 1);
-
-
+			
 			// Insert the rows.
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
 			dataLayer.insertRows(activities, amenities, mapTiles, media, organizations, points, roles, trails, trailsToActivities, trailsToAmenities, users);
@@ -81,40 +86,29 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Gets all IDs and timestamps from the database.
-		 * */
-		public string getAllIdTimestampCombos()
+		/// <summary>
+		/// Gets the datetime of the last database update.
+		/// </summary>
+		/// <returns>The datetime of the last database update.</returns>
+		public string getDatabaseLastUpdated()
 		{
-			// NOTE: Not implemented yet.
-			return "Cannot get all ID timestamp combos.  Not implemented yet.";
-
-			/*
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
-			IdTimestampComboList idTimestampComboList = dataLayer.getAllIdTimestampCombos ();
-			
-			if (idTimestampComboList != null) {
-				Console.WriteLine (idTimestampComboList.activityIds.Length + " activities.");
-				Console.WriteLine (idTimestampComboList.amenityIds.Length + " amenities.");
-				Console.WriteLine (idTimestampComboList.mapTileIds.Length + " map tiles.");
-				Console.WriteLine (idTimestampComboList.mediaIds.Length + " medias.");
-				Console.WriteLine (idTimestampComboList.organizationIds.Length + " organizations.");
-				Console.WriteLine (idTimestampComboList.pointIds.Length + " points.");
-				Console.WriteLine (idTimestampComboList.roleIds.Length + " roles.");
-				Console.WriteLine (idTimestampComboList.trailIds.Length + " trails.");
-				Console.WriteLine (idTimestampComboList.userIds.Length + " users.");
+			DateTime databaseLastUpdated = dataLayer.getDatabaseLastUpdated ();
 
-				return "Successfully got all ID timestamp combos.";
+			if (databaseLastUpdated != null) {
+				Console.WriteLine (databaseLastUpdated.ToLongDateString());
+
+				return "Successfully got database last updated.";
 			} else {
-				return "Failed to get all ID timestamp combos.";
+				return "Failed to get database last updated.";
 			}
-			*/
 		}
 
 
-		/**
-		 * Gets all activities in the database.
-		 * */
+		/// <summary>
+		/// Gets the activities.
+		/// </summary>
+		/// <returns>The activities.</returns>
 		public string getActivities()
 		{
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
@@ -132,9 +126,10 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Gets all amenities in the database.
-		 * */
+		/// <summary>
+		/// Gets the amenities.
+		/// </summary>
+		/// <returns>The amenities.</returns>
 		public string getAmenities()
 		{
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
@@ -152,9 +147,10 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Gets the trails by a sample search filter.
-		 * */
+		/// <summary>
+		/// Gets the trails for a sample search filter.
+		/// </summary>
+		/// <returns>The trails by search filter.</returns>
 		public string getTrailsBySearchFilter()
 		{
 			// Create a sample search filter.
@@ -162,7 +158,7 @@ namespace Columbia583
 			SearchFilter searchFilter = new SearchFilter () { rating = 3 };
 
 			// Get the search results.
-			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			Data_Layer_Search_Trails dataLayer = new Data_Layer_Search_Trails ();
 			List<SearchResult> searchResults = dataLayer.getTrailsBySearchFilter (searchFilter);
 
 			if (searchResults != null) {
@@ -195,12 +191,13 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Gets a trail from the database.
-		 * */
+		/// <summary>
+		/// Gets a sample trail.
+		/// </summary>
+		/// <returns>The trail.</returns>
 		public string getTrail()
 		{
-			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			Data_Layer_View_Trail dataLayer = new Data_Layer_View_Trail ();
 			Trail trail = dataLayer.getTrail (1);
 
 			if (trail != null) {
@@ -212,9 +209,27 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Updates the tables with some different sample data.
-		 * */
+		/// <summary>
+		/// Sets the datetime of the last database update.
+		/// </summary>
+		/// <returns>The database last updated.</returns>
+		public string setDatabaseLastUpdated()
+		{
+			// Get the current datetime.
+			DateTime databaseLastUpdated = DateTime.Now;
+
+			// Set the database last updated date.
+			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			dataLayer.setDatabaseLastUpdated (databaseLastUpdated);
+
+			return "Successfully set the datetime of the last database update.";
+		}
+
+
+		/// <summary>
+		/// Updates the tables with sample data.
+		/// </summary>
+		/// <returns>The tables.</returns>
 		public string updateTables()
 		{
 			// NOTE: Not implemented yet.
@@ -222,9 +237,10 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Deletes some of the data from the tables.
-		 * */
+		/// <summary>
+		/// Deletes some data from the tables.
+		/// </summary>
+		/// <returns>The some from tables.</returns>
 		public string deleteSomeFromTables()
 		{
 			// Create rows to delete.
@@ -251,9 +267,10 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Clears all data from the tables.
-		 * */
+		/// <summary>
+		/// Deletes all data from the tables.
+		/// </summary>
+		/// <returns>The all from tables.</returns>
 		public string deleteAllFromTables()
 		{
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
@@ -265,9 +282,10 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Drops all tables from the database.
-		 * */
+		/// <summary>
+		/// Drops the tables.
+		/// </summary>
+		/// <returns>The tables.</returns>
 		public string dropTables()
 		{
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();

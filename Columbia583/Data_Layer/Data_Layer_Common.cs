@@ -4,8 +4,16 @@ using SQLiteNetExtensions;
 using SQLiteNetExtensions.Attributes;
 using System.Collections.Generic;
 
+// TODO: Replace the IDs & timestamps query dependency with the webservice's last updated dependency.
+// TODO: Store the icons and images in the database as a blob.
+// TODO: Figure out how to display images that are loaded from the database (will probably need to use a stream).
+// TODO: Implement image caching logic for the map tiles and the media.
+
 namespace Columbia583
 {
+	/// <summary>
+	/// Data layer common contains the SQLite queries that are globally common for the app.
+	/// </summary>
 	public class Data_Layer_Common
 	{
 		public Data_Layer_Common ()
@@ -14,10 +22,10 @@ namespace Columbia583
 		}
 		
 
-
-		/**
-		 * Gets the path to the database.
-		 * */
+		/// <summary>
+		/// Gets the path to database.
+		/// </summary>
+		/// <returns>The path to database.</returns>
 		public static string getPathToDatabase()
 		{
 			string docsFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
@@ -27,9 +35,9 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Creates the tables.
-		 * */
+		/// <summary>
+		/// Creates the tables in the database.
+		/// </summary>
 		public void createTables()
 		{
 			try
@@ -44,6 +52,7 @@ namespace Columbia583
 				connection.CreateTable<Media>();
 				connection.CreateTable<Organization>();
 				connection.CreateTable<Role>();
+				connection.CreateTable<DatabaseLastUpdated>();
 
 				// Create all the tables that have foreign keys.
 				connection.CreateTable<User>();					// References Organization.
@@ -63,11 +72,21 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Insert the given rows.
-		 * 
-		 * NOTE: SQLite ignores primary keys during insertion.  It will insert the data regardless of what you set the primary key to.
-		 * */
+		/// <summary>
+		/// Inserts the rows.
+		/// NOTE: SQLite ignores primary keys during insertion.  It will insert the data regardless of what you set the primary key to.
+		/// </summary>
+		/// <param name="activities">Activities.</param>
+		/// <param name="amenities">Amenities.</param>
+		/// <param name="mapTiles">Map tiles.</param>
+		/// <param name="media">Media.</param>
+		/// <param name="organizations">Organizations.</param>
+		/// <param name="points">Points.</param>
+		/// <param name="roles">Roles.</param>
+		/// <param name="trails">Trails.</param>
+		/// <param name="trailsToActivities">Trails to activities.</param>
+		/// <param name="trailsToAmenities">Trails to amenities.</param>
+		/// <param name="users">Users.</param>
 		public void insertRows(Activity[] activities, Amenity[] amenities, MapTile[] mapTiles, Media[] media, Organization[] organizations,
 			Point[] points, Role[] roles, Trail[] trails, TrailsToActivities[] trailsToActivities, TrailsToAmenities[] trailsToAmenities, User[] users)
 		{
@@ -102,21 +121,25 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Get the IDs and timestamps for every table in the database that contains them.
-		 * */
-		public IdTimestampComboList getAllIdTimestampCombos()
+		/// <summary>
+		/// Gets the datetime of the last database update.
+		/// </summary>
+		/// <returns>The datetime of the last update.</returns>
+		public DateTime getDatabaseLastUpdated()
 		{
-			IdTimestampComboList idsAndTimestamps = null;
-
+			DateTime databaseLastUpdated = DateTime.FromOADate(0);
 			try
 			{
 				// Open connection to local database.
 				var connection = new SQLiteConnection(getPathToDatabase());
 
-				// Get all ID and timestamps in the database.
-				// TODO: Figure out how to perform a limited SELECT WHERE query.
-				idsAndTimestamps = new IdTimestampComboList();
+				// Get the last time the database was updated.
+				var query = connection.Table<DatabaseLastUpdated>();
+				if (query.Count() > 0)
+				{
+					DatabaseLastUpdated row = (DatabaseLastUpdated)query.First();
+					databaseLastUpdated = row.timestamp;
+				}
 
 				// Close connection to local database.
 				connection.Close();
@@ -127,13 +150,14 @@ namespace Columbia583
 				Console.WriteLine (ex.Message);
 			}
 
-			return idsAndTimestamps;
+			return databaseLastUpdated;
 		}
 
-
-		/**
-		 * Gets all activities.
-		 * */
+		
+		/// <summary>
+		/// Gets the activities.
+		/// </summary>
+		/// <returns>The activities.</returns>
 		public List<Activity> getActivities()
 		{
 			List<Activity> activities = null;
@@ -163,9 +187,10 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Gets all amenities.
-		 * */
+		/// <summary>
+		/// Gets the amenities.
+		/// </summary>
+		/// <returns>The amenities.</returns>
 		public List<Amenity> getAmenities()
 		{
 			List<Amenity> amenities = null;
@@ -195,93 +220,23 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Gets the trails by their search filter.
-		 * */
-		public List<SearchResult> getTrailsBySearchFilter(SearchFilter searchFilter)
+		/// <summary>
+		/// Sets the datetime of the last database update.
+		/// </summary>
+		/// <param name="newUpdateTime">The new datetime for the last database update.</param>
+		public void setDatabaseLastUpdated(DateTime newUpdateTime)
 		{
-			List<SearchResult> searchResults = null;
 			try
 			{
 				// Open connection to local database.
 				var connection = new SQLiteConnection(getPathToDatabase());
 
-				/*
-				 * public int[] activities { get; set; }
-				public int[] amenities { get; set; }
-				public Difficulty difficulty { get; set; }
-				public int rating { get; set; }
-				public int minDuration { get; set; }
-				public int maxDuration { get; set; }
-				public int minDistance { get; set; }
-				public int maxDistance { get; set; }*/
-				
-				// Get all trails that match the search filter.
-				// TODO: Add the rest of the search filter parameters.
-				var response = connection.Query<Trail>("SELECT * FROM Trail WHERE rating >= ?", searchFilter.rating);
+				// Encapsulate the given datetime in an object.
+				DatabaseLastUpdated databaseLastUpdated = new DatabaseLastUpdated(newUpdateTime);
 
-				// For each matching trail, get its points, activities, and amenities.
-				searchResults = new List<SearchResult>();
-				foreach (Trail trailRow in response)
-				{
-					List<Point> points = new List<Point>();
-					List<Activity> activities = new List<Activity>();
-					List<Amenity> amenities = new List<Amenity>();
-
-					// Get the points.
-					var pointsQueryResponse = connection.Query<Point>("SELECT * FROM Point WHERE trailId = ?", trailRow.id);
-					foreach(Point point in pointsQueryResponse)
-					{
-						points.Add(point);
-					}
-
-					// Get the activities.
-					var activitiesQueryResponse = connection.Query<Activity>("SELECT * FROM Activity INNER JOIN TrailsToActivities ON Activity.id = TrailsToActivities.activityId WHERE trailId = ?", trailRow.id);
-					foreach(Activity activity in activitiesQueryResponse)
-					{
-						activities.Add(activity);
-					}
-
-					// Get the amenities.
-					var amenitiesQueryResponse = connection.Query<Amenity>("SELECT * FROM Amenity INNER JOIN TrailsToAmenities ON Amenity.id = TrailsToAmenities.amenityId WHERE trailId = ?", trailRow.id);
-					foreach(Amenity amenity in amenitiesQueryResponse)
-					{
-						amenities.Add(amenity);
-					}
-
-					// Encapsulate the data into a search result and add it to the list.
-					SearchResult searchResult = new SearchResult(trailRow, points.ToArray(), activities.ToArray(), amenities.ToArray());
-					searchResults.Add(searchResult);
-				}
-				
-				// Close connection to local database.
-				connection.Close();
-			}
-			catch (SQLiteException ex)
-			{
-				// TODO: Log the error message.
-				Console.WriteLine (ex.Message);
-			}
-
-			return searchResults;
-		}
-
-
-		/**
-		 * Gets a given trail.
-		 * */
-		public Trail getTrail(int trailId)
-		{
-			Trail trail = null;
-			try
-			{
-				// Open connection to local database.
-				var connection = new SQLiteConnection(getPathToDatabase());
-				
-				// Get the trail.
-				// TODO: Get the other necessary trail information (eg. Media)
-				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
-				trail = connection.Find<Trail>(trailId);
+				// Set the last time the database was updated.
+				connection.DeleteAll<DatabaseLastUpdated>();
+				connection.Insert(databaseLastUpdated);
 
 				// Close connection to local database.
 				connection.Close();
@@ -291,14 +246,23 @@ namespace Columbia583
 				// TODO: Log the error message.
 				Console.WriteLine (ex.Message);
 			}
-
-			return trail;
 		}
 
-
-		/**
-		 * Updates the given rows.
-		 * */
+		
+		/// <summary>
+		/// Updates the rows.
+		/// </summary>
+		/// <param name="activities">Activities.</param>
+		/// <param name="amenities">Amenities.</param>
+		/// <param name="mapTiles">Map tiles.</param>
+		/// <param name="media">Media.</param>
+		/// <param name="organizations">Organizations.</param>
+		/// <param name="points">Points.</param>
+		/// <param name="roles">Roles.</param>
+		/// <param name="trails">Trails.</param>
+		/// <param name="trailsToActivities">Trails to activities.</param>
+		/// <param name="trailsToAmenities">Trails to amenities.</param>
+		/// <param name="users">Users.</param>
 		public void updateRows(Activity[] activities, Amenity[] amenities, MapTile[] mapTiles, Media[] media, Organization[] organizations,
 			Point[] points, Role[] roles, Trail[] trails, TrailsToActivities[] trailsToActivities, TrailsToAmenities[] trailsToAmenities, User[] users)
 		{
@@ -333,10 +297,21 @@ namespace Columbia583
 			}
 		}
 
-
-		/**
-		 * Delete the given rows.
-		 * */
+		
+		/// <summary>
+		/// Deletes the rows.
+		/// </summary>
+		/// <param name="activities">Activities.</param>
+		/// <param name="amenities">Amenities.</param>
+		/// <param name="mapTiles">Map tiles.</param>
+		/// <param name="media">Media.</param>
+		/// <param name="organizations">Organizations.</param>
+		/// <param name="points">Points.</param>
+		/// <param name="roles">Roles.</param>
+		/// <param name="trails">Trails.</param>
+		/// <param name="trailsToActivities">Trails to activities.</param>
+		/// <param name="trailsToAmenities">Trails to amenities.</param>
+		/// <param name="users">Users.</param>
 		public void deleteRows(Activity[] activities, Amenity[] amenities, MapTile[] mapTiles, Media[] media, Organization[] organizations,
 			Point[] points, Role[] roles, Trail[] trails, TrailsToActivities[] trailsToActivities, TrailsToAmenities[] trailsToAmenities, User[] users)
 		{
@@ -370,10 +345,11 @@ namespace Columbia583
 			}
 		}
 
-
-		/**
-		 * Clears all data from the local database tables.
-		 * */
+		
+		/// <summary>
+		/// Clears the tables.
+		/// NOTE: SQLite doesn't reset the primary key index when a table is cleared.  To reset, drop and recreate the tables.
+		/// </summary>
 		public void clearTables()
 		{
 			try
@@ -387,6 +363,7 @@ namespace Columbia583
 				connection.DeleteAll<Point>();
 				connection.DeleteAll<Trail>();
 				connection.DeleteAll<User>();
+				connection.DeleteAll<DatabaseLastUpdated>();
 
 				// Delete the data that has no foreign keys.
 				connection.DeleteAll<Activity>();
@@ -407,9 +384,9 @@ namespace Columbia583
 		}
 
 
-		/**
-		 * Drops the tables from the local database.
-		 * */
+		/// <summary>
+		/// Drops the tables.
+		/// </summary>
 		public void dropTables()
 		{
 			try
@@ -423,6 +400,7 @@ namespace Columbia583
 				connection.DropTable<Point>();
 				connection.DropTable<Trail>();
 				connection.DropTable<User>();
+				connection.DropTable<DatabaseLastUpdated>();
 
 				// Drop the tables that have no foreign keys.
 				connection.DropTable<Activity>();

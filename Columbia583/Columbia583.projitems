@@ -30,10 +30,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)SQLite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\TrailsToActivities.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\TrailsToAmenities.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\IdTimestampCombo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\IdTimestampComboList.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data_Layer\Data_Layer_Tests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\SearchResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Access_Layer\Data_Access_Layer_Common.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Access_Layer\Data_Access_Layer_View_Trail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Layer\Data_Layer_Tests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Layer\Data_Layer_View_Trail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Layer\DatabaseLastUpdated.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Access_Layer\Data_Access_Layer_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data_Layer\" />

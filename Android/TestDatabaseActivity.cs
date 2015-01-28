@@ -20,7 +20,8 @@ namespace Columbia583.Android
 	{
 		protected Button createTablesButton = null;
 		protected Button insertTablesButton = null;
-		protected Button getIdTimestampCombosButton = null;
+		protected Button getDatabaseLastUpdatedButton = null;
+		protected Button setDatabaseLastUpdatedButton = null;
 		protected Button getActivitiesButton = null;
 		protected Button getAmenitiesButton = null;
 		protected Button getTrailsBySearchFilterButton = null;
@@ -44,7 +45,8 @@ namespace Columbia583.Android
 			// Get the controls.
 			createTablesButton = FindViewById<Button> (Resource.Id.btnCreateTables);
 			insertTablesButton = FindViewById<Button> (Resource.Id.btnInsertTables);
-			getIdTimestampCombosButton = FindViewById<Button> (Resource.Id.btnGetIdTimestampCombos);
+			getDatabaseLastUpdatedButton = FindViewById<Button> (Resource.Id.btnGetDatabaseLastUpdated);
+			setDatabaseLastUpdatedButton = FindViewById<Button> (Resource.Id.btnSetDatabaseLastUpdated);
 			getActivitiesButton = FindViewById<Button> (Resource.Id.btnGetActivities);
 			getAmenitiesButton = FindViewById<Button> (Resource.Id.btnGetAmenities);
 			getTrailsBySearchFilterButton = FindViewById<Button> (Resource.Id.btnGetTrailsBySearchFilter);
@@ -68,10 +70,17 @@ namespace Columbia583.Android
 					Console.WriteLine(response);
 				};
 			}
-			if (getIdTimestampCombosButton != null) {
-				getIdTimestampCombosButton.Click += (sender, e) => {
+			if (getDatabaseLastUpdatedButton != null) {
+				getDatabaseLastUpdatedButton.Click += (sender, e) => {
 					Data_Layer_Tests dataLayerTests = new Data_Layer_Tests();
-					string response = dataLayerTests.getAllIdTimestampCombos();
+					string response = dataLayerTests.getDatabaseLastUpdated();
+					Console.WriteLine(response);
+				};
+			}
+			if (setDatabaseLastUpdatedButton != null) {
+				setDatabaseLastUpdatedButton.Click += (sender, e) => {
+					Data_Layer_Tests dataLayerTests = new Data_Layer_Tests();
+					string response = dataLayerTests.setDatabaseLastUpdated();
 					Console.WriteLine(response);
 				};
 			}

@@ -104,7 +104,7 @@ namespace Columbia583.Android
 				activityCheckBoxes = new CheckBox[debugActivities.Length];
 				amenityCheckBoxes = new CheckBox[debugAmenities.Length];
 
-				this.setSearchResults(debugTrails);
+				//this.setSearchResults(debugTrails);
 			}
 
 			for (int i = 0; i < activityCheckBoxes.Length; i++) {
@@ -141,7 +141,7 @@ namespace Columbia583.Android
 
 					// Get the search results.
 					Application_Layer_Search_Trails applicationLayer_searchTrails = new Application_Layer_Search_Trails ();
-					Trail[] trails = applicationLayer_searchTrails.getTrailsByFilters (searchFilter);
+					SearchResult[] trails = applicationLayer_searchTrails.getTrailsBySearchFilter (searchFilter);
 
 					// Show the search results.
 					this.setSearchResults(trails);
@@ -233,7 +233,7 @@ namespace Columbia583.Android
 		/**
 		 * Display the search results in the grid.
 		 * */
-		protected void setSearchResults(Trail[] trails)
+		protected void setSearchResults(SearchResult[] searchResults)
 		{
 			// Display the trails in the view.
 			if (searchResultsGrid != null) {
@@ -241,8 +241,10 @@ namespace Columbia583.Android
 				searchResultsGrid.RemoveAllViews();
 
 				// Show a summary of each matching trail.
-				if (trails != null) {
-					foreach(Trail trail in trails) {
+				if (searchResults != null) {
+					foreach(SearchResult searchResult in searchResults) {
+						Trail trail = searchResult.trail;
+
 						const int NUM_ELEMENTS_PER_TRAIL = 4;
 						TextView[] trailElements = new TextView[NUM_ELEMENTS_PER_TRAIL];
 //						// TODO: Display the trail name.
