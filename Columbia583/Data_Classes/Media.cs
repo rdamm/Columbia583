@@ -1,10 +1,15 @@
 ﻿using System;
+using SQLite;
 
 namespace Columbia583
 {
 	public class Media
 	{
+		// Keys and references.
+		[PrimaryKey, AutoIncrement]
 		public int id { get; set; }
+
+		// Data.
 		public string title { get; set; }
 		public string mediaType { get; set; }
 		public string mediaUrl { get; set; }

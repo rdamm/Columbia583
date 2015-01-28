@@ -425,7 +425,16 @@ namespace Columbia583.Android
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int biking = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int hiking = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int Icon = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int skiing = 2130837507;
 			
 			// aapt resource value: 0x7f020001
 			public const int vpi__tab_indicator = 2130837505;
@@ -460,7 +469,6 @@ namespace Columbia583.Android
 		
 		public partial class Id
 		{
-			
 			// aapt resource value: 0x7f040030
 			public const int activities = 2130968624;
 			
@@ -599,18 +607,81 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f040029
 			public const int textView7 = 2130968617;
 			
-			// aapt resource value: 0x7f040007
-			public const int textView_activityLabel = 2130968583;
+			// aapt resource value: 0x7f05001e
+			public const int btnCreateTables = 2131034142;
 			
-			// aapt resource value: 0x7f04000a
-			public const int textView_amenityLabel = 2130968586;
+			// aapt resource value: 0x7f050026
+			public const int btnDeleteAllFromTables = 2131034150;
 			
-			// aapt resource value: 0x7f04000d
-			public const int textView_difficultyLabel = 2130968589;
+			// aapt resource value: 0x7f050025
+			public const int btnDeleteSomeFromTables = 2131034149;
+			
+			// aapt resource value: 0x7f050027
+			public const int btnDropTables = 2131034151;
+			
+			// aapt resource value: 0x7f050021
+			public const int btnGetActivities = 2131034145;
+			
+			// aapt resource value: 0x7f050022
+			public const int btnGetAmenities = 2131034146;
+			
+			// aapt resource value: 0x7f050020
+			public const int btnGetIdTimestampCombos = 2131034144;
+			
+			// aapt resource value: 0x7f050024
+			public const int btnGetTrail = 2131034148;
+			
+			// aapt resource value: 0x7f050023
+			public const int btnGetTrailsBySearchFilter = 2131034147;
+			
+			// aapt resource value: 0x7f05001f
+			public const int btnInsertTables = 2131034143;
+			
+			// aapt resource value: 0x7f050002
+			public const int button_databaseTests = 2131034114;
+			
+			// aapt resource value: 0x7f05003a
+			public const int gallery1 = 2131034170;
+			
+			// aapt resource value: 0x7f05003b
+			public const int gallery2 = 2131034171;
+			
+			// aapt resource value: 0x7f05000b
+			public const int radioButton_difficulty_easiest = 2131034123;
+			
+			// aapt resource value: 0x7f05000c
+			public const int radioButton_difficulty_easy = 2131034124;
+			
+			// aapt resource value: 0x7f05000f
+			public const int radioButton_difficulty_extremelyDifficult = 2131034127;
+			
+			// aapt resource value: 0x7f05000d
+			public const int radioButton_difficulty_moreDifficult = 2131034125;
+			
+			// aapt resource value: 0x7f05000e
+			public const int radioButton_difficulty_veryDifficult = 2131034126;
+			
+			// aapt resource value: 0x7f05000a
+			public const int radioGroup_difficulties = 2131034122;
+			
+			// aapt resource value: 0x7f050032
+			public const int textView2 = 2131034162;
+			
+			// aapt resource value: 0x7f050029
+			public const int textView8 = 2131034153;
+			
+			// aapt resource value: 0x7f050003
+			public const int textView_activityLabel = 2131034115;
+			
+			// aapt resource value: 0x7f050006
+			public const int textView_amenityLabel = 2131034118;
+			
+			// aapt resource value: 0x7f050009
+			public const int textView_difficultyLabel = 2131034121;
 			
 			// aapt resource value: 0x7f040005
 			public const int textView_mainMenuLabel = 2130968581;
-			
+
 			// aapt resource value: 0x7f04001d
 			public const int textView_maxDistanceLabel = 2130968605;
 			
@@ -683,10 +754,10 @@ namespace Columbia583.Android
 			public const int SearchTrails = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int ViewTrail = 2130903042;
+			public const int TestDatabase = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int ViewTrail2 = 2130903043;
+			public const int ViewTrail = 2130903043;
 			
 			// aapt resource value: 0x7f030004
 			public const int ViewTrail3 = 2130903044;
@@ -696,6 +767,8 @@ namespace Columbia583.Android
 			
 			// aapt resource value: 0x7f030006
 			public const int ViewTrailBase = 2130903046;
+
+			public const int ViewTrail2 = 2130903047;
 			
 			static Layout()
 			{

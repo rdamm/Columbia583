@@ -2,12 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Android\ViewTrailActivity.cs">
     <Files>
-      <File FileName="Android\ViewTrailActivity.cs" Line="63" Column="63" />
+      <File FileName="Android\ViewTrailActivity.cs" Line="22" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Columbia583.Android MonoForAntroid.PreferredDevice="Nexus 4" />
 </Properties>

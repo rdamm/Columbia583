@@ -1,10 +1,15 @@
 ﻿using System;
+using SQLite;
 
 namespace Columbia583
 {
 	public class Amenity
 	{
+		// Keys and references.
+		[PrimaryKey, AutoIncrement]
 		public int id { get; set; }
+
+		// Data.
 		public string amenityName { get; set; }
 		public string amenityIcon { get; set; }
 		public DateTime timestamp { get; set; }

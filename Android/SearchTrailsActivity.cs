@@ -117,6 +117,13 @@ namespace Columbia583.Android
 					activityCheckBoxes [i].Hint = debugActivities [i].id.ToString();
 				}
 				activityOptions.AddView (activityCheckBoxes [i]);
+
+				// Display the icon beside the checkbox.
+				ImageView icon = new ImageView (this);
+				icon.SetImageResource (Resource.Drawable.biking);
+				icon.SetMaxHeight (16);
+				icon.SetMaxWidth (16);
+				activityOptions.AddView (icon);
 			}
 
 			for (int i = 0; i < amenityCheckBoxes.Length; i++) {

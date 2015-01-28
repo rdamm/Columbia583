@@ -52,3 +52,13 @@ C:\Users\nguye_000\Documents\rdamm\Columbia583\Android\obj\Debug\uploadflags.txt
 C:\Users\nguye_000\Documents\rdamm\Columbia583\Android\obj\Debug\Columbia583.Android.csprojResolveAssemblyReference.cache
 C:\Users\nguye_000\Documents\rdamm\Columbia583\Android\obj\Debug\res\layout\viewtrail3.xml
 C:\Users\nguye_000\Documents\rdamm\Columbia583\Android\obj\Debug\res\layout\viewtrail4.xml
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\bin\Debug\Newtonsoft.Json.dll
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\bin\Debug\Newtonsoft.Json.xml
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\layout\viewtrailbase.xml
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\layout\viewtrail2.xml
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\bin\Debug\SQLite.Net.dll
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\bin\Debug\SQLiteNetExtensions.dll
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\layout\testdatabase.xml
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\drawable\biking.png
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\drawable\hiking.png
+C:\Users\RPrime\Documents\Projects\Columbia583\Android\obj\Debug\res\drawable\skiing.png
