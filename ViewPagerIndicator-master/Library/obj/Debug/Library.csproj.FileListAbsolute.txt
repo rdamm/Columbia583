@@ -41,6 +41,7 @@ C:\Users\Jaclyn\Documents\GitHub\Columbia583\ViewPagerIndicator-master\Library\b
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\ViewPagerIndicator-master\Library\bin\Debug\DK.Ostebaronen.Droid.ViewPagerIndicator.dll.mdb
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\ViewPagerIndicator-master\Library\bin\Debug\DK.Ostebaronen.Droid.ViewPagerIndicator.apk
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\ViewPagerIndicator-master\Library\bin\Debug\DK.Ostebaronen.Droid.ViewPagerIndicator-Signed.apk
+C:\Users\Jaclyn\Documents\GitHub\Columbia583\ViewPagerIndicator-master\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\ViewPagerIndicator-master\Library\obj\Debug\DK.Ostebaronen.Droid.ViewPagerIndicator.dll
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\ViewPagerIndicator-master\Library\obj\Debug\DK.Ostebaronen.Droid.ViewPagerIndicator.pdb
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\ViewPagerIndicator-master\Library\obj\Debug\android\bin\DK.Ostebaronen.Droid.ViewPagerIndicator.apk
