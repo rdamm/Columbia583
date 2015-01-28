@@ -59,12 +59,15 @@ namespace Columbia583.Android
 			adapter = new MyFragmentPagerAdapter (SupportFragmentManager);
 
 			string trailJSONStr = Intent.GetStringExtra ("viewedTrail") ?? "No trail displayed";
+			string activitiesJSONStr = Intent.GetStringExtra ("viewedActivities") ?? "No activities displayed";
+			string amenitiesJSONStr = Intent.GetStringExtra ("viewedAmenities") ?? "No amenities displayed";
 			Trail trail = Newtonsoft.Json.JsonConvert.DeserializeObject<Trail> (trailJSONStr);
 			trailName.Text = trail.name;
 
-			Activity[] debugActivities = new Activity[6];
-			Amenity[] debugAmenities = new Amenity[2];
+			Activity[] debugActivities = Newtonsoft.Json.JsonConvert.DeserializeObject<Activity[]> (activitiesJSONStr);
+			Amenity[] debugAmenities = Newtonsoft.Json.JsonConvert.DeserializeObject<Amenity[]>(amenitiesJSONStr);
 
+			/*
 			if (debugTrailA) {
 				debugActivities [0] = new Activity (1, "Hiking", "images/activities/activity-hike.png", DateTime.Now);
 				debugActivities[1] = new Activity(2, "Mountain Biking", "images/activities/activity-bike.png", DateTime.Now);
@@ -76,6 +79,7 @@ namespace Columbia583.Android
 				debugAmenities [0] = new Amenity (1, "restrooms", "images/amenities/restrooms_32.png", DateTime.Now);
 				debugAmenities[1] = new Amenity(2, "camping", "images/amenities/camping_32.png", DateTime.Now);
 			}
+			*/
 
 			adapter.AddFragmentView((i, v, b) =>
 				{
@@ -117,15 +121,15 @@ namespace Columbia583.Android
 					directions.Text = trail.directions;
 
 					if (debugTrailA) {
-						for (int j = 0; j < trail.activityIDs.Length; j++) {
+						for (int j = 0; j < debugActivities.Length; j++) {
 							TextView activityName = new TextView(this);
-							activityName.Text = debugActivities[trail.activityIDs[j]-1].activityName;
+							activityName.Text = debugActivities[j].activityName;
 							activitiesLayout.AddView(activityName);
 						}
 
-						for (int j = 0; j < trail.amenityIDs.Length; j++) {
+						for (int j = 0; j < debugAmenities.Length; j++) {
 							TextView amenityName = new TextView(this);
-							amenityName.Text = debugAmenities[trail.amenityIDs[j]-1].amenityName;
+							amenityName.Text = debugAmenities[j].amenityName;
 							amenitiesLayout.AddView(amenityName);
 						}
 					}

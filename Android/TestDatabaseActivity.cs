@@ -91,8 +91,9 @@ namespace Columbia583.Android
 			}
 			if (getTrailsBySearchFilterButton != null) {
 				getTrailsBySearchFilterButton.Click += (sender, e) => {
+					SearchFilter searchFilter = new SearchFilter(){ rating = 3 };
 					Data_Layer_Tests dataLayerTests = new Data_Layer_Tests();
-					string response = dataLayerTests.getTrailsBySearchFilter();
+					string response = dataLayerTests.getTrailsBySearchFilter(searchFilter);
 					Console.WriteLine(response);
 				};
 			}

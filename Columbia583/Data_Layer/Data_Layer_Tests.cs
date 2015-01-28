@@ -155,11 +155,11 @@ namespace Columbia583
 		/**
 		 * Gets the trails by a sample search filter.
 		 * */
-		public string getTrailsBySearchFilter()
+		public string getTrailsBySearchFilter(SearchFilter searchFilter)
 		{
 			// Create a sample search filter.
 			// TODO: Add more filter parameters.
-			SearchFilter searchFilter = new SearchFilter () { rating = 3 };
+			//SearchFilter searchFilter = new SearchFilter () { rating = 3 };
 
 			// Get the search results.
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
