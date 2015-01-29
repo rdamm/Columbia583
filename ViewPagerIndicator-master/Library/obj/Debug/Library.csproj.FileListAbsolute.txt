@@ -72,3 +72,4 @@ C:\Users\Jaclyn\Documents\GitHub\Columbia583\ViewPagerIndicator-master\Library\o
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\ViewPagerIndicator-master\Library\obj\Debug\res\values-v11\vpi__styles.xml
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\ViewPagerIndicator-master\Library\obj\Debug\R.cs.flag
 C:\Users\Jaclyn\Documents\GitHub\Columbia583\ViewPagerIndicator-master\Library\obj\Debug\uploadflags.txt
+C:\Users\Jaclyn\Documents\GitHub\Columbia583\ViewPagerIndicator-master\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
