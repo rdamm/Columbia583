@@ -8,7 +8,7 @@ namespace Columbia583
 	public class Point
 	{
 		// Keys and references.
-		[PrimaryKey, AutoIncrement]
+		[PrimaryKey]
 		public int id { get; set; }
 		[ForeignKey(typeof(Trail))]
 		public int trailId { get; set; }

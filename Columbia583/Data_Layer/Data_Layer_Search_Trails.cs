@@ -17,6 +17,9 @@ namespace Columbia583
 		}
 
 
+		// TODO: Finish the activity and amenity search parameters.
+
+
 		/// <summary>
 		/// Gets the trails by search filter.
 		/// </summary>

@@ -19,4 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button_databaseTests" />
+    <Button
+        android:text="Data Access Tests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_dataAccessTests" />
 </LinearLayout>

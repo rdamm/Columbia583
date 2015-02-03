@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Columbia583
 {
@@ -19,33 +23,147 @@ namespace Columbia583
 		public void initializeDatabase()
 		{
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			Service_Access_Layer_Common serviceAccessLayer = new Service_Access_Layer_Common ();
 
-			// Create the local database's tables.
+			// Drop and create the local database's tables.
+			dataLayer.dropTables ();
 			dataLayer.createTables ();
 
 			// Get the current time prior to calling the webservice.
 			DateTime currentTime = DateTime.Now;
 
-			// TODO: Get the data from the webservices.
+			// Get the data from the webservice.
+			List<Webservice_Trails> webserviceTrails = serviceAccessLayer.getAll ();
 
-			// TODO: Parse the data out into local class objects.
-			Activity[] activities = new Activity[0];
-			Amenity[] amenities = new Amenity[0];
+			// Define lists to copy the data to.
+			List<Trail> trails = null;
+			List<Organization> organizations = null;
+			List<User> users = null;
+			List<Activity> activities = null;
+			List<Amenity> amenities = null;
+			List<TrailsToActivities> trailsToActivities = null;
+			List<TrailsToAmenities> trailsToAmenities = null;
+
+			try
+			{
+				trails = new List<Trail>();
+				organizations = new List<Organization>();
+				users = new List<User>();
+				activities = new List<Activity>();
+				amenities = new List<Amenity>();
+				trailsToActivities = new List<TrailsToActivities>();
+				trailsToAmenities = new List<TrailsToAmenities>();
+
+				// For each trail retrieved from the webservice, parse the data into the local classes.
+				foreach(Webservice_Trails currentTrail in webserviceTrails)
+				{
+					int userId = 0;
+					int orgId = 0;
+
+					// Get this trail's user.
+					if (currentTrail.user != null)
+					{
+						users.Add(new User(currentTrail.user.id, currentTrail.user.org_id, currentTrail.user.email, currentTrail.user.username, Convert.ToDateTime(currentTrail.user.updated_at)));
+						userId = currentTrail.user.id;
+					}
+
+					// Get this trail's organization.
+					if (currentTrail.organization != null)
+					{
+						organizations.Add(new Organization(currentTrail.organization.id, currentTrail.organization.organization, Convert.ToDateTime(currentTrail.organization.updated_at)));
+						orgId = currentTrail.organization.id;
+					}
+
+					// Get this trail's activities.
+					if (currentTrail.activity != null && currentTrail.activity.Count > 0)
+					{
+						foreach(Webservice_Activity activity in currentTrail.activity)
+						{
+							// TODO: Fetch the activity icon's image from the net.
+							byte[] activityIcon = new byte[0];
+
+							activities.Add(new Activity(activity.id, activity.name, activityIcon, Convert.ToDateTime(activity.updated_at)));
+							trailsToActivities.Add(new TrailsToActivities(currentTrail.id, activity.id));
+						}
+					}
+
+					// Get this trail's amenities.
+					if (currentTrail.amenity != null && currentTrail.amenity.Count > 0)
+					{
+						foreach(Webservice_Amenity amenity in currentTrail.amenity)
+						{
+							// TODO: Fetch the amenity icon's image from the net.
+							byte[] amenityIcon = new byte[0];
+
+							amenities.Add(new Amenity(amenity.id, amenity.name, amenityIcon, Convert.ToDateTime(amenity.updated_at)));
+							trailsToAmenities.Add(new TrailsToAmenities(currentTrail.id, amenity.id));
+						}
+					}
+
+					// Get the boolean for open.
+					// TODO: Find a better way to handle boolean strings.
+					bool trailOpen = false;
+					if (currentTrail.open == "0")
+					{
+						trailOpen = false;
+					}
+					else if (currentTrail.open == "1")
+					{
+						trailOpen = true;
+					}
+					else
+					{
+						trailOpen = Convert.ToBoolean(currentTrail.open);
+					}
+
+					// Get the enum for difficulty.
+					Difficulty trailDifficulty;
+					if(currentTrail.difficulty.Contains(" "))
+					{
+						string[] token = currentTrail.difficulty.Split(' ');
+						string temp = token[0]+"_"+token[1];
+						trailDifficulty = (Difficulty) Enum.Parse(typeof(Difficulty),temp);
+
+					}
+					else
+					{
+						trailDifficulty = (Difficulty) Enum.Parse(typeof(Difficulty), currentTrail.difficulty);
+					}
+
+					// Get the base trail.
+					trails.Add(new Trail(currentTrail.id, userId, orgId, currentTrail.name, currentTrail.location, currentTrail.kml_name, currentTrail.kml_content, currentTrail.distance,
+						currentTrail.duration, currentTrail.description, currentTrail.directions, trailDifficulty, currentTrail.rating, currentTrail.hazards, currentTrail.surface,
+						currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, Convert.ToDateTime(currentTrail.updated_at)));
+				}
+
+				// Remove duplicate entries in the resulting lists.
+				trails = trails.Distinct().ToList();
+				organizations = organizations.Distinct().ToList();
+				users = users.Distinct().ToList();
+				activities = activities.Distinct().ToList();
+				amenities = amenities.Distinct().ToList();
+				trailsToActivities = trailsToActivities.Distinct().ToList();
+				trailsToAmenities = trailsToAmenities.Distinct().ToList();
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine (e.Message);
+			}
+			
+			// TODO: Get the remaining database data.
 			MapTile[] mapTiles = new MapTile[0];
 			Media[] media = new Media[0];
-			Organization[] organizations = new Organization[0];
 			Point[] points = new Point[0];
 			Role[] roles = new Role[0];
-			Trail[] trails = new Trail[0];
-			TrailsToActivities[] trailsToActivities = new TrailsToActivities[0];
-			TrailsToAmenities[] trailsToAmenities = new TrailsToAmenities[0];
-			User[] users = new User[0];
 			
 			// Store the data in the local database.
-			dataLayer.insertRows (activities, amenities, mapTiles, media, organizations, points, roles, trails, trailsToActivities, trailsToAmenities, users);
+			dataLayer.insertRows (activities.ToArray(), amenities.ToArray(), mapTiles, media, organizations.ToArray(), points, roles, trails.ToArray(), trailsToActivities.ToArray(),
+				trailsToAmenities.ToArray(), users.ToArray());
 
 			// Store the current time in the database as the last-updated time.
 			dataLayer.setDatabaseLastUpdated (currentTime);
+
+			Console.WriteLine ("Database Initialized!");
 		}
 
 
@@ -118,21 +236,6 @@ namespace Columbia583
 
 			// Store the current time in the database as the last-updated time.
 			dataLayer.setDatabaseLastUpdated (currentTime);
-		}
-
-		
-		/// <summary>
-		/// Destroys the local database before initializing and populating it again.
-		/// </summary>
-		public void reinitializeDatabase()
-		{
-			Data_Layer_Common dataLayer = new Data_Layer_Common ();
-
-			// Drop the local database's tables.
-			dataLayer.dropTables ();
-
-			// Initialize the database.
-			this.initializeDatabase ();
 		}
 
 

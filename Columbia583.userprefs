@@ -2,17 +2,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Layer\Data_Layer_Common.cs">
     <Files>
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Tests.cs" Line="63" Column="63" />
-      <File FileName="Columbia583\Service_Access_Layer\Service_Access_Layer_Search_Trails.cs" Line="89" Column="89" />
-      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="7" Column="7" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Common.cs" Line="72" Column="72" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_View_Trail.cs" Line="67" Column="67" />
-      <File FileName="Columbia583\Data_Classes\Point.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Common.cs" Line="4" Column="4" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Tests.cs" Line="4" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Columbia583.Android MonoForAntroid.PreferredDevice="Nexus 4" />
+  <MonoDevelop.Ide.ItemProperties.Columbia583.Android MonoForAntroid.PreferredDevice="Nexus 7" />
 </Properties>

@@ -6,7 +6,7 @@ namespace Columbia583
 	public class Role
 	{
 		// Keys and references.
-		[PrimaryKey, AutoIncrement]
+		[PrimaryKey]
 		public int id { get; set; }
 
 		// Data.

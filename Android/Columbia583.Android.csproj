@@ -70,6 +70,9 @@
     <Reference Include="SQLiteNetExtensions">
       <HintPath>..\packages\SQLiteNetExtensions.1.2.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\SQLiteNetExtensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="MyFragmentPagerAdapter.cs" />
     <Compile Include="ViewPagerFragment.cs" />
     <Compile Include="TestDatabaseActivity.cs" />
+    <Compile Include="TestDataAccessActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -99,6 +103,7 @@
     <AndroidResource Include="Resources\drawable\biking.png" />
     <AndroidResource Include="Resources\drawable\hiking.png" />
     <AndroidResource Include="Resources\drawable\skiing.png" />
+    <AndroidResource Include="Resources\layout\TestDataAccess.axml" />
   </ItemGroup>
   <Import Project="..\Columbia583\Columbia583.projitems" Label="Shared" Condition="Exists('..\Columbia583\Columbia583.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

@@ -41,14 +41,14 @@ namespace Columbia583
 			Media[] media = new Media[1];
 			Organization[] organizations = new Organization[1];
 			Role[] roles = new Role[1];
-			activities [0] = new Activity (1, "Hiking", "hiking.jpg", DateTime.Now);
-			activities [1] = new Activity (2, "Biking", "biking.jpg", DateTime.Now);
-			activities [2] = new Activity (3, "Skiing", "skiing.jpg", DateTime.Now);
-			amenities [0] = new Amenity (1, "Washrooms", "washrooms.jpg", DateTime.Now);
-			amenities [1] = new Amenity (2, "Campground", "campground.jpg", DateTime.Now);
-			amenities [2] = new Amenity (3, "Picnic Area", "picnic.jpg", DateTime.Now);
-			mapTiles [0] = new MapTile (1, 100, 200, 10, 20, "mapTile_100x200_10x20.jpg", DateTime.Now);
-			media [0] = new Media (1, "Baby Deer Looks Cute", "Image", "", DateTime.Now);
+			activities [0] = new Activity (1, "Hiking", new byte[0], DateTime.Now);
+			activities [1] = new Activity (2, "Biking", new byte[0], DateTime.Now);
+			activities [2] = new Activity (3, "Skiing", new byte[0], DateTime.Now);
+			amenities [0] = new Amenity (1, "Washrooms", new byte[0], DateTime.Now);
+			amenities [1] = new Amenity (2, "Campground", new byte[0], DateTime.Now);
+			amenities [2] = new Amenity (3, "Picnic Area", new byte[0], DateTime.Now);
+			mapTiles [0] = new MapTile (1, 100, 200, 10, 20, "mapTile_100x200_10x20.jpg", new byte[0], DateTime.Now, DateTime.Now);
+			media [0] = new Media (1, "Baby Deer Looks Cute", "Image", "", new byte[0], DateTime.Now, DateTime.Now);
 			organizations [0] = new Organization (1, "Columbia Valley Greenways Trail Alliance", DateTime.Now);
 			roles [0] = new Role (1, "Administrator", DateTime.Now);
 

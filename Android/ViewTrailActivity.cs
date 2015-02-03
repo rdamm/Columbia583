@@ -60,12 +60,12 @@ namespace Columbia583.Android
 			Amenity[] debugAmenities = new Amenity[2];
 
 			if (debugTrailA) {
-				debugActivities [0] = new Activity (1, "Hiking", "images/activities/activity-hike.png", DateTime.Now);
-				debugActivities[1] = new Activity(2, "Mountain Biking", "images/activities/activity-bike.png", DateTime.Now);
-				debugActivities [2] = new Activity (3, "Skiing", "", DateTime.Now);
+				debugActivities [0] = new Activity (1, "Hiking", new byte[0], DateTime.Now);
+				debugActivities[1] = new Activity(2, "Mountain Biking", new byte[0], DateTime.Now);
+				debugActivities [2] = new Activity (3, "Skiing", new byte[0], DateTime.Now);
 
-				debugAmenities [0] = new Amenity (1, "restrooms", "images/amenities/restrooms_32.png", DateTime.Now);
-				debugAmenities[1] = new Amenity(2, "camping", "images/amenities/camping_32.png", DateTime.Now);
+				debugAmenities [0] = new Amenity (1, "restrooms", new byte[0], DateTime.Now);
+				debugAmenities[1] = new Amenity(2, "camping", new byte[0], DateTime.Now);
 			}
 
 			adapter.AddFragmentView((i, v, b) =>

@@ -28,15 +28,6 @@ namespace Columbia583
 		}
 
 
-		public string reinitializeDatabase()
-		{
-			Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common ();
-			dataAccessLayer.reinitializeDatabase ();
-
-			return "Successfully reinitialized the database.";
-		}
-
-
 		public string getActivities()
 		{
 			Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common ();
