@@ -18,7 +18,7 @@ namespace Columbia583.Android
 	public class SearchTrailsActivity : AndroidActivity
 	{
 		// Activities.
-		protected LinearLayout activityOptions = null;
+		protected GridLayout activityOptions = null;
 		protected CheckBox[] activityCheckBoxes = null;
 
 		// Amenities.
@@ -27,11 +27,11 @@ namespace Columbia583.Android
 		protected CheckBox[] amenityCheckBoxes = null;
 
 		// Difficulties.
-		protected RadioButton easiestRadioButton = null;
-		protected RadioButton easyRadioButton = null;
-		protected RadioButton moreDifficultRadioButton = null;
-		protected RadioButton veryDifficultRadioButton = null;
-		protected RadioButton extremelyDifficultRadioButton = null;
+		protected CheckBox easiestRadioButton = null;
+		protected CheckBox easyRadioButton = null;
+		protected CheckBox moreDifficultRadioButton = null;
+		protected CheckBox veryDifficultRadioButton = null;
+		protected CheckBox extremelyDifficultRadioButton = null;
 
 		// Ratings.
 		protected LinearLayout ratingsOptions = null;
@@ -64,14 +64,14 @@ namespace Columbia583.Android
 			SetContentView (Resource.Layout.SearchTrails);
 
 			// Get the controls.
-			activityOptions = FindViewById<LinearLayout> (Resource.Id.activityOptions);
+			activityOptions = FindViewById<GridLayout> (Resource.Id.activityOptions);
 			amenityOptions = FindViewById<LinearLayout> (Resource.Id.amenityOptions);
 			amenityOptionsScroll = FindViewById<ScrollView> (Resource.Id.amenityOptionsScroll);
-			easiestRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_easiest);
-			easyRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_easy);
-			moreDifficultRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_moreDifficult);
-			veryDifficultRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_veryDifficult);
-			extremelyDifficultRadioButton = FindViewById<RadioButton> (Resource.Id.radioButton_difficulty_extremelyDifficult);
+			easiestRadioButton = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_easiest);
+			easyRadioButton = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_easy);
+			moreDifficultRadioButton = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_moreDifficult);
+			veryDifficultRadioButton = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_veryDifficult);
+			extremelyDifficultRadioButton = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_extremelyDifficult);
 			ratingsOptions = FindViewById<LinearLayout> (Resource.Id.ratingsOptions);
 			ratingsRadioButtons = new RadioButton[5];
 			ratingsRadioButtons[0] = FindViewById<RadioButton> (Resource.Id.radioButton_rating_1);
