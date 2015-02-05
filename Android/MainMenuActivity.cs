@@ -19,6 +19,7 @@ namespace Columbia583.Android
 		protected Button searchTrailsButton = null;
 		protected Button testDatabaseButton = null;
 		protected Button testDataAccessButton = null;
+		protected Button testImageButton = null;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -36,6 +37,7 @@ namespace Columbia583.Android
 			searchTrailsButton = FindViewById<Button> (Resource.Id.button_searchTrails);
 			testDatabaseButton = FindViewById<Button> (Resource.Id.button_databaseTests);
 			testDataAccessButton = FindViewById<Button> (Resource.Id.button_dataAccessTests);
+			testImageButton = FindViewById<Button> (Resource.Id.button_imageTests);
 
 			// Assign an event handler to the button.
 			if (searchTrailsButton != null) {
@@ -61,6 +63,15 @@ namespace Columbia583.Android
 
 					// Load the data access tests page.
 					var intent = new Intent(this, typeof(TestDataAccessActivity));
+					StartActivity(intent);
+
+				};
+			}
+			if (testImageButton != null) {
+				testImageButton.Click += (sender, e) => {
+
+					// Load the image tests page.
+					var intent = new Intent(this, typeof(TestImageActivity));
 					StartActivity(intent);
 
 				};
