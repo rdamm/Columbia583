@@ -554,6 +554,9 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0a0013
 			public const int checkBox_difficulty_veryDifficult = 2131361811;
 			
+			// aapt resource value: 0x7f0a0043
+			public const int commentsList = 2131361859;
+			
 			// aapt resource value: 0x7f0a0037
 			public const int description = 2131361847;
 			
@@ -593,8 +596,8 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0a0039
 			public const int openStatus = 2131361849;
 			
-			// aapt resource value: 0x7f0a0045
-			public const int pageIndicator = 2131361861;
+			// aapt resource value: 0x7f0a0048
+			public const int pageIndicator = 2131361864;
 			
 			// aapt resource value: 0x7f0a0018
 			public const int radioButton_rating_1 = 2131361816;
@@ -622,6 +625,9 @@ namespace Columbia583.Android
 			
 			// aapt resource value: 0x7f0a003e
 			public const int scrollView1 = 2131361854;
+			
+			// aapt resource value: 0x7f0a0044
+			public const int scrollView2 = 2131361860;
 			
 			// aapt resource value: 0x7f0a0036
 			public const int scrollView3 = 2131361846;
@@ -665,8 +671,11 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0a0004
 			public const int top = 2131361796;
 			
-			// aapt resource value: 0x7f0a0043
-			public const int trailName = 2131361859;
+			// aapt resource value: 0x7f0a0045
+			public const int trailGallery = 2131361861;
+			
+			// aapt resource value: 0x7f0a0046
+			public const int trailName = 2131361862;
 			
 			// aapt resource value: 0x7f0a0001
 			public const int triangle = 2131361793;
@@ -677,8 +686,8 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0a0002
 			public const int underline = 2131361794;
 			
-			// aapt resource value: 0x7f0a0044
-			public const int viewpager = 2131361860;
+			// aapt resource value: 0x7f0a0047
+			public const int viewpager = 2131361863;
 			
 			static Id()
 			{
@@ -740,7 +749,13 @@ namespace Columbia583.Android
 			public const int ViewTrail2 = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int ViewTrailBase = 2130903046;
+			public const int ViewTrail3 = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int ViewTrail4 = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int ViewTrailBase = 2130903048;
 			
 			static Layout()
 			{

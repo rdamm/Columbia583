@@ -274,7 +274,14 @@ namespace Columbia583.Android
 								var intent = new Intent (this, typeof(ViewTrailActivity));
 								// JSON serialization works
 								string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject (trail);
+								string activitiesJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(searchResult.activities);
+								string amenitiesJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(searchResult.amenities);
+								string pointsJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(searchResult.points);
 								intent.PutExtra ("viewedTrail", trailJSONStr);
+								intent.PutExtra("activities", activitiesJSONstr);
+								intent.PutExtra("amenities", amenitiesJSONstr);
+								intent.PutExtra("points", pointsJSONstr);
+
 								StartActivity (intent);
 
 							};

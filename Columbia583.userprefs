@@ -1,17 +1,13 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\RPrime\Desktop\Columbia583-sqlite_create_tables\Android\ViewTrailActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\ViewTrailActivity.cs">
     <Files>
-      <File FileName="Columbia583\Application_Layer\Application_Layer_Search_Trails.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="3" Column="3" />
-      <File FileName="ViewPagerIndicator-master\Library\CirclePageIndicator.cs" Line="55" Column="55" />
-      <File FileName="Android\SearchTrailsActivity.cs" Line="25" Column="25" />
-      <File FileName="c:\Users\RPrime\Desktop\Columbia583-sqlite_create_tables\Android\ViewTrailActivity.cs" Line="39" Column="39" />
+      <File FileName="Android\SearchTrailsActivity.cs" Line="58" Column="58" />
+      <File FileName="Android\ViewTrailActivity.cs" Line="132" Column="132" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Columbia583.Android MonoForAntroid.PreferredDevice="Nexus 7" />
 </Properties>

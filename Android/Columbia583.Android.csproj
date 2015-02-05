@@ -105,6 +105,8 @@
     <AndroidResource Include="Resources\drawable\hiking.png" />
     <AndroidResource Include="Resources\drawable\skiing.png" />
     <AndroidResource Include="Resources\layout\TestDataAccess.axml" />
+    <AndroidResource Include="Resources\layout\ViewTrail3.axml" />
+    <AndroidResource Include="Resources\layout\ViewTrail4.axml" />
   </ItemGroup>
   <Import Project="..\Columbia583\Columbia583.projitems" Label="Shared" Condition="Exists('..\Columbia583\Columbia583.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
