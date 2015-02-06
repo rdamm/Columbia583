@@ -512,9 +512,6 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0a0028
 			public const int btnGetDatabaseLastUpdated = 2131361832;
 			
-			// aapt resource value: 0x7f0a0031
-			public const int btnGetImageAsBinary = 2131361841;
-			
 			// aapt resource value: 0x7f0a002d
 			public const int btnGetTrail = 2131361837;
 			
@@ -528,7 +525,10 @@ namespace Columbia583.Android
 			public const int btnInsertTables = 2131361831;
 			
 			// aapt resource value: 0x7f0a0032
-			public const int btnLoadImageUsingBinary = 2131361842;
+			public const int btnLoadImageFromDatabase = 2131361842;
+			
+			// aapt resource value: 0x7f0a0031
+			public const int btnLoadImageFromWeb = 2131361841;
 			
 			// aapt resource value: 0x7f0a0029
 			public const int btnSetDatabaseLastUpdated = 2131361833;

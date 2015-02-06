@@ -4,15 +4,15 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
     <Button
-        android:text="Get Image as Binary"
+        android:text="Load Image From Web"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnGetImageAsBinary" />
+        android:id="@+id/btnLoadImageFromWeb" />
     <Button
-        android:text="Load Image Using Binary"
+        android:text="Load Image From Database"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnLoadImageUsingBinary" />
+        android:id="@+id/btnLoadImageFromDatabase" />
     <ImageView
         android:src="@android:drawable/ic_menu_gallery"
         android:layout_width="match_parent"

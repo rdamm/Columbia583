@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using System.Net;
+using System.IO;
+using Android.Graphics;
+
 namespace Columbia583
 {
 	/// <summary>
@@ -34,6 +38,17 @@ namespace Columbia583
 		/// <returns>The into tables.</returns>
 		public string insertIntoTables()
 		{
+			byte[] imageBytes = null;
+			try
+			{
+				// Get a sample image from the web.
+				WebClient client = new WebClient();
+				imageBytes = client.DownloadData("http://www.clker.com/cliparts/3/d/3/7/12065718151966625209johnny_automatic_NPS_map_pictographs_part_96.svg.hi.png");
+			}
+			catch (WebException e) {
+				Console.WriteLine ("Failed to get sample image to insert.  Defaulting to null.");
+			}
+
 			// Create rows without foreign keys.
 			Activity[] activities = new Activity[3];
 			Amenity[] amenities = new Amenity[3];
@@ -41,7 +56,7 @@ namespace Columbia583
 			Media[] media = new Media[1];
 			Organization[] organizations = new Organization[1];
 			Role[] roles = new Role[1];
-			activities [0] = new Activity (1, "Hiking", new byte[0], DateTime.Now);
+			activities [0] = new Activity (1, "Hiking", imageBytes, DateTime.Now);
 			activities [1] = new Activity (2, "Biking", new byte[0], DateTime.Now);
 			activities [2] = new Activity (3, "Skiing", new byte[0], DateTime.Now);
 			amenities [0] = new Amenity (1, "Washrooms", new byte[0], DateTime.Now);

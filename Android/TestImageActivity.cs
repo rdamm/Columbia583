@@ -21,8 +21,8 @@ namespace Columbia583.Android
 	[Activity (Label = "TestImage")]			
 	public class TestImageActivity : AndroidActivity
 	{
-		protected Button getImageAsBinaryButton = null;
-		protected Button loadImageUsingBinary = null;
+		protected Button loadImageFromWebButton = null;
+		protected Button loadImageFromDatabaseButton = null;
 
 		protected ImageView imageTestImage = null;
 
@@ -41,42 +41,55 @@ namespace Columbia583.Android
 			SetContentView (Resource.Layout.TestImage);
 
 			// Get the controls.
-			getImageAsBinaryButton = FindViewById<Button> (Resource.Id.btnGetImageAsBinary);
-			loadImageUsingBinary = FindViewById<Button> (Resource.Id.btnLoadImageUsingBinary);
+			loadImageFromWebButton = FindViewById<Button> (Resource.Id.btnLoadImageFromWeb);
+			loadImageFromDatabaseButton = FindViewById<Button> (Resource.Id.btnLoadImageFromDatabase);
 
 			// Get the views.
 			imageTestImage = FindViewById<ImageView> (Resource.Id.imageTestImage);
 
 			// Assign event handlers to the buttons.
-			if (getImageAsBinaryButton != null) {
-				getImageAsBinaryButton.Click += (sender, e) => {
+			if (loadImageFromWebButton != null) {
+				loadImageFromWebButton.Click += (sender, e) => {
 
-					// Load the image.
+					Console.WriteLine("Loading image from web...");
+
+					// Load the image from the web.
 					WebClient client = new WebClient();
 					byte[] imageBytes = client.DownloadData(testImageUrl);
-
-					// Write the byte array to console.
-					Console.WriteLine("Got image!");
-					Console.WriteLine("Image size: " + imageBytes.Length + " bytes.");
-
-				};
-			}
-			if (loadImageUsingBinary != null) {
-				loadImageUsingBinary.Click += (sender, e) => {
-
-					// Load the image.
-					WebClient client = new WebClient();
-					byte[] imageBytes = client.DownloadData(testImageUrl);
-
-					// Convert the bytes into an image.
-					MemoryStream stream = new MemoryStream(imageBytes);
-
+					
 					// Show the image.
-					Bitmap bmp = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
-					imageTestImage.SetImageBitmap(bmp);
+					Bitmap bitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+					imageTestImage.SetImageBitmap(bitmap);
+
+					Console.WriteLine("Set web image. (" + imageBytes.Length + " bytes)");
 
 				};
 			}
+			if (loadImageFromDatabaseButton != null) {
+				loadImageFromDatabaseButton.Click += (sender, e) => {
+
+					Console.WriteLine("Loading image from database...");
+
+					// Get the activities.
+					Data_Layer_Common dataLayer = new Data_Layer_Common();
+					List<Activity> activities = dataLayer.getActivities();
+
+					// Show the first activity's image.
+					Activity activity = activities.First<Activity>();
+					byte[] activityImage = activity.activityIcon;
+					if (activityImage != null)
+					{
+						Bitmap bitmap = BitmapFactory.DecodeByteArray(activity.activityIcon, 0, activity.activityIcon.Length);
+						imageTestImage.SetImageBitmap(bitmap);
+						Console.WriteLine("First activity image set. (" + activity.activityIcon.Length + " bytes )");
+					}
+					else
+					{
+						Console.WriteLine("First activity's image not set in database.");
+					}
+				};
+			}
+
 		}
 	}
 }

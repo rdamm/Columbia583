@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.virtualNexus_4.4W.2" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.virtualNexus" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Android\TestImageActivity.cs">
     <Files>
-      <File FileName="Columbia583\Data_Classes\Activity.cs" Line="4" Column="4" />
-      <File FileName="Android\TestImageActivity.cs" Line="21" Column="21" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Tests.cs" Line="152" Column="152" />
+      <File FileName="Android\TestImageActivity.cs" Line="6" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
