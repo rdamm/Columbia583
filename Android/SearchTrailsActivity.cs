@@ -10,6 +10,7 @@ using Android.Widget;
 using Android.OS;
 
 using Xamarin.Forms.Platform.Android;
+using Android.Graphics;
 
 
 namespace Columbia583.Android
@@ -17,14 +18,38 @@ namespace Columbia583.Android
 	[Activity (Label = "Columbia583.Android_Search_Trails", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class SearchTrailsActivity : AndroidActivity
 	{
+		// Define some structs for iterating through the checkboxes.
+		protected class CheckboxToActivity
+		{
+			public Activity activity { get; set; }
+			public CheckBox checkbox { get; set; }
+
+			public CheckboxToActivity(Activity activity, CheckBox checkbox)
+			{
+				this.activity = activity;
+				this.checkbox = checkbox;
+			}
+		}
+		protected class CheckboxToAmenity
+		{
+			public Amenity amenity { get; set; }
+			public CheckBox checkbox { get; set; }
+
+			public CheckboxToAmenity(Amenity amenity, CheckBox checkbox)
+			{
+				this.amenity = amenity;
+				this.checkbox = checkbox;
+			}
+		}
+
 		// Activities.
 		protected GridLayout activityOptions = null;
-		protected CheckBox[] activityCheckBoxes = null;
+		protected List<CheckboxToActivity> activityCheckBoxes = null;
 
 		// Amenities.
 		protected LinearLayout amenityOptions = null;
 		protected ScrollView amenityOptionsScroll = null;
-		protected CheckBox[] amenityCheckBoxes = null;
+		protected List<CheckboxToAmenity> amenityCheckBoxes = null;
 
 		// Difficulties.
 		protected CheckBox easiestRadioButton = null;
@@ -86,10 +111,11 @@ namespace Columbia583.Android
 			//viewTrailButton = FindViewById<Button> (Resource.Id.button_viewTrail);
 
 			Application_Layer_Search_Trails applicationLayer_searchTrails = new Application_Layer_Search_Trails ();
-			Data_Layer_Common dataLayer2 = new Data_Layer_Common ();
-
 			SearchResult[] debugSearchResults = applicationLayer_searchTrails.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
 			//List<SearchResult> debugSearchResults = dataLayer.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
+
+			// Get the activities and amenities.
+			Data_Layer_Common dataLayer2 = new Data_Layer_Common ();
 			List<Activity> debugActivities = dataLayer2.getActivities ();
 			List<Amenity> debugAmenities = dataLayer2.getAmenities ();
 
@@ -106,35 +132,91 @@ namespace Columbia583.Android
 				debugAmenities [0] = new Amenity (1, "restrooms", new byte[0], DateTime.Now);
 				debugAmenities[1] = new Amenity(2, "camping", new byte[0], DateTime.Now);
 				*/
-				activityCheckBoxes = new CheckBox[debugActivities.Count];
-				amenityCheckBoxes = new CheckBox[debugAmenities.Count];
-
+				
 				this.setSearchResults(debugSearchResults);
 			}
 
-			for (int i = 0; i < activityCheckBoxes.Length; i++) {
-				activityCheckBoxes [i] = new CheckBox (this);
-				if (debugSearch) {
-					activityCheckBoxes [i].Text = debugActivities [i].activityName;
-					activityCheckBoxes [i].Hint = debugActivities [i].id.ToString();
-				}
-				activityOptions.AddView (activityCheckBoxes [i]);
+			activityCheckBoxes = new List<CheckboxToActivity>();
+			amenityCheckBoxes = new List<CheckboxToAmenity>();
 
-				// Display the icon beside the checkbox.
-				ImageView icon = new ImageView (this);
-				icon.SetImageResource (Resource.Drawable.biking);
-				icon.SetMaxHeight (16);
-				icon.SetMaxWidth (16);
-				activityOptions.AddView (icon);
+			foreach (Activity activity in debugActivities)
+			{
+				// Create a new checkbox.
+				CheckBox checkbox = new CheckBox (this);
+
+				// Add this checkbox to the list of checkboxes.
+				activityCheckBoxes.Add (new CheckboxToActivity (activity, checkbox));
+
+				// Add the checkbox to the view.
+				activityOptions.AddView (checkbox);
+
+				// Show the checkbox's icon or name.
+				if (activity.activityIcon != null)
+				{
+					// Create an image view for the image.
+					ImageView imageView = new ImageView (this);
+
+					// Create a bitmap from the image's byte array.
+					Bitmap bitmap = BitmapFactory.DecodeByteArray(activity.activityIcon, 0, activity.activityIcon.Length);
+					imageView.SetMaxHeight (64);
+					imageView.SetMaxWidth (64);
+					imageView.SetBackgroundColor (Color.White);
+					imageView.SetImageBitmap(bitmap);
+
+					// Add the icon to the view.
+					activityOptions.AddView (imageView);
+				}
+				else
+				{
+					// Create a text view for the name.
+					TextView textView = new TextView (this);
+
+					// TODO: Set the text view's content.
+					//textView.SetText (activity.activityName);
+
+					// Add the text to the view.
+					activityOptions.AddView (textView);
+				}
 			}
 
-			for (int i = 0; i < amenityCheckBoxes.Length; i++) {
-				amenityCheckBoxes [i] = new CheckBox (this);
-				if (debugSearch) {
-					amenityCheckBoxes [i].Text = debugAmenities [i].amenityName;
-					amenityCheckBoxes [i].Hint = debugAmenities [i].id.ToString();
+			foreach (Amenity amenity in debugAmenities)
+			{
+				// Create a new checkbox.
+				CheckBox checkbox = new CheckBox (this);
+
+				// Add this checkbox to the list of checkboxes.
+				amenityCheckBoxes.Add (new CheckboxToAmenity (amenity, checkbox));
+
+				// Add the checkbox to the view.
+				amenityOptions.AddView (checkbox);
+
+				// Show the checkbox's icon or name.
+				if (amenity.amenityIcon != null)
+				{
+					// Create an image view for the image.
+					ImageView imageView = new ImageView (this);
+
+					// Create a bitmap from the image's byte array.
+					Bitmap bitmap = BitmapFactory.DecodeByteArray(amenity.amenityIcon, 0, amenity.amenityIcon.Length);
+					imageView.SetMaxHeight (64);
+					imageView.SetMaxWidth (64);
+					imageView.SetBackgroundColor (Color.White);
+					imageView.SetImageBitmap(bitmap);
+
+					// Add the icon to the view.
+					amenityOptions.AddView (imageView);
 				}
-				amenityOptions.AddView (amenityCheckBoxes [i]);
+				else
+				{
+					// Create a text view for the name.
+					TextView textView = new TextView (this);
+
+					// TODO: Set the text view's content.
+					//textView.SetText (amenity.amenityName);
+
+					// Add the text to the view.
+					amenityOptions.AddView (textView);
+				}
 			}
 
 			// Assign an event handler to the update search results button.
@@ -187,17 +269,22 @@ namespace Columbia583.Android
 			// Get the search filter parameters from the controls.
 			// TODO: Get the min duration and distances.
 			// TODO: Get the minimum star rating.
-			for (int i = 0; i < activityCheckBoxes.Length; i++) {
-				if (activityCheckBoxes[i] != null && activityCheckBoxes[i].Checked) {
-					activitiesList.Add (int.Parse(activityCheckBoxes[i].Hint));
+			foreach (CheckboxToActivity checkboxToActivity in activityCheckBoxes)
+			{
+				if (checkboxToActivity.checkbox != null && checkboxToActivity.checkbox.Checked)
+				{
+					activitiesList.Add (checkboxToActivity.activity.id);
 				}
 			}
 
-			for (int i = 0; i < amenityCheckBoxes.Length; i++) {
-				if (amenityCheckBoxes[i] != null && amenityCheckBoxes[i].Checked) {
-					amenitiesList.Add (int.Parse(amenityCheckBoxes[i].Hint));
+			foreach (CheckboxToAmenity checkboxToAmenity in amenityCheckBoxes)
+			{
+				if (checkboxToAmenity.checkbox != null && checkboxToAmenity.checkbox.Checked)
+				{
+					amenitiesList.Add (checkboxToAmenity.amenity.id);
 				}
 			}
+
 			if (easiestRadioButton != null && easiestRadioButton.Checked == true) {
 				difficulty.Add(Difficulty.Easiest);
 			}
