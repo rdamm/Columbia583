@@ -49,7 +49,7 @@ namespace Columbia583.Android
 		//protected Button viewTrailButton = null;
 
 		// Debug
-		protected bool debugSearchResults = true;
+		protected bool debugSearch = true;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -85,11 +85,16 @@ namespace Columbia583.Android
 			searchResultsGrid = FindViewById<GridLayout> (Resource.Id.gridLayout_searchResults);
 			//viewTrailButton = FindViewById<Button> (Resource.Id.button_viewTrail);
 
-			Trail[] debugTrails = new Trail[3];
-			Activity[] debugActivities = new Activity[3];
-			Amenity[] debugAmenities = new Amenity[2];
+			Application_Layer_Search_Trails applicationLayer_searchTrails = new Application_Layer_Search_Trails ();
+			Data_Layer_Common dataLayer2 = new Data_Layer_Common ();
 
-			if (debugSearchResults) {
+			SearchResult[] debugSearchResults = applicationLayer_searchTrails.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
+			//List<SearchResult> debugSearchResults = dataLayer.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
+			List<Activity> debugActivities = dataLayer2.getActivities ();
+			List<Amenity> debugAmenities = dataLayer2.getAmenities ();
+
+			if (debugSearch) {
+				/*
 				debugTrails[0] = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69", "10", "Lorem ipsum", "three steps north, then turn right", Difficulty.Easiest, 4, "falling rocks", "", "", "A work bee is planned for 15 July 2014, weather pending. Some sections of the trail may be closed. Please come out with your shovels and rakes from 10am-1pm and enjoy a bbq afterwards.", "December through January", true, true, DateTime.Now);
 				debugTrails[1] = new Trail(0, 0, 0, "Niles", "BC", "", "", "113.12", "20", "dolores umbridge", "Go to Neverland", Difficulty.Very_Difficult, 3, "", "", "", "", "All year", true, true, DateTime.Now);
 				debugTrails[2] = new Trail(0, 0, 0, "Findlay Creek Trail 2", "AB", "", "", "0.59", "0.45", "Presumably, there's a Findlay Creek Trail 1, but this isn't it", "1337 d1r3c710n5", Difficulty.Extremely_Difficult, 5, "", "", "", "rwerwer", "Summer", true, true, DateTime.Now);
@@ -100,16 +105,16 @@ namespace Columbia583.Android
 
 				debugAmenities [0] = new Amenity (1, "restrooms", new byte[0], DateTime.Now);
 				debugAmenities[1] = new Amenity(2, "camping", new byte[0], DateTime.Now);
+				*/
+				activityCheckBoxes = new CheckBox[debugActivities.Count];
+				amenityCheckBoxes = new CheckBox[debugAmenities.Count];
 
-				activityCheckBoxes = new CheckBox[debugActivities.Length];
-				amenityCheckBoxes = new CheckBox[debugAmenities.Length];
-
-				//this.setSearchResults(debugTrails);
+				this.setSearchResults(debugSearchResults);
 			}
 
 			for (int i = 0; i < activityCheckBoxes.Length; i++) {
 				activityCheckBoxes [i] = new CheckBox (this);
-				if (debugSearchResults) {
+				if (debugSearch) {
 					activityCheckBoxes [i].Text = debugActivities [i].activityName;
 					activityCheckBoxes [i].Hint = debugActivities [i].id.ToString();
 				}
@@ -125,7 +130,7 @@ namespace Columbia583.Android
 
 			for (int i = 0; i < amenityCheckBoxes.Length; i++) {
 				amenityCheckBoxes [i] = new CheckBox (this);
-				if (debugSearchResults) {
+				if (debugSearch) {
 					amenityCheckBoxes [i].Text = debugAmenities [i].amenityName;
 					amenityCheckBoxes [i].Hint = debugAmenities [i].id.ToString();
 				}
@@ -140,7 +145,8 @@ namespace Columbia583.Android
 					SearchFilter searchFilter = this.getSearchFilter();
 
 					// Get the search results.
-					Application_Layer_Search_Trails applicationLayer_searchTrails = new Application_Layer_Search_Trails ();
+					//List<SearchResult> results = dataLayer.getTrailsBySearchFilter(searchFilter);
+					//Application_Layer_Search_Trails applicationLayer_searchTrails = new Application_Layer_Search_Trails ();
 					SearchResult[] trails = applicationLayer_searchTrails.getTrailsBySearchFilter (searchFilter);
 
 					// Show the search results.
@@ -173,7 +179,7 @@ namespace Columbia583.Android
 		{
 			List<int> activitiesList = new List<int>();
 			List<int> amenitiesList = new List<int> ();
-			Difficulty difficulty = Difficulty.Easiest;
+			List<Difficulty> difficulty = new List<Difficulty>();
 			int rating = 1;
 
 			// TODO: Reference the database for activity and amenity enumerations.
@@ -193,19 +199,19 @@ namespace Columbia583.Android
 				}
 			}
 			if (easiestRadioButton != null && easiestRadioButton.Checked == true) {
-				difficulty = Difficulty.Easiest;
+				difficulty.Add(Difficulty.Easiest);
 			}
 			if (easyRadioButton != null && easyRadioButton.Checked == true) {
-				difficulty = Difficulty.Easy;
+				difficulty.Add(Difficulty.Easy);
 			}
 			if (moreDifficultRadioButton != null && moreDifficultRadioButton.Checked == true) {
-				difficulty = Difficulty.More_Difficult;
+				difficulty.Add(Difficulty.More_Difficult);
 			}
 			if (veryDifficultRadioButton!= null && veryDifficultRadioButton.Checked == true) {
-				difficulty = Difficulty.Very_Difficult;
+				difficulty.Add(Difficulty.Very_Difficult);
 			}
 			if (extremelyDifficultRadioButton != null && extremelyDifficultRadioButton.Checked == true) {
-				difficulty = Difficulty.Extremely_Difficult;
+				difficulty.Add(Difficulty.Extremely_Difficult);
 			}
 			for (int i = 0; i < ratingsRadioButtons.Length; i++) {
 				if (ratingsRadioButtons[i] != null && ratingsRadioButtons[i].Checked) {
@@ -224,7 +230,7 @@ namespace Columbia583.Android
 			}
 
 			// Encapsulate the filter parameters.
-			SearchFilter searchFilter = new SearchFilter(activitiesList.ToArray(), amenitiesList.ToArray(), difficulty, rating, minDuration, maxDuration, minDistance, maxDistance);
+			SearchFilter searchFilter = new SearchFilter(activitiesList.ToArray(), amenitiesList.ToArray(), difficulty.ToArray(), rating, minDuration, maxDuration, minDistance, maxDistance);
 
 			return searchFilter;
 		}

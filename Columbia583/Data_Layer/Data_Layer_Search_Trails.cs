@@ -31,7 +31,7 @@ namespace Columbia583
 			// eg. WHERE (
 			//		(activity = hiking OR activity = biking OR activity = skiing) AND
 			//		(amenity = washrooms OR amenity = campground OR amenity = picnic area) AND
-			//		(difficulty = 3) AND
+			//		(difficulty = 3 OR difficulty = 5) AND
 			//		(rating >= 3) AND
 			//		(duration >= 1 AND duration <= 5) AND
 			//		(distance >= 2 AND distance <= 6)
@@ -66,11 +66,25 @@ namespace Columbia583
 					amenityLine += ")";
 					// TODO: Add the line and its parameters to the lists.
 				}
-				if (searchFilter.difficulty != 0)
+				if (searchFilter.difficulty != null && searchFilter.difficulty.Length > 0)
 				{
-					string difficultyLine = "(difficulty = ?)";
+					string difficultyLine = "(";
+					bool firstDiff = true;
+					foreach(Difficulty d in searchFilter.difficulty)
+					{
+						if (firstDiff)
+						{
+							firstDiff = false;
+						}
+						else
+						{
+							difficultyLine += " OR ";
+						}
+						difficultyLine += "difficulty = ?";
+						parameters.Add((int)d);
+					}
+					difficultyLine += ")";
 					lines.Add(difficultyLine);
-					parameters.Add((int)searchFilter.difficulty);
 				}
 				if (searchFilter.rating != 0)
 				{

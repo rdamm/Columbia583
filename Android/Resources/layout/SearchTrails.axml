@@ -37,7 +37,7 @@
                     android:minHeight="25px"
                     android:orientation="vertical"
                     android:columnCount="3"
-                    android:rowCount="2" />
+                    android:rowCount="4" />
             </ScrollView>
         </LinearLayout>
     <!-- /Activities -->

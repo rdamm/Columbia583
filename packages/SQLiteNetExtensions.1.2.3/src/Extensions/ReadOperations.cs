@@ -7,6 +7,7 @@ using SQLiteNetExtensions.Attributes;
 using SQLiteNetExtensions.Extensions.TextBlob;
 using System.Linq.Expressions;
 using SQLiteNetExtensions.Exceptions;
+using System.Collections.ObjectModel;
 
 #if USING_MVVMCROSS
 using SQLiteConnection = Cirrious.MvvmCross.Community.Plugins.Sqlite.ISQLiteConnection;
@@ -171,6 +172,9 @@ namespace SQLiteNetExtensions.Extensions
                 var relationshipAttribute = relationshipProperty.GetAttribute<RelationshipAttribute>();
                 if (!onlyCascadeChildren || relationshipAttribute.IsCascadeRead)
                     conn.GetChildRecursive(element, relationshipProperty, recursive, objectCache);
+                else if (relationshipAttribute is TextBlobAttribute) {
+                    conn.GetChildRecursive(element, relationshipProperty, false, objectCache);
+                }
             }
         }
 
@@ -361,6 +365,8 @@ namespace SQLiteNetExtensions.Extensions
                 // Create a generic list of the expected type
                 if (enclosedType == EnclosedType.List)
                     values = (IList) Activator.CreateInstance(typeof (List<>).MakeGenericType(entityType));
+                else if (enclosedType == EnclosedType.ObservableCollection)
+                    values = (IList) Activator.CreateInstance(typeof (ObservableCollection<>).MakeGenericType(entityType));
                 else
                     values = array = Array.CreateInstance(entityType, queryResults.Count);
                     
@@ -448,6 +454,8 @@ namespace SQLiteNetExtensions.Extensions
                 // Create a generic list of the expected type
                 if (enclosedType == EnclosedType.List)
                     values = (IList) Activator.CreateInstance(typeof (List<>).MakeGenericType(entityType));
+                else if (enclosedType == EnclosedType.ObservableCollection)
+                    values = (IList) Activator.CreateInstance(typeof (ObservableCollection<>).MakeGenericType(entityType));
                 else
                     values = array = Array.CreateInstance(entityType, queryResults.Count);
                     
@@ -469,6 +477,7 @@ namespace SQLiteNetExtensions.Extensions
                     i++;
                 }
             }
+
 
             relationshipProperty.SetValue(element, values, null);
 
