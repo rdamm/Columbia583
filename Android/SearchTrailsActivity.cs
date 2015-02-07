@@ -43,7 +43,7 @@ namespace Columbia583.Android
 		}
 
 		// Activities.
-		protected GridLayout activityOptions = null;
+		protected LinearLayout activityOptions = null;
 		protected List<CheckboxToActivity> activityCheckBoxes = null;
 
 		// Amenities.
@@ -89,7 +89,7 @@ namespace Columbia583.Android
 			SetContentView (Resource.Layout.SearchTrails);
 
 			// Get the controls.
-			activityOptions = FindViewById<GridLayout> (Resource.Id.activityOptions);
+			activityOptions = FindViewById<LinearLayout> (Resource.Id.activityOptions);
 			amenityOptions = FindViewById<LinearLayout> (Resource.Id.amenityOptions);
 			amenityOptionsScroll = FindViewById<ScrollView> (Resource.Id.amenityOptionsScroll);
 			easiestRadioButton = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_easiest);
@@ -158,6 +158,8 @@ namespace Columbia583.Android
 
 					// Create a bitmap from the image's byte array.
 					Bitmap bitmap = BitmapFactory.DecodeByteArray(activity.activityIcon, 0, activity.activityIcon.Length);
+					imageView.SetMinimumHeight (64);
+					imageView.SetMinimumWidth (64);
 					imageView.SetMaxHeight (64);
 					imageView.SetMaxWidth (64);
 					imageView.SetBackgroundColor (Color.White);
@@ -198,6 +200,8 @@ namespace Columbia583.Android
 
 					// Create a bitmap from the image's byte array.
 					Bitmap bitmap = BitmapFactory.DecodeByteArray(amenity.amenityIcon, 0, amenity.amenityIcon.Length);
+					imageView.SetMinimumHeight (64);
+					imageView.SetMinimumWidth (64);
 					imageView.SetMaxHeight (64);
 					imageView.SetMaxWidth (64);
 					imageView.SetBackgroundColor (Color.White);

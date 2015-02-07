@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\SearchTrailsActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\TestImageActivity.cs">
     <Files>
-      <File FileName="Android\TestImageActivity.cs" Line="44" Column="44" />
-      <File FileName="Android\SearchTrailsActivity.cs" Line="5" Column="5" />
+      <File FileName="Android\TestImageActivity.cs" Line="100" Column="100" />
+      <File FileName="Android\SearchTrailsActivity.cs" Line="34" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
