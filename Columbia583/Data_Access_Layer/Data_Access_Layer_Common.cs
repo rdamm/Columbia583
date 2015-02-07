@@ -4,6 +4,8 @@ using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
+using System.Net;
+
 namespace Columbia583
 {
 	/// <summary>
@@ -79,10 +81,28 @@ namespace Columbia583
 					{
 						foreach(Webservice_Activity activity in currentTrail.activity)
 						{
-							// TODO: Fetch the activity icon's image from the net.
-							byte[] activityIcon = new byte[0];
+							byte[] imageBytes = null;
+							if (activity.icon != null && activity.icon != "")
+							{
+								// Get the full URL of the image by appending its local URI to the website.
+								string baseUrl = "http://trails.greenways.ca/";
+								string fullImageUrl = baseUrl + activity.icon;
 
-							activities.Add(new Activity(activity.id, activity.name, activityIcon, Convert.ToDateTime(activity.updated_at)));
+								try
+								{
+									// Load the image from the web.
+									WebClient client = new WebClient();
+									imageBytes = client.DownloadData(fullImageUrl);
+								}
+								catch (WebException e)
+								{
+									// TODO: Log error.
+									Console.WriteLine("Failed to download activity icon.  Activity ID = " + activity.id);
+									Console.WriteLine(e.Message);
+								}
+							}
+
+							activities.Add(new Activity(activity.id, activity.name, imageBytes, Convert.ToDateTime(activity.updated_at)));
 							trailsToActivities.Add(new TrailsToActivities(currentTrail.id, activity.id));
 						}
 					}
@@ -92,10 +112,28 @@ namespace Columbia583
 					{
 						foreach(Webservice_Amenity amenity in currentTrail.amenity)
 						{
-							// TODO: Fetch the amenity icon's image from the net.
-							byte[] amenityIcon = new byte[0];
+							byte[] imageBytes = null;
+							if (amenity.icon != null && amenity.icon != "")
+							{
+								// Get the full URL of the image by appending its local URI to the website.
+								string baseUrl = "http://trails.greenways.ca/";
+								string fullImageUrl = baseUrl + amenity.icon;
 
-							amenities.Add(new Amenity(amenity.id, amenity.name, amenityIcon, Convert.ToDateTime(amenity.updated_at)));
+								try
+								{
+									// Load the image from the web.
+									WebClient client = new WebClient();
+									imageBytes = client.DownloadData(fullImageUrl);
+								}
+								catch (WebException e)
+								{
+									// TODO: Log error.
+									Console.WriteLine("Failed to download amenity icon.  Amenity ID = " + amenity.id);
+									Console.WriteLine(e.Message);
+								}
+							}
+
+							amenities.Add(new Amenity(amenity.id, amenity.name, imageBytes, Convert.ToDateTime(amenity.updated_at)));
 							trailsToAmenities.Add(new TrailsToAmenities(currentTrail.id, amenity.id));
 						}
 					}

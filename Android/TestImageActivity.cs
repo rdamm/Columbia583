@@ -18,13 +18,14 @@ using Android.Graphics;
 
 namespace Columbia583.Android
 {
-	[Activity (Label = "TestImage")]			
+	[Activity (Label = "TestImage")]
 	public class TestImageActivity : AndroidActivity
 	{
 		protected Button loadImageFromWebButton = null;
 		protected Button loadImageFromDatabaseButton = null;
-
+		protected Button dynamicallyDisplayImagesButton = null;
 		protected ImageView imageTestImage = null;
+		protected LinearLayout dynamicallyDisplayImagesLinearLayout = null;
 
 		protected string testImageUrl = "https://www.google.ca/images/srpr/logo11w.png";
 
@@ -43,9 +44,9 @@ namespace Columbia583.Android
 			// Get the controls.
 			loadImageFromWebButton = FindViewById<Button> (Resource.Id.btnLoadImageFromWeb);
 			loadImageFromDatabaseButton = FindViewById<Button> (Resource.Id.btnLoadImageFromDatabase);
-
-			// Get the views.
+			dynamicallyDisplayImagesButton = FindViewById<Button> (Resource.Id.btnDynamicallyDisplayImages);
 			imageTestImage = FindViewById<ImageView> (Resource.Id.imageTestImage);
+			dynamicallyDisplayImagesLinearLayout = FindViewById<LinearLayout> (Resource.Id.linearLayout_dynamicallyDisplayImages);
 
 			// Assign event handlers to the buttons.
 			if (loadImageFromWebButton != null) {
@@ -79,7 +80,19 @@ namespace Columbia583.Android
 					byte[] activityImage = activity.activityIcon;
 					if (activityImage != null)
 					{
+						// Decode the byte array to get a bitmap.
 						Bitmap bitmap = BitmapFactory.DecodeByteArray(activity.activityIcon, 0, activity.activityIcon.Length);
+
+						// Define the view's display size.
+						imageTestImage.SetMinimumHeight(256);
+						imageTestImage.SetMinimumWidth(256);
+						imageTestImage.SetMaxHeight(256);
+						imageTestImage.SetMaxWidth(256);
+
+						// Set the background color to be white to contrast with the image.
+						imageTestImage.SetBackgroundColor(Color.White);
+
+						// Set the image's bitmap in its view.
 						imageTestImage.SetImageBitmap(bitmap);
 						Console.WriteLine("First activity image set. (" + activity.activityIcon.Length + " bytes )");
 					}
@@ -87,6 +100,53 @@ namespace Columbia583.Android
 					{
 						Console.WriteLine("First activity's image not set in database.");
 					}
+				};
+			}
+			if (dynamicallyDisplayImagesButton != null) {
+				dynamicallyDisplayImagesButton.Click += (sender, e) => {
+
+					Console.WriteLine("Dynamically producing image views using database activities...");
+
+					// Empty the layout view.
+					dynamicallyDisplayImagesLinearLayout.RemoveAllViews();
+
+					// Get the activities.
+					Data_Layer_Common dataLayer = new Data_Layer_Common();
+					List<Activity> activities = dataLayer.getActivities();
+
+					foreach(Activity activity in activities)
+					{
+						byte[] activityImage = activity.activityIcon;
+						if (activityImage != null)
+						{
+							// Create a new view for this activity's image.
+							ImageView imageView = new ImageView(this);
+
+							// Decode the byte array to get a bitmap.
+							Bitmap bitmap = BitmapFactory.DecodeByteArray(activity.activityIcon, 0, activity.activityIcon.Length);
+
+							// Define the view's display size.
+							imageView.SetMinimumHeight(256);
+							imageView.SetMinimumWidth(256);
+							imageView.SetMaxHeight(256);
+							imageView.SetMaxWidth(256);
+
+							// Set the background color to be white to contrast with the image.
+							imageView.SetBackgroundColor(Color.White);
+
+							// Set the image's bitmap in its view.
+							imageView.SetImageBitmap(bitmap);
+							Console.WriteLine("First activity image set. (" + activity.activityIcon.Length + " bytes )");
+
+							// Add the view to the layout.
+							dynamicallyDisplayImagesLinearLayout.AddView(imageView);
+						}
+						else
+						{
+							Console.WriteLine("First activity's image not set in database.");
+						}
+					}
+
 				};
 			}
 

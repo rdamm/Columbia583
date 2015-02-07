@@ -1,17 +1,9 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\TestImageActivity.cs">
     <Files>
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Tests.cs" Line="59" Column="59" />
-      <File FileName="Android\TestImageActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\SearchTrailsActivity.cs" Line="16" Column="16" />
-      <File FileName="Columbia583\Application_Layer\Application_Layer_Search_Trails.cs" Line="54" Column="54" />
-      <File FileName="Columbia583\Business_Layer\Business_Layer_Search_Trails.cs" Line="55" Column="55" />
-      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Search_Trails.cs" Line="39" Column="39" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs" Line="46" Column="46" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Common.cs" Line="1" Column="1" />
-      <File FileName="Android\TestDatabaseActivity.cs" Line="56" Column="56" />
-      <File FileName="Columbia583\Data_Classes\SearchFilter.cs" Line="39" Column="39" />
+      <File FileName="Android\TestImageActivity.cs" Line="3" Column="3" />
+      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
