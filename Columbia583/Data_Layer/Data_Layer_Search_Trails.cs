@@ -46,25 +46,51 @@ namespace Columbia583
 				// Build the search parameter lines and keep track of their parameters.
 				List<string> lines = new List<string>();
 				List<object> parameters = new List<object>();
+				// id IN (SELECT * FROM Trail INNER JOIN TrailsToActivities ON Trail.id = TrailsToActivities.trailId WHERE (activityId = ? OR activityId = ?)), activity, nextActivity
 				if (searchFilter.activities != null && searchFilter.activities.Length > 0)
 				{
-					string activityLine = "(";
+					string activityLine = "(id IN (SELECT id FROM Trail INNER JOIN TrailsToActivities ON Trail.id = TrailsToActivities.trailId WHERE (";
+					bool firstActivity = true;
 					foreach(int activity in searchFilter.activities)
 					{
 						// TODO: Require a join of the lookup tables to reference foreign keys.
+						if (firstActivity)
+						{
+							firstActivity = false;
+						}
+						else
+						{
+							// Greenways website has " AND ", though--which should I follow?
+							activityLine += " OR ";
+						}
+						activityLine += "activityId = ?";
+						parameters.Add(activity);
 					}
-					activityLine += ")";
+					activityLine += ")))";
 					// TODO: Add the line and its parameters to the lists.
+					lines.Add(activityLine);
 				}
 				if (searchFilter.amenities != null && searchFilter.amenities.Length > 0)
 				{
-					string amenityLine = "(";
+					string amenityLine = "(id IN (SELECT id FROM Trail INNER JOIN TrailsToAmenities ON Trail.id = TrailsToAmenities.trailId WHERE (";
+					bool firstAmenity = true;
 					foreach(int amenity in searchFilter.amenities)
 					{
 						// TODO: Require a join of the lookup tables to reference foreign keys.
+						if (firstAmenity)
+						{
+							firstAmenity = false;
+						}
+						else
+						{
+							amenityLine += " OR ";
+						}
+						amenityLine += "amenityId = ?";
+						parameters.Add(amenity);
 					}
-					amenityLine += ")";
+					amenityLine += ")))";
 					// TODO: Add the line and its parameters to the lists.
+					lines.Add(amenityLine);
 				}
 				if (searchFilter.difficulty != null && searchFilter.difficulty.Length > 0)
 				{

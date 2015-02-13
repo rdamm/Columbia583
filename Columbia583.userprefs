@@ -1,9 +1,14 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\TestImageActivity.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs">
     <Files>
-      <File FileName="Android\TestImageActivity.cs" Line="100" Column="100" />
-      <File FileName="Android\SearchTrailsActivity.cs" Line="34" Column="34" />
+      <File FileName="Android\TestImageActivity.cs" Line="1" Column="1" />
+      <File FileName="Android\SearchTrailsActivity.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs" Line="11" Column="11" />
+      <File FileName="Columbia583\Data_Classes\TrailsToActivities.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Classes\TrailsToAmenities.cs" Line="57" Column="57" />
+      <File FileName="Columbia583\Data_Classes\Trail.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\Jaclyn\Documents\GitHub\Columbia583\Columbia583\Data_Access_Layer\Data_Access_Layer_Search_Trails.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
