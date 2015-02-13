@@ -86,6 +86,7 @@
     <Compile Include="TestDatabaseActivity.cs" />
     <Compile Include="TestDataAccessActivity.cs" />
     <Compile Include="TestImageActivity.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

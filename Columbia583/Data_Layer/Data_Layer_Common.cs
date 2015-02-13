@@ -38,6 +38,40 @@ namespace Columbia583
 
 
 		/// <summary>
+		/// Determines whether the database has been initialized or not.
+		/// </summary>
+		/// <returns><c>true</c>, if database was initialized, <c>false</c> otherwise.</returns>
+		public bool databaseInitialized()
+		{
+			bool databaseInitialized = false;
+
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Create the table existence queries.
+				string tableExistsQuery = "SELECT name FROM sqlite_master WHERE type = 'table' AND name = ?";
+				SQLiteCommand activityExistsCommand = connection.CreateCommand(tableExistsQuery, typeof(Activity).Name);
+				bool activityExists = (activityExistsCommand.ExecuteScalar<string>() != null);
+
+				// Determine if the database has been initialized based on the table existences.
+				databaseInitialized = activityExists;
+				
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return databaseInitialized;
+		}
+
+
+		/// <summary>
 		/// Creates the tables in the database.
 		/// </summary>
 		public void createTables()

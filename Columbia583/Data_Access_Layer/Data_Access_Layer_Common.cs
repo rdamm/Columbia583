@@ -20,6 +20,17 @@ namespace Columbia583
 
 
 		/// <summary>
+		/// Determines whether the database has been initialized or not.
+		/// </summary>
+		/// <returns><c>true</c>, if database was initialized, <c>false</c> otherwise.</returns>
+		public bool databaseInitialized()
+		{
+			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			return dataLayer.databaseInitialized ();
+		}
+
+
+		/// <summary>
 		/// Initializes and populates the local database.
 		/// </summary>
 		public void initializeDatabase()
