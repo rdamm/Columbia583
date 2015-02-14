@@ -1,8 +1,8 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\Resources\Resource.designer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs">
     <Files>
-      <File FileName="Android\Resources\Resource.designer.cs" Line="4" Column="4" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
