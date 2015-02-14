@@ -110,6 +110,7 @@
     <AndroidResource Include="Resources\layout\ViewTrail3.axml" />
     <AndroidResource Include="Resources\layout\ViewTrail4.axml" />
     <AndroidResource Include="Resources\layout\TestImage.axml" />
+    <AndroidResource Include="Resources\layout\SplashScreen.axml" />
   </ItemGroup>
   <Import Project="..\Columbia583\Columbia583.projitems" Label="Shared" Condition="Exists('..\Columbia583\Columbia583.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

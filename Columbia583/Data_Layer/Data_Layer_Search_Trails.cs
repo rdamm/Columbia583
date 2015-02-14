@@ -46,10 +46,10 @@ namespace Columbia583
 				// Build the search parameter lines and keep track of their parameters.
 				List<string> lines = new List<string>();
 				List<object> parameters = new List<object>();
-				// id IN (SELECT * FROM Trail INNER JOIN TrailsToActivities ON Trail.id = TrailsToActivities.trailId WHERE (activityId = ? OR activityId = ?)), activity, nextActivity
+				// (id IN (SELECT * FROM Trail INNER JOIN TrailsToActivities ON Trail.id = TrailsToActivities.trailId WHERE activityId = ?)) AND (id IN (...)), activity, nextActivity
 				if (searchFilter.activities != null && searchFilter.activities.Length > 0)
 				{
-					string activityLine = "(id IN (SELECT id FROM Trail INNER JOIN TrailsToActivities ON Trail.id = TrailsToActivities.trailId WHERE (";
+					string activityLine = "(";
 					bool firstActivity = true;
 					foreach(int activity in searchFilter.activities)
 					{
@@ -60,19 +60,19 @@ namespace Columbia583
 						}
 						else
 						{
-							// Greenways website has " AND ", though--which should I follow?
-							activityLine += " OR ";
+							// Using Greenways website's AND
+							activityLine += " AND ";
 						}
-						activityLine += "activityId = ?";
+						activityLine += "(id IN (SELECT id FROM Trail INNER JOIN TrailsToActivities ON Trail.id = TrailsToActivities.trailId WHERE activityId = ?))";
 						parameters.Add(activity);
 					}
-					activityLine += ")))";
+					activityLine += ")";
 					// TODO: Add the line and its parameters to the lists.
 					lines.Add(activityLine);
 				}
 				if (searchFilter.amenities != null && searchFilter.amenities.Length > 0)
 				{
-					string amenityLine = "(id IN (SELECT id FROM Trail INNER JOIN TrailsToAmenities ON Trail.id = TrailsToAmenities.trailId WHERE (";
+					string amenityLine = "(";
 					bool firstAmenity = true;
 					foreach(int amenity in searchFilter.amenities)
 					{
@@ -83,12 +83,12 @@ namespace Columbia583
 						}
 						else
 						{
-							amenityLine += " OR ";
+							amenityLine += " AND ";
 						}
-						amenityLine += "amenityId = ?";
+						amenityLine += "(id IN (SELECT id FROM Trail INNER JOIN TrailsToAmenities ON Trail.id = TrailsToAmenities.trailId WHERE amenityId = ?))";
 						parameters.Add(amenity);
 					}
-					amenityLine += ")))";
+					amenityLine += ")";
 					// TODO: Add the line and its parameters to the lists.
 					lines.Add(amenityLine);
 				}
