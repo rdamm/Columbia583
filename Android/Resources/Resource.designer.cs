@@ -469,23 +469,24 @@ namespace Columbia583.Android
 		
 		public partial class Id
 		{
+			
 			// aapt resource value: 0x7f0a0048
 			public const int activities = 2131361864;
 			
-			// aapt resource value: 0x7f04000c
-			public const int activityOptions = 2130968588;
+			// aapt resource value: 0x7f0a000c
+			public const int activityOptions = 2131361804;
 			
-			// aapt resource value: 0x7f04000b
-			public const int activityOptionsScroll = 2130968587;
-
+			// aapt resource value: 0x7f0a000b
+			public const int activityOptionsScroll = 2131361803;
+			
 			// aapt resource value: 0x7f0a004b
 			public const int amenities = 2131361867;
 			
-			// aapt resource value: 0x7f04000f
-			public const int amenityOptions = 2130968591;
+			// aapt resource value: 0x7f0a000f
+			public const int amenityOptions = 2131361807;
 			
-			// aapt resource value: 0x7f04000e
-			public const int amenityOptionsScroll = 2130968590;
+			// aapt resource value: 0x7f0a000e
+			public const int amenityOptionsScroll = 2131361806;
 			
 			// aapt resource value: 0x7f040003
 			public const int bottom = 2130968579;
@@ -555,7 +556,7 @@ namespace Columbia583.Android
 			
 			// aapt resource value: 0x7f040012
 			public const int checkBox_difficulty_easy = 2130968594;
-			
+
 			// aapt resource value: 0x7f040015
 			public const int checkBox_difficulty_extremelyDifficult = 2130968597;
 			
@@ -582,7 +583,7 @@ namespace Columbia583.Android
 			
 			// aapt resource value: 0x7f0a003d
 			public const int duration = 2131361853;
-			
+
 			// aapt resource value: 0x7f040021
 			public const int editText_maxDistance = 2130968609;
 			
@@ -606,9 +607,6 @@ namespace Columbia583.Android
 			
 			// aapt resource value: 0x7f0a0044
 			public const int maintenance = 2131361860;
-			
-			// aapt resource value: 0x7f040000
-			public const int none = 2130968576;
 
 			// aapt resource value: 0x7f0a0042
 			public const int openStatus = 2131361858;
@@ -619,6 +617,9 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0a0025
 			public const int prgSplashProgress = 2131361829;
 			
+			// aapt resource value: 0x7f040000
+			public const int none = 2130968576;
+			
 			// aapt resource value: 0x7f040019
 			public const int radioButton_rating_1 = 2130968601;
 			
@@ -627,18 +628,18 @@ namespace Columbia583.Android
 			
 			// aapt resource value: 0x7f04001b
 			public const int radioButton_rating_3 = 2130968603;
-			
+
 			// aapt resource value: 0x7f04001c
 			public const int radioButton_rating_4 = 2130968604;
-			
-			// aapt resource value: 0x7f04001d
-			public const int radioButton_rating_5 = 2130968605;
-			
-			// aapt resource value: 0x7f040018
-			public const int radioGroup_ratings = 2130968600;
 
 			// aapt resource value: 0x7f0a003b
 			public const int rating = 2131361851;
+			
+			// aapt resource value: 0x7f04001d
+			public const int radioButton_rating_5 = 2130968605;
+
+			// aapt resource value: 0x7f040018
+			public const int radioGroup_ratings = 2130968600;
 			
 			// aapt resource value: 0x7f040017
 			public const int ratingsOptions = 2130968599;
@@ -651,10 +652,10 @@ namespace Columbia583.Android
 			
 			// aapt resource value: 0x7f0a003f
 			public const int scrollView3 = 2131361855;
-			
+
 			// aapt resource value: 0x7f0a0043
 			public const int season = 2131361859;
-			
+
 			// aapt resource value: 0x7f040016
 			public const int textView1 = 2130968598;
 
@@ -693,7 +694,7 @@ namespace Columbia583.Android
 
 			// aapt resource value: 0x7f0a004e
 			public const int trailGallery = 2131361870;
-			
+
 			// aapt resource value: 0x7f0a004f
 			public const int trailName = 2131361871;
 			
@@ -702,7 +703,7 @@ namespace Columbia583.Android
 
 			// aapt resource value: 0x7f0a0027
 			public const int txtDataAccessTitle = 2131361831;
-			
+
 			// aapt resource value: 0x7f0a0026
 			public const int txtSplashProgressLabel = 2131361830;
 			
