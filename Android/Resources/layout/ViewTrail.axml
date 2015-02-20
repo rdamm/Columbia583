@@ -74,13 +74,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/season"
         android:layout_marginLeft="3.0dp" />
-    <TextView
-        android:textAppearance="?android:attr/textAppearanceSmall"
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="30.0dp"
-        android:id="@+id/maintenance"
-        android:text="Maintenance here"
-        android:layout_marginLeft="3.0dp" />
+        android:layout_height="50.0dp"
+        android:id="@+id/scrollView4">
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="30.0dp"
+            android:id="@+id/maintenance"
+            android:text="Maintenance here"
+            android:layout_marginLeft="3.0dp" />
+    </ScrollView>
     <TextView
         android:text="Trail Difficulty"
         android:textAppearance="?android:attr/textAppearanceMedium"
