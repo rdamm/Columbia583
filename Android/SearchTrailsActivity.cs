@@ -42,14 +42,17 @@ namespace Columbia583.Android
 			}
 		}
 
+		private const int activityDialog = 1;
+		private const int amenityDialog = 2;
+
 		// Activities.
-		protected LinearLayout activityOptions = null;
-		protected List<CheckboxToActivity> activityCheckBoxes = null;
+		//protected LinearLayout activityOptions = null;
+		//protected List<CheckboxToActivity> activityCheckBoxes = null;
 
 		// Amenities.
-		protected LinearLayout amenityOptions = null;
-		protected ScrollView amenityOptionsScroll = null;
-		protected List<CheckboxToAmenity> amenityCheckBoxes = null;
+		//protected LinearLayout amenityOptions = null;
+		//protected ScrollView amenityOptionsScroll = null;
+		//protected List<CheckboxToAmenity> amenityCheckBoxes = null;
 
 		// Difficulties.
 		protected CheckBox easiestRadioButton = null;
@@ -89,9 +92,9 @@ namespace Columbia583.Android
 			SetContentView (Resource.Layout.SearchTrails);
 
 			// Get the controls.
-			activityOptions = FindViewById<LinearLayout> (Resource.Id.activityOptions);
-			amenityOptions = FindViewById<LinearLayout> (Resource.Id.amenityOptions);
-			amenityOptionsScroll = FindViewById<ScrollView> (Resource.Id.amenityOptionsScroll);
+			//activityOptions = FindViewById<LinearLayout> (Resource.Id.activityOptions);
+			//amenityOptions = FindViewById<LinearLayout> (Resource.Id.amenityOptions);
+			//amenityOptionsScroll = FindViewById<ScrollView> (Resource.Id.amenityOptionsScroll);
 			easiestRadioButton = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_easiest);
 			easyRadioButton = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_easy);
 			moreDifficultRadioButton = FindViewById<CheckBox> (Resource.Id.checkBox_difficulty_moreDifficult);
@@ -119,6 +122,12 @@ namespace Columbia583.Android
 			List<Activity> debugActivities = dataLayer2.getActivities ();
 			List<Amenity> debugAmenities = dataLayer2.getAmenities ();
 
+			var activitiesButton = FindViewById<Button>(Resource.Id.activitiesButton);
+			activitiesButton.Click += delegate { ShowDialog(activityDialog); };
+
+			var amenitiesButton = FindViewById<Button>(Resource.Id.amentiesButton);
+			amenitiesButton.Click += delegate { ShowDialog(amenityDialog); };
+
 			if (debugSearch) {
 				/*
 				debugTrails[0] = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69", "10", "Lorem ipsum", "three steps north, then turn right", Difficulty.Easiest, 4, "falling rocks", "", "", "A work bee is planned for 15 July 2014, weather pending. Some sections of the trail may be closed. Please come out with your shovels and rakes from 10am-1pm and enjoy a bbq afterwards.", "December through January", true, true, DateTime.Now);
@@ -136,7 +145,7 @@ namespace Columbia583.Android
 				this.setSearchResults(debugSearchResults);
 			}
 
-			activityCheckBoxes = new List<CheckboxToActivity>();
+			/*activityCheckBoxes = new List<CheckboxToActivity>();
 			amenityCheckBoxes = new List<CheckboxToAmenity>();
 
 			foreach (Activity activity in debugActivities)
@@ -221,7 +230,7 @@ namespace Columbia583.Android
 					// Add the text to the view.
 					amenityOptions.AddView (textView);
 				}
-			}
+			}*/
 
 			// Assign an event handler to the update search results button.
 			if (updateSearchResultsButton != null) {
@@ -257,10 +266,61 @@ namespace Columbia583.Android
 			*/
 		}
 
+		protected override Dialog OnCreateDialog(int id, Bundle args)
+		{
+			switch (id) 
+			{
+			case activityDialog:
+				{
+					var builder = new AlertDialog.Builder(this);
+					builder.SetTitle(Resource.String.activitiesList);
+					builder.SetMultiChoiceItems(Resource.Array.activities_check_list, 
+						new[] { false, false, false, false }, activityListClicked);
 
-		/**
-		 * Get the search filters from the controls.
-		 * */
+					builder.SetPositiveButton(Resource.String.positiveOption, OkClicked);
+					builder.SetNegativeButton(Resource.String.negativeOption, CancelClicked);
+
+					return builder.Create();
+				}
+			case amenityDialog:
+				{
+					var builder = new AlertDialog.Builder(this);
+					builder.SetTitle(Resource.String.amenitiesList);
+					builder.SetMultiChoiceItems(Resource.Array.amenities_check_list, 
+						new[] { false, false, false, false }, amenityListClicked);
+
+					builder.SetPositiveButton(Resource.String.positiveOption, OkClicked);
+					builder.SetNegativeButton(Resource.String.negativeOption, CancelClicked);
+
+					return builder.Create();
+				}
+			}
+
+			return base.OnCreateDialog(id, args);
+		}
+
+		private void OkClicked(object sender, DialogClickEventArgs args)
+		{
+			var dialog = (AlertDialog) sender;
+		}
+
+		private void CancelClicked(object sender, DialogClickEventArgs args)
+		{
+		}
+
+		private void activityListClicked(object sender, DialogMultiChoiceClickEventArgs args)
+		{
+			var items = Resources.GetStringArray(Resource.Array.activities_check_list);
+		}
+
+		private void amenityListClicked(object sender, DialogMultiChoiceClickEventArgs args)
+		{
+			var items = Resources.GetStringArray(Resource.Array.amenities_check_list);
+		}
+
+
+		/** Get the search filters from the controls. **/
+		 
 		protected SearchFilter getSearchFilter()
 		{
 			List<int> activitiesList = new List<int>();
@@ -273,7 +333,7 @@ namespace Columbia583.Android
 			// Get the search filter parameters from the controls.
 			// TODO: Get the min duration and distances.
 			// TODO: Get the minimum star rating.
-			foreach (CheckboxToActivity checkboxToActivity in activityCheckBoxes)
+			/*foreach (CheckboxToActivity checkboxToActivity in activityCheckBoxes)
 			{
 				if (checkboxToActivity.checkbox != null && checkboxToActivity.checkbox.Checked)
 				{
@@ -287,7 +347,7 @@ namespace Columbia583.Android
 				{
 					amenitiesList.Add (checkboxToAmenity.amenity.id);
 				}
-			}
+			}*/
 
 			if (easiestRadioButton != null && easiestRadioButton.Checked == true) {
 				difficulty.Add(Difficulty.Easiest);
