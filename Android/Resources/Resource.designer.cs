@@ -579,6 +579,9 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0b0012
 			public const int checkBox_difficulty_veryDifficult = 2131427346;
 			
+			// aapt resource value: 0x7f0b004d
+			public const int commentsLayout = 2131427405;
+			
 			// aapt resource value: 0x7f0b004c
 			public const int commentsList = 2131427404;
 			
@@ -627,8 +630,8 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0b0040
 			public const int openStatus = 2131427392;
 			
-			// aapt resource value: 0x7f0b0050
-			public const int pageIndicator = 2131427408;
+			// aapt resource value: 0x7f0b0051
+			public const int pageIndicator = 2131427409;
 			
 			// aapt resource value: 0x7f0b0023
 			public const int prgSplashProgress = 2131427363;
@@ -708,11 +711,11 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0b0004
 			public const int top = 2131427332;
 			
-			// aapt resource value: 0x7f0b004d
-			public const int trailGallery = 2131427405;
-			
 			// aapt resource value: 0x7f0b004e
-			public const int trailName = 2131427406;
+			public const int trailGallery = 2131427406;
+			
+			// aapt resource value: 0x7f0b004f
+			public const int trailName = 2131427407;
 			
 			// aapt resource value: 0x7f0b0001
 			public const int triangle = 2131427329;
@@ -729,8 +732,8 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0b0002
 			public const int underline = 2131427330;
 			
-			// aapt resource value: 0x7f0b004f
-			public const int viewpager = 2131427407;
+			// aapt resource value: 0x7f0b0050
+			public const int viewpager = 2131427408;
 			
 			static Id()
 			{
