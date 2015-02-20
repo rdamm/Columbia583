@@ -258,25 +258,26 @@ namespace Columbia583
 		/// <returns>The some from tables.</returns>
 		public string deleteSomeFromTables()
 		{
-			// Define the rows to delete.
-			int[] activities = new int[1];
-			activities [0] = 2;
+			// Define the lists.
+			List<Activity> activities = new List<Activity> ();
+			List<Amenity> amenities = new List<Amenity> ();
+			List<MapTile> mapTiles = new List<MapTile> ();
+			List<Media> media = new List<Media> ();
+			List<Organization> organizations = new List<Organization> ();
+			List<Point> points = new List<Point> ();
+			List<Role> roles = new List<Role> ();
+			List<Trail> trails = new List<Trail> ();
+			List<TrailsToActivities> trailsToActivities = new List<TrailsToActivities> ();
+			List<TrailsToAmenities> trailsToAmenities = new List<TrailsToAmenities> ();
+			List<User> users = new List<User> ();
 
-			// Define the rest of the arrays.
-			int[] amenities = new int[0];
-			int[] mapTiles = new int[0];
-			int[] media = new int[0];
-			int[] organizations = new int[0];
-			int[] roles = new int[0];
-			int[] users = new int[0];
-			int[] trails = new int[0];
-			int[] points = new int[0];
-			TrailsToActivities[] trailsToActivities = new TrailsToActivities[0];
-			TrailsToAmenities[] trailsToAmenities = new TrailsToAmenities[0];
+			// Add a row to delete.
+			activities.Add (new Activity (){ id = 2 });
 
 			// Delete some data from the tables.
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
-			dataLayer.deleteRows (activities, amenities, mapTiles, media, organizations, points, roles, trails, trailsToActivities, trailsToAmenities, users);
+			dataLayer.deleteRows (activities.ToArray(), amenities.ToArray(), mapTiles.ToArray(), media.ToArray(), organizations.ToArray(), points.ToArray(), roles.ToArray(),
+				trails.ToArray(), trailsToActivities.ToArray(), trailsToAmenities.ToArray(), users.ToArray());
 
 			return "Successfully deleted some rows.";
 		}

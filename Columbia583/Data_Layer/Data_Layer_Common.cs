@@ -558,6 +558,276 @@ namespace Columbia583
 
 
 		/// <summary>
+		/// Gets the activity.
+		/// </summary>
+		/// <returns>The activity.</returns>
+		/// <param name="id">Identifier.</param>
+		public Activity getActivity(int id)
+		{
+			Activity activity = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get the activity.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				activity = connection.Find<Activity>(id);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return activity;
+		}
+
+
+		/// <summary>
+		/// Gets the amenity.
+		/// </summary>
+		/// <returns>The amenity.</returns>
+		/// <param name="id">Identifier.</param>
+		public Amenity getAmenity(int id)
+		{
+			Amenity amenity = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get the amenity.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				amenity = connection.Find<Amenity>(id);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return amenity;
+		}
+
+
+		/// <summary>
+		/// Gets the map tile.
+		/// </summary>
+		/// <returns>The map tile.</returns>
+		/// <param name="id">Identifier.</param>
+		public MapTile getMapTile(int id)
+		{
+			MapTile mapTile = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get the map tile.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				mapTile = connection.Find<MapTile>(id);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return mapTile;
+		}
+
+
+		/// <summary>
+		/// Gets the media.
+		/// </summary>
+		/// <returns>The media.</returns>
+		/// <param name="id">Identifier.</param>
+		public Media getMedia(int id)
+		{
+			Media media = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get the media.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				media = connection.Find<Media>(id);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return media;
+		}
+
+
+		/// <summary>
+		/// Gets the organization.
+		/// </summary>
+		/// <returns>The organization.</returns>
+		/// <param name="id">Identifier.</param>
+		public Organization getOrganization(int id)
+		{
+			Organization organization = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get the organization.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				organization = connection.Find<Organization>(id);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return organization;
+		}
+
+
+		/// <summary>
+		/// Gets the point.
+		/// </summary>
+		/// <returns>The point.</returns>
+		/// <param name="id">Identifier.</param>
+		public Point getPoint(int id)
+		{
+			Point point = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get the point.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				point = connection.Find<Point>(id);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return point;
+		}
+
+
+		/// <summary>
+		/// Gets the role.
+		/// </summary>
+		/// <returns>The role.</returns>
+		/// <param name="id">Identifier.</param>
+		public Role getRole(int id)
+		{
+			Role role = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get the role.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				role = connection.Find<Role>(id);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return role;
+		}
+
+
+		/// <summary>
+		/// Gets the trail.
+		/// </summary>
+		/// <returns>The trail.</returns>
+		/// <param name="id">Identifier.</param>
+		public Trail getTrail(int id)
+		{
+			Trail trail = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get the trail.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				trail = connection.Find<Trail>(id);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return trail;
+		}
+
+
+		/// <summary>
+		/// Gets the user.
+		/// </summary>
+		/// <returns>The user.</returns>
+		/// <param name="id">Identifier.</param>
+		public User getUser(int id)
+		{
+			User user = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get the user.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				user = connection.Find<User>(id);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return user;
+		}
+
+
+		/// <summary>
 		/// Gets the trails to activities.
 		/// </summary>
 		/// <returns>The trails to activities.</returns>
@@ -722,8 +992,8 @@ namespace Columbia583
 		/// <param name="trailsToActivities">Trails to activities.</param>
 		/// <param name="trailsToAmenities">Trails to amenities.</param>
 		/// <param name="users">Users.</param>
-		public void deleteRows(int[] activities, int[] amenities, int[] mapTiles, int[] media, int[] organizations,
-			int[] points, int[] roles, int[] trails, TrailsToActivities[] trailsToActivities, TrailsToAmenities[] trailsToAmenities, int[] users)
+		public void deleteRows(Activity[] activities, Amenity[] amenities, MapTile[] mapTiles, Media[] media, Organization[] organizations,
+			Point[] points, Role[] roles, Trail[] trails, TrailsToActivities[] trailsToActivities, TrailsToAmenities[] trailsToAmenities, User[] users)
 		{
 			try
 			{
@@ -731,19 +1001,20 @@ namespace Columbia583
 				var connection = new SQLiteConnection(getPathToDatabase());
 				
 				// Delete the data that has foreign keys.
+				// TODO: Fix deletion for TrailsToActivities and TrailsToAmenities.  Their class definition doesn't have a primary key.
 				foreach(var row in trailsToActivities)	connection.Delete(row);
 				foreach(var row in trailsToAmenities)	connection.Delete(row);
-				foreach(int id in points)				connection.Delete<Point>(id);
-				foreach(int id in trails)				connection.Delete<Trail>(id);
-				foreach(int id in users)				connection.Delete<User>(id);
+				foreach(var row in points)				connection.Delete(row);
+				foreach(var row in trails)				connection.Delete(row);
+				foreach(var row in users)				connection.Delete(row);
 				
 				// Delete the data that has no foreign keys.
-				foreach(int id in activities)		connection.Delete<Activity>(id);
-				foreach(int id in amenities)		connection.Delete<Amenity>(id);
-				foreach(int id in mapTiles)			connection.Delete<MapTile>(id);
-				foreach(int id in media)			connection.Delete<Media>(id);
-				foreach(int id in organizations)	connection.Delete<Organization>(id);
-				foreach(int id in roles)			connection.Delete<Role>(id);
+				foreach(var row in activities)		connection.Delete(row);
+				foreach(var row in amenities)		connection.Delete(row);
+				foreach(var row in mapTiles)		connection.Delete(row);
+				foreach(var row in media)			connection.Delete(row);
+				foreach(var row in organizations)	connection.Delete(row);
+				foreach(var row in roles)			connection.Delete(row);
 
 				// Close connection to local database.
 				connection.Close();
