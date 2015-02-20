@@ -48,11 +48,13 @@ namespace Columbia583.Android
 		// Activities.
 		//protected LinearLayout activityOptions = null;
 		//protected List<CheckboxToActivity> activityCheckBoxes = null;
+		String[] activitiesSelected;
 
 		// Amenities.
 		//protected LinearLayout amenityOptions = null;
 		//protected ScrollView amenityOptionsScroll = null;
 		//protected List<CheckboxToAmenity> amenityCheckBoxes = null;
+		String[] amenitiesSelected;
 
 		// Difficulties.
 		protected CheckBox easiestRadioButton = null;
@@ -301,21 +303,24 @@ namespace Columbia583.Android
 
 		private void OkClicked(object sender, DialogClickEventArgs args)
 		{
-			var dialog = (AlertDialog) sender;
+			Dialog dialog = (AlertDialog) sender;
 		}
 
 		private void CancelClicked(object sender, DialogClickEventArgs args)
 		{
+			Dialog dialog = (AlertDialog) sender;
+
+			dialog.Cancel;
 		}
 
 		private void activityListClicked(object sender, DialogMultiChoiceClickEventArgs args)
 		{
-			var items = Resources.GetStringArray(Resource.Array.activities_check_list);
+			activitiesSelected = Resources.GetStringArray(Resource.Array.activities_check_list);
 		}
 
 		private void amenityListClicked(object sender, DialogMultiChoiceClickEventArgs args)
 		{
-			var items = Resources.GetStringArray(Resource.Array.amenities_check_list);
+			amenitiesSelected = Resources.GetStringArray(Resource.Array.amenities_check_list);
 		}
 
 
