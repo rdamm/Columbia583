@@ -3379,9 +3379,19 @@ var layout = new ContentView {
             <value>To be added.</value>
             <remarks>To be added.</remarks>
         </member>
+        <member name="M:Xamarin.Forms.DataTemplate.Xamarin#Forms#IElement#AddResourcesChangedListener(System.Action{System.Object,Xamarin.Forms.ResourcesChangedEventArgs})">
+            <param name="onchanged">To be added.</param>
+            <summary>To be added.</summary>
+            <remarks>To be added.</remarks>
+        </member>
         <member name="P:Xamarin.Forms.DataTemplate.Xamarin#Forms#IElement#Parent">
             <summary>Gets or sets the parent element of this <see cref="T:Xamarin.Forms.DataTemplate" /> object.</summary>
             <value>To be added.</value>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:Xamarin.Forms.DataTemplate.Xamarin#Forms#IElement#RemoveResourcesChangedListener(System.Action{System.Object,Xamarin.Forms.ResourcesChangedEventArgs})">
+            <param name="onchanged">To be added.</param>
+            <summary>To be added.</summary>
             <remarks>To be added.</remarks>
         </member>
         <member name="P:Xamarin.Forms.DataTemplate.Xamarin#Forms#IElement#ResourceDictionary">
@@ -4313,6 +4323,16 @@ var editor = new Editor {
             <summary>Gets or sets a user defined value to uniquely identify the element.</summary>
             <value>A string uniquely identifying the element.</value>
             <remarks>Use the StyleId property to identify individual elements in your application for identification in ui testing and in theme engines.</remarks>
+        </member>
+        <member name="M:Xamarin.Forms.Element.Xamarin#Forms#IElement#AddResourcesChangedListener(System.Action{System.Object,Xamarin.Forms.ResourcesChangedEventArgs})">
+            <param name="onchanged">To be added.</param>
+            <summary>To be added.</summary>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:Xamarin.Forms.Element.Xamarin#Forms#IElement#RemoveResourcesChangedListener(System.Action{System.Object,Xamarin.Forms.ResourcesChangedEventArgs})">
+            <param name="onchanged">To be added.</param>
+            <summary>To be added.</summary>
+            <remarks>To be added.</remarks>
         </member>
         <member name="P:Xamarin.Forms.Element.Xamarin#Forms#IElement#ResourceDictionary">
             <summary>
@@ -10370,6 +10390,11 @@ namespace FormsGallery
             <value>To be added.</value>
             <remarks>To be added.</remarks>
         </member>
+        <member name="M:Xamarin.Forms.SizeRequest.ToString">
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
         <member name="T:Xamarin.Forms.Slider">
             <summary>A <see cref="T:Xamarin.Forms.View" /> control that inputs a linear value.</summary>
             <remarks>
@@ -10677,6 +10702,10 @@ var stackLayout = new StackLayout {
               ]]></code>
                 </example>
             </remarks>
+        </member>
+        <member name="M:Xamarin.Forms.StackLayout.InvalidateMeasure">
+            <summary>To be added.</summary>
+            <remarks>To be added.</remarks>
         </member>
         <member name="M:Xamarin.Forms.StackLayout.LayoutChildren(System.Double,System.Double,System.Double,System.Double)">
             <param name="x">A value representing the x coordinate of the child region bounding box.</param>
