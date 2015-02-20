@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="activities_check_list">
+    <item>Hiking</item>
+    <item>Biking</item>
+    <item>Skiing</item>
+</string-array>
+<string-array name="amenities_check_list">
+    <item>Restroom</item>
+    <item>Handicap Access</item>
+</string-array>
+</resources>

@@ -1,5 +1,5 @@
-﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.virtualNexus" />
+﻿<Properties StartupItem="Android\Columbia583.Android.csproj" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs">
     <Files>
       <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="4" Column="4" />

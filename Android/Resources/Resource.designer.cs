@@ -165,6 +165,25 @@ namespace Columbia583.Android
 			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiUnderlinePageIndicatorStyle = global::Columbia583.Android.Resource.Styleable.ViewPagerIndicator_vpiUnderlinePageIndicatorStyle;
 		}
 		
+		public partial class Array
+		{
+			
+			// aapt resource value: 0x7f090000
+			public const int activities_check_list = 2131296256;
+			
+			// aapt resource value: 0x7f090001
+			public const int amenities_check_list = 2131296257;
+			
+			static Array()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Array()
+			{
+			}
+		}
+		
 		public partial class Attribute
 		{
 			
@@ -470,251 +489,251 @@ namespace Columbia583.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0a0048
-			public const int activities = 2131361864;
+			// aapt resource value: 0x7f0b0048
+			public const int activities = 2131427400;
 			
-			// aapt resource value: 0x7f0a000c
-			public const int activityOptions = 2131361804;
+			// aapt resource value: 0x7f0b000c
+			public const int activityOptions = 2131427340;
 			
-			// aapt resource value: 0x7f0a000b
-			public const int activityOptionsScroll = 2131361803;
+			// aapt resource value: 0x7f0b000b
+			public const int activityOptionsScroll = 2131427339;
 			
-			// aapt resource value: 0x7f0a004b
-			public const int amenities = 2131361867;
+			// aapt resource value: 0x7f0b004b
+			public const int amenities = 2131427403;
 			
-			// aapt resource value: 0x7f0a000f
-			public const int amenityOptions = 2131361807;
+			// aapt resource value: 0x7f0b000f
+			public const int amenityOptions = 2131427343;
 			
-			// aapt resource value: 0x7f0a000e
-			public const int amenityOptionsScroll = 2131361806;
+			// aapt resource value: 0x7f0b000e
+			public const int amenityOptionsScroll = 2131427342;
 			
-			// aapt resource value: 0x7f0a0003
-			public const int bottom = 2131361795;
+			// aapt resource value: 0x7f0b0003
+			public const int bottom = 2131427331;
 			
-			// aapt resource value: 0x7f0a0029
-			public const int btnCreateTables = 2131361833;
+			// aapt resource value: 0x7f0b0029
+			public const int btnCreateTables = 2131427369;
 			
-			// aapt resource value: 0x7f0a0032
-			public const int btnDeleteAllFromTables = 2131361842;
+			// aapt resource value: 0x7f0b0032
+			public const int btnDeleteAllFromTables = 2131427378;
 			
-			// aapt resource value: 0x7f0a0031
-			public const int btnDeleteSomeFromTables = 2131361841;
+			// aapt resource value: 0x7f0b0031
+			public const int btnDeleteSomeFromTables = 2131427377;
 			
-			// aapt resource value: 0x7f0a0033
-			public const int btnDropTables = 2131361843;
+			// aapt resource value: 0x7f0b0033
+			public const int btnDropTables = 2131427379;
 			
-			// aapt resource value: 0x7f0a0037
-			public const int btnDynamicallyDisplayImages = 2131361847;
+			// aapt resource value: 0x7f0b0037
+			public const int btnDynamicallyDisplayImages = 2131427383;
 			
-			// aapt resource value: 0x7f0a002d
-			public const int btnGetActivities = 2131361837;
+			// aapt resource value: 0x7f0b002d
+			public const int btnGetActivities = 2131427373;
 			
-			// aapt resource value: 0x7f0a002e
-			public const int btnGetAmenities = 2131361838;
+			// aapt resource value: 0x7f0b002e
+			public const int btnGetAmenities = 2131427374;
 			
-			// aapt resource value: 0x7f0a002b
-			public const int btnGetDatabaseLastUpdated = 2131361835;
+			// aapt resource value: 0x7f0b002b
+			public const int btnGetDatabaseLastUpdated = 2131427371;
 			
-			// aapt resource value: 0x7f0a0030
-			public const int btnGetTrail = 2131361840;
+			// aapt resource value: 0x7f0b0030
+			public const int btnGetTrail = 2131427376;
 			
-			// aapt resource value: 0x7f0a002f
-			public const int btnGetTrailsBySearchFilter = 2131361839;
+			// aapt resource value: 0x7f0b002f
+			public const int btnGetTrailsBySearchFilter = 2131427375;
 			
-			// aapt resource value: 0x7f0a0028
-			public const int btnInitializeDatabase = 2131361832;
+			// aapt resource value: 0x7f0b0028
+			public const int btnInitializeDatabase = 2131427368;
 			
-			// aapt resource value: 0x7f0a002a
-			public const int btnInsertTables = 2131361834;
+			// aapt resource value: 0x7f0b002a
+			public const int btnInsertTables = 2131427370;
 			
-			// aapt resource value: 0x7f0a0035
-			public const int btnLoadImageFromDatabase = 2131361845;
+			// aapt resource value: 0x7f0b0035
+			public const int btnLoadImageFromDatabase = 2131427381;
 			
-			// aapt resource value: 0x7f0a0034
-			public const int btnLoadImageFromWeb = 2131361844;
+			// aapt resource value: 0x7f0b0034
+			public const int btnLoadImageFromWeb = 2131427380;
 			
-			// aapt resource value: 0x7f0a002c
-			public const int btnSetDatabaseLastUpdated = 2131361836;
+			// aapt resource value: 0x7f0b002c
+			public const int btnSetDatabaseLastUpdated = 2131427372;
 			
-			// aapt resource value: 0x7f0a0008
-			public const int button_dataAccessTests = 2131361800;
+			// aapt resource value: 0x7f0b0008
+			public const int button_dataAccessTests = 2131427336;
 			
-			// aapt resource value: 0x7f0a0007
-			public const int button_databaseTests = 2131361799;
+			// aapt resource value: 0x7f0b0007
+			public const int button_databaseTests = 2131427335;
 			
-			// aapt resource value: 0x7f0a0009
-			public const int button_imageTests = 2131361801;
+			// aapt resource value: 0x7f0b0009
+			public const int button_imageTests = 2131427337;
 			
-			// aapt resource value: 0x7f0a0006
-			public const int button_searchTrails = 2131361798;
+			// aapt resource value: 0x7f0b0006
+			public const int button_searchTrails = 2131427334;
 			
-			// aapt resource value: 0x7f0a0022
-			public const int button_updateSearchResults = 2131361826;
+			// aapt resource value: 0x7f0b0022
+			public const int button_updateSearchResults = 2131427362;
 			
-			// aapt resource value: 0x7f0a0011
-			public const int checkBox_difficulty_easiest = 2131361809;
+			// aapt resource value: 0x7f0b0011
+			public const int checkBox_difficulty_easiest = 2131427345;
 			
-			// aapt resource value: 0x7f0a0012
-			public const int checkBox_difficulty_easy = 2131361810;
+			// aapt resource value: 0x7f0b0012
+			public const int checkBox_difficulty_easy = 2131427346;
 			
-			// aapt resource value: 0x7f0a0015
-			public const int checkBox_difficulty_extremelyDifficult = 2131361813;
+			// aapt resource value: 0x7f0b0015
+			public const int checkBox_difficulty_extremelyDifficult = 2131427349;
 			
-			// aapt resource value: 0x7f0a0013
-			public const int checkBox_difficulty_moreDifficult = 2131361811;
+			// aapt resource value: 0x7f0b0013
+			public const int checkBox_difficulty_moreDifficult = 2131427347;
 			
-			// aapt resource value: 0x7f0a0014
-			public const int checkBox_difficulty_veryDifficult = 2131361812;
+			// aapt resource value: 0x7f0b0014
+			public const int checkBox_difficulty_veryDifficult = 2131427348;
 			
-			// aapt resource value: 0x7f0a004c
-			public const int commentsList = 2131361868;
+			// aapt resource value: 0x7f0b004c
+			public const int commentsList = 2131427404;
 			
-			// aapt resource value: 0x7f0a0040
-			public const int description = 2131361856;
+			// aapt resource value: 0x7f0b0040
+			public const int description = 2131427392;
 			
-			// aapt resource value: 0x7f0a0046
-			public const int difficultyRating = 2131361862;
+			// aapt resource value: 0x7f0b0046
+			public const int difficultyRating = 2131427398;
 			
-			// aapt resource value: 0x7f0a004a
-			public const int directions = 2131361866;
+			// aapt resource value: 0x7f0b004a
+			public const int directions = 2131427402;
 			
-			// aapt resource value: 0x7f0a003c
-			public const int distance = 2131361852;
+			// aapt resource value: 0x7f0b003c
+			public const int distance = 2131427388;
 			
-			// aapt resource value: 0x7f0a003d
-			public const int duration = 2131361853;
+			// aapt resource value: 0x7f0b003d
+			public const int duration = 2131427389;
 			
-			// aapt resource value: 0x7f0a0021
-			public const int editText_maxDistance = 2131361825;
+			// aapt resource value: 0x7f0b0021
+			public const int editText_maxDistance = 2131427361;
 			
-			// aapt resource value: 0x7f0a001f
-			public const int editText_maxDuration = 2131361823;
+			// aapt resource value: 0x7f0b001f
+			public const int editText_maxDuration = 2131427359;
 			
-			// aapt resource value: 0x7f0a0023
-			public const int gridLayout_searchResults = 2131361827;
+			// aapt resource value: 0x7f0b0023
+			public const int gridLayout_searchResults = 2131427363;
 			
-			// aapt resource value: 0x7f0a0036
-			public const int imageTestImage = 2131361846;
+			// aapt resource value: 0x7f0b0036
+			public const int imageTestImage = 2131427382;
 			
-			// aapt resource value: 0x7f0a003a
-			public const int imageView1 = 2131361850;
+			// aapt resource value: 0x7f0b003a
+			public const int imageView1 = 2131427386;
 			
-			// aapt resource value: 0x7f0a0039
-			public const int layout1 = 2131361849;
+			// aapt resource value: 0x7f0b0039
+			public const int layout1 = 2131427385;
 			
-			// aapt resource value: 0x7f0a0038
-			public const int linearLayout_dynamicallyDisplayImages = 2131361848;
+			// aapt resource value: 0x7f0b0038
+			public const int linearLayout_dynamicallyDisplayImages = 2131427384;
 			
-			// aapt resource value: 0x7f0a0044
-			public const int maintenance = 2131361860;
+			// aapt resource value: 0x7f0b0044
+			public const int maintenance = 2131427396;
 			
-			// aapt resource value: 0x7f0a0000
-			public const int none = 2131361792;
+			// aapt resource value: 0x7f0b0000
+			public const int none = 2131427328;
 			
-			// aapt resource value: 0x7f0a0042
-			public const int openStatus = 2131361858;
+			// aapt resource value: 0x7f0b0042
+			public const int openStatus = 2131427394;
 			
-			// aapt resource value: 0x7f0a0051
-			public const int pageIndicator = 2131361873;
+			// aapt resource value: 0x7f0b0051
+			public const int pageIndicator = 2131427409;
 			
-			// aapt resource value: 0x7f0a0025
-			public const int prgSplashProgress = 2131361829;
+			// aapt resource value: 0x7f0b0025
+			public const int prgSplashProgress = 2131427365;
 			
-			// aapt resource value: 0x7f0a0019
-			public const int radioButton_rating_1 = 2131361817;
+			// aapt resource value: 0x7f0b0019
+			public const int radioButton_rating_1 = 2131427353;
 			
-			// aapt resource value: 0x7f0a001a
-			public const int radioButton_rating_2 = 2131361818;
+			// aapt resource value: 0x7f0b001a
+			public const int radioButton_rating_2 = 2131427354;
 			
-			// aapt resource value: 0x7f0a001b
-			public const int radioButton_rating_3 = 2131361819;
+			// aapt resource value: 0x7f0b001b
+			public const int radioButton_rating_3 = 2131427355;
 			
-			// aapt resource value: 0x7f0a001c
-			public const int radioButton_rating_4 = 2131361820;
+			// aapt resource value: 0x7f0b001c
+			public const int radioButton_rating_4 = 2131427356;
 			
-			// aapt resource value: 0x7f0a001d
-			public const int radioButton_rating_5 = 2131361821;
+			// aapt resource value: 0x7f0b001d
+			public const int radioButton_rating_5 = 2131427357;
 			
-			// aapt resource value: 0x7f0a0018
-			public const int radioGroup_ratings = 2131361816;
+			// aapt resource value: 0x7f0b0018
+			public const int radioGroup_ratings = 2131427352;
 			
-			// aapt resource value: 0x7f0a003b
-			public const int rating = 2131361851;
+			// aapt resource value: 0x7f0b003b
+			public const int rating = 2131427387;
 			
-			// aapt resource value: 0x7f0a0017
-			public const int ratingsOptions = 2131361815;
+			// aapt resource value: 0x7f0b0017
+			public const int ratingsOptions = 2131427351;
 			
-			// aapt resource value: 0x7f0a0047
-			public const int scrollView1 = 2131361863;
+			// aapt resource value: 0x7f0b0047
+			public const int scrollView1 = 2131427399;
 			
-			// aapt resource value: 0x7f0a004d
-			public const int scrollView2 = 2131361869;
+			// aapt resource value: 0x7f0b004d
+			public const int scrollView2 = 2131427405;
 			
-			// aapt resource value: 0x7f0a003f
-			public const int scrollView3 = 2131361855;
+			// aapt resource value: 0x7f0b003f
+			public const int scrollView3 = 2131427391;
 			
-			// aapt resource value: 0x7f0a0043
-			public const int season = 2131361859;
+			// aapt resource value: 0x7f0b0043
+			public const int season = 2131427395;
 			
-			// aapt resource value: 0x7f0a0016
-			public const int textView1 = 2131361814;
+			// aapt resource value: 0x7f0b0016
+			public const int textView1 = 2131427350;
 			
-			// aapt resource value: 0x7f0a0045
-			public const int textView4 = 2131361861;
+			// aapt resource value: 0x7f0b0045
+			public const int textView4 = 2131427397;
 			
-			// aapt resource value: 0x7f0a003e
-			public const int textView5 = 2131361854;
+			// aapt resource value: 0x7f0b003e
+			public const int textView5 = 2131427390;
 			
-			// aapt resource value: 0x7f0a0049
-			public const int textView6 = 2131361865;
+			// aapt resource value: 0x7f0b0049
+			public const int textView6 = 2131427401;
 			
-			// aapt resource value: 0x7f0a0041
-			public const int textView7 = 2131361857;
+			// aapt resource value: 0x7f0b0041
+			public const int textView7 = 2131427393;
 			
-			// aapt resource value: 0x7f0a000a
-			public const int textView_activityLabel = 2131361802;
+			// aapt resource value: 0x7f0b000a
+			public const int textView_activityLabel = 2131427338;
 			
-			// aapt resource value: 0x7f0a000d
-			public const int textView_amenityLabel = 2131361805;
+			// aapt resource value: 0x7f0b000d
+			public const int textView_amenityLabel = 2131427341;
 			
-			// aapt resource value: 0x7f0a0010
-			public const int textView_difficultyLabel = 2131361808;
+			// aapt resource value: 0x7f0b0010
+			public const int textView_difficultyLabel = 2131427344;
 			
-			// aapt resource value: 0x7f0a0005
-			public const int textView_mainMenuLabel = 2131361797;
+			// aapt resource value: 0x7f0b0005
+			public const int textView_mainMenuLabel = 2131427333;
 			
-			// aapt resource value: 0x7f0a0020
-			public const int textView_maxDistanceLabel = 2131361824;
+			// aapt resource value: 0x7f0b0020
+			public const int textView_maxDistanceLabel = 2131427360;
 			
-			// aapt resource value: 0x7f0a001e
-			public const int textView_maxDurationLabel = 2131361822;
+			// aapt resource value: 0x7f0b001e
+			public const int textView_maxDurationLabel = 2131427358;
 			
-			// aapt resource value: 0x7f0a0004
-			public const int top = 2131361796;
+			// aapt resource value: 0x7f0b0004
+			public const int top = 2131427332;
 			
-			// aapt resource value: 0x7f0a004e
-			public const int trailGallery = 2131361870;
+			// aapt resource value: 0x7f0b004e
+			public const int trailGallery = 2131427406;
 			
-			// aapt resource value: 0x7f0a004f
-			public const int trailName = 2131361871;
+			// aapt resource value: 0x7f0b004f
+			public const int trailName = 2131427407;
 			
-			// aapt resource value: 0x7f0a0001
-			public const int triangle = 2131361793;
+			// aapt resource value: 0x7f0b0001
+			public const int triangle = 2131427329;
 			
-			// aapt resource value: 0x7f0a0027
-			public const int txtDataAccessTitle = 2131361831;
+			// aapt resource value: 0x7f0b0027
+			public const int txtDataAccessTitle = 2131427367;
 			
-			// aapt resource value: 0x7f0a0026
-			public const int txtSplashProgressLabel = 2131361830;
+			// aapt resource value: 0x7f0b0026
+			public const int txtSplashProgressLabel = 2131427366;
 			
-			// aapt resource value: 0x7f0a0024
-			public const int txtSplashScreenTitle = 2131361828;
+			// aapt resource value: 0x7f0b0024
+			public const int txtSplashScreenTitle = 2131427364;
 			
-			// aapt resource value: 0x7f0a0002
-			public const int underline = 2131361794;
+			// aapt resource value: 0x7f0b0002
+			public const int underline = 2131427330;
 			
-			// aapt resource value: 0x7f0a0050
-			public const int viewpager = 2131361872;
+			// aapt resource value: 0x7f0b0050
+			public const int viewpager = 2131427408;
 			
 			static Id()
 			{
@@ -803,14 +822,14 @@ namespace Columbia583.Android
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f090002
-			public const int app_name = 2131296258;
+			// aapt resource value: 0x7f0a0002
+			public const int app_name = 2131361794;
 			
-			// aapt resource value: 0x7f090000
-			public const int button_updateSearchResults = 2131296256;
+			// aapt resource value: 0x7f0a0000
+			public const int button_updateSearchResults = 2131361792;
 			
-			// aapt resource value: 0x7f090001
-			public const int button_viewTrail = 2131296257;
+			// aapt resource value: 0x7f0a0001
+			public const int button_viewTrail = 2131361793;
 			
 			static String()
 			{
