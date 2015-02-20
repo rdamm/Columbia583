@@ -107,6 +107,20 @@ namespace Columbia583
 			}
 		}
 
+		public void createCommentTable()
+		{
+			try {
+				var connection = new SQLiteConnection (getPathToDatabase ());
+
+				connection.CreateTable<Comment>();
+
+				connection.Close ();
+			} catch (SQLiteException ex) {
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+		}
+
 
 		/// <summary>
 		/// Inserts the rows.
