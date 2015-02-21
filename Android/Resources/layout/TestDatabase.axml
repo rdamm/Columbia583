@@ -20,6 +20,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnInsertTables" />
     <Button
+        android:text="Create and Insert Comments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnComments" />
+    <Button
         android:text="Get Database Last Updated"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

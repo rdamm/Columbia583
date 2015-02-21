@@ -170,6 +170,20 @@ namespace Columbia583
 			}
 		}
 
+		public void insertCommentRows(Comment[] comments)
+		{
+			try {
+				var connection = new SQLiteConnection (getPathToDatabase ());
+
+				connection.InsertAll(comments);
+
+				connection.Close ();
+			} catch (SQLiteException ex) {
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+		}
+
 
 		/// <summary>
 		/// Gets the datetime of the last database update.
@@ -1053,6 +1067,7 @@ namespace Columbia583
 				var connection = new SQLiteConnection(getPathToDatabase());
 
 				// Delete the data that has foreign keys.
+				connection.DeleteAll<Comment>();
 				connection.DeleteAll<TrailsToActivities>();
 				connection.DeleteAll<TrailsToAmenities>();
 				connection.DeleteAll<Point>();
@@ -1090,6 +1105,7 @@ namespace Columbia583
 				var connection = new SQLiteConnection(getPathToDatabase());
 
 				// Drop the tables that have foreign keys.
+				connection.DropTable<Comment>();
 				connection.DropTable<TrailsToActivities>();
 				connection.DropTable<TrailsToAmenities>();
 				connection.DropTable<Point>();

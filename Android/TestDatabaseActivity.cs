@@ -20,6 +20,7 @@ namespace Columbia583.Android
 	{
 		protected Button createTablesButton = null;
 		protected Button insertTablesButton = null;
+		protected Button commentsButton = null;
 		protected Button getDatabaseLastUpdatedButton = null;
 		protected Button setDatabaseLastUpdatedButton = null;
 		protected Button getActivitiesButton = null;
@@ -45,6 +46,7 @@ namespace Columbia583.Android
 			// Get the controls.
 			createTablesButton = FindViewById<Button> (Resource.Id.btnCreateTables);
 			insertTablesButton = FindViewById<Button> (Resource.Id.btnInsertTables);
+			commentsButton = FindViewById<Button> (Resource.Id.btnComments);
 			getDatabaseLastUpdatedButton = FindViewById<Button> (Resource.Id.btnGetDatabaseLastUpdated);
 			setDatabaseLastUpdatedButton = FindViewById<Button> (Resource.Id.btnSetDatabaseLastUpdated);
 			getActivitiesButton = FindViewById<Button> (Resource.Id.btnGetActivities);
@@ -68,6 +70,12 @@ namespace Columbia583.Android
 					Data_Layer_Tests dataLayerTests = new Data_Layer_Tests();
 					string response = dataLayerTests.insertIntoTables();
 					Console.WriteLine(response);
+				};
+			}
+			if (commentsButton != null) {
+				commentsButton.Click += (sender, e) => {
+					Data_Access_Layer_Common dataLayerTests = new Data_Access_Layer_Common();
+					dataLayerTests.initializeComments();
 				};
 			}
 			if (getDatabaseLastUpdatedButton != null) {
