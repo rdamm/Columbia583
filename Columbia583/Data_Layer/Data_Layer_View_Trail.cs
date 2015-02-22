@@ -80,9 +80,8 @@ namespace Columbia583
 				// Open connection to local database.
 				var connection = new SQLiteConnection (Data_Layer_Common.getPathToDatabase ());
 
-				//user = connection.Find<User>(c.userId);
-
-				user = connection.Query<User>("SELECT * FROM User WHERE id = ?", c.userId)[0];
+				user = connection.Find<User>(c.userId);
+				//user = connection.Query<User>("SELECT * FROM User WHERE id = ?", c.userId)[0];
 
 				connection.Close();
 			} catch (SQLiteException ex) {
