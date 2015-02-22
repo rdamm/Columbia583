@@ -312,6 +312,33 @@ namespace Columbia583
 			return amenities;
 		}
 
+		public List<User> getUsers()
+		{
+			List<User> users = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get all amenities.
+				var query = connection.Table<User>();
+				users = new List<User>();
+				foreach(User user in query)
+				{
+					users.Add(user);
+				}
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+			return users;
+		}
+
 
 		/// <summary>
 		/// Gets the IDs for all the activities.

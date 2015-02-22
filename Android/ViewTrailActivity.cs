@@ -149,6 +149,18 @@ namespace Columbia583.Android
 					Comment[] comments = dvt.getComments(trail.id);
 					foreach (Comment comment in comments)
 					{
+						TextView username = new TextView(this);
+						username.Text = dvt.getUserForComment(comment).username;
+						commentsLayout.AddView(username);
+						RatingBar rating = new RatingBar(this);
+						rating.NumStars = 5;
+						rating.IsIndicator = true;
+						rating.StepSize = 1.0F;
+						rating.Rating = comment.rating;
+						commentsLayout.AddView(rating);
+						TextView date = new TextView(this);
+						date.Text = comment.date.ToString();
+						commentsLayout.AddView(date);
 						TextView commentText = new TextView(this);
 						commentText.Text = comment.text;
 						commentsLayout.AddView(commentText);

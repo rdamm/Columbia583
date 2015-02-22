@@ -25,6 +25,7 @@ namespace Columbia583.Android
 		protected Button setDatabaseLastUpdatedButton = null;
 		protected Button getActivitiesButton = null;
 		protected Button getAmenitiesButton = null;
+		protected Button getUsersButton = null;
 		protected Button getTrailsBySearchFilterButton = null;
 		protected Button getTrailButton = null;
 		protected Button deleteSomeFromTablesButton = null;
@@ -51,6 +52,7 @@ namespace Columbia583.Android
 			setDatabaseLastUpdatedButton = FindViewById<Button> (Resource.Id.btnSetDatabaseLastUpdated);
 			getActivitiesButton = FindViewById<Button> (Resource.Id.btnGetActivities);
 			getAmenitiesButton = FindViewById<Button> (Resource.Id.btnGetAmenities);
+			getUsersButton = FindViewById<Button> (Resource.Id.btnGetUsers);
 			getTrailsBySearchFilterButton = FindViewById<Button> (Resource.Id.btnGetTrailsBySearchFilter);
 			getTrailButton = FindViewById<Button> (Resource.Id.btnGetTrail);
 			deleteSomeFromTablesButton = FindViewById<Button> (Resource.Id.btnDeleteSomeFromTables);
@@ -103,6 +105,13 @@ namespace Columbia583.Android
 				getAmenitiesButton.Click += (sender, e) => {
 					Data_Layer_Tests dataLayerTests = new Data_Layer_Tests();
 					string response = dataLayerTests.getAmenities();
+					Console.WriteLine(response);
+				};
+			}
+			if (getUsersButton != null) {
+				getUsersButton.Click += (sender, e) => {
+					Data_Layer_Tests dataLayerTests = new Data_Layer_Tests();
+					string response = dataLayerTests.getUsers();
 					Console.WriteLine(response);
 				};
 			}

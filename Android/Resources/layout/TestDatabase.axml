@@ -45,6 +45,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnGetAmenities" />
     <Button
+        android:text="Get Users"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGetUsers" />
+    <Button
         android:text="Get Trails By Search Filter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

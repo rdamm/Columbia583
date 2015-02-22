@@ -72,6 +72,27 @@ namespace Columbia583
 			return results;
 		}
 
+		public User getUserForComment(Comment c)
+		{
+			User user = null;
+
+			try {
+				// Open connection to local database.
+				var connection = new SQLiteConnection (Data_Layer_Common.getPathToDatabase ());
+
+				//user = connection.Find<User>(c.userId);
+
+				user = connection.Query<User>("SELECT * FROM User WHERE id = ?", c.userId)[0];
+
+				connection.Close();
+			} catch (SQLiteException ex) {
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return user;
+		}
+
 	}
 }
 
