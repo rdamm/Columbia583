@@ -107,6 +107,20 @@ namespace Columbia583
 			}
 		}
 
+		public void createCommentTable()
+		{
+			try {
+				var connection = new SQLiteConnection (getPathToDatabase ());
+
+				connection.CreateTable<Comment>();
+
+				connection.Close ();
+			} catch (SQLiteException ex) {
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+		}
+
 
 		/// <summary>
 		/// Inserts the rows.
@@ -151,6 +165,20 @@ namespace Columbia583
 			}
 			catch (SQLiteException ex)
 			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+		}
+
+		public void insertCommentRows(Comment[] comments)
+		{
+			try {
+				var connection = new SQLiteConnection (getPathToDatabase ());
+
+				connection.InsertAll(comments);
+
+				connection.Close ();
+			} catch (SQLiteException ex) {
 				// TODO: Log the error message.
 				Console.WriteLine (ex.Message);
 			}
@@ -282,6 +310,33 @@ namespace Columbia583
 			}
 
 			return amenities;
+		}
+
+		public List<User> getUsers()
+		{
+			List<User> users = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get all amenities.
+				var query = connection.Table<User>();
+				users = new List<User>();
+				foreach(User user in query)
+				{
+					users.Add(user);
+				}
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+			return users;
 		}
 
 
@@ -1039,6 +1094,7 @@ namespace Columbia583
 				var connection = new SQLiteConnection(getPathToDatabase());
 
 				// Delete the data that has foreign keys.
+				connection.DeleteAll<Comment>();
 				connection.DeleteAll<TrailsToActivities>();
 				connection.DeleteAll<TrailsToAmenities>();
 				connection.DeleteAll<Point>();
@@ -1076,6 +1132,7 @@ namespace Columbia583
 				var connection = new SQLiteConnection(getPathToDatabase());
 
 				// Drop the tables that have foreign keys.
+				connection.DropTable<Comment>();
 				connection.DropTable<TrailsToActivities>();
 				connection.DropTable<TrailsToAmenities>();
 				connection.DropTable<Point>();

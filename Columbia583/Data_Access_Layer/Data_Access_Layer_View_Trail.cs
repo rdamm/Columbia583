@@ -23,6 +23,18 @@ namespace Columbia583
 			Data_Layer_View_Trail dataLayer = new Data_Layer_View_Trail();
 			return dataLayer.getTrail (trailId);
 		}
+
+		public Comment[] getComments(int trailId)
+		{
+			Data_Layer_View_Trail dataLayer = new Data_Layer_View_Trail();
+			return dataLayer.getComments (trailId).ToArray();
+		}
+
+		public User getUserForComment(Comment c)
+		{
+			Data_Layer_View_Trail dataLayer = new Data_Layer_View_Trail();
+			return dataLayer.getUserForComment(c);
+		}
 	}
 }
 

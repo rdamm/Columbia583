@@ -215,6 +215,30 @@ namespace Columbia583
 			Console.WriteLine ("Database Initialized!");
 		}
 
+		public void initializeComments()
+		{
+			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			dataLayer.createCommentTable ();
+
+			// Get the current time prior to calling the webservice.
+			DateTime currentTime = DateTime.Now;
+
+			List<Comment> comments = new List<Comment> ();
+
+			// dummy comments
+			comments.Add (new Comment (1, 10, 16, "First rating evah!", 4, DateTime.Now));
+			comments.Add (new Comment(2, 1, 16, "Woot", 3, DateTime.Now));
+
+			comments = comments.Distinct ().ToList ();
+
+			dataLayer.insertCommentRows (comments.ToArray ());
+
+			// Store the current time in the database as the last-updated time.
+			dataLayer.setDatabaseLastUpdated (currentTime);
+
+			Console.WriteLine ("Comments Initialized!");
+		}
+
 
 		/// <summary>
 		/// Updates the local database so that it is up-to-date with the live database.  This should be called on a regular interval.
