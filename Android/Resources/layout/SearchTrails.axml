@@ -16,7 +16,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1">
             <TextView
-                android:text="Select an Activity"
+                android:text="Select Activities to Include in Search"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             android:minWidth="25px"
             android:minHeight="25px">
             <TextView
-                android:text="Select an Amenity"
+                android:text="Select Amenities to Include in Search"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

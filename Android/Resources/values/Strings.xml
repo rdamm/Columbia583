@@ -5,6 +5,6 @@
 	<string name="app_name">Columbia583.Android.Android</string>
 	<string name="positiveOption">OK</string>
 	<string name="negativeOption">Cancel</string>
-	<string name="activitiesList">Select an Activity</string>
-	<string name="amenitiesList">Select an Amenity</string>
+	<string name="activitiesList">Select Activities</string>
+	<string name="amenitiesList">Select Amenities</string>
 </resources>

@@ -279,8 +279,8 @@ namespace Columbia583.Android
 					builder.SetMultiChoiceItems(Resource.Array.activities_check_list, 
 						new[] { false, false, false, false }, activityListClicked);
 
-					builder.SetPositiveButton(Resource.String.positiveOption, OkClicked);
-					builder.SetNegativeButton(Resource.String.negativeOption, CancelClicked);
+					builder.SetPositiveButton(Resource.String.positiveOption, okClicked);
+					builder.SetNegativeButton(Resource.String.negativeOption, cancelClicked);
 
 					return builder.Create();
 				}
@@ -291,8 +291,8 @@ namespace Columbia583.Android
 					builder.SetMultiChoiceItems(Resource.Array.amenities_check_list, 
 						new[] { false, false, false, false }, amenityListClicked);
 
-					builder.SetPositiveButton(Resource.String.positiveOption, OkClicked);
-					builder.SetNegativeButton(Resource.String.negativeOption, CancelClicked);
+					builder.SetPositiveButton(Resource.String.positiveOption, okClicked);
+					builder.SetNegativeButton(Resource.String.negativeOption, cancelClicked);
 
 					return builder.Create();
 				}
@@ -301,16 +301,16 @@ namespace Columbia583.Android
 			return base.OnCreateDialog(id, args);
 		}
 
-		private void OkClicked(object sender, DialogClickEventArgs args)
+		private void okClicked(object sender, DialogClickEventArgs args)
 		{
 			Dialog dialog = (AlertDialog) sender;
 		}
 
-		private void CancelClicked(object sender, DialogClickEventArgs args)
+		private void cancelClicked(object sender, DialogClickEventArgs args)
 		{
 			Dialog dialog = (AlertDialog) sender;
 
-			dialog.Cancel;
+			dialog.Cancel();
 		}
 
 		private void activityListClicked(object sender, DialogMultiChoiceClickEventArgs args)
