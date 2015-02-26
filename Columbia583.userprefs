@@ -1,5 +1,6 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj" GitUserInfo="UsingGIT">
 <<<<<<< HEAD
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Android\ViewTrailActivity.cs">
     <Files>
@@ -17,10 +18,14 @@
 =======
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.a9325661" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Android\SearchTrailsActivity.cs">
+=======
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
+  <MonoDevelop.Ide.Workbench>
+>>>>>>> origin/kjnguyen_february
     <Files>
       <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="1" Column="1" />
       <File FileName="Android\Resources\values\Arrays.xml" Line="1" Column="1" />
-      <File FileName="Android\SearchTrailsActivity.cs" Line="41" Column="41" />
+      <File FileName="Android\SearchTrailsActivity.cs" Line="1" Column="1" />
       <File FileName="Android\Resources\values\Strings.xml" Line="1" Column="1" />
       <File FileName="Columbia583\Data_Classes\SearchFilter.cs" Line="1" Column="1" />
       <File FileName="Columbia583\Data_Classes\Activity.cs" Line="1" Column="1" />
@@ -33,28 +38,4 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Columbia583.Android MonoForAntroid.PreferredDevice="Nexus 4" />
-<<<<<<< HEAD
 </Properties>
-=======
-=======
-﻿<Properties StartupItem="Android\Columbia583.Android.csproj" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.a9325661" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\SearchTrailsActivity.cs">
-    <Files>
-      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="1" Column="1" />
-      <File FileName="Android\Resources\values\Arrays.xml" Line="1" Column="1" />
-      <File FileName="Android\SearchTrailsActivity.cs" Line="5" Column="5" />
-      <File FileName="Android\Resources\values\Strings.xml" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Classes\SearchFilter.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Classes\Activity.cs" Line="1" Column="1" />
-      <File FileName="c:\Users\nguye_000\Documents\rdamm\Columbia583_jack\Columbia583\Service_Access_Layer\Service_Access_Layer_Common.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Columbia583.Android MonoForAntroid.PreferredDevice="Nexus 4" />
->>>>>>> e1bd96f Added some functionality to pop-up lists
-</Properties>
->>>>>>> 401c7699ecbea61fd4703da762f44eca413e7b9e
