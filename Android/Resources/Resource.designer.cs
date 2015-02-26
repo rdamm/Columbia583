@@ -819,11 +819,11 @@ namespace Columbia583.Android
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f0a0005
-			public const int activitiesList = 2131361797;
-			
 			// aapt resource value: 0x7f0a0006
-			public const int amenitiesList = 2131361798;
+			public const int activitiesList = 2131361798;
+			
+			// aapt resource value: 0x7f0a0007
+			public const int amenitiesList = 2131361799;
 			
 			// aapt resource value: 0x7f0a0002
 			public const int app_name = 2131361794;
@@ -839,6 +839,9 @@ namespace Columbia583.Android
 			
 			// aapt resource value: 0x7f0a0003
 			public const int positiveOption = 2131361795;
+			
+			// aapt resource value: 0x7f0a0005
+			public const int submitButtonName = 2131361797;
 			
 			static String()
 			{
