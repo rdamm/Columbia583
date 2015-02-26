@@ -283,8 +283,8 @@ namespace Columbia583.Android
 					builder.SetCancelable(true);
 					builder.SetMultiChoiceItems(Resource.Array.activities_check_list, null, activityListClicked);
 
-					builder.SetPositiveButton(Resource.String.positiveOption, okClicked_Activity);
-					builder.SetNegativeButton(Resource.String.negativeOption, cancelClicked);
+					builder.SetPositiveButton(Resource.String.submitButtonName, submitButtonClicked_Activity);
+					//builder.SetNegativeButton(Resource.String.negativeOption, cancelClicked);
 
 					return builder.Create();
 				}
@@ -295,8 +295,8 @@ namespace Columbia583.Android
 					builder.SetCancelable(true);
 					builder.SetMultiChoiceItems(Resource.Array.amenities_check_list, null, amenityListClicked);
 
-					builder.SetPositiveButton(Resource.String.positiveOption, okClicked_Amenity);
-					builder.SetNegativeButton(Resource.String.negativeOption, cancelClicked);
+					builder.SetPositiveButton(Resource.String.submitButtonName, submitButtonClicked_Amenity);
+					//builder.SetNegativeButton(Resource.String.negativeOption, cancelClicked);
 
 					return builder.Create();
 				}
@@ -305,7 +305,7 @@ namespace Columbia583.Android
 			return base.OnCreateDialog(id, args);
 		}
 
-		private void okClicked_Activity(object sender, DialogClickEventArgs args)
+		private void submitButtonClicked_Activity(object sender, DialogClickEventArgs args)
 		{
 			Dialog dialog = (AlertDialog) sender;
 
@@ -325,7 +325,7 @@ namespace Columbia583.Android
 			dialog.Dismiss ();
 		}
 
-		private void okClicked_Amenity(object sender, DialogClickEventArgs args)
+		private void submitButtonClicked_Amenity(object sender, DialogClickEventArgs args)
 		{
 			Dialog dialog = (AlertDialog) sender;
 
@@ -345,12 +345,12 @@ namespace Columbia583.Android
 			dialog.Dismiss ();
 		}
 
-		private void cancelClicked(object sender, DialogClickEventArgs args)
+		/*private void cancelClicked(object sender, DialogClickEventArgs args)
 		{
-			Dialog dialog = (AlertDialog) sender;
+			Dialog dialog = (AlertDialog)sender;
 
-			dialog.Cancel ();
-		}
+			dialog.Dispose ();
+		}*/
 
 		private void activityListClicked(object sender, DialogMultiChoiceClickEventArgs args)
 		{
