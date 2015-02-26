@@ -41,30 +41,6 @@ namespace Columbia583.Android
 				this.checkbox = checkbox;
 			}
 		}
-
-		protected class StringToActivity
-		{
-			public Activity activity { get; set; }
-			public string s { get; set; }
-
-			public StringToActivity(Activity activity, string s)
-			{
-				this.activity = activity;
-				this.s = s;
-			}
-		}
-
-		protected class StringToAmenity
-		{
-			public Amenity amenity { get; set; }
-			public string s { get; set; }
-
-			public StringToAmenity(Amenity amenity, string s)
-			{
-				this.amenity = amenity;
-				this.s = s;
-			}
-		}
 			
 		private const int activityDialog = 1;
 		private const int amenityDialog = 2;
