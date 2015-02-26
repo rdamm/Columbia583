@@ -42,6 +42,30 @@ namespace Columbia583.Android
 			}
 		}
 
+		protected class StringToActivity
+		{
+			public Activity activity { get; set; }
+			public string s { get; set; }
+
+			public StringToActivity(Activity activity, string s)
+			{
+				this.activity = activity;
+				this.s = s;
+			}
+		}
+
+		protected class StringToAmenity
+		{
+			public Amenity amenity { get; set; }
+			public string s { get; set; }
+
+			public StringToAmenity(Amenity amenity, string s)
+			{
+				this.amenity = amenity;
+				this.s = s;
+			}
+		}
+			
 		private const int activityDialog = 1;
 		private const int amenityDialog = 2;
 
@@ -49,12 +73,16 @@ namespace Columbia583.Android
 		//protected LinearLayout activityOptions = null;
 		//protected List<CheckboxToActivity> activityCheckBoxes = null;
 		String[] activitiesSelected;
+		List<string> activitiesList_String = new List<string> ();
+		List<int> activitiesList_ID = new List<int> ();
 
 		// Amenities.
 		//protected LinearLayout amenityOptions = null;
 		//protected ScrollView amenityOptionsScroll = null;
 		//protected List<CheckboxToAmenity> amenityCheckBoxes = null;
 		String[] amenitiesSelected;
+		List<string> amenitiesList_String = new List<string> ();
+		List<int> amenitiesList_ID = new List<int> ();
 
 		// Difficulties.
 		protected CheckBox easiestRadioButton = null;
@@ -131,8 +159,8 @@ namespace Columbia583.Android
 			amenitiesButton.Click += delegate { ShowDialog(amenityDialog); };
 
 			if (debugSearch) {
-				/*
-				debugTrails[0] = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69", "10", "Lorem ipsum", "three steps north, then turn right", Difficulty.Easiest, 4, "falling rocks", "", "", "A work bee is planned for 15 July 2014, weather pending. Some sections of the trail may be closed. Please come out with your shovels and rakes from 10am-1pm and enjoy a bbq afterwards.", "December through January", true, true, DateTime.Now);
+
+				/*debugTrails[0] = new Trail(0, 0, 0, "Edgewater Trail", "BC", "", "", "66.69", "10", "Lorem ipsum", "three steps north, then turn right", Difficulty.Easiest, 4, "falling rocks", "", "", "A work bee is planned for 15 July 2014, weather pending. Some sections of the trail may be closed. Please come out with your shovels and rakes from 10am-1pm and enjoy a bbq afterwards.", "December through January", true, true, DateTime.Now);
 				debugTrails[1] = new Trail(0, 0, 0, "Niles", "BC", "", "", "113.12", "20", "dolores umbridge", "Go to Neverland", Difficulty.Very_Difficult, 3, "", "", "", "", "All year", true, true, DateTime.Now);
 				debugTrails[2] = new Trail(0, 0, 0, "Findlay Creek Trail 2", "AB", "", "", "0.59", "0.45", "Presumably, there's a Findlay Creek Trail 1, but this isn't it", "1337 d1r3c710n5", Difficulty.Extremely_Difficult, 5, "", "", "", "rwerwer", "Summer", true, true, DateTime.Now);
 
@@ -276,8 +304,7 @@ namespace Columbia583.Android
 				{
 					var builder = new AlertDialog.Builder(this);
 					builder.SetTitle(Resource.String.activitiesList);
-					builder.SetMultiChoiceItems(Resource.Array.activities_check_list, 
-						new[] { false, false, false, false }, activityListClicked);
+					builder.SetMultiChoiceItems(Resource.Array.activities_check_list, null, activityListClicked);
 
 					builder.SetPositiveButton(Resource.String.positiveOption, okClicked);
 					builder.SetNegativeButton(Resource.String.negativeOption, cancelClicked);
@@ -288,8 +315,7 @@ namespace Columbia583.Android
 				{
 					var builder = new AlertDialog.Builder(this);
 					builder.SetTitle(Resource.String.amenitiesList);
-					builder.SetMultiChoiceItems(Resource.Array.amenities_check_list, 
-						new[] { false, false, false, false }, amenityListClicked);
+					builder.SetMultiChoiceItems(Resource.Array.amenities_check_list, null, amenityListClicked);
 
 					builder.SetPositiveButton(Resource.String.positiveOption, okClicked);
 					builder.SetNegativeButton(Resource.String.negativeOption, cancelClicked);
@@ -304,23 +330,60 @@ namespace Columbia583.Android
 		private void okClicked(object sender, DialogClickEventArgs args)
 		{
 			Dialog dialog = (AlertDialog) sender;
+
+			int i = 0;
+			int j = 0;
+
+			activitiesList_String.ToArray ();
+			amenitiesList_String.ToArray ();
+
+			foreach (string s in activitiesList_String)
+			{
+				Activity activity = new Activity (i, activitiesList_String[i], new byte[0], DateTime.Now);
+
+				activitiesList_ID.Add (activity.id);
+
+				i++;
+			}
+			foreach (string t in amenitiesList_String)
+			{
+				Amenity amenity = new Amenity (j, amenitiesList_String[j], new byte[0], DateTime.Now);
+
+				amenitiesList_ID.Add (amenity.id);
+
+				j++;
+			}
+
+			dialog.Dismiss ();
 		}
 
 		private void cancelClicked(object sender, DialogClickEventArgs args)
 		{
 			Dialog dialog = (AlertDialog) sender;
 
-			dialog.Cancel();
+			dialog.Cancel ();
 		}
 
 		private void activityListClicked(object sender, DialogMultiChoiceClickEventArgs args)
 		{
-			activitiesSelected = Resources.GetStringArray(Resource.Array.activities_check_list);
+			activitiesSelected = Resources.GetStringArray (Resource.Array.activities_check_list);
+
+			if (args.IsChecked) {
+				activitiesList_String.Add (activitiesSelected [args.Which]);
+			} else if (activitiesList_String.Contains (activitiesSelected [args.Which])) {
+				activitiesList_String.Remove (activitiesSelected [args.Which]);
+			}
 		}
 
 		private void amenityListClicked(object sender, DialogMultiChoiceClickEventArgs args)
 		{
-			amenitiesSelected = Resources.GetStringArray(Resource.Array.amenities_check_list);
+			amenitiesSelected = Resources.GetStringArray (Resource.Array.amenities_check_list);
+
+			if (args.IsChecked) {
+				amenitiesList_String.Add (amenitiesSelected [args.Which]);
+			} else if (amenitiesList_String.Contains (amenitiesSelected [args.Which])) {
+				amenitiesList_String.Remove (amenitiesSelected [args.Which]);
+			}
 		}
 
 
@@ -328,8 +391,6 @@ namespace Columbia583.Android
 		 
 		protected SearchFilter getSearchFilter()
 		{
-			List<int> activitiesList = new List<int>();
-			List<int> amenitiesList = new List<int> ();
 			List<Difficulty> difficulty = new List<Difficulty>();
 			int rating = 1;
 
@@ -386,7 +447,7 @@ namespace Columbia583.Android
 			}
 
 			// Encapsulate the filter parameters.
-			SearchFilter searchFilter = new SearchFilter(activitiesList.ToArray(), amenitiesList.ToArray(), difficulty.ToArray(), rating, minDuration, maxDuration, minDistance, maxDistance);
+			SearchFilter searchFilter = new SearchFilter(activitiesList_ID.ToArray(), amenitiesList_ID.ToArray(), difficulty.ToArray(), rating, minDuration, maxDuration, minDistance, maxDistance);
 
 			return searchFilter;
 		}
