@@ -280,9 +280,10 @@ namespace Columbia583.Android
 				{
 					var builder = new AlertDialog.Builder(this);
 					builder.SetTitle(Resource.String.activitiesList);
+					builder.SetCancelable(true);
 					builder.SetMultiChoiceItems(Resource.Array.activities_check_list, null, activityListClicked);
 
-					builder.SetPositiveButton(Resource.String.positiveOption, okClicked);
+					builder.SetPositiveButton(Resource.String.positiveOption, okClicked_Activity);
 					builder.SetNegativeButton(Resource.String.negativeOption, cancelClicked);
 
 					return builder.Create();
@@ -291,9 +292,10 @@ namespace Columbia583.Android
 				{
 					var builder = new AlertDialog.Builder(this);
 					builder.SetTitle(Resource.String.amenitiesList);
+					builder.SetCancelable(true);
 					builder.SetMultiChoiceItems(Resource.Array.amenities_check_list, null, amenityListClicked);
 
-					builder.SetPositiveButton(Resource.String.positiveOption, okClicked);
+					builder.SetPositiveButton(Resource.String.positiveOption, okClicked_Amenity);
 					builder.SetNegativeButton(Resource.String.negativeOption, cancelClicked);
 
 					return builder.Create();
@@ -303,15 +305,13 @@ namespace Columbia583.Android
 			return base.OnCreateDialog(id, args);
 		}
 
-		private void okClicked(object sender, DialogClickEventArgs args)
+		private void okClicked_Activity(object sender, DialogClickEventArgs args)
 		{
 			Dialog dialog = (AlertDialog) sender;
 
 			int i = 0;
-			int j = 0;
 
 			activitiesList_String.ToArray ();
-			amenitiesList_String.ToArray ();
 
 			foreach (string s in activitiesList_String)
 			{
@@ -321,6 +321,18 @@ namespace Columbia583.Android
 
 				i++;
 			}
+
+			dialog.Dismiss ();
+		}
+
+		private void okClicked_Amenity(object sender, DialogClickEventArgs args)
+		{
+			Dialog dialog = (AlertDialog) sender;
+
+			int j = 0;
+
+			amenitiesList_String.ToArray ();
+
 			foreach (string t in amenitiesList_String)
 			{
 				Amenity amenity = new Amenity (j, amenitiesList_String[j], new byte[0], DateTime.Now);
@@ -361,8 +373,7 @@ namespace Columbia583.Android
 				amenitiesList_String.Remove (amenitiesSelected [args.Which]);
 			}
 		}
-
-
+			
 		/** Get the search filters from the controls. **/
 		 
 		protected SearchFilter getSearchFilter()
