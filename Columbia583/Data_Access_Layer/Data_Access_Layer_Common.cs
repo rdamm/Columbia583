@@ -218,18 +218,28 @@ namespace Columbia583
 		public void initializeComments()
 		{
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			Service_Access_Layer_Common serviceAccessLayer = new Service_Access_Layer_Common ();
 			dataLayer.createCommentTable ();
 
 			// Get the current time prior to calling the webservice.
 			DateTime currentTime = DateTime.Now;
 
+			// Get the data from the webservice.
+			List<Webservice_Comment> webserviceComments = serviceAccessLayer.getComments ();
+
 			List<Comment> comments = new List<Comment> ();
 
-			// dummy comments
-			comments.Add (new Comment (1, 10, 16, "First rating evah!", 4, DateTime.Now));
-			comments.Add (new Comment(2, 1, 16, "Woot", 3, DateTime.Now));
+			// real comments
+			try {
+				foreach (Webservice_Comment currentComment in webserviceComments) {
+					// Get base comment
+					comments.Add(new Comment(currentComment.id, currentComment.user_id, currentComment.trail_id, currentComment.comment, currentComment.rating, Convert.ToDateTime(currentComment.updated_at)));
+				}
 
-			comments = comments.Distinct ().ToList ();
+				comments = comments.Distinct ().ToList ();
+			} catch (Exception ex) {
+				Console.WriteLine (ex.Message);
+			}
 
 			dataLayer.insertCommentRows (comments.ToArray ());
 

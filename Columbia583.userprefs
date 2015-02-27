@@ -1,50 +1,20 @@
-﻿<Properties StartupItem="Android\Columbia583.Android.csproj" GitUserInfo="UsingGIT">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\ViewTrailActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Layer\Data_Layer_Common.cs">
     <Files>
-      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="1" Column="1" />
-      <File FileName="Android\ViewTrailActivity.cs" Line="46" Column="46" />
-      <File FileName="Columbia583\Data_Classes\Comment.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_View_Trail.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_View_Trail.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Classes\User.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Tests.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Common.cs" Line="1" Column="1" />
-      <File FileName="Android\TestDatabaseActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\SearchTrailsActivity.cs" Line="1" Column="1" />
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.a9325661" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\SearchTrailsActivity.cs">
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
-  <MonoDevelop.Ide.Workbench>
->>>>>>> origin/kjnguyen_february
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.a9325661" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\SearchTrailsActivity.cs">
->>>>>>> origin/kjnguyen_february
-    <Files>
-      <File FileName="Android\SearchTrailsActivity.cs" Line="64" Column="64" />
-      <File FileName="Android\Resources\values\Arrays.xml" Line="1" Column="1" />
-<<<<<<< HEAD
-      <File FileName="Android\SearchTrailsActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\Resources\values\Strings.xml" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Classes\SearchFilter.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Service_Access_Layer\Webservice_Trails.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Service_Access_Layer\Service_Access_Layer_Common.cs" Line="16" Column="16" />
+      <File FileName="Android\SplashActivity.cs" Line="26" Column="26" />
+      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="66" Column="66" />
+      <File FileName="Columbia583\Service_Access_Layer\Webservice_Comment.cs" Line="33" Column="33" />
+      <File FileName="Columbia583\Data_Classes\Comment.cs" Line="17" Column="17" />
+      <File FileName="Columbia583\Service_Access_Layer\Webservice_Activity.cs" Line="3" Column="3" />
       <File FileName="Columbia583\Data_Classes\Activity.cs" Line="1" Column="1" />
-      <File FileName="c:\Users\nguye_000\Documents\rdamm\Columbia583_jack\Columbia583\Service_Access_Layer\Service_Access_Layer_Common.cs" Line="1" Column="1" />
->>>>>>> origin/kjnguyen_february
-=======
-      <File FileName="Android\Resources\values\Strings.xml" Line="49" Column="49" />
->>>>>>> origin/kjnguyen_february
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Common.cs" Line="3" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Columbia583.Android MonoForAntroid.PreferredDevice="Nexus 4" />
 </Properties>
