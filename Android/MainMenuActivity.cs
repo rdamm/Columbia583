@@ -17,9 +17,7 @@ namespace Columbia583.Android
 	public class MainMenuActivity : AndroidActivity
 	{
 		protected Button searchTrailsButton = null;
-		protected Button testDatabaseButton = null;
-		protected Button testDataAccessButton = null;
-		protected Button testImageButton = null;
+		protected Button debugAndTestsButton = null;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -35,11 +33,9 @@ namespace Columbia583.Android
 
 			// Get the controls.
 			searchTrailsButton = FindViewById<Button> (Resource.Id.button_searchTrails);
-			testDatabaseButton = FindViewById<Button> (Resource.Id.button_databaseTests);
-			testDataAccessButton = FindViewById<Button> (Resource.Id.button_dataAccessTests);
-			testImageButton = FindViewById<Button> (Resource.Id.button_imageTests);
+			debugAndTestsButton = FindViewById<Button> (Resource.Id.button_debugAndTests);
 
-			// Assign an event handler to the button.
+			// Assign the event handlers.
 			if (searchTrailsButton != null) {
 				searchTrailsButton.Click += (sender, e) => {
 
@@ -49,29 +45,11 @@ namespace Columbia583.Android
 
 				};
 			}
-			if (testDatabaseButton != null) {
-				testDatabaseButton.Click += (sender, e) => {
+			if (debugAndTestsButton != null) {
+				debugAndTestsButton.Click += (sender, e) => {
 
-					// Load the database tests page.
-					var intent = new Intent(this, typeof(TestDatabaseActivity));
-					StartActivity(intent);
-
-				};
-			}
-			if (testDataAccessButton != null) {
-				testDataAccessButton.Click += (sender, e) => {
-
-					// Load the data access tests page.
-					var intent = new Intent(this, typeof(TestDataAccessActivity));
-					StartActivity(intent);
-
-				};
-			}
-			if (testImageButton != null) {
-				testImageButton.Click += (sender, e) => {
-
-					// Load the image tests page.
-					var intent = new Intent(this, typeof(TestImageActivity));
+					// Load the debug and tests page.
+					var intent = new Intent(this, typeof(DebugMenuActivity));
 					StartActivity(intent);
 
 				};

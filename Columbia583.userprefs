@@ -1,20 +1,14 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Layer\Data_Layer_Common.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\SplashActivity.cs">
     <Files>
-      <File FileName="Columbia583\Service_Access_Layer\Webservice_Trails.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Service_Access_Layer\Service_Access_Layer_Common.cs" Line="16" Column="16" />
-      <File FileName="Android\SplashActivity.cs" Line="26" Column="26" />
-      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="66" Column="66" />
-      <File FileName="Columbia583\Service_Access_Layer\Webservice_Comment.cs" Line="33" Column="33" />
-      <File FileName="Columbia583\Data_Classes\Comment.cs" Line="17" Column="17" />
-      <File FileName="Columbia583\Service_Access_Layer\Webservice_Activity.cs" Line="3" Column="3" />
-      <File FileName="Columbia583\Data_Classes\Activity.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Common.cs" Line="3" Column="3" />
+      <File FileName="Android\MainMenuActivity.cs" Line="21" Column="21" />
+      <File FileName="Android\SplashActivity.cs" Line="30" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Columbia583.Android MonoForAntroid.PreferredDevice="Nexus 4" />
 </Properties>

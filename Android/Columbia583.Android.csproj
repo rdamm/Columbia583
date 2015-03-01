@@ -87,6 +87,7 @@
     <Compile Include="TestDataAccessActivity.cs" />
     <Compile Include="TestImageActivity.cs" />
     <Compile Include="SplashActivity.cs" />
+    <Compile Include="DebugMenuActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -112,6 +113,9 @@
     <AndroidResource Include="Resources\layout\TestImage.axml" />
     <AndroidResource Include="Resources\layout\SplashScreen.axml" />
     <AndroidResource Include="Resources\values\Arrays.xml" />
+    <AndroidResource Include="Resources\drawable\greenways_header_background.png" />
+    <AndroidResource Include="Resources\drawable\greenways_header_logo.png" />
+    <AndroidResource Include="Resources\layout\DebugMenu.axml" />
   </ItemGroup>
   <Import Project="..\Columbia583\Columbia583.projitems" Label="Shared" Condition="Exists('..\Columbia583\Columbia583.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

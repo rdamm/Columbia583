@@ -3,20 +3,25 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <ImageView
-        android:src="@drawable/greenways_header_logo"
+    <TextView
+        android:text="Debug Menu"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/greenways_header_background"
-        android:id="@+id/imageView_headerLogo" />
+        android:id="@+id/textView_debugMenuLabel" />
     <Button
-        android:text="Search Trails"
+        android:text="Database Tests"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_searchTrails" />
+        android:id="@+id/button_databaseTests" />
     <Button
-        android:text="Debug and Tests Menu"
+        android:text="Data Access Tests"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_debugAndTests" />
+        android:id="@+id/button_dataAccessTests" />
+    <Button
+        android:text="Image Tests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_imageTests" />
 </LinearLayout>

@@ -16,10 +16,7 @@ namespace Columbia583
 
 		}
 
-
-		// TODO: Finish the activity and amenity search parameters.
-
-
+		
 		/// <summary>
 		/// Gets the trails by search filter.
 		/// </summary>
@@ -63,7 +60,7 @@ namespace Columbia583
 							// Using Greenways website's AND
 							activityLine += " AND ";
 						}
-						activityLine += "(id IN (SELECT id FROM Trail INNER JOIN TrailsToActivities ON Trail.id = TrailsToActivities.trailId WHERE activityId = ?))";
+						activityLine += "(Trail.id IN (SELECT Trail.id FROM Trail INNER JOIN TrailsToActivities ON Trail.id = TrailsToActivities.trailId WHERE activityId = ?))";
 						parameters.Add(activity);
 					}
 					activityLine += ")";
@@ -85,7 +82,7 @@ namespace Columbia583
 						{
 							amenityLine += " AND ";
 						}
-						amenityLine += "(id IN (SELECT id FROM Trail INNER JOIN TrailsToAmenities ON Trail.id = TrailsToAmenities.trailId WHERE amenityId = ?))";
+						amenityLine += "(Trail.id IN (SELECT Trail.id FROM Trail INNER JOIN TrailsToAmenities ON Trail.id = TrailsToAmenities.trailId WHERE amenityId = ?))";
 						parameters.Add(amenity);
 					}
 					amenityLine += ")";
