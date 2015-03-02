@@ -225,6 +225,7 @@ namespace Columbia583
 		public int getActivityIdByName(string name)
 		{
 			int activityId = -1;
+			Console.WriteLine ("Activity name: " + name);
 			try
 			{
 				// Open connection to local database.
@@ -244,7 +245,7 @@ namespace Columbia583
 				Console.WriteLine (ex.Message);
 			}
 
-			Console.WriteLine ("Activity name: " + name + ", Activity id: ", +activityId);
+			Console.WriteLine ("Activity name: " + name + ", Activity id: ", + activityId);
 			return activityId;
 		}
 

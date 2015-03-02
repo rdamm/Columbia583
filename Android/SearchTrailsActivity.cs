@@ -313,6 +313,7 @@ namespace Columbia583.Android
 
 			activitiesList_String.ToArray ();
 			Data_Layer_Search_Trails dlSearch = new Data_Layer_Search_Trails ();
+			activitiesList_ID.Clear ();
 
 			foreach (string s in activitiesList_String)
 			{
@@ -335,6 +336,8 @@ namespace Columbia583.Android
 			amenitiesList_String.ToArray ();
 
 			Data_Layer_Search_Trails dlSearch = new Data_Layer_Search_Trails ();
+
+			amenitiesList_ID.Clear ();
 
 			foreach (string t in amenitiesList_String)
 			{
