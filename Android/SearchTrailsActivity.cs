@@ -312,15 +312,16 @@ namespace Columbia583.Android
 			int i = 0;
 
 			activitiesList_String.ToArray ();
+			Data_Layer_Search_Trails dlSearch = new Data_Layer_Search_Trails ();
 
 			foreach (string s in activitiesList_String)
 			{
-				Activity activity = new Activity (i, activitiesList_String[i], new byte[0], DateTime.Now);
-
-				activitiesList_ID.Add (activity.id);
+				//Activity activity = new Activity (i, activitiesList_String[i], new byte[0], DateTime.Now);
+				activitiesList_ID.Add (dlSearch.getActivityIdByName(s));
 
 				i++;
 			}
+			Console.WriteLine ("Activities submitted.");
 
 			dialog.Dismiss ();
 		}
@@ -333,11 +334,13 @@ namespace Columbia583.Android
 
 			amenitiesList_String.ToArray ();
 
+			Data_Layer_Search_Trails dlSearch = new Data_Layer_Search_Trails ();
+
 			foreach (string t in amenitiesList_String)
 			{
-				Amenity amenity = new Amenity (j, amenitiesList_String[j], new byte[0], DateTime.Now);
+				//Amenity amenity = new Amenity (j, amenitiesList_String[j], new byte[0], DateTime.Now);
 
-				amenitiesList_ID.Add (amenity.id);
+				amenitiesList_ID.Add (dlSearch.getAmenityIdByName(t));
 
 				j++;
 			}

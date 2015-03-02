@@ -221,6 +221,59 @@ namespace Columbia583
 
 			return searchResults;
 		}
+
+		public int getActivityIdByName(string name)
+		{
+			int activityId = -1;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(Data_Layer_Common.getPathToDatabase());
+
+				// Get the user.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				Activity acti = connection.Query<Activity>("SELECT * FROM Activity WHERE activityName = ?", name)[0];
+				activityId = acti.id;
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			Console.WriteLine ("Activity name: " + name + ", Activity id: ", +activityId);
+			return activityId;
+		}
+
+		public int getAmenityIdByName(string name)
+		{
+			int amenityId = -1;
+			Console.WriteLine ("Amenity name: " + name);
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(Data_Layer_Common.getPathToDatabase());
+
+				// Get the user.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				Amenity ame = connection.Query<Amenity>("SELECT * FROM Amenity WHERE amenityName = ?", name)[0];
+				amenityId = ame.id;
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+			Console.WriteLine ("Amenity name: " + name + ", Amenity id: " + amenityId);
+
+			return amenityId;
+		}
 	}
 }
 
