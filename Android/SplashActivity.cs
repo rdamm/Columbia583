@@ -60,6 +60,7 @@ namespace Columbia583.Android.hi
 				else
 				{
 					dataAccessLayer.initializeDatabase ();
+					dataAccessLayer.initializeComments();
 					Console.WriteLine("Splash screen has initialized the database.");
 				}
 				completedTasks++;
