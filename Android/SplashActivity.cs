@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace Columbia583.Android.hi
 {
-	[Activity (MainLauncher = true, NoHistory = true)]
+	[Activity (MainLauncher = true, NoHistory = true, ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]
 	public class SplashActivity : AndroidActivity
 	{
 		ProgressBar splashProgressBar = null;

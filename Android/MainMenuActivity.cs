@@ -13,7 +13,7 @@ using Xamarin.Forms.Platform.Android;
 
 namespace Columbia583.Android
 {
-	[Activity (Label = "Columbia583.Android_Main_Menu", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity (Label = "Columbia583.Android_Main_Menu", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]
 	public class MainMenuActivity : AndroidActivity
 	{
 		protected Button searchTrailsButton = null;

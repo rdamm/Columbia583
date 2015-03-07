@@ -15,12 +15,13 @@ using Xamarin.Forms.Platform.Android;
 
 namespace Columbia583.Android
 {
-	[Activity (Label = "DebugMenuActivity")]			
+	[Activity (Label = "DebugMenuActivity", ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]
 	public class DebugMenuActivity : AndroidActivity
 	{
 		protected Button testDatabaseButton = null;
 		protected Button testDataAccessButton = null;
 		protected Button testImageButton = null;
+		protected Button testUploadButton = null;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -38,6 +39,7 @@ namespace Columbia583.Android
 			testDatabaseButton = FindViewById<Button> (Resource.Id.button_databaseTests);
 			testDataAccessButton = FindViewById<Button> (Resource.Id.button_dataAccessTests);
 			testImageButton = FindViewById<Button> (Resource.Id.button_imageTests);
+			testUploadButton = FindViewById<Button> (Resource.Id.button_uploadTests);
 
 			// Assign the event handlers.
 			if (testDatabaseButton != null) {
@@ -63,6 +65,15 @@ namespace Columbia583.Android
 
 					// Load the image tests page.
 					var intent = new Intent(this, typeof(TestImageActivity));
+					StartActivity(intent);
+
+				};
+			}
+			if (testUploadButton != null) {
+				testUploadButton.Click += (sender, e) => {
+
+					// Load the upload tests page.
+					var intent = new Intent(this, typeof(TestUploadActivity));
 					StartActivity(intent);
 
 				};

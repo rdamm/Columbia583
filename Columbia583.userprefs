@@ -1,33 +1,13 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\DebugMenuActivity.cs">
     <Files>
-      <File FileName="Android\MainMenuActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\SplashActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\ViewTrailActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\SearchTrailsActivity.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Common.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs" Line="8" Column="8" />
-      <File FileName="Columbia583\Data_Classes\Activity.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Classes\Amenity.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\SQL_Script\CreateTables.txt" Line="1" Column="1" />
-      <File FileName="c:\Users\Jaclyn\Documents\GitHub\Columbia583\Columbia583\SQLite.cs" Line="1" Column="1" />
-      <File FileName="Android\Resources\values\Arrays.xml" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_View_Trail.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_View_Trail.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Service_Access_Layer\Service_Access_Layer_Common.cs" Line="1" Column="1" />
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.a9325661" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\SearchTrailsActivity.cs">
-    <Files>
-      <File FileName="Android\SearchTrailsActivity.cs" Line="4" Column="4" />
->>>>>>> origin/kjnguyen_february
+      <File FileName="Android\DebugMenuActivity.cs" Line="14" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Columbia583.Android AndroidDesignerPreferredDevice="Nexus 4" />
 </Properties>

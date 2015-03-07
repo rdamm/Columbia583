@@ -18,7 +18,7 @@ using Android.Graphics;
 
 namespace Columbia583.Android
 {
-	[Activity (Label = "TestImage")]
+	[Activity (Label = "TestImage", ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]
 	public class TestImageActivity : AndroidActivity
 	{
 		protected Button loadImageFromWebButton = null;

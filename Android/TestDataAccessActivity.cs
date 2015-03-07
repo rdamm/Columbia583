@@ -15,7 +15,7 @@ using Xamarin.Forms.Platform.Android;
 
 namespace Columbia583.Android
 {
-	[Activity (Label = "TestDataAccessActivity")]			
+	[Activity (Label = "TestDataAccessActivity", ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]			
 	public class TestDataAccessActivity : AndroidActivity
 	{
 		protected Button initializeDatabaseButton = null;
