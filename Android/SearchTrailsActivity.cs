@@ -41,7 +41,7 @@ namespace Columbia583.Android
 				this.checkbox = checkbox;
 			}
 		}
-			
+
 		private const int activityDialog = 1;
 		private const int amenityDialog = 2;
 
@@ -49,6 +49,7 @@ namespace Columbia583.Android
 		//protected LinearLayout activityOptions = null;
 		//protected List<CheckboxToActivity> activityCheckBoxes = null;
 		String[] activitiesSelected;
+		List<string> activities_check_list = new List<string> ();
 		List<string> activitiesList_String = new List<string> ();
 		List<int> activitiesList_ID = new List<int> ();
 
@@ -57,6 +58,7 @@ namespace Columbia583.Android
 		//protected ScrollView amenityOptionsScroll = null;
 		//protected List<CheckboxToAmenity> amenityCheckBoxes = null;
 		String[] amenitiesSelected;
+		List<string> amenities_check_list = new List<string> ();
 		List<string> amenitiesList_String = new List<string> ();
 		List<int> amenitiesList_ID = new List<int> ();
 
@@ -128,6 +130,16 @@ namespace Columbia583.Android
 			List<Activity> debugActivities = dataLayer2.getActivities ();
 			List<Amenity> debugAmenities = dataLayer2.getAmenities ();
 
+			foreach (Activity activity in debugActivities) 
+			{
+				activities_check_list.Add(activity.activityName);
+			}
+
+			foreach (Amenity amenity in debugAmenities) 
+			{
+				amenities_check_list.Add(amenity.amenityName);
+			}
+
 			var activitiesButton = FindViewById<Button>(Resource.Id.activitiesButton);
 			activitiesButton.Click += delegate { ShowDialog(activityDialog); };
 
@@ -147,7 +159,7 @@ namespace Columbia583.Android
 				debugAmenities [0] = new Amenity (1, "restrooms", new byte[0], DateTime.Now);
 				debugAmenities[1] = new Amenity(2, "camping", new byte[0], DateTime.Now);
 				*/
-				
+
 				this.setSearchResults(debugSearchResults);
 			}
 
@@ -241,7 +253,7 @@ namespace Columbia583.Android
 			// Assign an event handler to the update search results button.
 			if (updateSearchResultsButton != null) {
 				updateSearchResultsButton.Click += (sender, e) => {
-					
+
 					// Get the search filter parameters from the controls.
 					SearchFilter searchFilter = this.getSearchFilter();
 
@@ -281,7 +293,7 @@ namespace Columbia583.Android
 					var builder = new AlertDialog.Builder(this);
 					builder.SetTitle(Resource.String.activitiesList);
 					builder.SetCancelable(true);
-					builder.SetMultiChoiceItems(Resource.Array.activities_check_list, null, activityListClicked);
+					builder.SetMultiChoiceItems(activities_check_list.ToArray(), null, activityListClicked);
 
 					builder.SetPositiveButton(Resource.String.submitButtonName, submitButtonClicked_Activity);
 					//builder.SetNegativeButton(Resource.String.negativeOption, cancelClicked);
@@ -293,7 +305,7 @@ namespace Columbia583.Android
 					var builder = new AlertDialog.Builder(this);
 					builder.SetTitle(Resource.String.amenitiesList);
 					builder.SetCancelable(true);
-					builder.SetMultiChoiceItems(Resource.Array.amenities_check_list, null, amenityListClicked);
+					builder.SetMultiChoiceItems(amenities_check_list.ToArray(), null, amenityListClicked);
 
 					builder.SetPositiveButton(Resource.String.submitButtonName, submitButtonClicked_Amenity);
 					//builder.SetNegativeButton(Resource.String.negativeOption, cancelClicked);
@@ -360,7 +372,7 @@ namespace Columbia583.Android
 
 		private void activityListClicked(object sender, DialogMultiChoiceClickEventArgs args)
 		{
-			activitiesSelected = Resources.GetStringArray (Resource.Array.activities_check_list);
+			activitiesSelected = activities_check_list.ToArray();
 
 			if (args.IsChecked) {
 				activitiesList_String.Add (activitiesSelected [args.Which]);
@@ -371,7 +383,7 @@ namespace Columbia583.Android
 
 		private void amenityListClicked(object sender, DialogMultiChoiceClickEventArgs args)
 		{
-			amenitiesSelected = Resources.GetStringArray (Resource.Array.amenities_check_list);
+			amenitiesSelected = amenities_check_list.ToArray();
 
 			if (args.IsChecked) {
 				amenitiesList_String.Add (amenitiesSelected [args.Which]);
@@ -379,9 +391,9 @@ namespace Columbia583.Android
 				amenitiesList_String.Remove (amenitiesSelected [args.Which]);
 			}
 		}
-			
+
 		/** Get the search filters from the controls. **/
-		 
+
 		protected SearchFilter getSearchFilter()
 		{
 			List<Difficulty> difficulty = new List<Difficulty>();
@@ -463,10 +475,10 @@ namespace Columbia583.Android
 
 						const int NUM_ELEMENTS_PER_TRAIL = 4;
 						TextView[] trailElements = new TextView[NUM_ELEMENTS_PER_TRAIL];
-//						// TODO: Display the trail name.
+						//						// TODO: Display the trail name.
 						trailElements[0] = new TextView (this);
 						trailElements[0].Text = trail.name;
-//
+						//
 						// TODO: Display the trail rating.
 						trailElements[1] = new TextView (this);
 						string ratingStars = "";
@@ -474,12 +486,12 @@ namespace Columbia583.Android
 							ratingStars += "*";
 						}
 						trailElements[1].Text = ratingStars;
-//
-//						// TODO: Display the trail difficulty.
+						//
+						//						// TODO: Display the trail difficulty.
 						trailElements[2] = new TextView (this);
 						trailElements[2].Text = trail.difficulty.ToString().Replace("_", " ");
-//
-//						// TODO: Display the trail distance.
+						//
+						//						// TODO: Display the trail distance.
 						trailElements[3] = new TextView (this);
 						trailElements[3].Text = trail.distance + " km";
 
