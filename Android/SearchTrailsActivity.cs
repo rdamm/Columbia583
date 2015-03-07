@@ -49,6 +49,7 @@ namespace Columbia583.Android
 		//protected LinearLayout activityOptions = null;
 		//protected List<CheckboxToActivity> activityCheckBoxes = null;
 		String[] activitiesSelected;
+		List<string> activities_check_list = new List<string> ();
 		List<string> activitiesList_String = new List<string> ();
 		List<int> activitiesList_ID = new List<int> ();
 
@@ -57,6 +58,7 @@ namespace Columbia583.Android
 		//protected ScrollView amenityOptionsScroll = null;
 		//protected List<CheckboxToAmenity> amenityCheckBoxes = null;
 		String[] amenitiesSelected;
+		List<string> amenities_check_list = new List<string> ();
 		List<string> amenitiesList_String = new List<string> ();
 		List<int> amenitiesList_ID = new List<int> ();
 
@@ -127,6 +129,16 @@ namespace Columbia583.Android
 			Data_Layer_Common dataLayer2 = new Data_Layer_Common ();
 			List<Activity> debugActivities = dataLayer2.getActivities ();
 			List<Amenity> debugAmenities = dataLayer2.getAmenities ();
+
+			foreach (Activity activity in debugActivities) 
+			{
+				activities_check_list.Add(activity.activityName);
+			}
+
+			foreach (Amenity amenity in debugAmenities) 
+			{
+				amenities_check_list.Add(amenity.amenityName);
+			}
 
 			var activitiesButton = FindViewById<Button>(Resource.Id.activitiesButton);
 			activitiesButton.Click += delegate { ShowDialog(activityDialog); };
@@ -281,7 +293,7 @@ namespace Columbia583.Android
 					var builder = new AlertDialog.Builder(this);
 					builder.SetTitle(Resource.String.activitiesList);
 					builder.SetCancelable(true);
-					builder.SetMultiChoiceItems(Resource.Array.activities_check_list, null, activityListClicked);
+					builder.SetMultiChoiceItems(activities_check_list.ToArray(), null, activityListClicked);
 
 					builder.SetPositiveButton(Resource.String.submitButtonName, submitButtonClicked_Activity);
 					//builder.SetNegativeButton(Resource.String.negativeOption, cancelClicked);
@@ -293,7 +305,7 @@ namespace Columbia583.Android
 					var builder = new AlertDialog.Builder(this);
 					builder.SetTitle(Resource.String.amenitiesList);
 					builder.SetCancelable(true);
-					builder.SetMultiChoiceItems(Resource.Array.amenities_check_list, null, amenityListClicked);
+					builder.SetMultiChoiceItems(amenities_check_list.ToArray(), null, amenityListClicked);
 
 					builder.SetPositiveButton(Resource.String.submitButtonName, submitButtonClicked_Amenity);
 					//builder.SetNegativeButton(Resource.String.negativeOption, cancelClicked);
@@ -354,7 +366,7 @@ namespace Columbia583.Android
 
 		private void activityListClicked(object sender, DialogMultiChoiceClickEventArgs args)
 		{
-			activitiesSelected = Resources.GetStringArray (Resource.Array.activities_check_list);
+			activitiesSelected = activities_check_list.ToArray();
 
 			if (args.IsChecked) {
 				activitiesList_String.Add (activitiesSelected [args.Which]);
@@ -365,7 +377,7 @@ namespace Columbia583.Android
 
 		private void amenityListClicked(object sender, DialogMultiChoiceClickEventArgs args)
 		{
-			amenitiesSelected = Resources.GetStringArray (Resource.Array.amenities_check_list);
+			amenitiesSelected = amenities_check_list.ToArray();
 
 			if (args.IsChecked) {
 				amenitiesList_String.Add (amenitiesSelected [args.Which]);

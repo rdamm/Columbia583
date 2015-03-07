@@ -205,10 +205,15 @@
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:columnCount="4"
             android:rowCount="2"
-            android:id="@+id/gridLayout_searchResults">
+            android:id="@+id/gridLayout_searchResults"
+            android:scrollbars="vertical"
+            android:verticalScrollbarPosition="right"
+            android:scrollbarStyle="insideOverlay"
+            android:overScrollMode="ifContentScrolls"
+            android:isScrollContainer="true">
         <!-- Search Results Inside -->
         <!--
             <TextView
