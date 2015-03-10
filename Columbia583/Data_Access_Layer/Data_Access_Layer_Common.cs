@@ -253,6 +253,7 @@ namespace Columbia583
 
 		/// <summary>
 		/// Updates the local database so that it is up-to-date with the live database.  This should be called on a regular interval.
+		/// Also updates comments!
 		/// </summary>
 		public void updateDatabase()
 		{
