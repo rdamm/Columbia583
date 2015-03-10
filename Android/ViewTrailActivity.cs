@@ -157,11 +157,14 @@ namespace Columbia583.Android
 						commentsLayout.AddView(ratingBar);
 
 						TextView username = new TextView(this);
+						/*
 						if (dvt.getUserForComment(comment) != null) {
 							username.Text = dvt.getUserForComment(comment).username;
 						} else {
 							username.Text = "Anonymous";
 						}
+						*/
+						username.Text = comment.username;
 						username.TextSize = 17f;
 						commentsLayout.AddView(username);
 

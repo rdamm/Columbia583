@@ -19,18 +19,20 @@ namespace Columbia583
 		public string text { get; set; }
 		public DateTime date { get; set; }
 		public int rating { get; set; }
+		public string username { get; set; }
 
 		public Comment ()
 		{
 		}
 
-		public Comment(int id, int userId, int trailId, string text, int rating, DateTime dt)
+		public Comment(int id, int userId, int trailId, string text, int rating, string username, DateTime dt)
 		{
 			this.id = id;
 			this.userId = userId;
 			this.trailId = trailId;
 			this.text = text;
 			this.rating = rating;
+			this.username = username;
 			date = dt;
 		}
 	}

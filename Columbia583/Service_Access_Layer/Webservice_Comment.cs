@@ -13,8 +13,9 @@ namespace Columbia583
 		public string comment { get; set; }
 		public string created_at { get; set; }
 		public string updated_at { get; set; }
+		public Webservice_User user { get; set; }
 
-		public Webservice_Comment (int id, int trail_id, int user_id, int rating, string comment, int approved, int spam, string created_at, string updated_at)
+		public Webservice_Comment (int id, int trail_id, int user_id, int rating, string comment, int approved, int spam, string created_at, string updated_at, Webservice_User user)
 		{
 			this.id = id;
 			this.trail_id = trail_id;
@@ -25,6 +26,7 @@ namespace Columbia583
 			this.comment = comment;
 			this.created_at = created_at;
 			this.updated_at = updated_at;
+			this.user = user;
 		}
 	}
 }

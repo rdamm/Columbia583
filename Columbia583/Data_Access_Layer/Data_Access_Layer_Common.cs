@@ -232,8 +232,9 @@ namespace Columbia583
 			// real comments
 			try {
 				foreach (Webservice_Comment currentComment in webserviceComments) {
+
 					// Get base comment
-					comments.Add(new Comment(currentComment.id, currentComment.user_id, currentComment.trail_id, currentComment.comment, currentComment.rating, Convert.ToDateTime(currentComment.updated_at)));
+					comments.Add(new Comment(currentComment.id, currentComment.user_id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, Convert.ToDateTime(currentComment.updated_at)));
 				}
 
 				comments = comments.Distinct ().ToList ();
