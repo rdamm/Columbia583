@@ -268,8 +268,11 @@ namespace Columbia583
 
 			// Get the data from the webservice.
 			string urlDate = lastUpdated.ToString("yyyy-MM-dd");
+			string commentUrlDate = lastUpdated.ToString ("ddMMMyyyy");
 			List<Webservice_Trails> webserviceTrails_getAll = serviceAccessLayer.getAll ();
 			List<Webservice_Trails> webserviceTrails = serviceAccessLayer.updateAll (urlDate);
+			List<Webservice_Comment> webserviceComments_getAll = serviceAccessLayer.getComments ();
+			List<Webservice_Comment> webserviceComments = serviceAccessLayer.updateComments (commentUrlDate);
 
 			// Define lists to copy the data to.
 			List<Trail> insertTrails = null;
@@ -277,18 +280,21 @@ namespace Columbia583
 			List<User> insertUsers = null;
 			List<Activity> insertActivities = null;
 			List<Amenity> insertAmenities = null;
+			List<Comment> insertComments = null;
 
 			List<Trail> updateTrails = null;
 			List<Organization> updateOrganizations = null;
 			List<User> updateUsers = null;
 			List<Activity> updateActivities = null;
 			List<Amenity> updateAmenities = null;
+			List<Comment> updateComments = null;
 
 			List<Trail> deleteTrails = null;
 			List<Organization> deleteOrganizations = null;
 			List<User> deleteUsers = null;
 			List<Activity> deleteActivities = null;
 			List<Amenity> deleteAmenities = null;
+			List<Comment> deleteComments = null;
 
 			List<TrailsToActivities> trailsToActivities = null;
 			List<TrailsToAmenities> trailsToAmenities = null;
@@ -300,18 +306,21 @@ namespace Columbia583
 				insertUsers = new List<User>();
 				insertActivities = new List<Activity>();
 				insertAmenities = new List<Amenity>();
+				insertComments = new List<Comment>();
 
 				updateTrails = new List<Trail>();
 				updateOrganizations = new List<Organization>();
 				updateUsers = new List<User>();
 				updateActivities = new List<Activity>();
 				updateAmenities = new List<Amenity>();
+				updateComments = new List<Comment>();
 
 				deleteTrails = new List<Trail>();
 				deleteOrganizations = new List<Organization>();
 				deleteUsers = new List<User>();
 				deleteActivities = new List<Activity>();
 				deleteAmenities = new List<Amenity>();
+				deleteComments = new List<Comment>();
 
 				trailsToActivities = new List<TrailsToActivities>();
 				trailsToAmenities = new List<TrailsToAmenities>();
@@ -322,6 +331,7 @@ namespace Columbia583
 				List<int> existingOrganizationIds = new List<int>(dataLayer.getOrganizationIds());
 				List<int> existingActivityIds = new List<int>(dataLayer.getActivityIds());
 				List<int> existingAmenityIds = new List<int>(dataLayer.getAmenityIds());
+				List<int> existingCommentIds = new List<int>(dataLayer.getCommentIds());
 				List<TrailsToActivities> existingTrailsToActivities = new List<TrailsToActivities>(dataLayer.getTrailsToActivities());
 				List<TrailsToAmenities> existingTrailsToAmenities = new List<TrailsToAmenities>(dataLayer.getTrailsToAmenities());
 
@@ -489,12 +499,23 @@ namespace Columbia583
 					}
 				}
 
+				foreach(Webservice_Comment currentComment in webserviceComments)
+				{
+					// Get base comment
+					if (dataLayer.getComment(currentComment.id) != null) {
+						updateComments.Add(new Comment(currentComment.id, currentComment.user_id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, Convert.ToDateTime(currentComment.updated_at)));
+					} else {
+						insertComments.Add(new Comment(currentComment.id, currentComment.user_id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, Convert.ToDateTime(currentComment.updated_at)));
+					}
+				}
+
 				// Remove duplicate entries in the resulting lists.
 				insertTrails = insertTrails.Distinct().ToList();
 				insertOrganizations = insertOrganizations.Distinct().ToList();
 				insertUsers = insertUsers.Distinct().ToList();
 				insertActivities = insertActivities.Distinct().ToList();
 				insertAmenities = insertAmenities.Distinct().ToList();
+				insertComments = insertComments.Distinct().ToList();
 
 				// Find the trails to delete.
 				foreach(int existingTrailId in existingTrailIds)
@@ -593,8 +614,25 @@ namespace Columbia583
 					}
 				}
 
+				// Find the comments to delete.
+				foreach(int existingCommentId in existingCommentIds)
+				{
+					bool match = false;
+					foreach(Webservice_Comment webserviceComment in webserviceComments_getAll)
+					{
+						if (webserviceComment.id == existingCommentId)
+						{
+							match = true;
+						}
+					}
+					if (!match)
+					{
+						deleteComments.Add(new Comment(){id = existingCommentId});
+					}
+				}
+
 				// Delete all entries in the pairing tables.
-				dataLayer.deleteRows(new Activity[0], new Amenity[0], new MapTile[0], new Media[0], new Organization[0], new Point[0], new Role[0], new Trail[0],
+				dataLayer.deleteRows(new Activity[0], new Amenity[0], new Comment[0], new MapTile[0], new Media[0], new Organization[0], new Point[0], new Role[0], new Trail[0],
 					trailsToActivities.ToArray(), trailsToAmenities.ToArray(), new User[0]);
 
 				// TODO: Get the remaining database data.
@@ -604,15 +642,16 @@ namespace Columbia583
 				Role[] roles = new Role[0];
 
 				// Update the rows that must be updated.
-				dataLayer.updateRows (updateActivities.ToArray(), updateAmenities.ToArray(), mapTiles, media, updateOrganizations.ToArray(), points, roles, updateTrails.ToArray(),
+				dataLayer.updateRows (updateActivities.ToArray(), updateAmenities.ToArray(), updateComments.ToArray(), mapTiles, media, updateOrganizations.ToArray(), points, roles, updateTrails.ToArray(),
 					new TrailsToActivities[0], new TrailsToAmenities[0], updateUsers.ToArray());
 
 				// Insert the rows that must be inserted.
 				dataLayer.insertRows (insertActivities.ToArray(), insertAmenities.ToArray(), mapTiles, media, insertOrganizations.ToArray(), points, roles, insertTrails.ToArray(),
 					trailsToActivities.ToArray(), trailsToAmenities.ToArray(), insertUsers.ToArray());
+				dataLayer.insertCommentRows(insertComments.ToArray());
 
 				// Delete the rows that must be deleted.
-				dataLayer.deleteRows (deleteActivities.ToArray (), deleteAmenities.ToArray (), mapTiles, media, deleteOrganizations.ToArray (), points, roles, deleteTrails.ToArray (),
+				dataLayer.deleteRows (deleteActivities.ToArray (), deleteAmenities.ToArray (), deleteComments.ToArray(), mapTiles, media, deleteOrganizations.ToArray (), points, roles, deleteTrails.ToArray (),
 					new TrailsToActivities[0], new TrailsToAmenities[0], deleteUsers.ToArray ());
 
 				// Store the current time in the database as the last-updated time.

@@ -277,6 +277,7 @@ namespace Columbia583
 			// Define the lists.
 			List<Activity> activities = new List<Activity> ();
 			List<Amenity> amenities = new List<Amenity> ();
+			List<Comment> comments = new List<Comment> ();
 			List<MapTile> mapTiles = new List<MapTile> ();
 			List<Media> media = new List<Media> ();
 			List<Organization> organizations = new List<Organization> ();
@@ -292,7 +293,7 @@ namespace Columbia583
 
 			// Delete some data from the tables.
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
-			dataLayer.deleteRows (activities.ToArray(), amenities.ToArray(), mapTiles.ToArray(), media.ToArray(), organizations.ToArray(), points.ToArray(), roles.ToArray(),
+			dataLayer.deleteRows (activities.ToArray(), amenities.ToArray(), comments.ToArray(), mapTiles.ToArray(), media.ToArray(), organizations.ToArray(), points.ToArray(), roles.ToArray(),
 				trails.ToArray(), trailsToActivities.ToArray(), trailsToAmenities.ToArray(), users.ToArray());
 
 			return "Successfully deleted some rows.";

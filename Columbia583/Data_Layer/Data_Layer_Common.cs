@@ -407,6 +407,39 @@ namespace Columbia583
 			return amenityIds;
 		}
 
+		/// <summary>
+		/// Gets the IDs for all the comments.
+		/// </summary>
+		/// <returns>The comment identifiers.</returns>
+		public List<int> getCommentIds()
+		{
+			List<int> commentIds = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get all IDs.
+				// TODO: Find a more efficient way to get the IDs.
+				var query = connection.Table<Comment>();
+				commentIds = new List<int>();
+				foreach(Comment comment in query)
+				{
+					commentIds.Add(comment.id);
+				}
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return commentIds;
+		}
+
 
 		/// <summary>
 		/// Gets the IDs for all the map tiles.
@@ -669,6 +702,35 @@ namespace Columbia583
 			}
 
 			return amenity;
+		}
+
+		/// <summary>
+		/// Gets the comment.
+		/// </summary>
+		/// <returns>The comment.</returns>
+		/// <param name="id">Identifier.</param>
+		public Comment getComment(int id)
+		{
+			Comment comment = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get the amenity.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				comment = connection.Find<Comment>(id);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return comment;
 		}
 
 
@@ -989,6 +1051,7 @@ namespace Columbia583
 		/// </summary>
 		/// <param name="activities">Activities.</param>
 		/// <param name="amenities">Amenities.</param>
+		/// <param name="comments">Comments.</param>
 		/// <param name="mapTiles">Map tiles.</param>
 		/// <param name="media">Media.</param>
 		/// <param name="organizations">Organizations.</param>
@@ -998,7 +1061,7 @@ namespace Columbia583
 		/// <param name="trailsToActivities">Trails to activities.</param>
 		/// <param name="trailsToAmenities">Trails to amenities.</param>
 		/// <param name="users">Users.</param>
-		public void updateRows(Activity[] activities, Amenity[] amenities, MapTile[] mapTiles, Media[] media, Organization[] organizations,
+		public void updateRows(Activity[] activities, Amenity[] amenities, Comment[] comments, MapTile[] mapTiles, Media[] media, Organization[] organizations,
 			Point[] points, Role[] roles, Trail[] trails, TrailsToActivities[] trailsToActivities, TrailsToAmenities[] trailsToAmenities, User[] users)
 		{
 			try
@@ -1020,6 +1083,7 @@ namespace Columbia583
 				connection.UpdateAll(points);
 				connection.UpdateAll(trails);
 				connection.UpdateAll(users);
+				connection.UpdateAll(comments);
 				*/
 				
 				// Close connection to local database.
@@ -1038,6 +1102,7 @@ namespace Columbia583
 		/// </summary>
 		/// <param name="activities">Activities.</param>
 		/// <param name="amenities">Amenities.</param>
+		/// <param name="comments">Comments.</param>
 		/// <param name="mapTiles">Map tiles.</param>
 		/// <param name="media">Media.</param>
 		/// <param name="organizations">Organizations.</param>
@@ -1047,7 +1112,7 @@ namespace Columbia583
 		/// <param name="trailsToActivities">Trails to activities.</param>
 		/// <param name="trailsToAmenities">Trails to amenities.</param>
 		/// <param name="users">Users.</param>
-		public void deleteRows(Activity[] activities, Amenity[] amenities, MapTile[] mapTiles, Media[] media, Organization[] organizations,
+		public void deleteRows(Activity[] activities, Amenity[] amenities, Comment[] comments, MapTile[] mapTiles, Media[] media, Organization[] organizations,
 			Point[] points, Role[] roles, Trail[] trails, TrailsToActivities[] trailsToActivities, TrailsToAmenities[] trailsToAmenities, User[] users)
 		{
 			try
@@ -1060,6 +1125,7 @@ namespace Columbia583
 				foreach(var row in trailsToActivities)	connection.Delete(row);
 				foreach(var row in trailsToAmenities)	connection.Delete(row);
 				foreach(var row in points)				connection.Delete(row);
+				foreach(var row in comments)			connection.Delete(row);
 				foreach(var row in trails)				connection.Delete(row);
 				foreach(var row in users)				connection.Delete(row);
 				
