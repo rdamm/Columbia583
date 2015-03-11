@@ -444,43 +444,82 @@ namespace Columbia583.Android
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int biking = 2130837504;
+			public const int background_plane = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int greenways_header_background = 2130837505;
+			public const int biking = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int greenways_header_logo = 2130837506;
+			public const int direction_down = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int hiking = 2130837507;
+			public const int direction_up = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int Icon = 2130837508;
+			public const int direction_upthenleft = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int skiing = 2130837509;
+			public const int direction_upthenright = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int vpi__tab_indicator = 2130837510;
+			public const int file_picker_back = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int vpi__tab_selected_focused_holo = 2130837511;
+			public const int file_picker_file = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int vpi__tab_selected_holo = 2130837512;
+			public const int file_picker_folder = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int vpi__tab_selected_pressed_holo = 2130837513;
+			public const int greenways_header_background = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int vpi__tab_unselected_focused_holo = 2130837514;
+			public const int greenways_header_logo = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int vpi__tab_unselected_holo = 2130837515;
+			public const int hiking = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int vpi__tab_unselected_pressed_holo = 2130837516;
+			public const int ic_menu_search = 2130837516;
+			
+			// aapt resource value: 0x7f02000d
+			public const int Icon = 2130837517;
+			
+			// aapt resource value: 0x7f02000e
+			public const int monoandroidsplash = 2130837518;
+			
+			// aapt resource value: 0x7f02000f
+			public const int olmarker = 2130837519;
+			
+			// aapt resource value: 0x7f020010
+			public const int point = 2130837520;
+			
+			// aapt resource value: 0x7f020011
+			public const int skiing = 2130837521;
+			
+			// aapt resource value: 0x7f020012
+			public const int sky_small = 2130837522;
+			
+			// aapt resource value: 0x7f020013
+			public const int vpi__tab_indicator = 2130837523;
+			
+			// aapt resource value: 0x7f020014
+			public const int vpi__tab_selected_focused_holo = 2130837524;
+			
+			// aapt resource value: 0x7f020015
+			public const int vpi__tab_selected_holo = 2130837525;
+			
+			// aapt resource value: 0x7f020016
+			public const int vpi__tab_selected_pressed_holo = 2130837526;
+			
+			// aapt resource value: 0x7f020017
+			public const int vpi__tab_unselected_focused_holo = 2130837527;
+			
+			// aapt resource value: 0x7f020018
+			public const int vpi__tab_unselected_holo = 2130837528;
+			
+			// aapt resource value: 0x7f020019
+			public const int vpi__tab_unselected_pressed_holo = 2130837529;
 			
 			static Drawable()
 			{
@@ -495,263 +534,275 @@ namespace Columbia583.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f04004b
-			public const int activities = 2130968651;
+			// aapt resource value: 0x7f0c004f
+			public const int activities = 2131492943;
 			
-			// aapt resource value: 0x7f04000d
-			public const int activitiesButton = 2130968589;
+			// aapt resource value: 0x7f0c0011
+			public const int activitiesButton = 2131492881;
 			
-			// aapt resource value: 0x7f04004f
-			public const int amenities = 2130968655;
+			// aapt resource value: 0x7f0c0053
+			public const int amenities = 2131492947;
 			
-			// aapt resource value: 0x7f04000f
-			public const int amentiesButton = 2130968591;
+			// aapt resource value: 0x7f0c0013
+			public const int amentiesButton = 2131492883;
 			
-			// aapt resource value: 0x7f040003
-			public const int bottom = 2130968579;
+			// aapt resource value: 0x7f0c0003
+			public const int bottom = 2131492867;
 			
-			// aapt resource value: 0x7f04002c
-			public const int btnComments = 2130968620;
+			// aapt resource value: 0x7f0c0030
+			public const int btnComments = 2131492912;
 			
-			// aapt resource value: 0x7f04002a
-			public const int btnCreateTables = 2130968618;
+			// aapt resource value: 0x7f0c002e
+			public const int btnCreateTables = 2131492910;
 			
-			// aapt resource value: 0x7f040035
-			public const int btnDeleteAllFromTables = 2130968629;
+			// aapt resource value: 0x7f0c0039
+			public const int btnDeleteAllFromTables = 2131492921;
 			
-			// aapt resource value: 0x7f040034
-			public const int btnDeleteSomeFromTables = 2130968628;
+			// aapt resource value: 0x7f0c0038
+			public const int btnDeleteSomeFromTables = 2131492920;
 			
-			// aapt resource value: 0x7f040036
-			public const int btnDropTables = 2130968630;
+			// aapt resource value: 0x7f0c003a
+			public const int btnDropTables = 2131492922;
 			
-			// aapt resource value: 0x7f04003a
-			public const int btnDynamicallyDisplayImages = 2130968634;
+			// aapt resource value: 0x7f0c003e
+			public const int btnDynamicallyDisplayImages = 2131492926;
 			
-			// aapt resource value: 0x7f04002f
-			public const int btnGetActivities = 2130968623;
+			// aapt resource value: 0x7f0c0033
+			public const int btnGetActivities = 2131492915;
 			
-			// aapt resource value: 0x7f040030
-			public const int btnGetAmenities = 2130968624;
+			// aapt resource value: 0x7f0c0034
+			public const int btnGetAmenities = 2131492916;
 			
-			// aapt resource value: 0x7f04002d
-			public const int btnGetDatabaseLastUpdated = 2130968621;
+			// aapt resource value: 0x7f0c0031
+			public const int btnGetDatabaseLastUpdated = 2131492913;
 			
-			// aapt resource value: 0x7f040033
-			public const int btnGetTrail = 2130968627;
+			// aapt resource value: 0x7f0c0037
+			public const int btnGetTrail = 2131492919;
 			
-			// aapt resource value: 0x7f040032
-			public const int btnGetTrailsBySearchFilter = 2130968626;
+			// aapt resource value: 0x7f0c0036
+			public const int btnGetTrailsBySearchFilter = 2131492918;
 			
-			// aapt resource value: 0x7f040031
-			public const int btnGetUsers = 2130968625;
+			// aapt resource value: 0x7f0c0035
+			public const int btnGetUsers = 2131492917;
 			
-			// aapt resource value: 0x7f040029
-			public const int btnInitializeDatabase = 2130968617;
+			// aapt resource value: 0x7f0c002d
+			public const int btnInitializeDatabase = 2131492909;
 			
-			// aapt resource value: 0x7f04002b
-			public const int btnInsertTables = 2130968619;
+			// aapt resource value: 0x7f0c002f
+			public const int btnInsertTables = 2131492911;
 			
-			// aapt resource value: 0x7f040038
-			public const int btnLoadImageFromDatabase = 2130968632;
+			// aapt resource value: 0x7f0c003c
+			public const int btnLoadImageFromDatabase = 2131492924;
 			
-			// aapt resource value: 0x7f040037
-			public const int btnLoadImageFromWeb = 2130968631;
+			// aapt resource value: 0x7f0c003b
+			public const int btnLoadImageFromWeb = 2131492923;
 			
-			// aapt resource value: 0x7f04002e
-			public const int btnSetDatabaseLastUpdated = 2130968622;
+			// aapt resource value: 0x7f0c0032
+			public const int btnSetDatabaseLastUpdated = 2131492914;
 			
-			// aapt resource value: 0x7f040007
-			public const int button_dataAccessTests = 2130968583;
+			// aapt resource value: 0x7f0c0007
+			public const int button_dataAccessTests = 2131492871;
 			
-			// aapt resource value: 0x7f040006
-			public const int button_databaseTests = 2130968582;
+			// aapt resource value: 0x7f0c0006
+			public const int button_databaseTests = 2131492870;
 			
-			// aapt resource value: 0x7f04000b
-			public const int button_debugAndTests = 2130968587;
+			// aapt resource value: 0x7f0c000c
+			public const int button_debugAndTests = 2131492876;
 			
-			// aapt resource value: 0x7f040008
-			public const int button_imageTests = 2130968584;
+			// aapt resource value: 0x7f0c0008
+			public const int button_imageTests = 2131492872;
 			
-			// aapt resource value: 0x7f04000a
-			public const int button_searchTrails = 2130968586;
+			// aapt resource value: 0x7f0c0009
+			public const int button_mapTests = 2131492873;
 			
-			// aapt resource value: 0x7f040022
-			public const int button_updateSearchResults = 2130968610;
+			// aapt resource value: 0x7f0c000b
+			public const int button_searchTrails = 2131492875;
 			
-			// aapt resource value: 0x7f040011
-			public const int checkBox_difficulty_easiest = 2130968593;
+			// aapt resource value: 0x7f0c0026
+			public const int button_updateSearchResults = 2131492902;
 			
-			// aapt resource value: 0x7f040012
-			public const int checkBox_difficulty_easy = 2130968594;
+			// aapt resource value: 0x7f0c0015
+			public const int checkBox_difficulty_easiest = 2131492885;
 			
-			// aapt resource value: 0x7f040015
-			public const int checkBox_difficulty_extremelyDifficult = 2130968597;
+			// aapt resource value: 0x7f0c0016
+			public const int checkBox_difficulty_easy = 2131492886;
 			
-			// aapt resource value: 0x7f040013
-			public const int checkBox_difficulty_moreDifficult = 2130968595;
+			// aapt resource value: 0x7f0c0019
+			public const int checkBox_difficulty_extremelyDifficult = 2131492889;
 			
-			// aapt resource value: 0x7f040014
-			public const int checkBox_difficulty_veryDifficult = 2130968596;
+			// aapt resource value: 0x7f0c0017
+			public const int checkBox_difficulty_moreDifficult = 2131492887;
 			
-			// aapt resource value: 0x7f040051
-			public const int commentsLayout = 2130968657;
+			// aapt resource value: 0x7f0c0018
+			public const int checkBox_difficulty_veryDifficult = 2131492888;
 			
-			// aapt resource value: 0x7f040050
-			public const int commentsList = 2130968656;
+			// aapt resource value: 0x7f0c0055
+			public const int commentsLayout = 2131492949;
 			
-			// aapt resource value: 0x7f040043
-			public const int description = 2130968643;
+			// aapt resource value: 0x7f0c0054
+			public const int commentsList = 2131492948;
 			
-			// aapt resource value: 0x7f04004a
-			public const int difficultyRating = 2130968650;
+			// aapt resource value: 0x7f0c0047
+			public const int description = 2131492935;
 			
-			// aapt resource value: 0x7f04004e
-			public const int directions = 2130968654;
+			// aapt resource value: 0x7f0c004e
+			public const int difficultyRating = 2131492942;
 			
-			// aapt resource value: 0x7f04003f
-			public const int distance = 2130968639;
+			// aapt resource value: 0x7f0c0052
+			public const int directions = 2131492946;
 			
-			// aapt resource value: 0x7f040040
-			public const int duration = 2130968640;
+			// aapt resource value: 0x7f0c0043
+			public const int distance = 2131492931;
 			
-			// aapt resource value: 0x7f040021
-			public const int editText_maxDistance = 2130968609;
+			// aapt resource value: 0x7f0c0044
+			public const int duration = 2131492932;
 			
-			// aapt resource value: 0x7f04001f
-			public const int editText_maxDuration = 2130968607;
+			// aapt resource value: 0x7f0c0025
+			public const int editText_maxDistance = 2131492901;
 			
-			// aapt resource value: 0x7f040024
-			public const int gridLayout_searchResults = 2130968612;
+			// aapt resource value: 0x7f0c0023
+			public const int editText_maxDuration = 2131492899;
 			
-			// aapt resource value: 0x7f040039
-			public const int imageTestImage = 2130968633;
+			// aapt resource value: 0x7f0c0028
+			public const int gridLayout_searchResults = 2131492904;
 			
-			// aapt resource value: 0x7f04003d
-			public const int imageView1 = 2130968637;
+			// aapt resource value: 0x7f0c003d
+			public const int imageTestImage = 2131492925;
 			
-			// aapt resource value: 0x7f040009
-			public const int imageView_headerLogo = 2130968585;
+			// aapt resource value: 0x7f0c0041
+			public const int imageView1 = 2131492929;
 			
-			// aapt resource value: 0x7f04003c
-			public const int layout1 = 2130968636;
+			// aapt resource value: 0x7f0c000a
+			public const int imageView_headerLogo = 2131492874;
 			
-			// aapt resource value: 0x7f04003b
-			public const int linearLayout_dynamicallyDisplayImages = 2130968635;
+			// aapt resource value: 0x7f0c0040
+			public const int layout1 = 2131492928;
 			
-			// aapt resource value: 0x7f040048
-			public const int maintenance = 2130968648;
+			// aapt resource value: 0x7f0c003f
+			public const int linearLayout_dynamicallyDisplayImages = 2131492927;
 			
-			// aapt resource value: 0x7f040000
-			public const int none = 2130968576;
+			// aapt resource value: 0x7f0c000d
+			public const int mainView = 2131492877;
 			
-			// aapt resource value: 0x7f040045
-			public const int openStatus = 2130968645;
+			// aapt resource value: 0x7f0c004c
+			public const int maintenance = 2131492940;
 			
-			// aapt resource value: 0x7f040055
-			public const int pageIndicator = 2130968661;
+			// aapt resource value: 0x7f0c000e
+			public const int mapView = 2131492878;
 			
-			// aapt resource value: 0x7f040026
-			public const int prgSplashProgress = 2130968614;
+			// aapt resource value: 0x7f0c0000
+			public const int none = 2131492864;
 			
-			// aapt resource value: 0x7f040019
-			public const int radioButton_rating_1 = 2130968601;
+			// aapt resource value: 0x7f0c0049
+			public const int openStatus = 2131492937;
 			
-			// aapt resource value: 0x7f04001a
-			public const int radioButton_rating_2 = 2130968602;
+			// aapt resource value: 0x7f0c0059
+			public const int pageIndicator = 2131492953;
 			
-			// aapt resource value: 0x7f04001b
-			public const int radioButton_rating_3 = 2130968603;
+			// aapt resource value: 0x7f0c002a
+			public const int prgSplashProgress = 2131492906;
 			
-			// aapt resource value: 0x7f04001c
-			public const int radioButton_rating_4 = 2130968604;
+			// aapt resource value: 0x7f0c001d
+			public const int radioButton_rating_1 = 2131492893;
 			
-			// aapt resource value: 0x7f04001d
-			public const int radioButton_rating_5 = 2130968605;
+			// aapt resource value: 0x7f0c001e
+			public const int radioButton_rating_2 = 2131492894;
 			
-			// aapt resource value: 0x7f040018
-			public const int radioGroup_ratings = 2130968600;
+			// aapt resource value: 0x7f0c001f
+			public const int radioButton_rating_3 = 2131492895;
 			
-			// aapt resource value: 0x7f04003e
-			public const int rating = 2130968638;
+			// aapt resource value: 0x7f0c0020
+			public const int radioButton_rating_4 = 2131492896;
 			
-			// aapt resource value: 0x7f040017
-			public const int ratingsOptions = 2130968599;
+			// aapt resource value: 0x7f0c0021
+			public const int radioButton_rating_5 = 2131492897;
 			
-			// aapt resource value: 0x7f040023
-			public const int scrollView1 = 2130968611;
+			// aapt resource value: 0x7f0c001c
+			public const int radioGroup_ratings = 2131492892;
 			
-			// aapt resource value: 0x7f04004d
-			public const int scrollView2 = 2130968653;
+			// aapt resource value: 0x7f0c0042
+			public const int rating = 2131492930;
 			
-			// aapt resource value: 0x7f040042
-			public const int scrollView3 = 2130968642;
+			// aapt resource value: 0x7f0c001b
+			public const int ratingsOptions = 2131492891;
 			
-			// aapt resource value: 0x7f040047
-			public const int scrollView4 = 2130968647;
+			// aapt resource value: 0x7f0c0027
+			public const int scrollView1 = 2131492903;
 			
-			// aapt resource value: 0x7f040046
-			public const int season = 2130968646;
+			// aapt resource value: 0x7f0c0051
+			public const int scrollView2 = 2131492945;
 			
-			// aapt resource value: 0x7f040016
-			public const int textView1 = 2130968598;
+			// aapt resource value: 0x7f0c0046
+			public const int scrollView3 = 2131492934;
 			
-			// aapt resource value: 0x7f040049
-			public const int textView4 = 2130968649;
+			// aapt resource value: 0x7f0c004b
+			public const int scrollView4 = 2131492939;
 			
-			// aapt resource value: 0x7f040041
-			public const int textView5 = 2130968641;
+			// aapt resource value: 0x7f0c004a
+			public const int season = 2131492938;
 			
-			// aapt resource value: 0x7f04004c
-			public const int textView6 = 2130968652;
+			// aapt resource value: 0x7f0c001a
+			public const int textView1 = 2131492890;
 			
-			// aapt resource value: 0x7f040044
-			public const int textView7 = 2130968644;
+			// aapt resource value: 0x7f0c004d
+			public const int textView4 = 2131492941;
 			
-			// aapt resource value: 0x7f04000c
-			public const int textView_activityLabel = 2130968588;
+			// aapt resource value: 0x7f0c0045
+			public const int textView5 = 2131492933;
 			
-			// aapt resource value: 0x7f04000e
-			public const int textView_amenityLabel = 2130968590;
+			// aapt resource value: 0x7f0c0050
+			public const int textView6 = 2131492944;
 			
-			// aapt resource value: 0x7f040005
-			public const int textView_debugMenuLabel = 2130968581;
+			// aapt resource value: 0x7f0c0048
+			public const int textView7 = 2131492936;
 			
-			// aapt resource value: 0x7f040010
-			public const int textView_difficultyLabel = 2130968592;
+			// aapt resource value: 0x7f0c0010
+			public const int textView_activityLabel = 2131492880;
 			
-			// aapt resource value: 0x7f040020
-			public const int textView_maxDistanceLabel = 2130968608;
+			// aapt resource value: 0x7f0c0012
+			public const int textView_amenityLabel = 2131492882;
 			
-			// aapt resource value: 0x7f04001e
-			public const int textView_maxDurationLabel = 2130968606;
+			// aapt resource value: 0x7f0c0005
+			public const int textView_debugMenuLabel = 2131492869;
 			
-			// aapt resource value: 0x7f040004
-			public const int top = 2130968580;
+			// aapt resource value: 0x7f0c0014
+			public const int textView_difficultyLabel = 2131492884;
 			
-			// aapt resource value: 0x7f040052
-			public const int trailGallery = 2130968658;
+			// aapt resource value: 0x7f0c0024
+			public const int textView_maxDistanceLabel = 2131492900;
 			
-			// aapt resource value: 0x7f040053
-			public const int trailName = 2130968659;
+			// aapt resource value: 0x7f0c0022
+			public const int textView_maxDurationLabel = 2131492898;
 			
-			// aapt resource value: 0x7f040001
-			public const int triangle = 2130968577;
+			// aapt resource value: 0x7f0c0004
+			public const int top = 2131492868;
 			
-			// aapt resource value: 0x7f040028
-			public const int txtDataAccessTitle = 2130968616;
+			// aapt resource value: 0x7f0c0056
+			public const int trailGallery = 2131492950;
 			
-			// aapt resource value: 0x7f040027
-			public const int txtSplashProgressLabel = 2130968615;
+			// aapt resource value: 0x7f0c0057
+			public const int trailName = 2131492951;
 			
-			// aapt resource value: 0x7f040025
-			public const int txtSplashScreenTitle = 2130968613;
+			// aapt resource value: 0x7f0c0001
+			public const int triangle = 2131492865;
 			
-			// aapt resource value: 0x7f040002
-			public const int underline = 2130968578;
+			// aapt resource value: 0x7f0c002c
+			public const int txtDataAccessTitle = 2131492908;
 			
-			// aapt resource value: 0x7f040054
-			public const int viewpager = 2130968660;
+			// aapt resource value: 0x7f0c002b
+			public const int txtSplashProgressLabel = 2131492907;
+			
+			// aapt resource value: 0x7f0c0029
+			public const int txtSplashScreenTitle = 2131492905;
+			
+			// aapt resource value: 0x7f0c0002
+			public const int underline = 2131492866;
+			
+			// aapt resource value: 0x7f0c0058
+			public const int viewpager = 2131492952;
+			
+			// aapt resource value: 0x7f0c000f
+			public const int zoomcontrols = 2131492879;
 			
 			static Id()
 			{
@@ -801,34 +852,37 @@ namespace Columbia583.Android
 			public const int Main = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int SearchTrails = 2130903042;
+			public const int Map = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int SplashScreen = 2130903043;
+			public const int SearchTrails = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int TestDataAccess = 2130903044;
+			public const int SplashScreen = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int TestDatabase = 2130903045;
+			public const int TestDataAccess = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int TestImage = 2130903046;
+			public const int TestDatabase = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int ViewTrail = 2130903047;
+			public const int TestImage = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int ViewTrail2 = 2130903048;
+			public const int ViewTrail = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int ViewTrail3 = 2130903049;
+			public const int ViewTrail2 = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int ViewTrail4 = 2130903050;
+			public const int ViewTrail3 = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int ViewTrailBase = 2130903051;
+			public const int ViewTrail4 = 2130903051;
+			
+			// aapt resource value: 0x7f03000c
+			public const int ViewTrailBase = 2130903052;
 			
 			static Layout()
 			{
@@ -836,6 +890,3106 @@ namespace Columbia583.Android
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Raw
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int definitions = 2130968576;
+			
+			// aapt resource value: 0x7f040001
+			public const int milktruck = 2130968577;
+			
+			// aapt resource value: 0x7f040002
+			public const int t0_0_0 = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int t11_361_686 = 2130968579;
+			
+			// aapt resource value: 0x7f040004
+			public const int t11_361_687 = 2130968580;
+			
+			// aapt resource value: 0x7f040005
+			public const int t11_361_688 = 2130968581;
+			
+			// aapt resource value: 0x7f040006
+			public const int t11_361_689 = 2130968582;
+			
+			// aapt resource value: 0x7f040007
+			public const int t11_362_686 = 2130968583;
+			
+			// aapt resource value: 0x7f040008
+			public const int t11_362_687 = 2130968584;
+			
+			// aapt resource value: 0x7f040009
+			public const int t11_362_688 = 2130968585;
+			
+			// aapt resource value: 0x7f04000a
+			public const int t11_362_689 = 2130968586;
+			
+			// aapt resource value: 0x7f04000b
+			public const int t11_363_686 = 2130968587;
+			
+			// aapt resource value: 0x7f04000c
+			public const int t11_363_687 = 2130968588;
+			
+			// aapt resource value: 0x7f04000d
+			public const int t11_363_688 = 2130968589;
+			
+			// aapt resource value: 0x7f04000e
+			public const int t11_363_689 = 2130968590;
+			
+			// aapt resource value: 0x7f04000f
+			public const int t11_364_686 = 2130968591;
+			
+			// aapt resource value: 0x7f040010
+			public const int t11_364_687 = 2130968592;
+			
+			// aapt resource value: 0x7f040011
+			public const int t11_364_688 = 2130968593;
+			
+			// aapt resource value: 0x7f040012
+			public const int t11_364_689 = 2130968594;
+			
+			// aapt resource value: 0x7f040013
+			public const int t11_365_686 = 2130968595;
+			
+			// aapt resource value: 0x7f040014
+			public const int t11_365_687 = 2130968596;
+			
+			// aapt resource value: 0x7f040015
+			public const int t11_365_688 = 2130968597;
+			
+			// aapt resource value: 0x7f040016
+			public const int t11_365_689 = 2130968598;
+			
+			// aapt resource value: 0x7f040017
+			public const int t12_723_1373 = 2130968599;
+			
+			// aapt resource value: 0x7f040018
+			public const int t12_723_1374 = 2130968600;
+			
+			// aapt resource value: 0x7f040019
+			public const int t12_723_1375 = 2130968601;
+			
+			// aapt resource value: 0x7f04001a
+			public const int t12_723_1376 = 2130968602;
+			
+			// aapt resource value: 0x7f04001b
+			public const int t12_723_1377 = 2130968603;
+			
+			// aapt resource value: 0x7f04001c
+			public const int t12_724_1373 = 2130968604;
+			
+			// aapt resource value: 0x7f04001d
+			public const int t12_724_1374 = 2130968605;
+			
+			// aapt resource value: 0x7f04001e
+			public const int t12_724_1375 = 2130968606;
+			
+			// aapt resource value: 0x7f04001f
+			public const int t12_724_1376 = 2130968607;
+			
+			// aapt resource value: 0x7f040020
+			public const int t12_724_1377 = 2130968608;
+			
+			// aapt resource value: 0x7f040021
+			public const int t12_725_1373 = 2130968609;
+			
+			// aapt resource value: 0x7f040022
+			public const int t12_725_1374 = 2130968610;
+			
+			// aapt resource value: 0x7f040023
+			public const int t12_725_1375 = 2130968611;
+			
+			// aapt resource value: 0x7f040024
+			public const int t12_725_1376 = 2130968612;
+			
+			// aapt resource value: 0x7f040025
+			public const int t12_725_1377 = 2130968613;
+			
+			// aapt resource value: 0x7f040026
+			public const int t12_726_1373 = 2130968614;
+			
+			// aapt resource value: 0x7f040027
+			public const int t12_726_1374 = 2130968615;
+			
+			// aapt resource value: 0x7f040028
+			public const int t12_726_1375 = 2130968616;
+			
+			// aapt resource value: 0x7f040029
+			public const int t12_726_1376 = 2130968617;
+			
+			// aapt resource value: 0x7f04002a
+			public const int t12_726_1377 = 2130968618;
+			
+			// aapt resource value: 0x7f04002b
+			public const int t12_727_1373 = 2130968619;
+			
+			// aapt resource value: 0x7f04002c
+			public const int t12_727_1374 = 2130968620;
+			
+			// aapt resource value: 0x7f04002d
+			public const int t12_727_1375 = 2130968621;
+			
+			// aapt resource value: 0x7f04002e
+			public const int t12_727_1376 = 2130968622;
+			
+			// aapt resource value: 0x7f04002f
+			public const int t12_727_1377 = 2130968623;
+			
+			// aapt resource value: 0x7f040030
+			public const int t12_728_1373 = 2130968624;
+			
+			// aapt resource value: 0x7f040031
+			public const int t12_728_1374 = 2130968625;
+			
+			// aapt resource value: 0x7f040032
+			public const int t12_728_1375 = 2130968626;
+			
+			// aapt resource value: 0x7f040033
+			public const int t12_728_1376 = 2130968627;
+			
+			// aapt resource value: 0x7f040034
+			public const int t12_728_1377 = 2130968628;
+			
+			// aapt resource value: 0x7f040035
+			public const int t12_729_1373 = 2130968629;
+			
+			// aapt resource value: 0x7f040036
+			public const int t12_729_1374 = 2130968630;
+			
+			// aapt resource value: 0x7f040037
+			public const int t12_729_1375 = 2130968631;
+			
+			// aapt resource value: 0x7f040038
+			public const int t12_729_1376 = 2130968632;
+			
+			// aapt resource value: 0x7f040039
+			public const int t12_729_1377 = 2130968633;
+			
+			// aapt resource value: 0x7f04003a
+			public const int t13_1448_2747 = 2130968634;
+			
+			// aapt resource value: 0x7f04003b
+			public const int t13_1448_2748 = 2130968635;
+			
+			// aapt resource value: 0x7f04003c
+			public const int t13_1448_2749 = 2130968636;
+			
+			// aapt resource value: 0x7f04003d
+			public const int t13_1448_2750 = 2130968637;
+			
+			// aapt resource value: 0x7f04003e
+			public const int t13_1448_2751 = 2130968638;
+			
+			// aapt resource value: 0x7f04003f
+			public const int t13_1448_2752 = 2130968639;
+			
+			// aapt resource value: 0x7f040040
+			public const int t13_1448_2753 = 2130968640;
+			
+			// aapt resource value: 0x7f040041
+			public const int t13_1449_2747 = 2130968641;
+			
+			// aapt resource value: 0x7f040042
+			public const int t13_1449_2748 = 2130968642;
+			
+			// aapt resource value: 0x7f040043
+			public const int t13_1449_2749 = 2130968643;
+			
+			// aapt resource value: 0x7f040044
+			public const int t13_1449_2750 = 2130968644;
+			
+			// aapt resource value: 0x7f040045
+			public const int t13_1449_2751 = 2130968645;
+			
+			// aapt resource value: 0x7f040046
+			public const int t13_1449_2752 = 2130968646;
+			
+			// aapt resource value: 0x7f040047
+			public const int t13_1449_2753 = 2130968647;
+			
+			// aapt resource value: 0x7f040048
+			public const int t13_1450_2747 = 2130968648;
+			
+			// aapt resource value: 0x7f040049
+			public const int t13_1450_2748 = 2130968649;
+			
+			// aapt resource value: 0x7f04004a
+			public const int t13_1450_2749 = 2130968650;
+			
+			// aapt resource value: 0x7f04004b
+			public const int t13_1450_2750 = 2130968651;
+			
+			// aapt resource value: 0x7f04004c
+			public const int t13_1450_2751 = 2130968652;
+			
+			// aapt resource value: 0x7f04004d
+			public const int t13_1450_2752 = 2130968653;
+			
+			// aapt resource value: 0x7f04004e
+			public const int t13_1450_2753 = 2130968654;
+			
+			// aapt resource value: 0x7f04004f
+			public const int t13_1451_2747 = 2130968655;
+			
+			// aapt resource value: 0x7f040050
+			public const int t13_1451_2748 = 2130968656;
+			
+			// aapt resource value: 0x7f040051
+			public const int t13_1451_2749 = 2130968657;
+			
+			// aapt resource value: 0x7f040052
+			public const int t13_1451_2750 = 2130968658;
+			
+			// aapt resource value: 0x7f040053
+			public const int t13_1451_2751 = 2130968659;
+			
+			// aapt resource value: 0x7f040054
+			public const int t13_1451_2752 = 2130968660;
+			
+			// aapt resource value: 0x7f040055
+			public const int t13_1451_2753 = 2130968661;
+			
+			// aapt resource value: 0x7f040056
+			public const int t13_1452_2747 = 2130968662;
+			
+			// aapt resource value: 0x7f040057
+			public const int t13_1452_2748 = 2130968663;
+			
+			// aapt resource value: 0x7f040058
+			public const int t13_1452_2749 = 2130968664;
+			
+			// aapt resource value: 0x7f040059
+			public const int t13_1452_2750 = 2130968665;
+			
+			// aapt resource value: 0x7f04005a
+			public const int t13_1452_2751 = 2130968666;
+			
+			// aapt resource value: 0x7f04005b
+			public const int t13_1452_2752 = 2130968667;
+			
+			// aapt resource value: 0x7f04005c
+			public const int t13_1452_2753 = 2130968668;
+			
+			// aapt resource value: 0x7f04005d
+			public const int t13_1453_2747 = 2130968669;
+			
+			// aapt resource value: 0x7f04005e
+			public const int t13_1453_2748 = 2130968670;
+			
+			// aapt resource value: 0x7f04005f
+			public const int t13_1453_2749 = 2130968671;
+			
+			// aapt resource value: 0x7f040060
+			public const int t13_1453_2750 = 2130968672;
+			
+			// aapt resource value: 0x7f040061
+			public const int t13_1453_2751 = 2130968673;
+			
+			// aapt resource value: 0x7f040062
+			public const int t13_1453_2752 = 2130968674;
+			
+			// aapt resource value: 0x7f040063
+			public const int t13_1453_2753 = 2130968675;
+			
+			// aapt resource value: 0x7f040064
+			public const int t13_1454_2747 = 2130968676;
+			
+			// aapt resource value: 0x7f040065
+			public const int t13_1454_2748 = 2130968677;
+			
+			// aapt resource value: 0x7f040066
+			public const int t13_1454_2749 = 2130968678;
+			
+			// aapt resource value: 0x7f040067
+			public const int t13_1454_2750 = 2130968679;
+			
+			// aapt resource value: 0x7f040068
+			public const int t13_1454_2751 = 2130968680;
+			
+			// aapt resource value: 0x7f040069
+			public const int t13_1454_2752 = 2130968681;
+			
+			// aapt resource value: 0x7f04006a
+			public const int t13_1454_2753 = 2130968682;
+			
+			// aapt resource value: 0x7f04006b
+			public const int t13_1455_2747 = 2130968683;
+			
+			// aapt resource value: 0x7f04006c
+			public const int t13_1455_2748 = 2130968684;
+			
+			// aapt resource value: 0x7f04006d
+			public const int t13_1455_2749 = 2130968685;
+			
+			// aapt resource value: 0x7f04006e
+			public const int t13_1455_2750 = 2130968686;
+			
+			// aapt resource value: 0x7f04006f
+			public const int t13_1455_2751 = 2130968687;
+			
+			// aapt resource value: 0x7f040070
+			public const int t13_1455_2752 = 2130968688;
+			
+			// aapt resource value: 0x7f040071
+			public const int t13_1455_2753 = 2130968689;
+			
+			// aapt resource value: 0x7f040072
+			public const int t13_1456_2747 = 2130968690;
+			
+			// aapt resource value: 0x7f040073
+			public const int t13_1456_2748 = 2130968691;
+			
+			// aapt resource value: 0x7f040074
+			public const int t13_1456_2749 = 2130968692;
+			
+			// aapt resource value: 0x7f040075
+			public const int t13_1456_2750 = 2130968693;
+			
+			// aapt resource value: 0x7f040076
+			public const int t13_1456_2751 = 2130968694;
+			
+			// aapt resource value: 0x7f040077
+			public const int t13_1456_2752 = 2130968695;
+			
+			// aapt resource value: 0x7f040078
+			public const int t13_1456_2753 = 2130968696;
+			
+			// aapt resource value: 0x7f040079
+			public const int t13_1457_2747 = 2130968697;
+			
+			// aapt resource value: 0x7f04007a
+			public const int t13_1457_2748 = 2130968698;
+			
+			// aapt resource value: 0x7f04007b
+			public const int t13_1457_2749 = 2130968699;
+			
+			// aapt resource value: 0x7f04007c
+			public const int t13_1457_2750 = 2130968700;
+			
+			// aapt resource value: 0x7f04007d
+			public const int t13_1457_2751 = 2130968701;
+			
+			// aapt resource value: 0x7f04007e
+			public const int t13_1457_2752 = 2130968702;
+			
+			// aapt resource value: 0x7f04007f
+			public const int t13_1457_2753 = 2130968703;
+			
+			// aapt resource value: 0x7f040080
+			public const int t13_1458_2747 = 2130968704;
+			
+			// aapt resource value: 0x7f040081
+			public const int t13_1458_2748 = 2130968705;
+			
+			// aapt resource value: 0x7f040082
+			public const int t13_1458_2749 = 2130968706;
+			
+			// aapt resource value: 0x7f040083
+			public const int t13_1458_2750 = 2130968707;
+			
+			// aapt resource value: 0x7f040084
+			public const int t13_1458_2751 = 2130968708;
+			
+			// aapt resource value: 0x7f040085
+			public const int t13_1458_2752 = 2130968709;
+			
+			// aapt resource value: 0x7f040086
+			public const int t13_1458_2753 = 2130968710;
+			
+			// aapt resource value: 0x7f040087
+			public const int t14_2897_5496 = 2130968711;
+			
+			// aapt resource value: 0x7f040088
+			public const int t14_2897_5497 = 2130968712;
+			
+			// aapt resource value: 0x7f040089
+			public const int t14_2897_5498 = 2130968713;
+			
+			// aapt resource value: 0x7f04008a
+			public const int t14_2897_5499 = 2130968714;
+			
+			// aapt resource value: 0x7f04008b
+			public const int t14_2897_5500 = 2130968715;
+			
+			// aapt resource value: 0x7f04008c
+			public const int t14_2897_5501 = 2130968716;
+			
+			// aapt resource value: 0x7f04008d
+			public const int t14_2897_5502 = 2130968717;
+			
+			// aapt resource value: 0x7f04008e
+			public const int t14_2897_5503 = 2130968718;
+			
+			// aapt resource value: 0x7f04008f
+			public const int t14_2897_5504 = 2130968719;
+			
+			// aapt resource value: 0x7f040090
+			public const int t14_2897_5505 = 2130968720;
+			
+			// aapt resource value: 0x7f040091
+			public const int t14_2897_5506 = 2130968721;
+			
+			// aapt resource value: 0x7f040092
+			public const int t14_2898_5496 = 2130968722;
+			
+			// aapt resource value: 0x7f040093
+			public const int t14_2898_5497 = 2130968723;
+			
+			// aapt resource value: 0x7f040094
+			public const int t14_2898_5498 = 2130968724;
+			
+			// aapt resource value: 0x7f040095
+			public const int t14_2898_5499 = 2130968725;
+			
+			// aapt resource value: 0x7f040096
+			public const int t14_2898_5500 = 2130968726;
+			
+			// aapt resource value: 0x7f040097
+			public const int t14_2898_5501 = 2130968727;
+			
+			// aapt resource value: 0x7f040098
+			public const int t14_2898_5502 = 2130968728;
+			
+			// aapt resource value: 0x7f040099
+			public const int t14_2898_5503 = 2130968729;
+			
+			// aapt resource value: 0x7f04009a
+			public const int t14_2898_5504 = 2130968730;
+			
+			// aapt resource value: 0x7f04009b
+			public const int t14_2898_5505 = 2130968731;
+			
+			// aapt resource value: 0x7f04009c
+			public const int t14_2898_5506 = 2130968732;
+			
+			// aapt resource value: 0x7f04009d
+			public const int t14_2899_5496 = 2130968733;
+			
+			// aapt resource value: 0x7f04009e
+			public const int t14_2899_5497 = 2130968734;
+			
+			// aapt resource value: 0x7f04009f
+			public const int t14_2899_5498 = 2130968735;
+			
+			// aapt resource value: 0x7f0400a0
+			public const int t14_2899_5499 = 2130968736;
+			
+			// aapt resource value: 0x7f0400a1
+			public const int t14_2899_5500 = 2130968737;
+			
+			// aapt resource value: 0x7f0400a2
+			public const int t14_2899_5501 = 2130968738;
+			
+			// aapt resource value: 0x7f0400a3
+			public const int t14_2899_5502 = 2130968739;
+			
+			// aapt resource value: 0x7f0400a4
+			public const int t14_2899_5503 = 2130968740;
+			
+			// aapt resource value: 0x7f0400a5
+			public const int t14_2899_5504 = 2130968741;
+			
+			// aapt resource value: 0x7f0400a6
+			public const int t14_2899_5505 = 2130968742;
+			
+			// aapt resource value: 0x7f0400a7
+			public const int t14_2899_5506 = 2130968743;
+			
+			// aapt resource value: 0x7f0400a8
+			public const int t14_2900_5496 = 2130968744;
+			
+			// aapt resource value: 0x7f0400a9
+			public const int t14_2900_5497 = 2130968745;
+			
+			// aapt resource value: 0x7f0400aa
+			public const int t14_2900_5498 = 2130968746;
+			
+			// aapt resource value: 0x7f0400ab
+			public const int t14_2900_5499 = 2130968747;
+			
+			// aapt resource value: 0x7f0400ac
+			public const int t14_2900_5500 = 2130968748;
+			
+			// aapt resource value: 0x7f0400ad
+			public const int t14_2900_5501 = 2130968749;
+			
+			// aapt resource value: 0x7f0400ae
+			public const int t14_2900_5502 = 2130968750;
+			
+			// aapt resource value: 0x7f0400af
+			public const int t14_2900_5503 = 2130968751;
+			
+			// aapt resource value: 0x7f0400b0
+			public const int t14_2900_5504 = 2130968752;
+			
+			// aapt resource value: 0x7f0400b1
+			public const int t14_2900_5505 = 2130968753;
+			
+			// aapt resource value: 0x7f0400b2
+			public const int t14_2900_5506 = 2130968754;
+			
+			// aapt resource value: 0x7f0400b3
+			public const int t14_2901_5496 = 2130968755;
+			
+			// aapt resource value: 0x7f0400b4
+			public const int t14_2901_5497 = 2130968756;
+			
+			// aapt resource value: 0x7f0400b5
+			public const int t14_2901_5498 = 2130968757;
+			
+			// aapt resource value: 0x7f0400b6
+			public const int t14_2901_5499 = 2130968758;
+			
+			// aapt resource value: 0x7f0400b7
+			public const int t14_2901_5500 = 2130968759;
+			
+			// aapt resource value: 0x7f0400b8
+			public const int t14_2901_5501 = 2130968760;
+			
+			// aapt resource value: 0x7f0400b9
+			public const int t14_2901_5502 = 2130968761;
+			
+			// aapt resource value: 0x7f0400ba
+			public const int t14_2901_5503 = 2130968762;
+			
+			// aapt resource value: 0x7f0400bb
+			public const int t14_2901_5504 = 2130968763;
+			
+			// aapt resource value: 0x7f0400bc
+			public const int t14_2901_5505 = 2130968764;
+			
+			// aapt resource value: 0x7f0400bd
+			public const int t14_2901_5506 = 2130968765;
+			
+			// aapt resource value: 0x7f0400be
+			public const int t14_2902_5496 = 2130968766;
+			
+			// aapt resource value: 0x7f0400bf
+			public const int t14_2902_5497 = 2130968767;
+			
+			// aapt resource value: 0x7f0400c0
+			public const int t14_2902_5498 = 2130968768;
+			
+			// aapt resource value: 0x7f0400c1
+			public const int t14_2902_5499 = 2130968769;
+			
+			// aapt resource value: 0x7f0400c2
+			public const int t14_2902_5500 = 2130968770;
+			
+			// aapt resource value: 0x7f0400c3
+			public const int t14_2902_5501 = 2130968771;
+			
+			// aapt resource value: 0x7f0400c4
+			public const int t14_2902_5502 = 2130968772;
+			
+			// aapt resource value: 0x7f0400c5
+			public const int t14_2902_5503 = 2130968773;
+			
+			// aapt resource value: 0x7f0400c6
+			public const int t14_2902_5504 = 2130968774;
+			
+			// aapt resource value: 0x7f0400c7
+			public const int t14_2902_5505 = 2130968775;
+			
+			// aapt resource value: 0x7f0400c8
+			public const int t14_2902_5506 = 2130968776;
+			
+			// aapt resource value: 0x7f0400c9
+			public const int t14_2903_5496 = 2130968777;
+			
+			// aapt resource value: 0x7f0400ca
+			public const int t14_2903_5497 = 2130968778;
+			
+			// aapt resource value: 0x7f0400cb
+			public const int t14_2903_5498 = 2130968779;
+			
+			// aapt resource value: 0x7f0400cc
+			public const int t14_2903_5499 = 2130968780;
+			
+			// aapt resource value: 0x7f0400cd
+			public const int t14_2903_5500 = 2130968781;
+			
+			// aapt resource value: 0x7f0400ce
+			public const int t14_2903_5501 = 2130968782;
+			
+			// aapt resource value: 0x7f0400cf
+			public const int t14_2903_5502 = 2130968783;
+			
+			// aapt resource value: 0x7f0400d0
+			public const int t14_2903_5503 = 2130968784;
+			
+			// aapt resource value: 0x7f0400d1
+			public const int t14_2903_5504 = 2130968785;
+			
+			// aapt resource value: 0x7f0400d2
+			public const int t14_2903_5505 = 2130968786;
+			
+			// aapt resource value: 0x7f0400d3
+			public const int t14_2903_5506 = 2130968787;
+			
+			// aapt resource value: 0x7f0400d4
+			public const int t14_2904_5496 = 2130968788;
+			
+			// aapt resource value: 0x7f0400d5
+			public const int t14_2904_5497 = 2130968789;
+			
+			// aapt resource value: 0x7f0400d6
+			public const int t14_2904_5498 = 2130968790;
+			
+			// aapt resource value: 0x7f0400d7
+			public const int t14_2904_5499 = 2130968791;
+			
+			// aapt resource value: 0x7f0400d8
+			public const int t14_2904_5500 = 2130968792;
+			
+			// aapt resource value: 0x7f0400d9
+			public const int t14_2904_5501 = 2130968793;
+			
+			// aapt resource value: 0x7f0400da
+			public const int t14_2904_5502 = 2130968794;
+			
+			// aapt resource value: 0x7f0400db
+			public const int t14_2904_5503 = 2130968795;
+			
+			// aapt resource value: 0x7f0400dc
+			public const int t14_2904_5504 = 2130968796;
+			
+			// aapt resource value: 0x7f0400dd
+			public const int t14_2904_5505 = 2130968797;
+			
+			// aapt resource value: 0x7f0400de
+			public const int t14_2904_5506 = 2130968798;
+			
+			// aapt resource value: 0x7f0400df
+			public const int t14_2905_5496 = 2130968799;
+			
+			// aapt resource value: 0x7f0400e0
+			public const int t14_2905_5497 = 2130968800;
+			
+			// aapt resource value: 0x7f0400e1
+			public const int t14_2905_5498 = 2130968801;
+			
+			// aapt resource value: 0x7f0400e2
+			public const int t14_2905_5499 = 2130968802;
+			
+			// aapt resource value: 0x7f0400e3
+			public const int t14_2905_5500 = 2130968803;
+			
+			// aapt resource value: 0x7f0400e4
+			public const int t14_2905_5501 = 2130968804;
+			
+			// aapt resource value: 0x7f0400e5
+			public const int t14_2905_5502 = 2130968805;
+			
+			// aapt resource value: 0x7f0400e6
+			public const int t14_2905_5503 = 2130968806;
+			
+			// aapt resource value: 0x7f0400e7
+			public const int t14_2905_5504 = 2130968807;
+			
+			// aapt resource value: 0x7f0400e8
+			public const int t14_2905_5505 = 2130968808;
+			
+			// aapt resource value: 0x7f0400e9
+			public const int t14_2905_5506 = 2130968809;
+			
+			// aapt resource value: 0x7f0400ea
+			public const int t14_2906_5496 = 2130968810;
+			
+			// aapt resource value: 0x7f0400eb
+			public const int t14_2906_5497 = 2130968811;
+			
+			// aapt resource value: 0x7f0400ec
+			public const int t14_2906_5498 = 2130968812;
+			
+			// aapt resource value: 0x7f0400ed
+			public const int t14_2906_5499 = 2130968813;
+			
+			// aapt resource value: 0x7f0400ee
+			public const int t14_2906_5500 = 2130968814;
+			
+			// aapt resource value: 0x7f0400ef
+			public const int t14_2906_5501 = 2130968815;
+			
+			// aapt resource value: 0x7f0400f0
+			public const int t14_2906_5502 = 2130968816;
+			
+			// aapt resource value: 0x7f0400f1
+			public const int t14_2906_5503 = 2130968817;
+			
+			// aapt resource value: 0x7f0400f2
+			public const int t14_2906_5504 = 2130968818;
+			
+			// aapt resource value: 0x7f0400f3
+			public const int t14_2906_5505 = 2130968819;
+			
+			// aapt resource value: 0x7f0400f4
+			public const int t14_2906_5506 = 2130968820;
+			
+			// aapt resource value: 0x7f0400f5
+			public const int t14_2907_5496 = 2130968821;
+			
+			// aapt resource value: 0x7f0400f6
+			public const int t14_2907_5497 = 2130968822;
+			
+			// aapt resource value: 0x7f0400f7
+			public const int t14_2907_5498 = 2130968823;
+			
+			// aapt resource value: 0x7f0400f8
+			public const int t14_2907_5499 = 2130968824;
+			
+			// aapt resource value: 0x7f0400f9
+			public const int t14_2907_5500 = 2130968825;
+			
+			// aapt resource value: 0x7f0400fa
+			public const int t14_2907_5501 = 2130968826;
+			
+			// aapt resource value: 0x7f0400fb
+			public const int t14_2907_5502 = 2130968827;
+			
+			// aapt resource value: 0x7f0400fc
+			public const int t14_2907_5503 = 2130968828;
+			
+			// aapt resource value: 0x7f0400fd
+			public const int t14_2907_5504 = 2130968829;
+			
+			// aapt resource value: 0x7f0400fe
+			public const int t14_2907_5505 = 2130968830;
+			
+			// aapt resource value: 0x7f0400ff
+			public const int t14_2907_5506 = 2130968831;
+			
+			// aapt resource value: 0x7f040100
+			public const int t14_2908_5496 = 2130968832;
+			
+			// aapt resource value: 0x7f040101
+			public const int t14_2908_5497 = 2130968833;
+			
+			// aapt resource value: 0x7f040102
+			public const int t14_2908_5498 = 2130968834;
+			
+			// aapt resource value: 0x7f040103
+			public const int t14_2908_5499 = 2130968835;
+			
+			// aapt resource value: 0x7f040104
+			public const int t14_2908_5500 = 2130968836;
+			
+			// aapt resource value: 0x7f040105
+			public const int t14_2908_5501 = 2130968837;
+			
+			// aapt resource value: 0x7f040106
+			public const int t14_2908_5502 = 2130968838;
+			
+			// aapt resource value: 0x7f040107
+			public const int t14_2908_5503 = 2130968839;
+			
+			// aapt resource value: 0x7f040108
+			public const int t14_2908_5504 = 2130968840;
+			
+			// aapt resource value: 0x7f040109
+			public const int t14_2908_5505 = 2130968841;
+			
+			// aapt resource value: 0x7f04010a
+			public const int t14_2908_5506 = 2130968842;
+			
+			// aapt resource value: 0x7f04010b
+			public const int t14_2909_5496 = 2130968843;
+			
+			// aapt resource value: 0x7f04010c
+			public const int t14_2909_5497 = 2130968844;
+			
+			// aapt resource value: 0x7f04010d
+			public const int t14_2909_5498 = 2130968845;
+			
+			// aapt resource value: 0x7f04010e
+			public const int t14_2909_5499 = 2130968846;
+			
+			// aapt resource value: 0x7f04010f
+			public const int t14_2909_5500 = 2130968847;
+			
+			// aapt resource value: 0x7f040110
+			public const int t14_2909_5501 = 2130968848;
+			
+			// aapt resource value: 0x7f040111
+			public const int t14_2909_5502 = 2130968849;
+			
+			// aapt resource value: 0x7f040112
+			public const int t14_2909_5503 = 2130968850;
+			
+			// aapt resource value: 0x7f040113
+			public const int t14_2909_5504 = 2130968851;
+			
+			// aapt resource value: 0x7f040114
+			public const int t14_2909_5505 = 2130968852;
+			
+			// aapt resource value: 0x7f040115
+			public const int t14_2909_5506 = 2130968853;
+			
+			// aapt resource value: 0x7f040116
+			public const int t14_2910_5496 = 2130968854;
+			
+			// aapt resource value: 0x7f040117
+			public const int t14_2910_5497 = 2130968855;
+			
+			// aapt resource value: 0x7f040118
+			public const int t14_2910_5498 = 2130968856;
+			
+			// aapt resource value: 0x7f040119
+			public const int t14_2910_5499 = 2130968857;
+			
+			// aapt resource value: 0x7f04011a
+			public const int t14_2910_5500 = 2130968858;
+			
+			// aapt resource value: 0x7f04011b
+			public const int t14_2910_5501 = 2130968859;
+			
+			// aapt resource value: 0x7f04011c
+			public const int t14_2910_5502 = 2130968860;
+			
+			// aapt resource value: 0x7f04011d
+			public const int t14_2910_5503 = 2130968861;
+			
+			// aapt resource value: 0x7f04011e
+			public const int t14_2910_5504 = 2130968862;
+			
+			// aapt resource value: 0x7f04011f
+			public const int t14_2910_5505 = 2130968863;
+			
+			// aapt resource value: 0x7f040120
+			public const int t14_2910_5506 = 2130968864;
+			
+			// aapt resource value: 0x7f040121
+			public const int t14_2911_5496 = 2130968865;
+			
+			// aapt resource value: 0x7f040122
+			public const int t14_2911_5497 = 2130968866;
+			
+			// aapt resource value: 0x7f040123
+			public const int t14_2911_5498 = 2130968867;
+			
+			// aapt resource value: 0x7f040124
+			public const int t14_2911_5499 = 2130968868;
+			
+			// aapt resource value: 0x7f040125
+			public const int t14_2911_5500 = 2130968869;
+			
+			// aapt resource value: 0x7f040126
+			public const int t14_2911_5501 = 2130968870;
+			
+			// aapt resource value: 0x7f040127
+			public const int t14_2911_5502 = 2130968871;
+			
+			// aapt resource value: 0x7f040128
+			public const int t14_2911_5503 = 2130968872;
+			
+			// aapt resource value: 0x7f040129
+			public const int t14_2911_5504 = 2130968873;
+			
+			// aapt resource value: 0x7f04012a
+			public const int t14_2911_5505 = 2130968874;
+			
+			// aapt resource value: 0x7f04012b
+			public const int t14_2911_5506 = 2130968875;
+			
+			// aapt resource value: 0x7f04012c
+			public const int t14_2912_5496 = 2130968876;
+			
+			// aapt resource value: 0x7f04012d
+			public const int t14_2912_5497 = 2130968877;
+			
+			// aapt resource value: 0x7f04012e
+			public const int t14_2912_5498 = 2130968878;
+			
+			// aapt resource value: 0x7f04012f
+			public const int t14_2912_5499 = 2130968879;
+			
+			// aapt resource value: 0x7f040130
+			public const int t14_2912_5500 = 2130968880;
+			
+			// aapt resource value: 0x7f040131
+			public const int t14_2912_5501 = 2130968881;
+			
+			// aapt resource value: 0x7f040132
+			public const int t14_2912_5502 = 2130968882;
+			
+			// aapt resource value: 0x7f040133
+			public const int t14_2912_5503 = 2130968883;
+			
+			// aapt resource value: 0x7f040134
+			public const int t14_2912_5504 = 2130968884;
+			
+			// aapt resource value: 0x7f040135
+			public const int t14_2912_5505 = 2130968885;
+			
+			// aapt resource value: 0x7f040136
+			public const int t14_2912_5506 = 2130968886;
+			
+			// aapt resource value: 0x7f040137
+			public const int t14_2913_5496 = 2130968887;
+			
+			// aapt resource value: 0x7f040138
+			public const int t14_2913_5497 = 2130968888;
+			
+			// aapt resource value: 0x7f040139
+			public const int t14_2913_5498 = 2130968889;
+			
+			// aapt resource value: 0x7f04013a
+			public const int t14_2913_5499 = 2130968890;
+			
+			// aapt resource value: 0x7f04013b
+			public const int t14_2913_5500 = 2130968891;
+			
+			// aapt resource value: 0x7f04013c
+			public const int t14_2913_5501 = 2130968892;
+			
+			// aapt resource value: 0x7f04013d
+			public const int t14_2913_5502 = 2130968893;
+			
+			// aapt resource value: 0x7f04013e
+			public const int t14_2913_5503 = 2130968894;
+			
+			// aapt resource value: 0x7f04013f
+			public const int t14_2913_5504 = 2130968895;
+			
+			// aapt resource value: 0x7f040140
+			public const int t14_2913_5505 = 2130968896;
+			
+			// aapt resource value: 0x7f040141
+			public const int t14_2913_5506 = 2130968897;
+			
+			// aapt resource value: 0x7f040142
+			public const int t14_2914_5496 = 2130968898;
+			
+			// aapt resource value: 0x7f040143
+			public const int t14_2914_5497 = 2130968899;
+			
+			// aapt resource value: 0x7f040144
+			public const int t14_2914_5498 = 2130968900;
+			
+			// aapt resource value: 0x7f040145
+			public const int t14_2914_5499 = 2130968901;
+			
+			// aapt resource value: 0x7f040146
+			public const int t14_2914_5500 = 2130968902;
+			
+			// aapt resource value: 0x7f040147
+			public const int t14_2914_5501 = 2130968903;
+			
+			// aapt resource value: 0x7f040148
+			public const int t14_2914_5502 = 2130968904;
+			
+			// aapt resource value: 0x7f040149
+			public const int t14_2914_5503 = 2130968905;
+			
+			// aapt resource value: 0x7f04014a
+			public const int t14_2914_5504 = 2130968906;
+			
+			// aapt resource value: 0x7f04014b
+			public const int t14_2914_5505 = 2130968907;
+			
+			// aapt resource value: 0x7f04014c
+			public const int t14_2914_5506 = 2130968908;
+			
+			// aapt resource value: 0x7f04014d
+			public const int t14_2915_5496 = 2130968909;
+			
+			// aapt resource value: 0x7f04014e
+			public const int t14_2915_5497 = 2130968910;
+			
+			// aapt resource value: 0x7f04014f
+			public const int t14_2915_5498 = 2130968911;
+			
+			// aapt resource value: 0x7f040150
+			public const int t14_2915_5499 = 2130968912;
+			
+			// aapt resource value: 0x7f040151
+			public const int t14_2915_5500 = 2130968913;
+			
+			// aapt resource value: 0x7f040152
+			public const int t14_2915_5501 = 2130968914;
+			
+			// aapt resource value: 0x7f040153
+			public const int t14_2915_5502 = 2130968915;
+			
+			// aapt resource value: 0x7f040154
+			public const int t14_2915_5503 = 2130968916;
+			
+			// aapt resource value: 0x7f040155
+			public const int t14_2915_5504 = 2130968917;
+			
+			// aapt resource value: 0x7f040156
+			public const int t14_2915_5505 = 2130968918;
+			
+			// aapt resource value: 0x7f040157
+			public const int t14_2915_5506 = 2130968919;
+			
+			// aapt resource value: 0x7f040158
+			public const int t15_5795_10994 = 2130968920;
+			
+			// aapt resource value: 0x7f040159
+			public const int t15_5795_10995 = 2130968921;
+			
+			// aapt resource value: 0x7f04015a
+			public const int t15_5795_10996 = 2130968922;
+			
+			// aapt resource value: 0x7f04015b
+			public const int t15_5795_10997 = 2130968923;
+			
+			// aapt resource value: 0x7f04015c
+			public const int t15_5795_10998 = 2130968924;
+			
+			// aapt resource value: 0x7f04015d
+			public const int t15_5795_10999 = 2130968925;
+			
+			// aapt resource value: 0x7f04015e
+			public const int t15_5795_11000 = 2130968926;
+			
+			// aapt resource value: 0x7f04015f
+			public const int t15_5795_11001 = 2130968927;
+			
+			// aapt resource value: 0x7f040160
+			public const int t15_5795_11002 = 2130968928;
+			
+			// aapt resource value: 0x7f040161
+			public const int t15_5795_11003 = 2130968929;
+			
+			// aapt resource value: 0x7f040162
+			public const int t15_5795_11004 = 2130968930;
+			
+			// aapt resource value: 0x7f040163
+			public const int t15_5795_11005 = 2130968931;
+			
+			// aapt resource value: 0x7f040164
+			public const int t15_5795_11006 = 2130968932;
+			
+			// aapt resource value: 0x7f040165
+			public const int t15_5795_11007 = 2130968933;
+			
+			// aapt resource value: 0x7f040166
+			public const int t15_5795_11008 = 2130968934;
+			
+			// aapt resource value: 0x7f040167
+			public const int t15_5795_11009 = 2130968935;
+			
+			// aapt resource value: 0x7f040168
+			public const int t15_5795_11010 = 2130968936;
+			
+			// aapt resource value: 0x7f040169
+			public const int t15_5795_11011 = 2130968937;
+			
+			// aapt resource value: 0x7f04016a
+			public const int t15_5795_11012 = 2130968938;
+			
+			// aapt resource value: 0x7f04016b
+			public const int t15_5796_10994 = 2130968939;
+			
+			// aapt resource value: 0x7f04016c
+			public const int t15_5796_10995 = 2130968940;
+			
+			// aapt resource value: 0x7f04016d
+			public const int t15_5796_10996 = 2130968941;
+			
+			// aapt resource value: 0x7f04016e
+			public const int t15_5796_10997 = 2130968942;
+			
+			// aapt resource value: 0x7f04016f
+			public const int t15_5796_10998 = 2130968943;
+			
+			// aapt resource value: 0x7f040170
+			public const int t15_5796_10999 = 2130968944;
+			
+			// aapt resource value: 0x7f040171
+			public const int t15_5796_11000 = 2130968945;
+			
+			// aapt resource value: 0x7f040172
+			public const int t15_5796_11001 = 2130968946;
+			
+			// aapt resource value: 0x7f040173
+			public const int t15_5796_11002 = 2130968947;
+			
+			// aapt resource value: 0x7f040174
+			public const int t15_5796_11003 = 2130968948;
+			
+			// aapt resource value: 0x7f040175
+			public const int t15_5796_11004 = 2130968949;
+			
+			// aapt resource value: 0x7f040176
+			public const int t15_5796_11005 = 2130968950;
+			
+			// aapt resource value: 0x7f040177
+			public const int t15_5796_11006 = 2130968951;
+			
+			// aapt resource value: 0x7f040178
+			public const int t15_5796_11007 = 2130968952;
+			
+			// aapt resource value: 0x7f040179
+			public const int t15_5796_11008 = 2130968953;
+			
+			// aapt resource value: 0x7f04017a
+			public const int t15_5796_11009 = 2130968954;
+			
+			// aapt resource value: 0x7f04017b
+			public const int t15_5796_11010 = 2130968955;
+			
+			// aapt resource value: 0x7f04017c
+			public const int t15_5796_11011 = 2130968956;
+			
+			// aapt resource value: 0x7f04017d
+			public const int t15_5796_11012 = 2130968957;
+			
+			// aapt resource value: 0x7f04017e
+			public const int t15_5797_10994 = 2130968958;
+			
+			// aapt resource value: 0x7f04017f
+			public const int t15_5797_10995 = 2130968959;
+			
+			// aapt resource value: 0x7f040180
+			public const int t15_5797_10996 = 2130968960;
+			
+			// aapt resource value: 0x7f040181
+			public const int t15_5797_10997 = 2130968961;
+			
+			// aapt resource value: 0x7f040182
+			public const int t15_5797_10998 = 2130968962;
+			
+			// aapt resource value: 0x7f040183
+			public const int t15_5797_10999 = 2130968963;
+			
+			// aapt resource value: 0x7f040184
+			public const int t15_5797_11000 = 2130968964;
+			
+			// aapt resource value: 0x7f040185
+			public const int t15_5797_11001 = 2130968965;
+			
+			// aapt resource value: 0x7f040186
+			public const int t15_5797_11002 = 2130968966;
+			
+			// aapt resource value: 0x7f040187
+			public const int t15_5797_11003 = 2130968967;
+			
+			// aapt resource value: 0x7f040188
+			public const int t15_5797_11004 = 2130968968;
+			
+			// aapt resource value: 0x7f040189
+			public const int t15_5797_11005 = 2130968969;
+			
+			// aapt resource value: 0x7f04018a
+			public const int t15_5797_11006 = 2130968970;
+			
+			// aapt resource value: 0x7f04018b
+			public const int t15_5797_11007 = 2130968971;
+			
+			// aapt resource value: 0x7f04018c
+			public const int t15_5797_11008 = 2130968972;
+			
+			// aapt resource value: 0x7f04018d
+			public const int t15_5797_11009 = 2130968973;
+			
+			// aapt resource value: 0x7f04018e
+			public const int t15_5797_11010 = 2130968974;
+			
+			// aapt resource value: 0x7f04018f
+			public const int t15_5797_11011 = 2130968975;
+			
+			// aapt resource value: 0x7f040190
+			public const int t15_5797_11012 = 2130968976;
+			
+			// aapt resource value: 0x7f040191
+			public const int t15_5798_10994 = 2130968977;
+			
+			// aapt resource value: 0x7f040192
+			public const int t15_5798_10995 = 2130968978;
+			
+			// aapt resource value: 0x7f040193
+			public const int t15_5798_10996 = 2130968979;
+			
+			// aapt resource value: 0x7f040194
+			public const int t15_5798_10997 = 2130968980;
+			
+			// aapt resource value: 0x7f040195
+			public const int t15_5798_10998 = 2130968981;
+			
+			// aapt resource value: 0x7f040196
+			public const int t15_5798_10999 = 2130968982;
+			
+			// aapt resource value: 0x7f040197
+			public const int t15_5798_11000 = 2130968983;
+			
+			// aapt resource value: 0x7f040198
+			public const int t15_5798_11001 = 2130968984;
+			
+			// aapt resource value: 0x7f040199
+			public const int t15_5798_11002 = 2130968985;
+			
+			// aapt resource value: 0x7f04019a
+			public const int t15_5798_11003 = 2130968986;
+			
+			// aapt resource value: 0x7f04019b
+			public const int t15_5798_11004 = 2130968987;
+			
+			// aapt resource value: 0x7f04019c
+			public const int t15_5798_11005 = 2130968988;
+			
+			// aapt resource value: 0x7f04019d
+			public const int t15_5798_11006 = 2130968989;
+			
+			// aapt resource value: 0x7f04019e
+			public const int t15_5798_11007 = 2130968990;
+			
+			// aapt resource value: 0x7f04019f
+			public const int t15_5798_11008 = 2130968991;
+			
+			// aapt resource value: 0x7f0401a0
+			public const int t15_5798_11009 = 2130968992;
+			
+			// aapt resource value: 0x7f0401a1
+			public const int t15_5798_11010 = 2130968993;
+			
+			// aapt resource value: 0x7f0401a2
+			public const int t15_5798_11011 = 2130968994;
+			
+			// aapt resource value: 0x7f0401a3
+			public const int t15_5798_11012 = 2130968995;
+			
+			// aapt resource value: 0x7f0401a4
+			public const int t15_5799_10994 = 2130968996;
+			
+			// aapt resource value: 0x7f0401a5
+			public const int t15_5799_10995 = 2130968997;
+			
+			// aapt resource value: 0x7f0401a6
+			public const int t15_5799_10996 = 2130968998;
+			
+			// aapt resource value: 0x7f0401a7
+			public const int t15_5799_10997 = 2130968999;
+			
+			// aapt resource value: 0x7f0401a8
+			public const int t15_5799_10998 = 2130969000;
+			
+			// aapt resource value: 0x7f0401a9
+			public const int t15_5799_10999 = 2130969001;
+			
+			// aapt resource value: 0x7f0401aa
+			public const int t15_5799_11000 = 2130969002;
+			
+			// aapt resource value: 0x7f0401ab
+			public const int t15_5799_11001 = 2130969003;
+			
+			// aapt resource value: 0x7f0401ac
+			public const int t15_5799_11002 = 2130969004;
+			
+			// aapt resource value: 0x7f0401ad
+			public const int t15_5799_11003 = 2130969005;
+			
+			// aapt resource value: 0x7f0401ae
+			public const int t15_5799_11004 = 2130969006;
+			
+			// aapt resource value: 0x7f0401af
+			public const int t15_5799_11005 = 2130969007;
+			
+			// aapt resource value: 0x7f0401b0
+			public const int t15_5799_11006 = 2130969008;
+			
+			// aapt resource value: 0x7f0401b1
+			public const int t15_5799_11007 = 2130969009;
+			
+			// aapt resource value: 0x7f0401b2
+			public const int t15_5799_11008 = 2130969010;
+			
+			// aapt resource value: 0x7f0401b3
+			public const int t15_5799_11009 = 2130969011;
+			
+			// aapt resource value: 0x7f0401b4
+			public const int t15_5799_11010 = 2130969012;
+			
+			// aapt resource value: 0x7f0401b5
+			public const int t15_5799_11011 = 2130969013;
+			
+			// aapt resource value: 0x7f0401b6
+			public const int t15_5799_11012 = 2130969014;
+			
+			// aapt resource value: 0x7f0401b7
+			public const int t15_5800_10994 = 2130969015;
+			
+			// aapt resource value: 0x7f0401b8
+			public const int t15_5800_10995 = 2130969016;
+			
+			// aapt resource value: 0x7f0401b9
+			public const int t15_5800_10996 = 2130969017;
+			
+			// aapt resource value: 0x7f0401ba
+			public const int t15_5800_10997 = 2130969018;
+			
+			// aapt resource value: 0x7f0401bb
+			public const int t15_5800_10998 = 2130969019;
+			
+			// aapt resource value: 0x7f0401bc
+			public const int t15_5800_10999 = 2130969020;
+			
+			// aapt resource value: 0x7f0401bd
+			public const int t15_5800_11000 = 2130969021;
+			
+			// aapt resource value: 0x7f0401be
+			public const int t15_5800_11001 = 2130969022;
+			
+			// aapt resource value: 0x7f0401bf
+			public const int t15_5800_11002 = 2130969023;
+			
+			// aapt resource value: 0x7f0401c0
+			public const int t15_5800_11003 = 2130969024;
+			
+			// aapt resource value: 0x7f0401c1
+			public const int t15_5800_11004 = 2130969025;
+			
+			// aapt resource value: 0x7f0401c2
+			public const int t15_5800_11005 = 2130969026;
+			
+			// aapt resource value: 0x7f0401c3
+			public const int t15_5800_11006 = 2130969027;
+			
+			// aapt resource value: 0x7f0401c4
+			public const int t15_5800_11007 = 2130969028;
+			
+			// aapt resource value: 0x7f0401c5
+			public const int t15_5800_11008 = 2130969029;
+			
+			// aapt resource value: 0x7f0401c6
+			public const int t15_5800_11009 = 2130969030;
+			
+			// aapt resource value: 0x7f0401c7
+			public const int t15_5800_11010 = 2130969031;
+			
+			// aapt resource value: 0x7f0401c8
+			public const int t15_5800_11011 = 2130969032;
+			
+			// aapt resource value: 0x7f0401c9
+			public const int t15_5800_11012 = 2130969033;
+			
+			// aapt resource value: 0x7f0401ca
+			public const int t15_5801_10994 = 2130969034;
+			
+			// aapt resource value: 0x7f0401cb
+			public const int t15_5801_10995 = 2130969035;
+			
+			// aapt resource value: 0x7f0401cc
+			public const int t15_5801_10996 = 2130969036;
+			
+			// aapt resource value: 0x7f0401cd
+			public const int t15_5801_10997 = 2130969037;
+			
+			// aapt resource value: 0x7f0401ce
+			public const int t15_5801_10998 = 2130969038;
+			
+			// aapt resource value: 0x7f0401cf
+			public const int t15_5801_10999 = 2130969039;
+			
+			// aapt resource value: 0x7f0401d0
+			public const int t15_5801_11000 = 2130969040;
+			
+			// aapt resource value: 0x7f0401d1
+			public const int t15_5801_11001 = 2130969041;
+			
+			// aapt resource value: 0x7f0401d2
+			public const int t15_5801_11002 = 2130969042;
+			
+			// aapt resource value: 0x7f0401d3
+			public const int t15_5801_11003 = 2130969043;
+			
+			// aapt resource value: 0x7f0401d4
+			public const int t15_5801_11004 = 2130969044;
+			
+			// aapt resource value: 0x7f0401d5
+			public const int t15_5801_11005 = 2130969045;
+			
+			// aapt resource value: 0x7f0401d6
+			public const int t15_5801_11006 = 2130969046;
+			
+			// aapt resource value: 0x7f0401d7
+			public const int t15_5801_11007 = 2130969047;
+			
+			// aapt resource value: 0x7f0401d8
+			public const int t15_5801_11008 = 2130969048;
+			
+			// aapt resource value: 0x7f0401d9
+			public const int t15_5801_11009 = 2130969049;
+			
+			// aapt resource value: 0x7f0401da
+			public const int t15_5801_11010 = 2130969050;
+			
+			// aapt resource value: 0x7f0401db
+			public const int t15_5801_11011 = 2130969051;
+			
+			// aapt resource value: 0x7f0401dc
+			public const int t15_5801_11012 = 2130969052;
+			
+			// aapt resource value: 0x7f0401dd
+			public const int t15_5802_10994 = 2130969053;
+			
+			// aapt resource value: 0x7f0401de
+			public const int t15_5802_10995 = 2130969054;
+			
+			// aapt resource value: 0x7f0401df
+			public const int t15_5802_10996 = 2130969055;
+			
+			// aapt resource value: 0x7f0401e0
+			public const int t15_5802_10997 = 2130969056;
+			
+			// aapt resource value: 0x7f0401e1
+			public const int t15_5802_10998 = 2130969057;
+			
+			// aapt resource value: 0x7f0401e2
+			public const int t15_5802_10999 = 2130969058;
+			
+			// aapt resource value: 0x7f0401e3
+			public const int t15_5802_11000 = 2130969059;
+			
+			// aapt resource value: 0x7f0401e4
+			public const int t15_5802_11001 = 2130969060;
+			
+			// aapt resource value: 0x7f0401e5
+			public const int t15_5802_11002 = 2130969061;
+			
+			// aapt resource value: 0x7f0401e6
+			public const int t15_5802_11003 = 2130969062;
+			
+			// aapt resource value: 0x7f0401e7
+			public const int t15_5802_11004 = 2130969063;
+			
+			// aapt resource value: 0x7f0401e8
+			public const int t15_5802_11005 = 2130969064;
+			
+			// aapt resource value: 0x7f0401e9
+			public const int t15_5802_11006 = 2130969065;
+			
+			// aapt resource value: 0x7f0401ea
+			public const int t15_5802_11007 = 2130969066;
+			
+			// aapt resource value: 0x7f0401eb
+			public const int t15_5802_11008 = 2130969067;
+			
+			// aapt resource value: 0x7f0401ec
+			public const int t15_5802_11009 = 2130969068;
+			
+			// aapt resource value: 0x7f0401ed
+			public const int t15_5802_11010 = 2130969069;
+			
+			// aapt resource value: 0x7f0401ee
+			public const int t15_5802_11011 = 2130969070;
+			
+			// aapt resource value: 0x7f0401ef
+			public const int t15_5802_11012 = 2130969071;
+			
+			// aapt resource value: 0x7f0401f0
+			public const int t15_5803_10994 = 2130969072;
+			
+			// aapt resource value: 0x7f0401f1
+			public const int t15_5803_10995 = 2130969073;
+			
+			// aapt resource value: 0x7f0401f2
+			public const int t15_5803_10996 = 2130969074;
+			
+			// aapt resource value: 0x7f0401f3
+			public const int t15_5803_10997 = 2130969075;
+			
+			// aapt resource value: 0x7f0401f4
+			public const int t15_5803_10998 = 2130969076;
+			
+			// aapt resource value: 0x7f0401f5
+			public const int t15_5803_10999 = 2130969077;
+			
+			// aapt resource value: 0x7f0401f6
+			public const int t15_5803_11000 = 2130969078;
+			
+			// aapt resource value: 0x7f0401f7
+			public const int t15_5803_11001 = 2130969079;
+			
+			// aapt resource value: 0x7f0401f8
+			public const int t15_5803_11002 = 2130969080;
+			
+			// aapt resource value: 0x7f0401f9
+			public const int t15_5803_11003 = 2130969081;
+			
+			// aapt resource value: 0x7f0401fa
+			public const int t15_5803_11004 = 2130969082;
+			
+			// aapt resource value: 0x7f0401fb
+			public const int t15_5803_11005 = 2130969083;
+			
+			// aapt resource value: 0x7f0401fc
+			public const int t15_5803_11006 = 2130969084;
+			
+			// aapt resource value: 0x7f0401fd
+			public const int t15_5803_11007 = 2130969085;
+			
+			// aapt resource value: 0x7f0401fe
+			public const int t15_5803_11008 = 2130969086;
+			
+			// aapt resource value: 0x7f0401ff
+			public const int t15_5803_11009 = 2130969087;
+			
+			// aapt resource value: 0x7f040200
+			public const int t15_5803_11010 = 2130969088;
+			
+			// aapt resource value: 0x7f040201
+			public const int t15_5803_11011 = 2130969089;
+			
+			// aapt resource value: 0x7f040202
+			public const int t15_5803_11012 = 2130969090;
+			
+			// aapt resource value: 0x7f040203
+			public const int t15_5804_10994 = 2130969091;
+			
+			// aapt resource value: 0x7f040204
+			public const int t15_5804_10995 = 2130969092;
+			
+			// aapt resource value: 0x7f040205
+			public const int t15_5804_10996 = 2130969093;
+			
+			// aapt resource value: 0x7f040206
+			public const int t15_5804_10997 = 2130969094;
+			
+			// aapt resource value: 0x7f040207
+			public const int t15_5804_10998 = 2130969095;
+			
+			// aapt resource value: 0x7f040208
+			public const int t15_5804_10999 = 2130969096;
+			
+			// aapt resource value: 0x7f040209
+			public const int t15_5804_11000 = 2130969097;
+			
+			// aapt resource value: 0x7f04020a
+			public const int t15_5804_11001 = 2130969098;
+			
+			// aapt resource value: 0x7f04020b
+			public const int t15_5804_11002 = 2130969099;
+			
+			// aapt resource value: 0x7f04020c
+			public const int t15_5804_11003 = 2130969100;
+			
+			// aapt resource value: 0x7f04020d
+			public const int t15_5804_11004 = 2130969101;
+			
+			// aapt resource value: 0x7f04020e
+			public const int t15_5804_11005 = 2130969102;
+			
+			// aapt resource value: 0x7f04020f
+			public const int t15_5804_11006 = 2130969103;
+			
+			// aapt resource value: 0x7f040210
+			public const int t15_5804_11007 = 2130969104;
+			
+			// aapt resource value: 0x7f040211
+			public const int t15_5804_11008 = 2130969105;
+			
+			// aapt resource value: 0x7f040212
+			public const int t15_5804_11009 = 2130969106;
+			
+			// aapt resource value: 0x7f040213
+			public const int t15_5804_11010 = 2130969107;
+			
+			// aapt resource value: 0x7f040214
+			public const int t15_5804_11011 = 2130969108;
+			
+			// aapt resource value: 0x7f040215
+			public const int t15_5804_11012 = 2130969109;
+			
+			// aapt resource value: 0x7f040216
+			public const int t15_5805_10994 = 2130969110;
+			
+			// aapt resource value: 0x7f040217
+			public const int t15_5805_10995 = 2130969111;
+			
+			// aapt resource value: 0x7f040218
+			public const int t15_5805_10996 = 2130969112;
+			
+			// aapt resource value: 0x7f040219
+			public const int t15_5805_10997 = 2130969113;
+			
+			// aapt resource value: 0x7f04021a
+			public const int t15_5805_10998 = 2130969114;
+			
+			// aapt resource value: 0x7f04021b
+			public const int t15_5805_10999 = 2130969115;
+			
+			// aapt resource value: 0x7f04021c
+			public const int t15_5805_11000 = 2130969116;
+			
+			// aapt resource value: 0x7f04021d
+			public const int t15_5805_11001 = 2130969117;
+			
+			// aapt resource value: 0x7f04021e
+			public const int t15_5805_11002 = 2130969118;
+			
+			// aapt resource value: 0x7f04021f
+			public const int t15_5805_11003 = 2130969119;
+			
+			// aapt resource value: 0x7f040220
+			public const int t15_5805_11004 = 2130969120;
+			
+			// aapt resource value: 0x7f040221
+			public const int t15_5805_11005 = 2130969121;
+			
+			// aapt resource value: 0x7f040222
+			public const int t15_5805_11006 = 2130969122;
+			
+			// aapt resource value: 0x7f040223
+			public const int t15_5805_11007 = 2130969123;
+			
+			// aapt resource value: 0x7f040224
+			public const int t15_5805_11008 = 2130969124;
+			
+			// aapt resource value: 0x7f040225
+			public const int t15_5805_11009 = 2130969125;
+			
+			// aapt resource value: 0x7f040226
+			public const int t15_5805_11010 = 2130969126;
+			
+			// aapt resource value: 0x7f040227
+			public const int t15_5805_11011 = 2130969127;
+			
+			// aapt resource value: 0x7f040228
+			public const int t15_5805_11012 = 2130969128;
+			
+			// aapt resource value: 0x7f040229
+			public const int t15_5806_10994 = 2130969129;
+			
+			// aapt resource value: 0x7f04022a
+			public const int t15_5806_10995 = 2130969130;
+			
+			// aapt resource value: 0x7f04022b
+			public const int t15_5806_10996 = 2130969131;
+			
+			// aapt resource value: 0x7f04022c
+			public const int t15_5806_10997 = 2130969132;
+			
+			// aapt resource value: 0x7f04022d
+			public const int t15_5806_10998 = 2130969133;
+			
+			// aapt resource value: 0x7f04022e
+			public const int t15_5806_10999 = 2130969134;
+			
+			// aapt resource value: 0x7f04022f
+			public const int t15_5806_11000 = 2130969135;
+			
+			// aapt resource value: 0x7f040230
+			public const int t15_5806_11001 = 2130969136;
+			
+			// aapt resource value: 0x7f040231
+			public const int t15_5806_11002 = 2130969137;
+			
+			// aapt resource value: 0x7f040232
+			public const int t15_5806_11003 = 2130969138;
+			
+			// aapt resource value: 0x7f040233
+			public const int t15_5806_11004 = 2130969139;
+			
+			// aapt resource value: 0x7f040234
+			public const int t15_5806_11005 = 2130969140;
+			
+			// aapt resource value: 0x7f040235
+			public const int t15_5806_11006 = 2130969141;
+			
+			// aapt resource value: 0x7f040236
+			public const int t15_5806_11007 = 2130969142;
+			
+			// aapt resource value: 0x7f040237
+			public const int t15_5806_11008 = 2130969143;
+			
+			// aapt resource value: 0x7f040238
+			public const int t15_5806_11009 = 2130969144;
+			
+			// aapt resource value: 0x7f040239
+			public const int t15_5806_11010 = 2130969145;
+			
+			// aapt resource value: 0x7f04023a
+			public const int t15_5806_11011 = 2130969146;
+			
+			// aapt resource value: 0x7f04023b
+			public const int t15_5806_11012 = 2130969147;
+			
+			// aapt resource value: 0x7f04023c
+			public const int t15_5807_10994 = 2130969148;
+			
+			// aapt resource value: 0x7f04023d
+			public const int t15_5807_10995 = 2130969149;
+			
+			// aapt resource value: 0x7f04023e
+			public const int t15_5807_10996 = 2130969150;
+			
+			// aapt resource value: 0x7f04023f
+			public const int t15_5807_10997 = 2130969151;
+			
+			// aapt resource value: 0x7f040240
+			public const int t15_5807_10998 = 2130969152;
+			
+			// aapt resource value: 0x7f040241
+			public const int t15_5807_10999 = 2130969153;
+			
+			// aapt resource value: 0x7f040242
+			public const int t15_5807_11000 = 2130969154;
+			
+			// aapt resource value: 0x7f040243
+			public const int t15_5807_11001 = 2130969155;
+			
+			// aapt resource value: 0x7f040244
+			public const int t15_5807_11002 = 2130969156;
+			
+			// aapt resource value: 0x7f040245
+			public const int t15_5807_11003 = 2130969157;
+			
+			// aapt resource value: 0x7f040246
+			public const int t15_5807_11004 = 2130969158;
+			
+			// aapt resource value: 0x7f040247
+			public const int t15_5807_11005 = 2130969159;
+			
+			// aapt resource value: 0x7f040248
+			public const int t15_5807_11006 = 2130969160;
+			
+			// aapt resource value: 0x7f040249
+			public const int t15_5807_11007 = 2130969161;
+			
+			// aapt resource value: 0x7f04024a
+			public const int t15_5807_11008 = 2130969162;
+			
+			// aapt resource value: 0x7f04024b
+			public const int t15_5807_11009 = 2130969163;
+			
+			// aapt resource value: 0x7f04024c
+			public const int t15_5807_11010 = 2130969164;
+			
+			// aapt resource value: 0x7f04024d
+			public const int t15_5807_11011 = 2130969165;
+			
+			// aapt resource value: 0x7f04024e
+			public const int t15_5807_11012 = 2130969166;
+			
+			// aapt resource value: 0x7f04024f
+			public const int t15_5808_10994 = 2130969167;
+			
+			// aapt resource value: 0x7f040250
+			public const int t15_5808_10995 = 2130969168;
+			
+			// aapt resource value: 0x7f040251
+			public const int t15_5808_10996 = 2130969169;
+			
+			// aapt resource value: 0x7f040252
+			public const int t15_5808_10997 = 2130969170;
+			
+			// aapt resource value: 0x7f040253
+			public const int t15_5808_10998 = 2130969171;
+			
+			// aapt resource value: 0x7f040254
+			public const int t15_5808_10999 = 2130969172;
+			
+			// aapt resource value: 0x7f040255
+			public const int t15_5808_11000 = 2130969173;
+			
+			// aapt resource value: 0x7f040256
+			public const int t15_5808_11001 = 2130969174;
+			
+			// aapt resource value: 0x7f040257
+			public const int t15_5808_11002 = 2130969175;
+			
+			// aapt resource value: 0x7f040258
+			public const int t15_5808_11003 = 2130969176;
+			
+			// aapt resource value: 0x7f040259
+			public const int t15_5808_11004 = 2130969177;
+			
+			// aapt resource value: 0x7f04025a
+			public const int t15_5808_11005 = 2130969178;
+			
+			// aapt resource value: 0x7f04025b
+			public const int t15_5808_11006 = 2130969179;
+			
+			// aapt resource value: 0x7f04025c
+			public const int t15_5808_11007 = 2130969180;
+			
+			// aapt resource value: 0x7f04025d
+			public const int t15_5808_11008 = 2130969181;
+			
+			// aapt resource value: 0x7f04025e
+			public const int t15_5808_11009 = 2130969182;
+			
+			// aapt resource value: 0x7f04025f
+			public const int t15_5808_11010 = 2130969183;
+			
+			// aapt resource value: 0x7f040260
+			public const int t15_5808_11011 = 2130969184;
+			
+			// aapt resource value: 0x7f040261
+			public const int t15_5808_11012 = 2130969185;
+			
+			// aapt resource value: 0x7f040262
+			public const int t15_5809_10994 = 2130969186;
+			
+			// aapt resource value: 0x7f040263
+			public const int t15_5809_10995 = 2130969187;
+			
+			// aapt resource value: 0x7f040264
+			public const int t15_5809_10996 = 2130969188;
+			
+			// aapt resource value: 0x7f040265
+			public const int t15_5809_10997 = 2130969189;
+			
+			// aapt resource value: 0x7f040266
+			public const int t15_5809_10998 = 2130969190;
+			
+			// aapt resource value: 0x7f040267
+			public const int t15_5809_10999 = 2130969191;
+			
+			// aapt resource value: 0x7f040268
+			public const int t15_5809_11000 = 2130969192;
+			
+			// aapt resource value: 0x7f040269
+			public const int t15_5809_11001 = 2130969193;
+			
+			// aapt resource value: 0x7f04026a
+			public const int t15_5809_11002 = 2130969194;
+			
+			// aapt resource value: 0x7f04026b
+			public const int t15_5809_11003 = 2130969195;
+			
+			// aapt resource value: 0x7f04026c
+			public const int t15_5809_11004 = 2130969196;
+			
+			// aapt resource value: 0x7f04026d
+			public const int t15_5809_11005 = 2130969197;
+			
+			// aapt resource value: 0x7f04026e
+			public const int t15_5809_11006 = 2130969198;
+			
+			// aapt resource value: 0x7f04026f
+			public const int t15_5809_11007 = 2130969199;
+			
+			// aapt resource value: 0x7f040270
+			public const int t15_5809_11008 = 2130969200;
+			
+			// aapt resource value: 0x7f040271
+			public const int t15_5809_11009 = 2130969201;
+			
+			// aapt resource value: 0x7f040272
+			public const int t15_5809_11010 = 2130969202;
+			
+			// aapt resource value: 0x7f040273
+			public const int t15_5809_11011 = 2130969203;
+			
+			// aapt resource value: 0x7f040274
+			public const int t15_5809_11012 = 2130969204;
+			
+			// aapt resource value: 0x7f040275
+			public const int t15_5810_10994 = 2130969205;
+			
+			// aapt resource value: 0x7f040276
+			public const int t15_5810_10995 = 2130969206;
+			
+			// aapt resource value: 0x7f040277
+			public const int t15_5810_10996 = 2130969207;
+			
+			// aapt resource value: 0x7f040278
+			public const int t15_5810_10997 = 2130969208;
+			
+			// aapt resource value: 0x7f040279
+			public const int t15_5810_10998 = 2130969209;
+			
+			// aapt resource value: 0x7f04027a
+			public const int t15_5810_10999 = 2130969210;
+			
+			// aapt resource value: 0x7f04027b
+			public const int t15_5810_11000 = 2130969211;
+			
+			// aapt resource value: 0x7f04027c
+			public const int t15_5810_11001 = 2130969212;
+			
+			// aapt resource value: 0x7f04027d
+			public const int t15_5810_11002 = 2130969213;
+			
+			// aapt resource value: 0x7f04027e
+			public const int t15_5810_11003 = 2130969214;
+			
+			// aapt resource value: 0x7f04027f
+			public const int t15_5810_11004 = 2130969215;
+			
+			// aapt resource value: 0x7f040280
+			public const int t15_5810_11005 = 2130969216;
+			
+			// aapt resource value: 0x7f040281
+			public const int t15_5810_11006 = 2130969217;
+			
+			// aapt resource value: 0x7f040282
+			public const int t15_5810_11007 = 2130969218;
+			
+			// aapt resource value: 0x7f040283
+			public const int t15_5810_11008 = 2130969219;
+			
+			// aapt resource value: 0x7f040284
+			public const int t15_5810_11009 = 2130969220;
+			
+			// aapt resource value: 0x7f040285
+			public const int t15_5810_11010 = 2130969221;
+			
+			// aapt resource value: 0x7f040286
+			public const int t15_5810_11011 = 2130969222;
+			
+			// aapt resource value: 0x7f040287
+			public const int t15_5810_11012 = 2130969223;
+			
+			// aapt resource value: 0x7f040288
+			public const int t15_5811_10994 = 2130969224;
+			
+			// aapt resource value: 0x7f040289
+			public const int t15_5811_10995 = 2130969225;
+			
+			// aapt resource value: 0x7f04028a
+			public const int t15_5811_10996 = 2130969226;
+			
+			// aapt resource value: 0x7f04028b
+			public const int t15_5811_10997 = 2130969227;
+			
+			// aapt resource value: 0x7f04028c
+			public const int t15_5811_10998 = 2130969228;
+			
+			// aapt resource value: 0x7f04028d
+			public const int t15_5811_10999 = 2130969229;
+			
+			// aapt resource value: 0x7f04028e
+			public const int t15_5811_11000 = 2130969230;
+			
+			// aapt resource value: 0x7f04028f
+			public const int t15_5811_11001 = 2130969231;
+			
+			// aapt resource value: 0x7f040290
+			public const int t15_5811_11002 = 2130969232;
+			
+			// aapt resource value: 0x7f040291
+			public const int t15_5811_11003 = 2130969233;
+			
+			// aapt resource value: 0x7f040292
+			public const int t15_5811_11004 = 2130969234;
+			
+			// aapt resource value: 0x7f040293
+			public const int t15_5811_11005 = 2130969235;
+			
+			// aapt resource value: 0x7f040294
+			public const int t15_5811_11006 = 2130969236;
+			
+			// aapt resource value: 0x7f040295
+			public const int t15_5811_11007 = 2130969237;
+			
+			// aapt resource value: 0x7f040296
+			public const int t15_5811_11008 = 2130969238;
+			
+			// aapt resource value: 0x7f040297
+			public const int t15_5811_11009 = 2130969239;
+			
+			// aapt resource value: 0x7f040298
+			public const int t15_5811_11010 = 2130969240;
+			
+			// aapt resource value: 0x7f040299
+			public const int t15_5811_11011 = 2130969241;
+			
+			// aapt resource value: 0x7f04029a
+			public const int t15_5811_11012 = 2130969242;
+			
+			// aapt resource value: 0x7f04029b
+			public const int t15_5812_10994 = 2130969243;
+			
+			// aapt resource value: 0x7f04029c
+			public const int t15_5812_10995 = 2130969244;
+			
+			// aapt resource value: 0x7f04029d
+			public const int t15_5812_10996 = 2130969245;
+			
+			// aapt resource value: 0x7f04029e
+			public const int t15_5812_10997 = 2130969246;
+			
+			// aapt resource value: 0x7f04029f
+			public const int t15_5812_10998 = 2130969247;
+			
+			// aapt resource value: 0x7f0402a0
+			public const int t15_5812_10999 = 2130969248;
+			
+			// aapt resource value: 0x7f0402a1
+			public const int t15_5812_11000 = 2130969249;
+			
+			// aapt resource value: 0x7f0402a2
+			public const int t15_5812_11001 = 2130969250;
+			
+			// aapt resource value: 0x7f0402a3
+			public const int t15_5812_11002 = 2130969251;
+			
+			// aapt resource value: 0x7f0402a4
+			public const int t15_5812_11003 = 2130969252;
+			
+			// aapt resource value: 0x7f0402a5
+			public const int t15_5812_11004 = 2130969253;
+			
+			// aapt resource value: 0x7f0402a6
+			public const int t15_5812_11005 = 2130969254;
+			
+			// aapt resource value: 0x7f0402a7
+			public const int t15_5812_11006 = 2130969255;
+			
+			// aapt resource value: 0x7f0402a8
+			public const int t15_5812_11007 = 2130969256;
+			
+			// aapt resource value: 0x7f0402a9
+			public const int t15_5812_11008 = 2130969257;
+			
+			// aapt resource value: 0x7f0402aa
+			public const int t15_5812_11009 = 2130969258;
+			
+			// aapt resource value: 0x7f0402ab
+			public const int t15_5812_11010 = 2130969259;
+			
+			// aapt resource value: 0x7f0402ac
+			public const int t15_5812_11011 = 2130969260;
+			
+			// aapt resource value: 0x7f0402ad
+			public const int t15_5812_11012 = 2130969261;
+			
+			// aapt resource value: 0x7f0402ae
+			public const int t15_5813_10994 = 2130969262;
+			
+			// aapt resource value: 0x7f0402af
+			public const int t15_5813_10995 = 2130969263;
+			
+			// aapt resource value: 0x7f0402b0
+			public const int t15_5813_10996 = 2130969264;
+			
+			// aapt resource value: 0x7f0402b1
+			public const int t15_5813_10997 = 2130969265;
+			
+			// aapt resource value: 0x7f0402b2
+			public const int t15_5813_10998 = 2130969266;
+			
+			// aapt resource value: 0x7f0402b3
+			public const int t15_5813_10999 = 2130969267;
+			
+			// aapt resource value: 0x7f0402b4
+			public const int t15_5813_11000 = 2130969268;
+			
+			// aapt resource value: 0x7f0402b5
+			public const int t15_5813_11001 = 2130969269;
+			
+			// aapt resource value: 0x7f0402b6
+			public const int t15_5813_11002 = 2130969270;
+			
+			// aapt resource value: 0x7f0402b7
+			public const int t15_5813_11003 = 2130969271;
+			
+			// aapt resource value: 0x7f0402b8
+			public const int t15_5813_11004 = 2130969272;
+			
+			// aapt resource value: 0x7f0402b9
+			public const int t15_5813_11005 = 2130969273;
+			
+			// aapt resource value: 0x7f0402ba
+			public const int t15_5813_11006 = 2130969274;
+			
+			// aapt resource value: 0x7f0402bb
+			public const int t15_5813_11007 = 2130969275;
+			
+			// aapt resource value: 0x7f0402bc
+			public const int t15_5813_11008 = 2130969276;
+			
+			// aapt resource value: 0x7f0402bd
+			public const int t15_5813_11009 = 2130969277;
+			
+			// aapt resource value: 0x7f0402be
+			public const int t15_5813_11010 = 2130969278;
+			
+			// aapt resource value: 0x7f0402bf
+			public const int t15_5813_11011 = 2130969279;
+			
+			// aapt resource value: 0x7f0402c0
+			public const int t15_5813_11012 = 2130969280;
+			
+			// aapt resource value: 0x7f0402c1
+			public const int t15_5814_10994 = 2130969281;
+			
+			// aapt resource value: 0x7f0402c2
+			public const int t15_5814_10995 = 2130969282;
+			
+			// aapt resource value: 0x7f0402c3
+			public const int t15_5814_10996 = 2130969283;
+			
+			// aapt resource value: 0x7f0402c4
+			public const int t15_5814_10997 = 2130969284;
+			
+			// aapt resource value: 0x7f0402c5
+			public const int t15_5814_10998 = 2130969285;
+			
+			// aapt resource value: 0x7f0402c6
+			public const int t15_5814_10999 = 2130969286;
+			
+			// aapt resource value: 0x7f0402c7
+			public const int t15_5814_11000 = 2130969287;
+			
+			// aapt resource value: 0x7f0402c8
+			public const int t15_5814_11001 = 2130969288;
+			
+			// aapt resource value: 0x7f0402c9
+			public const int t15_5814_11002 = 2130969289;
+			
+			// aapt resource value: 0x7f0402ca
+			public const int t15_5814_11003 = 2130969290;
+			
+			// aapt resource value: 0x7f0402cb
+			public const int t15_5814_11004 = 2130969291;
+			
+			// aapt resource value: 0x7f0402cc
+			public const int t15_5814_11005 = 2130969292;
+			
+			// aapt resource value: 0x7f0402cd
+			public const int t15_5814_11006 = 2130969293;
+			
+			// aapt resource value: 0x7f0402ce
+			public const int t15_5814_11007 = 2130969294;
+			
+			// aapt resource value: 0x7f0402cf
+			public const int t15_5814_11008 = 2130969295;
+			
+			// aapt resource value: 0x7f0402d0
+			public const int t15_5814_11009 = 2130969296;
+			
+			// aapt resource value: 0x7f0402d1
+			public const int t15_5814_11010 = 2130969297;
+			
+			// aapt resource value: 0x7f0402d2
+			public const int t15_5814_11011 = 2130969298;
+			
+			// aapt resource value: 0x7f0402d3
+			public const int t15_5814_11012 = 2130969299;
+			
+			// aapt resource value: 0x7f0402d4
+			public const int t15_5815_10994 = 2130969300;
+			
+			// aapt resource value: 0x7f0402d5
+			public const int t15_5815_10995 = 2130969301;
+			
+			// aapt resource value: 0x7f0402d6
+			public const int t15_5815_10996 = 2130969302;
+			
+			// aapt resource value: 0x7f0402d7
+			public const int t15_5815_10997 = 2130969303;
+			
+			// aapt resource value: 0x7f0402d8
+			public const int t15_5815_10998 = 2130969304;
+			
+			// aapt resource value: 0x7f0402d9
+			public const int t15_5815_10999 = 2130969305;
+			
+			// aapt resource value: 0x7f0402da
+			public const int t15_5815_11000 = 2130969306;
+			
+			// aapt resource value: 0x7f0402db
+			public const int t15_5815_11001 = 2130969307;
+			
+			// aapt resource value: 0x7f0402dc
+			public const int t15_5815_11002 = 2130969308;
+			
+			// aapt resource value: 0x7f0402dd
+			public const int t15_5815_11003 = 2130969309;
+			
+			// aapt resource value: 0x7f0402de
+			public const int t15_5815_11004 = 2130969310;
+			
+			// aapt resource value: 0x7f0402df
+			public const int t15_5815_11005 = 2130969311;
+			
+			// aapt resource value: 0x7f0402e0
+			public const int t15_5815_11006 = 2130969312;
+			
+			// aapt resource value: 0x7f0402e1
+			public const int t15_5815_11007 = 2130969313;
+			
+			// aapt resource value: 0x7f0402e2
+			public const int t15_5815_11008 = 2130969314;
+			
+			// aapt resource value: 0x7f0402e3
+			public const int t15_5815_11009 = 2130969315;
+			
+			// aapt resource value: 0x7f0402e4
+			public const int t15_5815_11010 = 2130969316;
+			
+			// aapt resource value: 0x7f0402e5
+			public const int t15_5815_11011 = 2130969317;
+			
+			// aapt resource value: 0x7f0402e6
+			public const int t15_5815_11012 = 2130969318;
+			
+			// aapt resource value: 0x7f0402e7
+			public const int t15_5816_10994 = 2130969319;
+			
+			// aapt resource value: 0x7f0402e8
+			public const int t15_5816_10995 = 2130969320;
+			
+			// aapt resource value: 0x7f0402e9
+			public const int t15_5816_10996 = 2130969321;
+			
+			// aapt resource value: 0x7f0402ea
+			public const int t15_5816_10997 = 2130969322;
+			
+			// aapt resource value: 0x7f0402eb
+			public const int t15_5816_10998 = 2130969323;
+			
+			// aapt resource value: 0x7f0402ec
+			public const int t15_5816_10999 = 2130969324;
+			
+			// aapt resource value: 0x7f0402ed
+			public const int t15_5816_11000 = 2130969325;
+			
+			// aapt resource value: 0x7f0402ee
+			public const int t15_5816_11001 = 2130969326;
+			
+			// aapt resource value: 0x7f0402ef
+			public const int t15_5816_11002 = 2130969327;
+			
+			// aapt resource value: 0x7f0402f0
+			public const int t15_5816_11003 = 2130969328;
+			
+			// aapt resource value: 0x7f0402f1
+			public const int t15_5816_11004 = 2130969329;
+			
+			// aapt resource value: 0x7f0402f2
+			public const int t15_5816_11005 = 2130969330;
+			
+			// aapt resource value: 0x7f0402f3
+			public const int t15_5816_11006 = 2130969331;
+			
+			// aapt resource value: 0x7f0402f4
+			public const int t15_5816_11007 = 2130969332;
+			
+			// aapt resource value: 0x7f0402f5
+			public const int t15_5816_11008 = 2130969333;
+			
+			// aapt resource value: 0x7f0402f6
+			public const int t15_5816_11009 = 2130969334;
+			
+			// aapt resource value: 0x7f0402f7
+			public const int t15_5816_11010 = 2130969335;
+			
+			// aapt resource value: 0x7f0402f8
+			public const int t15_5816_11011 = 2130969336;
+			
+			// aapt resource value: 0x7f0402f9
+			public const int t15_5816_11012 = 2130969337;
+			
+			// aapt resource value: 0x7f0402fa
+			public const int t15_5817_10994 = 2130969338;
+			
+			// aapt resource value: 0x7f0402fb
+			public const int t15_5817_10995 = 2130969339;
+			
+			// aapt resource value: 0x7f0402fc
+			public const int t15_5817_10996 = 2130969340;
+			
+			// aapt resource value: 0x7f0402fd
+			public const int t15_5817_10997 = 2130969341;
+			
+			// aapt resource value: 0x7f0402fe
+			public const int t15_5817_10998 = 2130969342;
+			
+			// aapt resource value: 0x7f0402ff
+			public const int t15_5817_10999 = 2130969343;
+			
+			// aapt resource value: 0x7f040300
+			public const int t15_5817_11000 = 2130969344;
+			
+			// aapt resource value: 0x7f040301
+			public const int t15_5817_11001 = 2130969345;
+			
+			// aapt resource value: 0x7f040302
+			public const int t15_5817_11002 = 2130969346;
+			
+			// aapt resource value: 0x7f040303
+			public const int t15_5817_11003 = 2130969347;
+			
+			// aapt resource value: 0x7f040304
+			public const int t15_5817_11004 = 2130969348;
+			
+			// aapt resource value: 0x7f040305
+			public const int t15_5817_11005 = 2130969349;
+			
+			// aapt resource value: 0x7f040306
+			public const int t15_5817_11006 = 2130969350;
+			
+			// aapt resource value: 0x7f040307
+			public const int t15_5817_11007 = 2130969351;
+			
+			// aapt resource value: 0x7f040308
+			public const int t15_5817_11008 = 2130969352;
+			
+			// aapt resource value: 0x7f040309
+			public const int t15_5817_11009 = 2130969353;
+			
+			// aapt resource value: 0x7f04030a
+			public const int t15_5817_11010 = 2130969354;
+			
+			// aapt resource value: 0x7f04030b
+			public const int t15_5817_11011 = 2130969355;
+			
+			// aapt resource value: 0x7f04030c
+			public const int t15_5817_11012 = 2130969356;
+			
+			// aapt resource value: 0x7f04030d
+			public const int t15_5818_10994 = 2130969357;
+			
+			// aapt resource value: 0x7f04030e
+			public const int t15_5818_10995 = 2130969358;
+			
+			// aapt resource value: 0x7f04030f
+			public const int t15_5818_10996 = 2130969359;
+			
+			// aapt resource value: 0x7f040310
+			public const int t15_5818_10997 = 2130969360;
+			
+			// aapt resource value: 0x7f040311
+			public const int t15_5818_10998 = 2130969361;
+			
+			// aapt resource value: 0x7f040312
+			public const int t15_5818_10999 = 2130969362;
+			
+			// aapt resource value: 0x7f040313
+			public const int t15_5818_11000 = 2130969363;
+			
+			// aapt resource value: 0x7f040314
+			public const int t15_5818_11001 = 2130969364;
+			
+			// aapt resource value: 0x7f040315
+			public const int t15_5818_11002 = 2130969365;
+			
+			// aapt resource value: 0x7f040316
+			public const int t15_5818_11003 = 2130969366;
+			
+			// aapt resource value: 0x7f040317
+			public const int t15_5818_11004 = 2130969367;
+			
+			// aapt resource value: 0x7f040318
+			public const int t15_5818_11005 = 2130969368;
+			
+			// aapt resource value: 0x7f040319
+			public const int t15_5818_11006 = 2130969369;
+			
+			// aapt resource value: 0x7f04031a
+			public const int t15_5818_11007 = 2130969370;
+			
+			// aapt resource value: 0x7f04031b
+			public const int t15_5818_11008 = 2130969371;
+			
+			// aapt resource value: 0x7f04031c
+			public const int t15_5818_11009 = 2130969372;
+			
+			// aapt resource value: 0x7f04031d
+			public const int t15_5818_11010 = 2130969373;
+			
+			// aapt resource value: 0x7f04031e
+			public const int t15_5818_11011 = 2130969374;
+			
+			// aapt resource value: 0x7f04031f
+			public const int t15_5818_11012 = 2130969375;
+			
+			// aapt resource value: 0x7f040320
+			public const int t15_5819_10994 = 2130969376;
+			
+			// aapt resource value: 0x7f040321
+			public const int t15_5819_10995 = 2130969377;
+			
+			// aapt resource value: 0x7f040322
+			public const int t15_5819_10996 = 2130969378;
+			
+			// aapt resource value: 0x7f040323
+			public const int t15_5819_10997 = 2130969379;
+			
+			// aapt resource value: 0x7f040324
+			public const int t15_5819_10998 = 2130969380;
+			
+			// aapt resource value: 0x7f040325
+			public const int t15_5819_10999 = 2130969381;
+			
+			// aapt resource value: 0x7f040326
+			public const int t15_5819_11000 = 2130969382;
+			
+			// aapt resource value: 0x7f040327
+			public const int t15_5819_11001 = 2130969383;
+			
+			// aapt resource value: 0x7f040328
+			public const int t15_5819_11002 = 2130969384;
+			
+			// aapt resource value: 0x7f040329
+			public const int t15_5819_11003 = 2130969385;
+			
+			// aapt resource value: 0x7f04032a
+			public const int t15_5819_11004 = 2130969386;
+			
+			// aapt resource value: 0x7f04032b
+			public const int t15_5819_11005 = 2130969387;
+			
+			// aapt resource value: 0x7f04032c
+			public const int t15_5819_11006 = 2130969388;
+			
+			// aapt resource value: 0x7f04032d
+			public const int t15_5819_11007 = 2130969389;
+			
+			// aapt resource value: 0x7f04032e
+			public const int t15_5819_11008 = 2130969390;
+			
+			// aapt resource value: 0x7f04032f
+			public const int t15_5819_11009 = 2130969391;
+			
+			// aapt resource value: 0x7f040330
+			public const int t15_5819_11010 = 2130969392;
+			
+			// aapt resource value: 0x7f040331
+			public const int t15_5819_11011 = 2130969393;
+			
+			// aapt resource value: 0x7f040332
+			public const int t15_5819_11012 = 2130969394;
+			
+			// aapt resource value: 0x7f040333
+			public const int t15_5820_10994 = 2130969395;
+			
+			// aapt resource value: 0x7f040334
+			public const int t15_5820_10995 = 2130969396;
+			
+			// aapt resource value: 0x7f040335
+			public const int t15_5820_10996 = 2130969397;
+			
+			// aapt resource value: 0x7f040336
+			public const int t15_5820_10997 = 2130969398;
+			
+			// aapt resource value: 0x7f040337
+			public const int t15_5820_10998 = 2130969399;
+			
+			// aapt resource value: 0x7f040338
+			public const int t15_5820_10999 = 2130969400;
+			
+			// aapt resource value: 0x7f040339
+			public const int t15_5820_11000 = 2130969401;
+			
+			// aapt resource value: 0x7f04033a
+			public const int t15_5820_11001 = 2130969402;
+			
+			// aapt resource value: 0x7f04033b
+			public const int t15_5820_11002 = 2130969403;
+			
+			// aapt resource value: 0x7f04033c
+			public const int t15_5820_11003 = 2130969404;
+			
+			// aapt resource value: 0x7f04033d
+			public const int t15_5820_11004 = 2130969405;
+			
+			// aapt resource value: 0x7f04033e
+			public const int t15_5820_11005 = 2130969406;
+			
+			// aapt resource value: 0x7f04033f
+			public const int t15_5820_11006 = 2130969407;
+			
+			// aapt resource value: 0x7f040340
+			public const int t15_5820_11007 = 2130969408;
+			
+			// aapt resource value: 0x7f040341
+			public const int t15_5820_11008 = 2130969409;
+			
+			// aapt resource value: 0x7f040342
+			public const int t15_5820_11009 = 2130969410;
+			
+			// aapt resource value: 0x7f040343
+			public const int t15_5820_11010 = 2130969411;
+			
+			// aapt resource value: 0x7f040344
+			public const int t15_5820_11011 = 2130969412;
+			
+			// aapt resource value: 0x7f040345
+			public const int t15_5820_11012 = 2130969413;
+			
+			// aapt resource value: 0x7f040346
+			public const int t15_5821_10994 = 2130969414;
+			
+			// aapt resource value: 0x7f040347
+			public const int t15_5821_10995 = 2130969415;
+			
+			// aapt resource value: 0x7f040348
+			public const int t15_5821_10996 = 2130969416;
+			
+			// aapt resource value: 0x7f040349
+			public const int t15_5821_10997 = 2130969417;
+			
+			// aapt resource value: 0x7f04034a
+			public const int t15_5821_10998 = 2130969418;
+			
+			// aapt resource value: 0x7f04034b
+			public const int t15_5821_10999 = 2130969419;
+			
+			// aapt resource value: 0x7f04034c
+			public const int t15_5821_11000 = 2130969420;
+			
+			// aapt resource value: 0x7f04034d
+			public const int t15_5821_11001 = 2130969421;
+			
+			// aapt resource value: 0x7f04034e
+			public const int t15_5821_11002 = 2130969422;
+			
+			// aapt resource value: 0x7f04034f
+			public const int t15_5821_11003 = 2130969423;
+			
+			// aapt resource value: 0x7f040350
+			public const int t15_5821_11004 = 2130969424;
+			
+			// aapt resource value: 0x7f040351
+			public const int t15_5821_11005 = 2130969425;
+			
+			// aapt resource value: 0x7f040352
+			public const int t15_5821_11006 = 2130969426;
+			
+			// aapt resource value: 0x7f040353
+			public const int t15_5821_11007 = 2130969427;
+			
+			// aapt resource value: 0x7f040354
+			public const int t15_5821_11008 = 2130969428;
+			
+			// aapt resource value: 0x7f040355
+			public const int t15_5821_11009 = 2130969429;
+			
+			// aapt resource value: 0x7f040356
+			public const int t15_5821_11010 = 2130969430;
+			
+			// aapt resource value: 0x7f040357
+			public const int t15_5821_11011 = 2130969431;
+			
+			// aapt resource value: 0x7f040358
+			public const int t15_5821_11012 = 2130969432;
+			
+			// aapt resource value: 0x7f040359
+			public const int t15_5822_10994 = 2130969433;
+			
+			// aapt resource value: 0x7f04035a
+			public const int t15_5822_10995 = 2130969434;
+			
+			// aapt resource value: 0x7f04035b
+			public const int t15_5822_10996 = 2130969435;
+			
+			// aapt resource value: 0x7f04035c
+			public const int t15_5822_10997 = 2130969436;
+			
+			// aapt resource value: 0x7f04035d
+			public const int t15_5822_10998 = 2130969437;
+			
+			// aapt resource value: 0x7f04035e
+			public const int t15_5822_10999 = 2130969438;
+			
+			// aapt resource value: 0x7f04035f
+			public const int t15_5822_11000 = 2130969439;
+			
+			// aapt resource value: 0x7f040360
+			public const int t15_5822_11001 = 2130969440;
+			
+			// aapt resource value: 0x7f040361
+			public const int t15_5822_11002 = 2130969441;
+			
+			// aapt resource value: 0x7f040362
+			public const int t15_5822_11003 = 2130969442;
+			
+			// aapt resource value: 0x7f040363
+			public const int t15_5822_11004 = 2130969443;
+			
+			// aapt resource value: 0x7f040364
+			public const int t15_5822_11005 = 2130969444;
+			
+			// aapt resource value: 0x7f040365
+			public const int t15_5822_11006 = 2130969445;
+			
+			// aapt resource value: 0x7f040366
+			public const int t15_5822_11007 = 2130969446;
+			
+			// aapt resource value: 0x7f040367
+			public const int t15_5822_11008 = 2130969447;
+			
+			// aapt resource value: 0x7f040368
+			public const int t15_5822_11009 = 2130969448;
+			
+			// aapt resource value: 0x7f040369
+			public const int t15_5822_11010 = 2130969449;
+			
+			// aapt resource value: 0x7f04036a
+			public const int t15_5822_11011 = 2130969450;
+			
+			// aapt resource value: 0x7f04036b
+			public const int t15_5822_11012 = 2130969451;
+			
+			// aapt resource value: 0x7f04036c
+			public const int t15_5823_10994 = 2130969452;
+			
+			// aapt resource value: 0x7f04036d
+			public const int t15_5823_10995 = 2130969453;
+			
+			// aapt resource value: 0x7f04036e
+			public const int t15_5823_10996 = 2130969454;
+			
+			// aapt resource value: 0x7f04036f
+			public const int t15_5823_10997 = 2130969455;
+			
+			// aapt resource value: 0x7f040370
+			public const int t15_5823_10998 = 2130969456;
+			
+			// aapt resource value: 0x7f040371
+			public const int t15_5823_10999 = 2130969457;
+			
+			// aapt resource value: 0x7f040372
+			public const int t15_5823_11000 = 2130969458;
+			
+			// aapt resource value: 0x7f040373
+			public const int t15_5823_11001 = 2130969459;
+			
+			// aapt resource value: 0x7f040374
+			public const int t15_5823_11002 = 2130969460;
+			
+			// aapt resource value: 0x7f040375
+			public const int t15_5823_11003 = 2130969461;
+			
+			// aapt resource value: 0x7f040376
+			public const int t15_5823_11004 = 2130969462;
+			
+			// aapt resource value: 0x7f040377
+			public const int t15_5823_11005 = 2130969463;
+			
+			// aapt resource value: 0x7f040378
+			public const int t15_5823_11006 = 2130969464;
+			
+			// aapt resource value: 0x7f040379
+			public const int t15_5823_11007 = 2130969465;
+			
+			// aapt resource value: 0x7f04037a
+			public const int t15_5823_11008 = 2130969466;
+			
+			// aapt resource value: 0x7f04037b
+			public const int t15_5823_11009 = 2130969467;
+			
+			// aapt resource value: 0x7f04037c
+			public const int t15_5823_11010 = 2130969468;
+			
+			// aapt resource value: 0x7f04037d
+			public const int t15_5823_11011 = 2130969469;
+			
+			// aapt resource value: 0x7f04037e
+			public const int t15_5823_11012 = 2130969470;
+			
+			// aapt resource value: 0x7f04037f
+			public const int t15_5824_10994 = 2130969471;
+			
+			// aapt resource value: 0x7f040380
+			public const int t15_5824_10995 = 2130969472;
+			
+			// aapt resource value: 0x7f040381
+			public const int t15_5824_10996 = 2130969473;
+			
+			// aapt resource value: 0x7f040382
+			public const int t15_5824_10997 = 2130969474;
+			
+			// aapt resource value: 0x7f040383
+			public const int t15_5824_10998 = 2130969475;
+			
+			// aapt resource value: 0x7f040384
+			public const int t15_5824_10999 = 2130969476;
+			
+			// aapt resource value: 0x7f040385
+			public const int t15_5824_11000 = 2130969477;
+			
+			// aapt resource value: 0x7f040386
+			public const int t15_5824_11001 = 2130969478;
+			
+			// aapt resource value: 0x7f040387
+			public const int t15_5824_11002 = 2130969479;
+			
+			// aapt resource value: 0x7f040388
+			public const int t15_5824_11003 = 2130969480;
+			
+			// aapt resource value: 0x7f040389
+			public const int t15_5824_11004 = 2130969481;
+			
+			// aapt resource value: 0x7f04038a
+			public const int t15_5824_11005 = 2130969482;
+			
+			// aapt resource value: 0x7f04038b
+			public const int t15_5824_11006 = 2130969483;
+			
+			// aapt resource value: 0x7f04038c
+			public const int t15_5824_11007 = 2130969484;
+			
+			// aapt resource value: 0x7f04038d
+			public const int t15_5824_11008 = 2130969485;
+			
+			// aapt resource value: 0x7f04038e
+			public const int t15_5824_11009 = 2130969486;
+			
+			// aapt resource value: 0x7f04038f
+			public const int t15_5824_11010 = 2130969487;
+			
+			// aapt resource value: 0x7f040390
+			public const int t15_5824_11011 = 2130969488;
+			
+			// aapt resource value: 0x7f040391
+			public const int t15_5824_11012 = 2130969489;
+			
+			// aapt resource value: 0x7f040392
+			public const int t15_5825_10994 = 2130969490;
+			
+			// aapt resource value: 0x7f040393
+			public const int t15_5825_10995 = 2130969491;
+			
+			// aapt resource value: 0x7f040394
+			public const int t15_5825_10996 = 2130969492;
+			
+			// aapt resource value: 0x7f040395
+			public const int t15_5825_10997 = 2130969493;
+			
+			// aapt resource value: 0x7f040396
+			public const int t15_5825_10998 = 2130969494;
+			
+			// aapt resource value: 0x7f040397
+			public const int t15_5825_10999 = 2130969495;
+			
+			// aapt resource value: 0x7f040398
+			public const int t15_5825_11000 = 2130969496;
+			
+			// aapt resource value: 0x7f040399
+			public const int t15_5825_11001 = 2130969497;
+			
+			// aapt resource value: 0x7f04039a
+			public const int t15_5825_11002 = 2130969498;
+			
+			// aapt resource value: 0x7f04039b
+			public const int t15_5825_11003 = 2130969499;
+			
+			// aapt resource value: 0x7f04039c
+			public const int t15_5825_11004 = 2130969500;
+			
+			// aapt resource value: 0x7f04039d
+			public const int t15_5825_11005 = 2130969501;
+			
+			// aapt resource value: 0x7f04039e
+			public const int t15_5825_11006 = 2130969502;
+			
+			// aapt resource value: 0x7f04039f
+			public const int t15_5825_11007 = 2130969503;
+			
+			// aapt resource value: 0x7f0403a0
+			public const int t15_5825_11008 = 2130969504;
+			
+			// aapt resource value: 0x7f0403a1
+			public const int t15_5825_11009 = 2130969505;
+			
+			// aapt resource value: 0x7f0403a2
+			public const int t15_5825_11010 = 2130969506;
+			
+			// aapt resource value: 0x7f0403a3
+			public const int t15_5825_11011 = 2130969507;
+			
+			// aapt resource value: 0x7f0403a4
+			public const int t15_5825_11012 = 2130969508;
+			
+			// aapt resource value: 0x7f0403a5
+			public const int t15_5826_10994 = 2130969509;
+			
+			// aapt resource value: 0x7f0403a6
+			public const int t15_5826_10995 = 2130969510;
+			
+			// aapt resource value: 0x7f0403a7
+			public const int t15_5826_10996 = 2130969511;
+			
+			// aapt resource value: 0x7f0403a8
+			public const int t15_5826_10997 = 2130969512;
+			
+			// aapt resource value: 0x7f0403a9
+			public const int t15_5826_10998 = 2130969513;
+			
+			// aapt resource value: 0x7f0403aa
+			public const int t15_5826_10999 = 2130969514;
+			
+			// aapt resource value: 0x7f0403ab
+			public const int t15_5826_11000 = 2130969515;
+			
+			// aapt resource value: 0x7f0403ac
+			public const int t15_5826_11001 = 2130969516;
+			
+			// aapt resource value: 0x7f0403ad
+			public const int t15_5826_11002 = 2130969517;
+			
+			// aapt resource value: 0x7f0403ae
+			public const int t15_5826_11003 = 2130969518;
+			
+			// aapt resource value: 0x7f0403af
+			public const int t15_5826_11004 = 2130969519;
+			
+			// aapt resource value: 0x7f0403b0
+			public const int t15_5826_11005 = 2130969520;
+			
+			// aapt resource value: 0x7f0403b1
+			public const int t15_5826_11006 = 2130969521;
+			
+			// aapt resource value: 0x7f0403b2
+			public const int t15_5826_11007 = 2130969522;
+			
+			// aapt resource value: 0x7f0403b3
+			public const int t15_5826_11008 = 2130969523;
+			
+			// aapt resource value: 0x7f0403b4
+			public const int t15_5826_11009 = 2130969524;
+			
+			// aapt resource value: 0x7f0403b5
+			public const int t15_5826_11010 = 2130969525;
+			
+			// aapt resource value: 0x7f0403b6
+			public const int t15_5826_11011 = 2130969526;
+			
+			// aapt resource value: 0x7f0403b7
+			public const int t15_5826_11012 = 2130969527;
+			
+			// aapt resource value: 0x7f0403b8
+			public const int t15_5827_10994 = 2130969528;
+			
+			// aapt resource value: 0x7f0403b9
+			public const int t15_5827_10995 = 2130969529;
+			
+			// aapt resource value: 0x7f0403ba
+			public const int t15_5827_10996 = 2130969530;
+			
+			// aapt resource value: 0x7f0403bb
+			public const int t15_5827_10997 = 2130969531;
+			
+			// aapt resource value: 0x7f0403bc
+			public const int t15_5827_10998 = 2130969532;
+			
+			// aapt resource value: 0x7f0403bd
+			public const int t15_5827_10999 = 2130969533;
+			
+			// aapt resource value: 0x7f0403be
+			public const int t15_5827_11000 = 2130969534;
+			
+			// aapt resource value: 0x7f0403bf
+			public const int t15_5827_11001 = 2130969535;
+			
+			// aapt resource value: 0x7f0403c0
+			public const int t15_5827_11002 = 2130969536;
+			
+			// aapt resource value: 0x7f0403c1
+			public const int t15_5827_11003 = 2130969537;
+			
+			// aapt resource value: 0x7f0403c2
+			public const int t15_5827_11004 = 2130969538;
+			
+			// aapt resource value: 0x7f0403c3
+			public const int t15_5827_11005 = 2130969539;
+			
+			// aapt resource value: 0x7f0403c4
+			public const int t15_5827_11006 = 2130969540;
+			
+			// aapt resource value: 0x7f0403c5
+			public const int t15_5827_11007 = 2130969541;
+			
+			// aapt resource value: 0x7f0403c6
+			public const int t15_5827_11008 = 2130969542;
+			
+			// aapt resource value: 0x7f0403c7
+			public const int t15_5827_11009 = 2130969543;
+			
+			// aapt resource value: 0x7f0403c8
+			public const int t15_5827_11010 = 2130969544;
+			
+			// aapt resource value: 0x7f0403c9
+			public const int t15_5827_11011 = 2130969545;
+			
+			// aapt resource value: 0x7f0403ca
+			public const int t15_5827_11012 = 2130969546;
+			
+			// aapt resource value: 0x7f0403cb
+			public const int t15_5828_10994 = 2130969547;
+			
+			// aapt resource value: 0x7f0403cc
+			public const int t15_5828_10995 = 2130969548;
+			
+			// aapt resource value: 0x7f0403cd
+			public const int t15_5828_10996 = 2130969549;
+			
+			// aapt resource value: 0x7f0403ce
+			public const int t15_5828_10997 = 2130969550;
+			
+			// aapt resource value: 0x7f0403cf
+			public const int t15_5828_10998 = 2130969551;
+			
+			// aapt resource value: 0x7f0403d0
+			public const int t15_5828_10999 = 2130969552;
+			
+			// aapt resource value: 0x7f0403d1
+			public const int t15_5828_11000 = 2130969553;
+			
+			// aapt resource value: 0x7f0403d2
+			public const int t15_5828_11001 = 2130969554;
+			
+			// aapt resource value: 0x7f0403d3
+			public const int t15_5828_11002 = 2130969555;
+			
+			// aapt resource value: 0x7f0403d4
+			public const int t15_5828_11003 = 2130969556;
+			
+			// aapt resource value: 0x7f0403d5
+			public const int t15_5828_11004 = 2130969557;
+			
+			// aapt resource value: 0x7f0403d6
+			public const int t15_5828_11005 = 2130969558;
+			
+			// aapt resource value: 0x7f0403d7
+			public const int t15_5828_11006 = 2130969559;
+			
+			// aapt resource value: 0x7f0403d8
+			public const int t15_5828_11007 = 2130969560;
+			
+			// aapt resource value: 0x7f0403d9
+			public const int t15_5828_11008 = 2130969561;
+			
+			// aapt resource value: 0x7f0403da
+			public const int t15_5828_11009 = 2130969562;
+			
+			// aapt resource value: 0x7f0403db
+			public const int t15_5828_11010 = 2130969563;
+			
+			// aapt resource value: 0x7f0403dc
+			public const int t15_5828_11011 = 2130969564;
+			
+			// aapt resource value: 0x7f0403dd
+			public const int t15_5828_11012 = 2130969565;
+			
+			// aapt resource value: 0x7f0403de
+			public const int t15_5829_10994 = 2130969566;
+			
+			// aapt resource value: 0x7f0403df
+			public const int t15_5829_10995 = 2130969567;
+			
+			// aapt resource value: 0x7f0403e0
+			public const int t15_5829_10996 = 2130969568;
+			
+			// aapt resource value: 0x7f0403e1
+			public const int t15_5829_10997 = 2130969569;
+			
+			// aapt resource value: 0x7f0403e2
+			public const int t15_5829_10998 = 2130969570;
+			
+			// aapt resource value: 0x7f0403e3
+			public const int t15_5829_10999 = 2130969571;
+			
+			// aapt resource value: 0x7f0403e4
+			public const int t15_5829_11000 = 2130969572;
+			
+			// aapt resource value: 0x7f0403e5
+			public const int t15_5829_11001 = 2130969573;
+			
+			// aapt resource value: 0x7f0403e6
+			public const int t15_5829_11002 = 2130969574;
+			
+			// aapt resource value: 0x7f0403e7
+			public const int t15_5829_11003 = 2130969575;
+			
+			// aapt resource value: 0x7f0403e8
+			public const int t15_5829_11004 = 2130969576;
+			
+			// aapt resource value: 0x7f0403e9
+			public const int t15_5829_11005 = 2130969577;
+			
+			// aapt resource value: 0x7f0403ea
+			public const int t15_5829_11006 = 2130969578;
+			
+			// aapt resource value: 0x7f0403eb
+			public const int t15_5829_11007 = 2130969579;
+			
+			// aapt resource value: 0x7f0403ec
+			public const int t15_5829_11008 = 2130969580;
+			
+			// aapt resource value: 0x7f0403ed
+			public const int t15_5829_11009 = 2130969581;
+			
+			// aapt resource value: 0x7f0403ee
+			public const int t15_5829_11010 = 2130969582;
+			
+			// aapt resource value: 0x7f0403ef
+			public const int t15_5829_11011 = 2130969583;
+			
+			// aapt resource value: 0x7f0403f0
+			public const int t15_5829_11012 = 2130969584;
+			
+			// aapt resource value: 0x7f0403f1
+			public const int t1_0_0 = 2130969585;
+			
+			// aapt resource value: 0x7f0403f2
+			public const int t1_0_1 = 2130969586;
+			
+			// aapt resource value: 0x7f0403f3
+			public const int t1_1_0 = 2130969587;
+			
+			// aapt resource value: 0x7f0403f4
+			public const int t1_1_1 = 2130969588;
+			
+			// aapt resource value: 0x7f0403f5
+			public const int t2_0_0 = 2130969589;
+			
+			// aapt resource value: 0x7f0403f6
+			public const int t2_0_1 = 2130969590;
+			
+			// aapt resource value: 0x7f0403f7
+			public const int t2_0_2 = 2130969591;
+			
+			// aapt resource value: 0x7f0403f8
+			public const int t2_0_3 = 2130969592;
+			
+			// aapt resource value: 0x7f0403f9
+			public const int t2_1_0 = 2130969593;
+			
+			// aapt resource value: 0x7f0403fa
+			public const int t2_1_1 = 2130969594;
+			
+			// aapt resource value: 0x7f0403fb
+			public const int t2_1_2 = 2130969595;
+			
+			// aapt resource value: 0x7f0403fc
+			public const int t2_1_3 = 2130969596;
+			
+			// aapt resource value: 0x7f0403fd
+			public const int t2_2_0 = 2130969597;
+			
+			// aapt resource value: 0x7f0403fe
+			public const int t2_2_1 = 2130969598;
+			
+			// aapt resource value: 0x7f0403ff
+			public const int t2_2_2 = 2130969599;
+			
+			// aapt resource value: 0x7f040400
+			public const int t2_2_3 = 2130969600;
+			
+			// aapt resource value: 0x7f040401
+			public const int t2_3_0 = 2130969601;
+			
+			// aapt resource value: 0x7f040402
+			public const int t2_3_1 = 2130969602;
+			
+			// aapt resource value: 0x7f040403
+			public const int t2_3_2 = 2130969603;
+			
+			// aapt resource value: 0x7f040404
+			public const int t2_3_3 = 2130969604;
+			
+			static Raw()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Raw()
 			{
 			}
 		}

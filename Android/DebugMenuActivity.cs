@@ -21,6 +21,7 @@ namespace Columbia583.Android
 		protected Button testDatabaseButton = null;
 		protected Button testDataAccessButton = null;
 		protected Button testImageButton = null;
+		protected Button testMapButton = null;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -38,6 +39,7 @@ namespace Columbia583.Android
 			testDatabaseButton = FindViewById<Button> (Resource.Id.button_databaseTests);
 			testDataAccessButton = FindViewById<Button> (Resource.Id.button_dataAccessTests);
 			testImageButton = FindViewById<Button> (Resource.Id.button_imageTests);
+			testMapButton = FindViewById<Button> (Resource.Id.button_mapTests);
 
 			// Assign the event handlers.
 			if (testDatabaseButton != null) {
@@ -63,6 +65,15 @@ namespace Columbia583.Android
 
 					// Load the image tests page.
 					var intent = new Intent(this, typeof(TestImageActivity));
+					StartActivity(intent);
+
+				};
+			}
+			if (testMapButton != null) {
+				testMapButton.Click += (sender, e) => {
+
+					// Load the image tests page.
+					var intent = new Intent(this, typeof(TestMapActivity));
 					StartActivity(intent);
 
 				};

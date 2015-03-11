@@ -1,22 +1,20 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AVD_for_Nexus_5_by_Google" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\Jan\Documents\Projects\rdamm\Columbia583\Columbia583\Data_Layer\Data_Layer_Tests.cs">
     <Files>
       <File FileName="Android\MainMenuActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\SplashActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\ViewTrailActivity.cs" Line="1" Column="1" />
       <File FileName="Android\SearchTrailsActivity.cs" Line="1" Column="1" />
       <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="1" Column="1" />
       <File FileName="Columbia583\Data_Layer\Data_Layer_Common.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs" Line="8" Column="8" />
-      <File FileName="Columbia583\Data_Classes\Activity.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Classes\Amenity.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\SQL_Script\CreateTables.txt" Line="1" Column="1" />
-      <File FileName="c:\Users\Jaclyn\Documents\GitHub\Columbia583\Columbia583\SQLite.cs" Line="1" Column="1" />
-      <File FileName="Android\Resources\values\Arrays.xml" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_View_Trail.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_View_Trail.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Service_Access_Layer\Service_Access_Layer_Common.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs" Line="1" Column="1" />
+      <File FileName="Android\DebugMenuActivity.cs" Line="1" Column="1" />
+      <File FileName="Android\Resources\Resource.designer.cs" Line="1" Column="1" />
+      <File FileName="Android\TestImageActivity.cs" Line="1" Column="1" />
+      <File FileName="Android\TestMapActivity.cs" Line="1" Column="1" />
+      <File FileName="Columbia583.NUnit\MainActivity.cs" Line="1" Column="1" />
+      <File FileName="Android\TestDatabaseActivity.cs" Line="1" Column="1" />
+      <File FileName="Android\TileDebugRasterDataSource.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\Jan\Documents\Projects\rdamm\Columbia583\Columbia583\Data_Layer\Data_Layer_Tests.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
