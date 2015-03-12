@@ -20,7 +20,7 @@ using Xamarin.Forms.Platform.Android;
 namespace Columbia583.Android
 {
 	[Activity (Label = "TestMapActivity")]			
-	public class TestMapActivity : AndroidActivity
+	public class TestMapActivity : FormsApplicationActivity
 	{
 		/// <summary>
 		/// The Nutiteq MapView
@@ -30,7 +30,16 @@ namespace Columbia583.Android
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
+			AppDomain.CurrentDomain.UnhandledException += (sender, e) => {
+				System.Diagnostics.Debug.WriteLine (e);
+			};
+			AndroidEnvironment.UnhandledExceptionRaiser += (sender, e) => 
+			{
+				System.Diagnostics.Debug.WriteLine (e);
+			};
 
+			Xamarin.Forms.Forms.Init (this, bundle);
+			SetPage (App.GetMapsPage ());
 			/// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Map);
 
