@@ -31,6 +31,8 @@ namespace Columbia583.Android
 		{
 			base.OnCreate (bundle);
 
+			Xamarin.Forms.Forms.Init (this, bundle);
+
 			/// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Map);
 
@@ -61,9 +63,10 @@ namespace Columbia583.Android
 			_mapView.Options.DualClickZoomOut = true;
 			_mapView.Options.BackgroundPlaneDrawMode = Options.DrawBitmap;
 			_mapView.Options.SetBackgroundPlaneBitmap (UnscaledBitmapLoader.DecodeResource (Resources, Resource.Drawable.background_plane));
+			_mapView.Constraints.Rotatable = false;
 
 			/// zoom - 0 = world, like on most web maps
-			_mapView.Zoom = 14;
+			_mapView.Zoom = 10;
 
 			/// constrain zoom range as we have limited set of tiles
 			_mapView.Constraints.ZoomRange = new Range (0, 15);
