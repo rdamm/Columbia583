@@ -42,6 +42,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Service_Access_Layer\Webservice_Amenity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service_Access_Layer\Webservice_Organization.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service_Access_Layer\Webservice_Trails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Comment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service_Access_Layer\Webservice_Comment.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data_Layer\" />

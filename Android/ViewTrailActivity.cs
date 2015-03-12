@@ -38,7 +38,7 @@ namespace Columbia583.Android
 		protected TextView openStatus = null;
 		protected TextView season = null;
 		protected TextView maintenance = null;
-		//protected Android.Widget.ScrollView commentsList = null;
+		protected LinearLayout commentsLayout = null;
 		protected Gallery trailGallery = null;
 		//private GestureDetector _gestureDetector;
 
@@ -142,9 +142,44 @@ namespace Columbia583.Android
 			adapter.AddFragmentView((i, v, b) =>
 				{
 					var view = LayoutInflater.Inflate(Resource.Layout.ViewTrail3, v, false);
-					//commentsList = view.FindViewById<LinearLayout>(Resource.Id.commentsList);
+					commentsLayout = view.FindViewById<LinearLayout>(Resource.Id.commentsLayout);
+
+					// query for all comments for trailId = seeHere
+					Data_Access_Layer_View_Trail dvt = new Data_Access_Layer_View_Trail();
+					Comment[] comments = dvt.getComments(trail.id);
+					foreach (Comment comment in comments)
+					{
+						RatingBar ratingBar = new RatingBar(this);
+						ratingBar.NumStars = 5;
+						ratingBar.IsIndicator = true;
+						ratingBar.StepSize = 1.0F;
+						ratingBar.Rating = comment.rating;
+						commentsLayout.AddView(ratingBar);
+
+						TextView username = new TextView(this);
+						if (dvt.getUserForComment(comment) != null) {
+							username.Text = dvt.getUserForComment(comment).username;
+						} else {
+							username.Text = "Anonymous";
+						}
+						username.TextSize = 17f;
+						commentsLayout.AddView(username);
+
+						TextView date = new TextView(this);
+						date.Text = comment.date.ToString();
+						commentsLayout.AddView(date);
+
+						TextView commentText = new TextView(this);
+						commentText.Text = comment.text;
+						commentsLayout.AddView(commentText);
+
+						TextView borderText = new TextView(this);
+						borderText.Text = "\n";
+						commentsLayout.AddView(borderText);
+					}
 
 					return view;
+
 				}
 			);
 			adapter.AddFragmentView((i, v, b) =>

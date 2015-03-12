@@ -82,6 +82,39 @@ namespace Columbia583
 
 			return updateTrails;
 		}
+
+		/// <summary>
+		/// Gets all the comments.
+		/// </summary>
+		/// <returns>The list of comments.</returns>
+		public List<Webservice_Comment> getComments()
+		{
+			// Define the webservice's getter method.
+			string searchUrl = "http://trails.greenways.ca/api/v1/GetComments";
+
+			// Call the webservice's getter method.
+			System.Net.WebRequest req = System.Net.WebRequest.Create(searchUrl);
+			System.Net.WebResponse resp = req.GetResponse();
+
+			// Read the response.
+			System.IO.StreamReader read = new System.IO.StreamReader(resp.GetResponseStream());
+			string letter = read.ReadToEnd();
+			read.Close();
+
+			List<Webservice_Comment> allComments = null;
+
+			try
+			{
+				// Deserialize the data.
+				allComments = new List<Webservice_Comment>(Newtonsoft.Json.JsonConvert.DeserializeObject<Webservice_Comment[]>(letter));
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine (e.Message);
+			}
+
+			return allComments;
+		}
 	}
 }
 

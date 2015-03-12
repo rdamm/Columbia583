@@ -178,6 +178,22 @@ namespace Columbia583
 			}
 		}
 
+		public string getUsers()
+		{
+			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			List<User> users = dataLayer.getUsers ();
+
+			if (users != null) {
+				foreach (User user in users) {
+					Console.WriteLine (user.id + " - " + user.username);
+				}
+
+				return "Successfully got users.";
+			} else {
+				return "Failed to get users.";
+			}
+		}
+
 
 		/// <summary>
 		/// Gets the trails for a sample search filter.

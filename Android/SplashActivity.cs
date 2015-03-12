@@ -43,6 +43,7 @@ namespace Columbia583.Android.hi
 			// Create a background thread for the app initialization.
 			// NOTE: The UI doesn't load until this entire method has completed.  So, the
 			// initialization must go into a background thread.
+			// TODO: Fix bug where rotating the screen during the splash screen's loading creates multiple threads.
 			new Thread (new ThreadStart (() => {
 				// Define the number of tasks to complete for the progress bar.
 				int completedTasks = 0;
@@ -52,11 +53,15 @@ namespace Columbia583.Android.hi
 				Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common ();
 				if (dataAccessLayer.databaseInitialized () == true)
 				{
+					// TODO: Uncomment once the update works without redownloading everything.
 					dataAccessLayer.updateDatabase ();
+					Console.WriteLine("Splash screen has updated the database.");
 				}
 				else
 				{
 					dataAccessLayer.initializeDatabase ();
+					dataAccessLayer.initializeComments();
+					Console.WriteLine("Splash screen has initialized the database.");
 				}
 				completedTasks++;
 				Console.WriteLine("Database updated in splash activity initializer.");
@@ -66,7 +71,7 @@ namespace Columbia583.Android.hi
 					splashProgressBar.Progress = ((int)((float)completedTasks / (float)totalTasks * 100));
 					splashProgressLabel.Text = "Database updated.";
 				});
-				
+
 				// Load the main menu.
 				RunOnUiThread(() => {
 					splashProgressLabel.Text = "Starting app...";

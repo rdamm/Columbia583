@@ -16,10 +16,7 @@ namespace Columbia583
 
 		}
 
-
-		// TODO: Finish the activity and amenity search parameters.
-
-
+		
 		/// <summary>
 		/// Gets the trails by search filter.
 		/// </summary>
@@ -63,7 +60,7 @@ namespace Columbia583
 							// Using Greenways website's AND
 							activityLine += " AND ";
 						}
-						activityLine += "(id IN (SELECT id FROM Trail INNER JOIN TrailsToActivities ON Trail.id = TrailsToActivities.trailId WHERE activityId = ?))";
+						activityLine += "(Trail.id IN (SELECT Trail.id FROM Trail INNER JOIN TrailsToActivities ON Trail.id = TrailsToActivities.trailId WHERE activityId = ?))";
 						parameters.Add(activity);
 					}
 					activityLine += ")";
@@ -85,7 +82,7 @@ namespace Columbia583
 						{
 							amenityLine += " AND ";
 						}
-						amenityLine += "(id IN (SELECT id FROM Trail INNER JOIN TrailsToAmenities ON Trail.id = TrailsToAmenities.trailId WHERE amenityId = ?))";
+						amenityLine += "(Trail.id IN (SELECT Trail.id FROM Trail INNER JOIN TrailsToAmenities ON Trail.id = TrailsToAmenities.trailId WHERE amenityId = ?))";
 						parameters.Add(amenity);
 					}
 					amenityLine += ")";
@@ -223,6 +220,60 @@ namespace Columbia583
 			}
 
 			return searchResults;
+		}
+
+		public int getActivityIdByName(string name)
+		{
+			int activityId = -1;
+			Console.WriteLine ("Activity name: " + name);
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(Data_Layer_Common.getPathToDatabase());
+
+				// Get the user.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				Activity acti = connection.Query<Activity>("SELECT * FROM Activity WHERE activityName = ?", name)[0];
+				activityId = acti.id;
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			Console.WriteLine ("Activity name: " + name + ", Activity id: ", + activityId);
+			return activityId;
+		}
+
+		public int getAmenityIdByName(string name)
+		{
+			int amenityId = -1;
+			Console.WriteLine ("Amenity name: " + name);
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(Data_Layer_Common.getPathToDatabase());
+
+				// Get the user.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				Amenity ame = connection.Query<Amenity>("SELECT * FROM Amenity WHERE amenityName = ?", name)[0];
+				amenityId = ame.id;
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+			Console.WriteLine ("Amenity name: " + name + ", Amenity id: " + amenityId);
+
+			return amenityId;
 		}
 	}
 }

@@ -215,6 +215,40 @@ namespace Columbia583
 			Console.WriteLine ("Database Initialized!");
 		}
 
+		public void initializeComments()
+		{
+			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			Service_Access_Layer_Common serviceAccessLayer = new Service_Access_Layer_Common ();
+			dataLayer.createCommentTable ();
+
+			// Get the current time prior to calling the webservice.
+			DateTime currentTime = DateTime.Now;
+
+			// Get the data from the webservice.
+			List<Webservice_Comment> webserviceComments = serviceAccessLayer.getComments ();
+
+			List<Comment> comments = new List<Comment> ();
+
+			// real comments
+			try {
+				foreach (Webservice_Comment currentComment in webserviceComments) {
+					// Get base comment
+					comments.Add(new Comment(currentComment.id, currentComment.user_id, currentComment.trail_id, currentComment.comment, currentComment.rating, Convert.ToDateTime(currentComment.updated_at)));
+				}
+
+				comments = comments.Distinct ().ToList ();
+			} catch (Exception ex) {
+				Console.WriteLine (ex.Message);
+			}
+
+			dataLayer.insertCommentRows (comments.ToArray ());
+
+			// Store the current time in the database as the last-updated time.
+			dataLayer.setDatabaseLastUpdated (currentTime);
+
+			Console.WriteLine ("Comments Initialized!");
+		}
+
 
 		/// <summary>
 		/// Updates the local database so that it is up-to-date with the live database.  This should be called on a regular interval.
@@ -226,7 +260,7 @@ namespace Columbia583
 
 			// Get the current time prior to calling the webservice.
 			DateTime currentTime = DateTime.Now;
-			
+
 			// Get the last time the database was updated.
 			DateTime lastUpdated = dataLayer.getDatabaseLastUpdated ();
 
@@ -236,55 +270,49 @@ namespace Columbia583
 			List<Webservice_Trails> webserviceTrails = serviceAccessLayer.updateAll (urlDate);
 
 			// Define lists to copy the data to.
-			List<Trail> trails = null;
-			List<Organization> organizations = null;
-			List<User> users = null;
-			List<Activity> activities = null;
-			List<Amenity> amenities = null;
-			List<TrailsToActivities> trailsToActivities = null;
-			List<TrailsToAmenities> trailsToAmenities = null;
+			List<Trail> insertTrails = null;
+			List<Organization> insertOrganizations = null;
+			List<User> insertUsers = null;
+			List<Activity> insertActivities = null;
+			List<Amenity> insertAmenities = null;
 
 			List<Trail> updateTrails = null;
 			List<Organization> updateOrganizations = null;
 			List<User> updateUsers = null;
 			List<Activity> updateActivities = null;
 			List<Amenity> updateAmenities = null;
-			List<TrailsToActivities> updateTrailsToActivities = null;
-			List<TrailsToAmenities> updateTrailsToAmenities = null;
 
 			List<Trail> deleteTrails = null;
 			List<Organization> deleteOrganizations = null;
 			List<User> deleteUsers = null;
 			List<Activity> deleteActivities = null;
 			List<Amenity> deleteAmenities = null;
-			List<TrailsToActivities> deleteTrailsToActivities = null;
-			List<TrailsToAmenities> deleteTrailsToAmenities = null;
+
+			List<TrailsToActivities> trailsToActivities = null;
+			List<TrailsToAmenities> trailsToAmenities = null;
 
 			try
 			{
-				trails = new List<Trail>();
-				organizations = new List<Organization>();
-				users = new List<User>();
-				activities = new List<Activity>();
-				amenities = new List<Amenity>();
-				trailsToActivities = new List<TrailsToActivities>();
-				trailsToAmenities = new List<TrailsToAmenities>();
+				insertTrails = new List<Trail>();
+				insertOrganizations = new List<Organization>();
+				insertUsers = new List<User>();
+				insertActivities = new List<Activity>();
+				insertAmenities = new List<Amenity>();
 
 				updateTrails = new List<Trail>();
 				updateOrganizations = new List<Organization>();
 				updateUsers = new List<User>();
 				updateActivities = new List<Activity>();
 				updateAmenities = new List<Amenity>();
-				updateTrailsToActivities = new List<TrailsToActivities>();
-				updateTrailsToAmenities = new List<TrailsToAmenities>();
 
 				deleteTrails = new List<Trail>();
 				deleteOrganizations = new List<Organization>();
 				deleteUsers = new List<User>();
 				deleteActivities = new List<Activity>();
 				deleteAmenities = new List<Amenity>();
-				deleteTrailsToActivities = new List<TrailsToActivities>();
-				deleteTrailsToAmenities = new List<TrailsToAmenities>();
+
+				trailsToActivities = new List<TrailsToActivities>();
+				trailsToAmenities = new List<TrailsToAmenities>();
 
 				// Get the IDs for the existing database rows.
 				List<int> existingTrailIds = new List<int>(dataLayer.getTrailIds());
@@ -311,11 +339,11 @@ namespace Columbia583
 						}
 						else
 						{
-							users.Add(new User(currentTrail.user.id, currentTrail.user.org_id, currentTrail.user.email, currentTrail.user.username, Convert.ToDateTime(currentTrail.user.updated_at)));
+							insertUsers.Add(new User(currentTrail.user.id, currentTrail.user.org_id, currentTrail.user.email, currentTrail.user.username, Convert.ToDateTime(currentTrail.user.updated_at)));
 						}
 						userId = currentTrail.user.id;
 					}
-					
+
 					// Get this trail's organization.
 					if (currentTrail.organization != null)
 					{
@@ -326,7 +354,7 @@ namespace Columbia583
 						}
 						else
 						{
-							organizations.Add(new Organization(currentTrail.organization.id, currentTrail.organization.organization, Convert.ToDateTime(currentTrail.organization.updated_at)));
+							insertOrganizations.Add(new Organization(currentTrail.organization.id, currentTrail.organization.organization, Convert.ToDateTime(currentTrail.organization.updated_at)));
 						}
 						orgId = currentTrail.organization.id;
 					}
@@ -336,19 +364,40 @@ namespace Columbia583
 					{
 						foreach(Webservice_Activity activity in currentTrail.activity)
 						{
+							// Fetch the activity icon's image from the net.
+							byte[] imageBytes = null;
+							if (activity.icon != null && activity.icon != "")
+							{
+								// Get the full URL of the image by appending its local URI to the website.
+								string baseUrl = "http://trails.greenways.ca/";
+								string fullImageUrl = baseUrl + activity.icon;
+
+								try
+								{
+									// Load the image from the web.
+									WebClient client = new WebClient();
+									imageBytes = client.DownloadData(fullImageUrl);
+								}
+								catch (WebException e)
+								{
+									// TODO: Log error.
+									Console.WriteLine("Failed to download activity icon.  Activity ID = " + activity.id);
+									Console.WriteLine(e.Message);
+								}
+							}
+
 							// If the activity exists, update it.  Otherwise, insert it.
-							// TODO: Fetch the amenity icon's image from the net.
-							byte[] activityIcon = new byte[0];
 							if(dataLayer.getActivity(activity.id) != null)
 							{
-								updateActivities.Add(new Activity(activity.id, activity.name, activityIcon, Convert.ToDateTime(activity.updated_at)));
-								updateTrailsToActivities.Add(new TrailsToActivities(currentTrail.id, activity.id));
+								updateActivities.Add(new Activity(activity.id, activity.name, imageBytes, Convert.ToDateTime(activity.updated_at)));
 							}
 							else
 							{
-								activities.Add(new Activity(activity.id, activity.name, activityIcon, Convert.ToDateTime(activity.updated_at)));
-								trailsToActivities.Add(new TrailsToActivities(currentTrail.id, activity.id));
+								insertActivities.Add(new Activity(activity.id, activity.name, imageBytes, Convert.ToDateTime(activity.updated_at)));
 							}
+
+							// Add this activity to the trail's activities.
+							trailsToActivities.Add(new TrailsToActivities(currentTrail.id, activity.id));
 						}
 					}
 
@@ -357,19 +406,40 @@ namespace Columbia583
 					{
 						foreach(Webservice_Amenity amenity in currentTrail.amenity)
 						{
+							// Fetch the amenity icon's image from the net.
+							byte[] imageBytes = null;
+							if (amenity.icon != null && amenity.icon != "")
+							{
+								// Get the full URL of the image by appending its local URI to the website.
+								string baseUrl = "http://trails.greenways.ca/";
+								string fullImageUrl = baseUrl + amenity.icon;
+
+								try
+								{
+									// Load the image from the web.
+									WebClient client = new WebClient();
+									imageBytes = client.DownloadData(fullImageUrl);
+								}
+								catch (WebException e)
+								{
+									// TODO: Log error.
+									Console.WriteLine("Failed to download amenity icon.  Amenity ID = " + amenity.id);
+									Console.WriteLine(e.Message);
+								}
+							}
+
 							// If the amenity exists, update it.  Otherwise, insert it.
-							// TODO: Fetch the amenity icon's image from the net.
-							byte[] amenityIcon = new byte[0];
 							if(dataLayer.getAmenity(amenity.id) != null)
 							{
-								updateAmenities.Add(new Amenity(amenity.id, amenity.name, amenityIcon, Convert.ToDateTime(amenity.updated_at)));
-								updateTrailsToAmenities.Add(new TrailsToAmenities(currentTrail.id, amenity.id));
+								updateAmenities.Add(new Amenity(amenity.id, amenity.name, imageBytes, Convert.ToDateTime(amenity.updated_at)));
 							}
 							else
 							{
-								amenities.Add(new Amenity(amenity.id, amenity.name, amenityIcon, Convert.ToDateTime(amenity.updated_at)));
-								trailsToAmenities.Add(new TrailsToAmenities(currentTrail.id, amenity.id));
+								insertAmenities.Add(new Amenity(amenity.id, amenity.name, imageBytes, Convert.ToDateTime(amenity.updated_at)));
 							}
+
+							// Add this amenity to the trail's amenities.
+							trailsToAmenities.Add(new TrailsToAmenities(currentTrail.id, amenity.id));
 						}
 					}
 
@@ -411,20 +481,18 @@ namespace Columbia583
 					}
 					else
 					{
-						trails.Add(new Trail(currentTrail.id, userId, orgId, currentTrail.name, currentTrail.location, currentTrail.kml_name, currentTrail.kml_content, currentTrail.distance,
+						insertTrails.Add(new Trail(currentTrail.id, userId, orgId, currentTrail.name, currentTrail.location, currentTrail.kml_name, currentTrail.kml_content, currentTrail.distance,
 							currentTrail.duration, currentTrail.description, currentTrail.directions, trailDifficulty, currentTrail.rating, currentTrail.hazards, currentTrail.surface,
 							currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, Convert.ToDateTime(currentTrail.updated_at)));
 					}
 				}
 
 				// Remove duplicate entries in the resulting lists.
-				trails = trails.Distinct().ToList();
-				organizations = organizations.Distinct().ToList();
-				users = users.Distinct().ToList();
-				activities = activities.Distinct().ToList();
-				amenities = amenities.Distinct().ToList();
-				trailsToActivities = trailsToActivities.Distinct().ToList();
-				trailsToAmenities = trailsToAmenities.Distinct().ToList();
+				insertTrails = insertTrails.Distinct().ToList();
+				insertOrganizations = insertOrganizations.Distinct().ToList();
+				insertUsers = insertUsers.Distinct().ToList();
+				insertActivities = insertActivities.Distinct().ToList();
+				insertAmenities = insertAmenities.Distinct().ToList();
 
 				// Find the trails to delete.
 				foreach(int existingTrailId in existingTrailIds)
@@ -449,7 +517,7 @@ namespace Columbia583
 					bool match = false;
 					foreach(Webservice_Trails webserviceTrail in webserviceTrails_getAll)
 					{
-						if (webserviceTrail.userId == existingUserId)
+						if (webserviceTrail.user != null && webserviceTrail.user.id == existingUserId)
 						{
 							match = true;
 						}
@@ -466,7 +534,7 @@ namespace Columbia583
 					bool match = false;
 					foreach(Webservice_Trails webserviceTrail in webserviceTrails_getAll)
 					{
-						if (webserviceTrail.orgId == existingOrganizationId)
+						if (webserviceTrail.organization != null && webserviceTrail.organization.id == existingOrganizationId)
 						{
 							match = true;
 						}
@@ -523,7 +591,9 @@ namespace Columbia583
 					}
 				}
 
-				// TODO: Populate the deletion lists for TrailsToActivities and TrailsToAmenities
+				// Delete all entries in the pairing tables.
+				dataLayer.deleteRows(new Activity[0], new Amenity[0], new MapTile[0], new Media[0], new Organization[0], new Point[0], new Role[0], new Trail[0],
+					trailsToActivities.ToArray(), trailsToAmenities.ToArray(), new User[0]);
 
 				// TODO: Get the remaining database data.
 				MapTile[] mapTiles = new MapTile[0];
@@ -533,15 +603,15 @@ namespace Columbia583
 
 				// Update the rows that must be updated.
 				dataLayer.updateRows (updateActivities.ToArray(), updateAmenities.ToArray(), mapTiles, media, updateOrganizations.ToArray(), points, roles, updateTrails.ToArray(),
-					updateTrailsToActivities.ToArray(), updateTrailsToAmenities.ToArray(), updateUsers.ToArray());
+					new TrailsToActivities[0], new TrailsToAmenities[0], updateUsers.ToArray());
 
 				// Insert the rows that must be inserted.
-				dataLayer.insertRows (activities.ToArray(), amenities.ToArray(), mapTiles, media, organizations.ToArray(), points, roles, trails.ToArray(), trailsToActivities.ToArray(),
-					trailsToAmenities.ToArray(), users.ToArray());
+				dataLayer.insertRows (insertActivities.ToArray(), insertAmenities.ToArray(), mapTiles, media, insertOrganizations.ToArray(), points, roles, insertTrails.ToArray(),
+					trailsToActivities.ToArray(), trailsToAmenities.ToArray(), insertUsers.ToArray());
 
 				// Delete the rows that must be deleted.
 				dataLayer.deleteRows (deleteActivities.ToArray (), deleteAmenities.ToArray (), mapTiles, media, deleteOrganizations.ToArray (), points, roles, deleteTrails.ToArray (),
-					deleteTrailsToActivities.ToArray (), deleteTrailsToAmenities.ToArray (), deleteUsers.ToArray ());
+					new TrailsToActivities[0], new TrailsToAmenities[0], deleteUsers.ToArray ());
 
 				// Store the current time in the database as the last-updated time.
 				dataLayer.setDatabaseLastUpdated (currentTime);
