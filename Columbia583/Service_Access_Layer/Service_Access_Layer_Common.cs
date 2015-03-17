@@ -136,19 +136,19 @@ namespace Columbia583
 			string letter = read.ReadToEnd();
 			read.Close();
 
-			List<Webservice_Comment> updateTrails = null;
+			List<Webservice_Comment> updateComments = null;
 
 			try
 			{
 				// Deserialize the data.
-				updateTrails = new List<Webservice_Comment>(Newtonsoft.Json.JsonConvert.DeserializeObject<Webservice_Comment[]>(letter));
+				updateComments = new List<Webservice_Comment>(Newtonsoft.Json.JsonConvert.DeserializeObject<Webservice_Comment[]>(letter));
 			}
 			catch (Exception e)
 			{
 				Console.WriteLine (e.Message);
 			}
 
-			return updateTrails;
+			return updateComments;
 		}
 	}
 }

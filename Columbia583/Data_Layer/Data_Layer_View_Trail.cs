@@ -71,7 +71,7 @@ namespace Columbia583
 			}
 			return results;
 		}
-
+		/*
 		public User getUserForComment(Comment c)
 		{
 			User user = null;
@@ -91,7 +91,7 @@ namespace Columbia583
 
 			return user;
 		}
-
+		*/
 	}
 }
 

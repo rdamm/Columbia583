@@ -232,9 +232,15 @@ namespace Columbia583
 			// real comments
 			try {
 				foreach (Webservice_Comment currentComment in webserviceComments) {
+					string username;
+					if (currentComment.user != null) {
+						username = currentComment.user.username;
+					} else {
+						username = "Anonymous";
+					}
 
 					// Get base comment
-					comments.Add(new Comment(currentComment.id, currentComment.user_id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, Convert.ToDateTime(currentComment.updated_at)));
+					comments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, username, Convert.ToDateTime(currentComment.updated_at)));
 				}
 
 				comments = comments.Distinct ().ToList ();
@@ -503,9 +509,9 @@ namespace Columbia583
 				{
 					// Get base comment
 					if (dataLayer.getComment(currentComment.id) != null) {
-						updateComments.Add(new Comment(currentComment.id, currentComment.user_id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, Convert.ToDateTime(currentComment.updated_at)));
+						updateComments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, Convert.ToDateTime(currentComment.updated_at)));
 					} else {
-						insertComments.Add(new Comment(currentComment.id, currentComment.user_id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, Convert.ToDateTime(currentComment.updated_at)));
+						insertComments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, Convert.ToDateTime(currentComment.updated_at)));
 					}
 				}
 

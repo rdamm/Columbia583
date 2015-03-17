@@ -10,8 +10,6 @@ namespace Columbia583
 		// Keys
 		[PrimaryKey]
 		public int id { get; set; }
-		[ForeignKey(typeof(User))]
-		public int userId { get; set; }
 		[ForeignKey(typeof(Trail))]
 		public int trailId { get; set; }
 
@@ -25,10 +23,9 @@ namespace Columbia583
 		{
 		}
 
-		public Comment(int id, int userId, int trailId, string text, int rating, string username, DateTime dt)
+		public Comment(int id, int trailId, string text, int rating, string username, DateTime dt)
 		{
 			this.id = id;
-			this.userId = userId;
 			this.trailId = trailId;
 			this.text = text;
 			this.rating = rating;
