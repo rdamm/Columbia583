@@ -655,8 +655,10 @@ namespace Columbia583
 				Role[] roles = new Role[0];
 
 				// Fuse all the pairing table data together
-				trailsToActivities = trailsToActivities.Concat(remainingTrailsToActivities);
-				trailsToAmenities = trailsToAmenities.Concat(remainingTrailsToAmenities);
+				var enumTrailsToActivities = trailsToActivities.Concat(remainingTrailsToActivities);
+				var enumTrailsToAmenities = trailsToAmenities.Concat(remainingTrailsToAmenities);
+				trailsToActivities = enumTrailsToActivities.ToList();
+				trailsToAmenities = enumTrailsToAmenities.ToList();
 
 				// Update the rows that must be updated.
 				dataLayer.updateRows (updateActivities.ToArray(), updateAmenities.ToArray(), updateComments.ToArray(), mapTiles, media, updateOrganizations.ToArray(), points, roles, updateTrails.ToArray(),
