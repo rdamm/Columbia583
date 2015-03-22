@@ -304,6 +304,8 @@ namespace Columbia583
 
 			List<TrailsToActivities> trailsToActivities = null;
 			List<TrailsToAmenities> trailsToAmenities = null;
+			List<TrailsToActivities> remainingTrailsToActivities = null;
+			List<TrailsToAmenities> remainingTrailsToAmenities = null;
 
 			try
 			{
@@ -340,12 +342,17 @@ namespace Columbia583
 				List<int> existingCommentIds = new List<int>(dataLayer.getCommentIds());
 				List<TrailsToActivities> existingTrailsToActivities = new List<TrailsToActivities>(dataLayer.getTrailsToActivities());
 				List<TrailsToAmenities> existingTrailsToAmenities = new List<TrailsToAmenities>(dataLayer.getTrailsToAmenities());
+				remainingTrailsToActivities = new List<TrailsToActivities>(dataLayer.getTrailsToActivities());
+				remainingTrailsToAmenities = new List<TrailsToAmenities>(dataLayer.getTrailsToAmenities());
 
 				// Insert / update rows in the database.
 				foreach(Webservice_Trails currentTrail in webserviceTrails)
 				{
 					int userId = 0;
 					int orgId = 0;
+
+					remainingTrailsToActivities.RemoveAll(i => i.trailId == currentTrail.id);
+					remainingTrailsToAmenities.RemoveAll(i => i.trailId == currentTrail.id);
 
 					// Get this trail's user.
 					if (currentTrail.user != null)
@@ -637,15 +644,19 @@ namespace Columbia583
 					}
 				}
 
-				// Delete all entries in the pairing tables.
+				// Delete ALL entries in the pairing tables.
 				dataLayer.deleteRows(new Activity[0], new Amenity[0], new Comment[0], new MapTile[0], new Media[0], new Organization[0], new Point[0], new Role[0], new Trail[0],
-					trailsToActivities.ToArray(), trailsToAmenities.ToArray(), new User[0]);
+					existingTrailsToActivities.ToArray(), existingTrailsToAmenities.ToArray(), new User[0]);
 
 				// TODO: Get the remaining database data.
 				MapTile[] mapTiles = new MapTile[0];
 				Media[] media = new Media[0];
 				Point[] points = new Point[0];
 				Role[] roles = new Role[0];
+
+				// Fuse all the pairing table data together
+				trailsToActivities = trailsToActivities.Concat(remainingTrailsToActivities);
+				trailsToAmenities = trailsToAmenities.Concat(remainingTrailsToAmenities);
 
 				// Update the rows that must be updated.
 				dataLayer.updateRows (updateActivities.ToArray(), updateAmenities.ToArray(), updateComments.ToArray(), mapTiles, media, updateOrganizations.ToArray(), points, roles, updateTrails.ToArray(),

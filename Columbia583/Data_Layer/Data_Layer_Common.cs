@@ -1079,12 +1079,12 @@ namespace Columbia583
 
 				// Update the data that has foreign keys.
 				// TODO: Figure out how to handle foreign keys for updates.
-				/*
+				// Currently ON UPDATE NO ACTION
 				connection.UpdateAll(points);
 				connection.UpdateAll(trails);
 				connection.UpdateAll(users);
 				connection.UpdateAll(comments);
-				*/
+
 				
 				// Close connection to local database.
 				connection.Close();
