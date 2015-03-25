@@ -660,6 +660,15 @@ namespace Columbia583
 				trailsToActivities = enumTrailsToActivities.ToList();
 				trailsToAmenities = enumTrailsToAmenities.ToList();
 
+				foreach (Activity activity in deleteActivities)
+				{
+					trailsToActivities.RemoveAll(i => i.activityId == activity.id);
+				}
+				foreach (Amenity amenity in deleteAmenities)
+				{
+					trailsToAmenities.RemoveAll(i => i.amenityId == amenity.id);
+				}
+
 				// Update the rows that must be updated.
 				dataLayer.updateRows (updateActivities.ToArray(), updateAmenities.ToArray(), updateComments.ToArray(), mapTiles, media, updateOrganizations.ToArray(), points, roles, updateTrails.ToArray(),
 					new TrailsToActivities[0], new TrailsToAmenities[0], updateUsers.ToArray());
