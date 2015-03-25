@@ -486,40 +486,43 @@ namespace Columbia583.Android
 			public const int Icon = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int monoandroidsplash = 2130837518;
+			public const int line = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int olmarker = 2130837519;
+			public const int monoandroidsplash = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int point = 2130837520;
+			public const int olmarker = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int skiing = 2130837521;
+			public const int point = 2130837521;
 			
 			// aapt resource value: 0x7f020012
-			public const int sky_small = 2130837522;
+			public const int skiing = 2130837522;
 			
 			// aapt resource value: 0x7f020013
-			public const int vpi__tab_indicator = 2130837523;
+			public const int sky_small = 2130837523;
 			
 			// aapt resource value: 0x7f020014
-			public const int vpi__tab_selected_focused_holo = 2130837524;
+			public const int vpi__tab_indicator = 2130837524;
 			
 			// aapt resource value: 0x7f020015
-			public const int vpi__tab_selected_holo = 2130837525;
+			public const int vpi__tab_selected_focused_holo = 2130837525;
 			
 			// aapt resource value: 0x7f020016
-			public const int vpi__tab_selected_pressed_holo = 2130837526;
+			public const int vpi__tab_selected_holo = 2130837526;
 			
 			// aapt resource value: 0x7f020017
-			public const int vpi__tab_unselected_focused_holo = 2130837527;
+			public const int vpi__tab_selected_pressed_holo = 2130837527;
 			
 			// aapt resource value: 0x7f020018
-			public const int vpi__tab_unselected_holo = 2130837528;
+			public const int vpi__tab_unselected_focused_holo = 2130837528;
 			
 			// aapt resource value: 0x7f020019
-			public const int vpi__tab_unselected_pressed_holo = 2130837529;
+			public const int vpi__tab_unselected_holo = 2130837529;
+			
+			// aapt resource value: 0x7f02001a
+			public const int vpi__tab_unselected_pressed_holo = 2130837530;
 			
 			static Drawable()
 			{

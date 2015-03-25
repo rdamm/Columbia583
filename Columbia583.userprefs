@@ -1,7 +1,9 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.d8aaf13f" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\Jan\Documents\Projects\rdamm\Columbia583\Android\TestMapActivity.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AVD_for_Nexus_5_by_Google" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
+      <File FileName="c:\Users\Jan\Documents\Projects\rdamm\Columbia583\Android\TestMapActivity.cs" Line="15" Column="15" />
+      <File FileName="Android\TileDebugRasterDataSource.cs" Line="1" Column="1" />
       <File FileName="Android\MainMenuActivity.cs" Line="1" Column="1" />
       <File FileName="Android\SearchTrailsActivity.cs" Line="1" Column="1" />
       <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="1" Column="1" />
@@ -13,12 +15,12 @@
       <File FileName="Columbia583.NUnit\MainActivity.cs" Line="1" Column="1" />
       <File FileName="Android\TestDatabaseActivity.cs" Line="1" Column="1" />
       <File FileName="c:\Users\Jan\Documents\Projects\rdamm\Columbia583\Columbia583\App.cs" Line="1" Column="1" />
-      <File FileName="c:\Users\Jan\Documents\Projects\rdamm\Columbia583\Android\TestMapActivity.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="C:\Users\Jan\Documents\Projects\rdamm\Columbia583\Android\MainMenuActivity.cs" line="24" column="1" />
+      <Breakpoint file="c:\Users\Jan\Documents\Projects\rdamm\Columbia583\Android\TestMapActivity.cs" line="34" column="1" />
+      <Breakpoint file="c:\Users\Jan\Documents\Projects\rdamm\Columbia583\Android\TestMapActivity.cs" line="38" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

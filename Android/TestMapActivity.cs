@@ -27,6 +27,7 @@ namespace Columbia583.Android
 		/// </summary>
 		private MapView _mapView;
 		private MarkerLayer _markerLayer;
+		private GeometryLayer _geometryLayer;
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -39,7 +40,9 @@ namespace Columbia583.Android
 			};
 
 			Xamarin.Forms.Forms.Init (this, bundle);
+
 			SetPage (App.GetMapsPage ());
+
 			/// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Map);
 
@@ -56,7 +59,7 @@ namespace Columbia583.Android
 			EPSG3857 proj = new EPSG3857 ();
 
 			/// Use packaged data source for tiles. Packaged tiles as stored as individual bitmaps under 'raw' resources. Only tiles up to zoom level 2 are included.
-			IRasterDataSource dataSource = new PackagedRasterDataSource (proj, 0, 14, "t{zoom}_{x}_{y}", ApplicationContext);
+			IRasterDataSource dataSource = new PackagedRasterDataSource (proj, 11, 15, "t{zoom}_{x}_{y}", ApplicationContext);
 			// Alternative is to use offlines tiles in MBTiles format. MBTiles data source is included as sample and it uses file-based tile storage.
 			//IRasterDataSource dataSource = new MBTilesRasterDataSource (proj, 0, 5, "/sdcard/mapxt/osm.mbtiles");
 			RasterLayer mapLayer = new RasterLayer (dataSource, 0);
@@ -70,12 +73,13 @@ namespace Columbia583.Android
 			_mapView.Options.DualClickZoomOut = true;
 			_mapView.Options.BackgroundPlaneDrawMode = Options.DrawBitmap;
 			_mapView.Options.SetBackgroundPlaneBitmap (UnscaledBitmapLoader.DecodeResource (Resources, Resource.Drawable.background_plane));
+			_mapView.Constraints.Rotatable = false;
 
 			/// zoom - 0 = world, like on most web maps
-			_mapView.Zoom = 14;
+			_mapView.Zoom = 11;
 
 			/// constrain zoom range as we have limited set of tiles
-			_mapView.Constraints.ZoomRange = new Range (0, 15);
+			_mapView.Constraints.ZoomRange = new Range (11, 15);
 
 			double Cal_lat = 51.0486f, Cal_long = -114.0708f, e_lat = 50.70f, e_long = -116.132f;
 			MapPos focusPoint = mapLayer.Projection.FromWgs84( e_long, e_lat);
@@ -89,10 +93,37 @@ namespace Columbia583.Android
 			_markerLayer = new MarkerLayer ( _mapView.Layers.BaseLayer.Projection );
 			_mapView.Layers.AddLayer ( _markerLayer );
 
+			_geometryLayer = new GeometryLayer(_mapView.Layers.BaseLayer.Projection);
+			_mapView.Layers.AddLayer(_geometryLayer);
+
+			int minZoom = 11;
+
+			Bitmap pointMarker = UnscaledBitmapLoader.DecodeResource (Resources, Resource.Drawable.point);
+			Bitmap lineMarker = UnscaledBitmapLoader.DecodeResource (Resources, Resource.Drawable.line);
+
+			PointStyle pointStyle = new PointStyle.Builder ().Build ();
+			StyleSet<PointStyle> pointStyleSet = new StyleSet<PointStyle>();
+
+			pointStyle.PickingSize = 1.0f;
+			pointStyle.Color = new Nutiteq.SDK.Color (1, 0, 0);
+
+			LineStyle lineStyle = new LineStyle.Builder ().Build ();
+			StyleSet<LineStyle> lineStyleSet = new StyleSet<LineStyle> ();
+
+			lineStyle.Color = new Nutiteq.SDK.Color (1, 0, 0);
+			lineStyle.PickingWidth = 100.0f;
+
+			IList<MapPos> mapPos = new List<MapPos> ();
+			mapPos.Add (proj.FromWgs84((float)e_long, (float)e_lat));
+			mapPos.Add (proj.FromWgs84((float)Cal_long, (float)Cal_lat));
+			//mapPos.Add (new MapPos (Cal_lat, Cal_long));
+
+			_geometryLayer.Add(new Line(mapPos, new DefaultLabel("Line"), lineStyle, null));
+
 			/// Add marker
 			AddMarker ("Marker", "Calgary", Cal_long, Cal_lat);
 			AddMarker ("Edgewater", "Default Location", e_long, e_lat);
-
+		
 		}
 
 		protected override void OnStart ()
