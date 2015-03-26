@@ -668,6 +668,11 @@ namespace Columbia583
 				{
 					trailsToAmenities.RemoveAll(i => i.amenityId == amenity.id);
 				}
+				foreach (Trail trail in deleteTrails)
+				{
+					trailsToActivities.RemoveAll(i => i.trailId == trail.id);
+					trailsToAmenities.RemoveAll(i => i.trailId == trail.id);
+				}
 
 				// Update the rows that must be updated.
 				dataLayer.updateRows (updateActivities.ToArray(), updateAmenities.ToArray(), updateComments.ToArray(), mapTiles, media, updateOrganizations.ToArray(), points, roles, updateTrails.ToArray(),
