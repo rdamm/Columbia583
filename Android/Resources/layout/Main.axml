@@ -19,4 +19,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button_debugAndTests" />
+    <Button
+        android:text="Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_login" />
+    <TextView
+        android:text="Not Logged In"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtLoggedInUsersUsername" />
 </LinearLayout>

@@ -74,6 +74,9 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.1.4.0.6341\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Auth.Android">
+      <HintPath>..\Components\xamarin.auth-1.2.3.1\lib\android\Xamarin.Auth.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -89,6 +92,8 @@
     <Compile Include="SplashActivity.cs" />
     <Compile Include="DebugMenuActivity.cs" />
     <Compile Include="TestUploadActivity.cs" />
+    <Compile Include="RecordTrailActivity.cs" />
+    <Compile Include="Services\RecordTrailService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -118,6 +123,7 @@
     <AndroidResource Include="Resources\drawable\greenways_header_logo.png" />
     <AndroidResource Include="Resources\layout\DebugMenu.axml" />
     <AndroidResource Include="Resources\layout\TestUpload.axml" />
+    <AndroidResource Include="Resources\layout\RecordTrail.axml" />
   </ItemGroup>
   <Import Project="..\Columbia583\Columbia583.projitems" Label="Shared" Condition="Exists('..\Columbia583\Columbia583.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
@@ -127,5 +133,14 @@
       <Project>{FA322A14-2B8E-4496-B950-4D8263CA0A2D}</Project>
       <Name>Library</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="xamarin.auth">
+      <Version>1.2.3.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
   </ItemGroup>
 </Project>

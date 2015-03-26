@@ -44,6 +44,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Service_Access_Layer\Webservice_Trails.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Comment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service_Access_Layer\Webservice_Comment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\OAuthUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data_Layer\" />
