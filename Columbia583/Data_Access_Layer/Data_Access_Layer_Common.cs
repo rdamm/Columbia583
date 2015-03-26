@@ -56,6 +56,7 @@ namespace Columbia583
 			List<Amenity> amenities = null;
 			List<TrailsToActivities> trailsToActivities = null;
 			List<TrailsToAmenities> trailsToAmenities = null;
+			// List<Point> points = null;
 
 			try
 			{
@@ -66,6 +67,7 @@ namespace Columbia583
 				amenities = new List<Amenity>();
 				trailsToActivities = new List<TrailsToActivities>();
 				trailsToAmenities = new List<TrailsToAmenities>();
+				// points = new List<Point>();
 
 				// For each trail retrieved from the webservice, parse the data into the local classes.
 				foreach(Webservice_Trails currentTrail in webserviceTrails)
@@ -149,6 +151,16 @@ namespace Columbia583
 						}
 					}
 
+					/*
+					 * if (currentTrail.point != null && currentTrail.point.Count > 0)
+					 * {
+					 * 		foreach (Webservice_Point point in currentTrail.point)
+					 * 		{
+					 * 			points.Add(new Point(point.id, point.trailId, point.mapTileId, point.nextPointId, point.title, point.description, point.lat, point.lon, point.primary, point.timestamp));
+					 * 		}
+					 * }
+					 */
+
 					// Get the boolean for open.
 					// TODO: Find a better way to handle boolean strings.
 					bool trailOpen = false;
@@ -193,6 +205,7 @@ namespace Columbia583
 				amenities = amenities.Distinct().ToList();
 				trailsToActivities = trailsToActivities.Distinct().ToList();
 				trailsToAmenities = trailsToAmenities.Distinct().ToList();
+				// points = points.Distinct().ToList();
 			}
 			catch (Exception e)
 			{
@@ -287,6 +300,7 @@ namespace Columbia583
 			List<Activity> insertActivities = null;
 			List<Amenity> insertAmenities = null;
 			List<Comment> insertComments = null;
+			List<Point> insertPoints = null;
 
 			List<Trail> updateTrails = null;
 			List<Organization> updateOrganizations = null;
@@ -294,6 +308,7 @@ namespace Columbia583
 			List<Activity> updateActivities = null;
 			List<Amenity> updateAmenities = null;
 			List<Comment> updateComments = null;
+			List<Point> updatePoints = null;
 
 			List<Trail> deleteTrails = null;
 			List<Organization> deleteOrganizations = null;
@@ -301,6 +316,7 @@ namespace Columbia583
 			List<Activity> deleteActivities = null;
 			List<Amenity> deleteAmenities = null;
 			List<Comment> deleteComments = null;
+			List<Point> deletePoints = null;
 
 			List<TrailsToActivities> trailsToActivities = null;
 			List<TrailsToAmenities> trailsToAmenities = null;
@@ -315,6 +331,7 @@ namespace Columbia583
 				insertActivities = new List<Activity>();
 				insertAmenities = new List<Amenity>();
 				insertComments = new List<Comment>();
+				insertPoints = new List<Point>();
 
 				updateTrails = new List<Trail>();
 				updateOrganizations = new List<Organization>();
@@ -322,6 +339,7 @@ namespace Columbia583
 				updateActivities = new List<Activity>();
 				updateAmenities = new List<Amenity>();
 				updateComments = new List<Comment>();
+				updatePoints = new List<Point>();
 
 				deleteTrails = new List<Trail>();
 				deleteOrganizations = new List<Organization>();
@@ -329,6 +347,7 @@ namespace Columbia583
 				deleteActivities = new List<Activity>();
 				deleteAmenities = new List<Amenity>();
 				deleteComments = new List<Comment>();
+				deletePoints = new List<Point>();
 
 				trailsToActivities = new List<TrailsToActivities>();
 				trailsToAmenities = new List<TrailsToAmenities>();
@@ -340,6 +359,7 @@ namespace Columbia583
 				List<int> existingActivityIds = new List<int>(dataLayer.getActivityIds());
 				List<int> existingAmenityIds = new List<int>(dataLayer.getAmenityIds());
 				List<int> existingCommentIds = new List<int>(dataLayer.getCommentIds());
+				List<int> existingPointIds = new List<int>(dataLayer.getPointIds());
 				List<TrailsToActivities> existingTrailsToActivities = new List<TrailsToActivities>(dataLayer.getTrailsToActivities());
 				List<TrailsToAmenities> existingTrailsToAmenities = new List<TrailsToAmenities>(dataLayer.getTrailsToAmenities());
 				remainingTrailsToActivities = new List<TrailsToActivities>(dataLayer.getTrailsToActivities());
@@ -467,6 +487,23 @@ namespace Columbia583
 							trailsToAmenities.Add(new TrailsToAmenities(currentTrail.id, amenity.id));
 						}
 					}
+						
+					/*
+					 * if (currentTrail.point != null && currentTrail.point.Count > 0)
+					 * {
+					 * 		foreach (Webservice_Point point in currentTrail.point)
+					 * 		{
+					 * 			if (dataLayet.getPoint(point.id) != null)
+					 * 			{
+					 * 				updatePoints.Add(new Point(point.id, point.trailId, point.mapTileId, point.nextPointId, point.title, point.description, point.lat, point.lon, point.primary, point.timestamp));
+					 * 			}
+					 * 			else
+					 * 			{
+					 * 				insertPoints.Add(new Point(point.id, point.trailId, point.mapTileId, point.nextPointId, point.title, point.description, point.lat, point.lon, point.primary, point.timestamp));
+					 * 			}
+					 * 		}
+					 * }
+					 */
 
 					// Get the boolean for open.
 					// TODO: Find a better way to handle boolean strings.
@@ -644,6 +681,29 @@ namespace Columbia583
 					}
 				}
 
+				// Find the points to delete.
+				foreach(int existingPointId in existingPointIds)
+				{
+					bool match = false;
+					/*
+					* foreach(Webservice_Trail webserviceTrail in webserviceTrails_getAll)
+					* {
+					* 	if (webserviceTrail.point != null && webserviceTrail.point.Count > 0)
+					* 	{
+					* 		foreach (Webservice_Point point in webserviceTrail.point)
+					* 		{
+					* 			if (point.id == existingPointId)
+					* 				match = true;
+					* 		}
+					* 	}
+					* }
+					* if (!match)
+					* {
+					* 	deletePoints.Add(new Point(){id = existingPointId});
+					* }
+					*/
+				}
+
 				// Delete ALL entries in the pairing tables.
 				dataLayer.deleteRows(new Activity[0], new Amenity[0], new Comment[0], new MapTile[0], new Media[0], new Organization[0], new Point[0], new Role[0], new Trail[0],
 					existingTrailsToActivities.ToArray(), existingTrailsToAmenities.ToArray(), new User[0]);
@@ -673,6 +733,24 @@ namespace Columbia583
 					trailsToActivities.RemoveAll(i => i.trailId == trail.id);
 					trailsToAmenities.RemoveAll(i => i.trailId == trail.id);
 				}
+
+				// Delete all Points with deleted Trails
+				// Should be done above
+				// Delete all Trails with deleted Organizations
+				foreach (Organization org in deleteOrganizations)
+				{
+					foreach (Webservice_Trails webTrail in webserviceTrails_getAll)
+					{
+						if (webTrail.organization != null && webTrail.orgId == org.id)
+						{
+							deleteTrails.Add(new Trail(){id = webTrail.id});
+						}
+					}
+				}
+				deleteTrails = deleteTrails.Distinct().ToList();
+
+
+				// Try nulling nullable fields
 
 				// Update the rows that must be updated.
 				dataLayer.updateRows (updateActivities.ToArray(), updateAmenities.ToArray(), updateComments.ToArray(), mapTiles, media, updateOrganizations.ToArray(), points, roles, updateTrails.ToArray(),

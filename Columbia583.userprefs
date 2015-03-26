@@ -1,9 +1,30 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\Jaclyn\Documents\GitHub\Columbia583\Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs">
+    <Files>
+      <File FileName="Columbia583\Service_Access_Layer\Webservice_Comment.cs" Line="1" Column="1" />
+      <File FileName="Android\ViewTrailActivity.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\Jaclyn\Documents\GitHub\Columbia583\Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="1" Column="1" />
+      <File FileName="Android\SplashActivity.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Classes\Trail.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Common.cs" Line="24" Column="24" />
+      <File FileName="c:\Users\Jaclyn\Documents\GitHub\Columbia583\Columbia583\Data_Layer\Data_Layer_Tests.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\Jaclyn\Documents\GitHub\Columbia583\Columbia583\Data_Layer\Data_Layer_View_Trail.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\Jaclyn\Documents\GitHub\Columbia583\Columbia583\Data_Access_Layer\Data_Access_Layer_View_Trail.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Classes\Amenity.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Classes\TrailsToAmenities.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\SQL_Script\CreateTables.txt" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Classes\User.cs" Line="1" Column="1" />
+      <File FileName="Android\MyFragmentPagerAdapter.cs" Line="1" Column="1" />
+      <File FileName="Android\ViewPagerFragment.cs" Line="1" Column="1" />
+      <File FileName="Android\SearchTrailsActivity.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Service_Access_Layer\Webservice_Trails.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Classes\Point.cs" Line="17" Column="17" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Columbia583.Android AndroidDesignerPreferredDevice="Nexus 4" />
 </Properties>
