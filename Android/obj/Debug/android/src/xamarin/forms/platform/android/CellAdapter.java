@@ -6,7 +6,8 @@ public abstract class CellAdapter
 	implements
 		mono.android.IGCUserPeer,
 		android.widget.AdapterView.OnItemLongClickListener,
-		android.view.ActionMode.Callback
+		android.view.ActionMode.Callback,
+		android.widget.AdapterView.OnItemClickListener
 {
 	static final String __md_methods;
 	static {
@@ -16,8 +17,9 @@ public abstract class CellAdapter
 			"n_onCreateActionMode:(Landroid/view/ActionMode;Landroid/view/Menu;)Z:GetOnCreateActionMode_Landroid_view_ActionMode_Landroid_view_Menu_Handler:Android.Views.ActionMode/ICallbackInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"n_onDestroyActionMode:(Landroid/view/ActionMode;)V:GetOnDestroyActionMode_Landroid_view_ActionMode_Handler:Android.Views.ActionMode/ICallbackInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"n_onPrepareActionMode:(Landroid/view/ActionMode;Landroid/view/Menu;)Z:GetOnPrepareActionMode_Landroid_view_ActionMode_Landroid_view_Menu_Handler:Android.Views.ActionMode/ICallbackInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
+			"n_onItemClick:(Landroid/widget/AdapterView;Landroid/view/View;IJ)V:GetOnItemClick_Landroid_widget_AdapterView_Landroid_view_View_IJHandler:Android.Widget.AdapterView/IOnItemClickListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"";
-		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.CellAdapter, Xamarin.Forms.Platform.Android, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null", CellAdapter.class, __md_methods);
+		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.CellAdapter, Xamarin.Forms.Platform.Android, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null", CellAdapter.class, __md_methods);
 	}
 
 
@@ -25,14 +27,14 @@ public abstract class CellAdapter
 	{
 		super ();
 		if (getClass () == CellAdapter.class)
-			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.CellAdapter, Xamarin.Forms.Platform.Android, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.CellAdapter, Xamarin.Forms.Platform.Android, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 	public CellAdapter (android.content.Context p0) throws java.lang.Throwable
 	{
 		super ();
 		if (getClass () == CellAdapter.class)
-			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.CellAdapter, Xamarin.Forms.Platform.Android, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null", "Android.Content.Context, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", this, new java.lang.Object[] { p0 });
+			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.CellAdapter, Xamarin.Forms.Platform.Android, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null", "Android.Content.Context, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", this, new java.lang.Object[] { p0 });
 	}
 
 
@@ -74,6 +76,14 @@ public abstract class CellAdapter
 	}
 
 	private native boolean n_onPrepareActionMode (android.view.ActionMode p0, android.view.Menu p1);
+
+
+	public void onItemClick (android.widget.AdapterView p0, android.view.View p1, int p2, long p3)
+	{
+		n_onItemClick (p0, p1, p2, p3);
+	}
+
+	private native void n_onItemClick (android.widget.AdapterView p0, android.view.View p1, int p2, long p3);
 
 	java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

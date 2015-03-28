@@ -13,11 +13,11 @@ namespace Columbia583
 
 		}
 
-		public Trail[] getTrailsByFilters(SearchFilter searchFilter)
+		public SearchResult[] getTrailsBySearchFilter(SearchFilter searchFilter)
 		{
 			// Get the trails.
 			Business_Layer_Search_Trails businessLayer_searchTrails = new Business_Layer_Search_Trails ();
-			return businessLayer_searchTrails.getTrailsByFilters (searchFilter);
+			return businessLayer_searchTrails.getTrailsBySearchFilter (searchFilter);
 		}
 	}
 }

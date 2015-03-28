@@ -7,7 +7,7 @@ namespace Columbia583
 
 		public int[] activities { get; set; }
 		public int[] amenities { get; set; }
-		public Difficulty difficulty { get; set; }
+		public Difficulty[] difficulty { get; set; }
 		public int rating { get; set; }
 		public int minDuration { get; set; }
 		public int maxDuration { get; set; }
@@ -19,7 +19,7 @@ namespace Columbia583
 
 		}
 
-		public SearchFilter (int[] activities, int[] amenities, Difficulty difficulty, int rating, int minDuration, int maxDuration, int minDistance, int maxDistance)
+		public SearchFilter (int[] activities, int[] amenities, Difficulty[] difficulty, int rating, int minDuration, int maxDuration, int minDistance, int maxDistance)
 		{
 			this.activities = activities;
 			this.amenities = amenities;
