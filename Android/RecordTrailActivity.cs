@@ -16,7 +16,7 @@ using Android.Locations;
 
 namespace Columbia583.Android
 {
-	[Activity (Label = "RecordTrailActivity")]			
+	[Activity (Label = "RecordTrailActivity")]
 	public class RecordTrailActivity : AndroidActivity
 	{
 		protected Button btnStartRecordingTrail = null;

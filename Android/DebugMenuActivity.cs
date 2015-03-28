@@ -21,7 +21,6 @@ namespace Columbia583.Android
 		protected Button testDatabaseButton = null;
 		protected Button testDataAccessButton = null;
 		protected Button testImageButton = null;
-		protected Button testUploadButton = null;
 		protected Button testRecordTrailButton = null;
 
 		protected override void OnCreate (Bundle bundle)
@@ -40,7 +39,6 @@ namespace Columbia583.Android
 			testDatabaseButton = FindViewById<Button> (Resource.Id.button_databaseTests);
 			testDataAccessButton = FindViewById<Button> (Resource.Id.button_dataAccessTests);
 			testImageButton = FindViewById<Button> (Resource.Id.button_imageTests);
-			testUploadButton = FindViewById<Button> (Resource.Id.button_uploadTests);
 			testRecordTrailButton = FindViewById<Button> (Resource.Id.button_recordTrailTests);
 
 			// Assign the event handlers.
@@ -67,15 +65,6 @@ namespace Columbia583.Android
 
 					// Load the image tests page.
 					var intent = new Intent(this, typeof(TestImageActivity));
-					StartActivity(intent);
-
-				};
-			}
-			if (testUploadButton != null) {
-				testUploadButton.Click += (sender, e) => {
-
-					// Load the upload tests page.
-					var intent = new Intent(this, typeof(TestUploadActivity));
 					StartActivity(intent);
 
 				};

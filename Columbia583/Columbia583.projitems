@@ -45,6 +45,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Comment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service_Access_Layer\Webservice_Comment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\OAuthUser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service_Access_Layer\Service_Access_Layer_Upload.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Access_Layer\Data_Access_Layer_Upload.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data_Layer\" />

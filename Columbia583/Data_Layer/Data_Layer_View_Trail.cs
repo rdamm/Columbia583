@@ -47,6 +47,40 @@ namespace Columbia583
 			return trail;
 		}
 
+
+		/// <summary>
+		/// Gets the media for the given trail.
+		/// </summary>
+		/// <returns>The media.</returns>
+		/// <param name="trailId">Trail identifier.</param>
+		public List<Media> getMedia(int trailId)
+		{
+			List<Media> mediaList = new List<Media> ();
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(Data_Layer_Common.getPathToDatabase());
+
+				// Get the media for this trail.
+				var response = connection.Query<Media>("SELECT * FROM Media WHERE trailId = ?", trailId);
+				foreach (Media media in response)
+				{
+					mediaList.Add(media);
+				}
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return mediaList;
+		}
+
+
 		public List<Comment> getComments(int trailId)
 		{
 			List<Comment> results = new List<Comment> ();

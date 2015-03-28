@@ -39,7 +39,8 @@ namespace Columbia583.Android
 		protected TextView season = null;
 		protected TextView maintenance = null;
 		protected LinearLayout commentsLayout = null;
-		protected Gallery trailGallery = null;
+		protected global::Android.Widget.Button uploadMediaButton = null;
+		protected GridView trailGallery = null;
 		//private GestureDetector _gestureDetector;
 
 		protected bool debugTrailA = true;
@@ -70,6 +71,10 @@ namespace Columbia583.Android
 
 			Activity[] debugActivities = new Activity[6];
 			Amenity[] debugAmenities = new Amenity[2];
+
+			// Get the trail's media.
+			Data_Access_Layer_View_Trail dataAccessLayerViewTrail = new Data_Access_Layer_View_Trail();
+			Media[] mediaList = dataAccessLayerViewTrail.getMedia(trail.id);
 
 			if (debugTrailA) {
 				debugActivities [0] = new Activity (1, "Hiking", new byte[0], DateTime.Now);
@@ -188,7 +193,56 @@ namespace Columbia583.Android
 			adapter.AddFragmentView((i, v, b) =>
 				{
 					var view = LayoutInflater.Inflate(Resource.Layout.ViewTrail4, v, false);
-					//trailGallery = view.FindViewById<LinearLayout>(Resource.Id.trailGallery);
+
+					// Get the controls.
+					trailGallery = view.FindViewById<GridView>(Resource.Id.trailGallery);
+					uploadMediaButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.btnUploadMedia);
+
+					// Set the event handlers.
+					if (uploadMediaButton != null)
+					{
+						uploadMediaButton.Click += (sender, e) => {
+
+							// Load the upload media page.
+							var intent = new Intent(this, typeof(UploadMediaActivity));
+							StartActivity(intent);
+
+						};
+					}
+
+					// DEBUG: Populate this trail's media with activities.
+					// TODO: Use actual media.
+					// DEBUG: Outer for loop being used to evaluate layout behaviour for multiple lines worth of images.
+					List<Media> trailMedia = new List<Media>();
+					Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common();
+					List<Activity> activities2 = new List<Activity>(dataAccessLayer.getActivities());
+					for (int rows = 0; rows < 3; rows++)
+					{
+						foreach(Activity activity in activities2)
+						{
+							// Encapsulate the activity in a media object for testing.
+							Media activityMedia = new Media();
+							activityMedia.title = activity.activityName;
+							activityMedia.mediaImage = activity.activityIcon;
+							trailMedia.Add(activityMedia);
+						}
+					}
+					mediaList = trailMedia.ToArray();
+
+					// Create an adapter to populate the page with images and associate them with common indices.
+					trailGallery.Adapter = new MediaAdapter (this, mediaList);
+					trailGallery.ItemClick += delegate (object sender, AdapterView.ItemClickEventArgs args) {
+
+						// Get the selected media.
+						Media selectedMedia = mediaList[args.Position];
+
+						// Load the selected media in a new activity.
+						var intent = new Intent(this, typeof(ViewMediaActivity));
+						string mediaJsonStr = Newtonsoft.Json.JsonConvert.SerializeObject(selectedMedia);
+						intent.PutExtra("media", mediaJsonStr);
+						StartActivity(intent);
+
+					};
 
 					return view;
 				}

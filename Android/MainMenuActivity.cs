@@ -22,6 +22,7 @@ namespace Columbia583.Android
 		protected Button searchTrailsButton = null;
 		protected Button debugAndTestsButton = null;
 		protected Button loginButton = null;
+		protected Button logoutButton = null;
 		protected TextView loggedInUsersUsernameText = null;
 
 		protected override void OnCreate (Bundle bundle)
@@ -40,11 +41,18 @@ namespace Columbia583.Android
 			searchTrailsButton = FindViewById<Button> (Resource.Id.button_searchTrails);
 			debugAndTestsButton = FindViewById<Button> (Resource.Id.button_debugAndTests);
 			loginButton = FindViewById<Button> (Resource.Id.button_login);
+			logoutButton = FindViewById<Button> (Resource.Id.button_logout);
 			loggedInUsersUsernameText = FindViewById<TextView> (Resource.Id.txtLoggedInUsersUsername);
 
 			// Get the logged in user and show their username.
 			Account account = getLoggedInUser ();
-			displayUsername (account);
+			if (account != null) {
+				// Show the username.
+				displayUsername (account);
+			} else {
+				// Clear the username.
+				clearUsername ();
+			}
 			
 			// Assign the event handlers.
 			if (searchTrailsButton != null) {
@@ -67,6 +75,9 @@ namespace Columbia583.Android
 			}
 			if (loginButton != null) {
 				loginButton.Click += requestLoginEvent;
+			}
+			if (logoutButton != null) {
+				logoutButton.Click += logoutEvent;
 			}
 		}
 
@@ -106,12 +117,7 @@ namespace Columbia583.Android
 			Account account = eventArgs.Account;
 
 			// Destroy all other Facebook logins.  This does not support multiple login storage.
-			AccountStore accountStore = AccountStore.Create (this);
-			IEnumerable<Account> accounts = accountStore.FindAccountsForService ("Facebook");
-			foreach (Account a in accounts)
-			{
-				accountStore.Delete (a, "Facebook");
-			}
+			destroyOauthLogins();
 
 			// If the user was logged in successfully, store their login info and update the username.
 			// Otherwise, destroy their login info and clear the username.
@@ -119,25 +125,42 @@ namespace Columbia583.Android
 			{
 				if (account != null) {
 					// Store their login.
+					AccountStore accountStore = AccountStore.Create (this);
 					accountStore.Save (account, "Facebook");
 
 					// Update the username display.
 					displayUsername (eventArgs.Account);
 				} else {
 					// Clear the username display.
-					displayUsername (null);
+					clearUsername ();
 				}
 			}
 			else
 			{
 				// Destroy their login.
 				if (account != null) {
+					AccountStore accountStore = AccountStore.Create (this);
 					accountStore.Delete (account, "Facebook");
 				}
 
 				// Clear the username display.
-				displayUsername (null);
+				clearUsername ();
 			}
+		}
+
+
+		/// <summary>
+		/// Logs out the user.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="eventArgs">Event arguments.</param>
+		protected void logoutEvent(object sender, EventArgs eventArgs)
+		{
+			// Destroy all Facebook logins.
+			destroyOauthLogins();
+
+			// Clear the username display.
+			clearUsername();
 		}
 
 
@@ -178,7 +201,7 @@ namespace Columbia583.Android
 					if (t.IsFaulted)
 					{
 						Console.WriteLine ("Error: " + t.Exception.InnerException.Message);
-						RunOnUiThread (() => loggedInUsersUsernameText.Text = "Not logged in.");
+						clearUsername ();
 					}
 					else
 					{
@@ -188,12 +211,44 @@ namespace Columbia583.Android
 
 						// Update the username view.
 						RunOnUiThread (() => loggedInUsersUsernameText.Text = "Logged in as " + userProfile.name);
+
+						// Show the logout button.
+						RunOnUiThread (() => loginButton.Visibility = ViewStates.Invisible);
+						RunOnUiThread (() => logoutButton.Visibility = ViewStates.Visible);
 					}
 				});
 			}
 			else
 			{
-				RunOnUiThread (() => loggedInUsersUsernameText.Text = "Not logged in.");
+				clearUsername ();
+			}
+		}
+
+
+		/// <summary>
+		/// Clears the username view.
+		/// </summary>
+		protected void clearUsername()
+		{
+			// Change the username view.
+			RunOnUiThread (() => loggedInUsersUsernameText.Text = "Not logged in.");
+
+			// Show the login button.
+			loginButton.Visibility = ViewStates.Visible;
+			logoutButton.Visibility = ViewStates.Invisible;
+		}
+
+
+		/// <summary>
+		/// Destroys the OAuth logins.
+		/// </summary>
+		protected void destroyOauthLogins()
+		{
+			AccountStore accountStore = AccountStore.Create (this);
+			IEnumerable<Account> accounts = accountStore.FindAccountsForService ("Facebook");
+			foreach (Account a in accounts)
+			{
+				accountStore.Delete (a, "Facebook");
 			}
 		}
 	}
