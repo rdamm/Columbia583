@@ -48,6 +48,7 @@ namespace Columbia583
 		public Webservice_Organization organization { get; set; }
 		public List<Webservice_Activity> activity { get; set; }
 		public List<Webservice_Amenity> amenity { get; set; }
+		// public List<Webservice_Point> point { get; set; }
 
 		public Webservice_Trails()
 		{
