@@ -44,6 +44,8 @@ namespace Columbia583.Android
 
 		protected bool debugTrailA = true;
 
+		protected global::Android.Widget.Button viewTrailMapsButton = null;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -110,6 +112,14 @@ namespace Columbia583.Android
 					season.Text = "Season: " + trail.season;
 					maintenance.Text = trail.maintenance;
 
+					viewTrailMapsButton = view.FindViewById<global::Android.Widget.Button> (Resource.Id.button_map);
+
+					if (viewTrailMapsButton != null){
+						viewTrailMapsButton.Click += (sender, e) => {
+							var intent = new Intent(this, typeof(TestMapActivity));
+							StartActivity(intent);
+						};
+					}
 					return view;
 				}
 			);

@@ -101,4 +101,9 @@
         android:id="@+id/difficultyRating"
         android:hint="Easiest?"
         android:layout_marginLeft="3.0dp" />
+    <Button
+        android:text="View Map"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_map" />
 </LinearLayout>
