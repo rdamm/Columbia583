@@ -746,11 +746,59 @@ namespace Columbia583
 							deleteTrails.Add(new Trail(){id = webTrail.id});
 						}
 					}
+
+					foreach (User u in dataLayer.getUsers()) {
+						if (u.orgId == org.id) {
+							updateUsers.Add(new User(u.id, null, u.email, u.username, currentTime));
+						}
+					}
 				}
 				deleteTrails = deleteTrails.Distinct().ToList();
+				updateUsers = updateUsers.Distinct().ToList();
 
 
 				// Try nulling nullable fields
+				// See above for nulling User's Organization
+				// Update all Trails with deleted Users
+				foreach (Webservice_Trails currentTrail in webserviceTrails_getAll) {
+					foreach (User u in deleteUsers) {
+						int orgId = 0;
+						if (currentTrail.organization != null) {
+							orgId = currentTrail.organization.id;
+						}
+						// trailOpen
+						bool trailOpen = false;
+						if (currentTrail.open == "0")
+						{
+							trailOpen = false;
+						}
+						else if (currentTrail.open == "1")
+						{
+							trailOpen = true;
+						}
+						else
+						{
+							trailOpen = Convert.ToBoolean(currentTrail.open);
+						}
+						// Get the enum for difficulty.
+						Difficulty trailDifficulty;
+						if(currentTrail.difficulty.Contains(" "))
+						{
+							string[] token = currentTrail.difficulty.Split(' ');
+							string temp = token[0]+"_"+token[1];
+							trailDifficulty = (Difficulty) Enum.Parse(typeof(Difficulty),temp);
+						}
+						else
+						{
+							trailDifficulty = (Difficulty) Enum.Parse(typeof(Difficulty), currentTrail.difficulty);
+						}
+						if (currentTrail.user != null && currentTrail.user.id == u.id) {
+							updateTrails.Add(new Trail(currentTrail.id, null, orgId, currentTrail.name, currentTrail.location, currentTrail.kml_name, currentTrail.kml_content, currentTrail.distance,
+								currentTrail.duration, currentTrail.description, currentTrail.directions, trailDifficulty, currentTrail.rating, currentTrail.hazards, currentTrail.surface,
+								currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, currentTime));
+						}
+					}
+				}
 
 				// Update the rows that must be updated.
 				dataLayer.updateRows (updateActivities.ToArray(), updateAmenities.ToArray(), updateComments.ToArray(), mapTiles, media, updateOrganizations.ToArray(), points, roles, updateTrails.ToArray(),

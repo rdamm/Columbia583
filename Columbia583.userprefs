@@ -1,8 +1,11 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\ViewTrailActivity.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs">
     <Files>
-      <File FileName="Android\ViewTrailActivity.cs" Line="200" Column="6" />
+      <File FileName="Android\ViewTrailActivity.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Common.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="800" Column="7" />
+      <File FileName="Columbia583\Service_Access_Layer\Webservice_Trails.cs" Line="24" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
