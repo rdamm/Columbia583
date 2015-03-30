@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:id="@+id/mainView2"
+    android:fitsSystemWindows="true">
+    <com.nutiteq.MapView
+        android:id="@+id/mapView2"
+        android:layout_width="fill_parent"
+        android:layout_height="493.6dp" />
+    <ZoomControls
+        android:id="@+id/zoomcontrols2"
+        android:layout_width="wrap_content"
+        android:layout_height="86.6dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true" />
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button1"
+        android:id="@+id/button1"
+        android:layout_toRightOf="@id/button1"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

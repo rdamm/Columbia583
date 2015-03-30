@@ -1172,6 +1172,7 @@
     <AndroidResource Include="Resources\drawable\olmarker.png" />
     <AndroidResource Include="Resources\drawable\point.png" />
     <AndroidResource Include="Resources\drawable\sky_small.png" />
+    <AndroidResource Include="Resources\layout\Map2.axml" />
   </ItemGroup>
   <Import Project="..\Columbia583\Columbia583.projitems" Label="Shared" Condition="Exists('..\Columbia583\Columbia583.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

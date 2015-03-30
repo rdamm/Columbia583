@@ -3,13 +3,18 @@
   <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Android\ViewTrailActivity.cs" Line="1" Column="1" />
+      <File FileName="Android\DebugMenuActivity.cs" Line="2" Column="2" />
+      <File FileName="ViewPagerIndicator-master\Library\CirclePageIndicator.cs" Line="30" Column="30" />
+      <File FileName="Android\TestMapActivity.cs" Line="4" Column="4" />
+      <File FileName="Columbia583\App.cs" Line="54" Column="54" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="c:\Users\Jan\Documents\Projects\rdamm\Columbia583\Android\TestMapActivity.cs" line="35" column="1" />
-      <Breakpoint file="c:\Users\Jan\Documents\Projects\rdamm\Columbia583\Android\TestMapActivity.cs" line="39" column="1" />
+      <Breakpoint file="c:\Users\Jan\Documents\Projects\rdamm\Columbia583\Android\TestMapActivity.cs" line="549" column="1" />
+      <Breakpoint file="c:\Users\Jan\Documents\Projects\rdamm\Columbia583\Android\TestMapActivity.cs" line="553" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Columbia583.Android MonoForAntroid.PreferredDevice="Nexus 4" />
 </Properties>
