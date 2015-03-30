@@ -51,26 +51,30 @@ namespace Columbia583
 				// Open connection to local database.
 				var connection = new SQLiteConnection(getPathToDatabase());
 
-				// Get a list of expected table names.
-				List<string> tableNames = new List<string>();
-				tableNames.Add(typeof(AppGlobals).Name);
-				tableNames.Add(typeof(Activity).Name);
-				tableNames.Add(typeof(Amenity).Name);
-				tableNames.Add(typeof(MapTile).Name);
-				tableNames.Add(typeof(Organization).Name);
-				tableNames.Add(typeof(Role).Name);
-				tableNames.Add(typeof(User).Name);
-				tableNames.Add(typeof(Trail).Name);
-				tableNames.Add(typeof(Media).Name);
-				tableNames.Add(typeof(Point).Name);
-				tableNames.Add(typeof(TrailsToActivities).Name);
-				tableNames.Add(typeof(TrailsToAmenities).Name);
+				// Get a list of the database tables.
+				List<Type> tableTypes = new List<Type>();
+				tableTypes.Add(typeof(AppGlobals));
+				tableTypes.Add(typeof(Activity));
+				tableTypes.Add(typeof(Amenity));
+				tableTypes.Add(typeof(MapTile));
+				tableTypes.Add(typeof(Organization));
+				tableTypes.Add(typeof(Role));
+				tableTypes.Add(typeof(User));
+				tableTypes.Add(typeof(Trail));
+				tableTypes.Add(typeof(Media));
+				tableTypes.Add(typeof(Point));
+				tableTypes.Add(typeof(TrailsToActivities));
+				tableTypes.Add(typeof(TrailsToAmenities));
 
 				// Check if the tables exist.
 				string tableExistsQuery = "SELECT name FROM sqlite_master WHERE type = 'table' AND name = ?";
 				bool allTablesExist = true;
-				foreach(string tableName in tableNames)
+				foreach(Type tableType in tableTypes)
 				{
+					// Get the table's name.
+					string tableName = tableType.Name;
+
+					// Check if the table exists.
 					SQLiteCommand tableExistsCommand = connection.CreateCommand(tableExistsQuery, tableName);
 					bool tableExists = (tableExistsCommand.ExecuteScalar<string>() != null);
 					if (tableExists != true)
@@ -80,10 +84,38 @@ namespace Columbia583
 					}
 				}
 
-				// TODO: Make sure the tables have all the correct columns.
+				// Check if the tables have all the correct columns.
+				bool allColumnsExist = true;
+				foreach(Type tableType in tableTypes)
+				{
+					// Get the table's name.
+					string tableName = tableType.Name;
+					
+					// Get the column names from the table's properties.
+					System.Reflection.PropertyInfo[] properties = tableType.GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
 
-				// Determine if the database has been initialized based on the table existences.
-				databaseInitialized = allTablesExist;
+					// Check if the table contains all the fields.
+					foreach(System.Reflection.PropertyInfo property in properties)
+					{
+						// Get the column name.
+						string columnName = property.Name;
+
+						try
+						{
+							// Check if the column exists.  An exception will be thrown if it does not exist.
+							SQLiteCommand cmd = connection.CreateCommand("SELECT " + columnName + " FROM " + tableName, new object[0]);
+							var response = cmd.ExecuteScalar<string>();
+						}
+						catch (Exception e)
+						{
+							allColumnsExist = false;
+							break;
+						}
+					}
+				}
+				
+				// Determine if the database has been initialized based on the table and column existences.
+				databaseInitialized = allTablesExist && allColumnsExist;
 				
 				// Close connection to local database.
 				connection.Close();

@@ -48,11 +48,11 @@ namespace Columbia583.Android.hi
 				int completedTasks = 0;
 				int totalTasks = 1;
 
+				// TODO: Check if the network is available.  If so, run network-dependent methods.
+
 				// If the database has been initialized, update it.  Otherwise, initialize it.
-				// DEBUG: Force initialize until database initialized check checks for column existences.
 				Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common ();
 				bool databaseInitialized = dataAccessLayer.databaseInitialized ();
-				databaseInitialized = false;
 				if (databaseInitialized == true)
 				{
 					dataAccessLayer.updateDatabase ();
