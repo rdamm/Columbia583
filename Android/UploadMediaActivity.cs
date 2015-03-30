@@ -32,6 +32,8 @@ namespace Columbia583.Android
 		public static readonly int SelectImageId = 1000;
 		protected Bitmap selectedImageBitmap = null;
 
+		protected int trailId = 0;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -43,6 +45,9 @@ namespace Columbia583.Android
 
 			// Set the view for the page.
 			SetContentView (Resource.Layout.UploadMedia);
+
+			// Get the extras.
+			trailId = Intent.GetIntExtra("trailId", 0);
 
 			// Get the controls.
 			btnSelectImage = FindViewById<Button> (Resource.Id.btnSelectImage);
@@ -84,12 +89,10 @@ namespace Columbia583.Android
 					MemoryStream stream = new MemoryStream();
 					selectedImageBitmap.Compress(Bitmap.CompressFormat.Png, 0, stream);
 					byte[] imageBytes = stream.ToArray();
-					
-					// Encapsulate the media.
-					// TODO: Merge media and comment features.
-					Media media = new Media(0, textboxTitle.Text, "image", "", imageBytes, DateTime.Now, DateTime.Now);
 
 					// Upload the media.
+					// TODO: Merge media and comment features.
+					Media media = new Media(0, trailId, textboxTitle.Text, "image", "", imageBytes, DateTime.Now, DateTime.Now, DateTime.Now, true);
 					Data_Access_Layer_Upload dataAccessLayerUpload = new Data_Access_Layer_Upload();
 					dataAccessLayerUpload.uploadMedia(media);
 

@@ -6,6 +6,19 @@ namespace Columbia583
 	{
 		public Service_Access_Layer_Upload ()
 		{
+			
+		}
+
+
+		/// <summary>
+		/// Uploads the user to the server.  Will return true if the upload was successful, and false otherwise.
+		/// </summary>
+		/// <returns><c>true</c>, if user was uploaded, <c>false</c> otherwise.</returns>
+		/// <param name="user">User.</param>
+		public bool uploadUser(User user)
+		{
+			// TODO: Upload the user to the server.
+			return false;
 		}
 
 

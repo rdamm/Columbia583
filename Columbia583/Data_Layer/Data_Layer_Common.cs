@@ -57,11 +57,11 @@ namespace Columbia583
 				tableNames.Add(typeof(Activity).Name);
 				tableNames.Add(typeof(Amenity).Name);
 				tableNames.Add(typeof(MapTile).Name);
-				tableNames.Add(typeof(Media).Name);
 				tableNames.Add(typeof(Organization).Name);
 				tableNames.Add(typeof(Role).Name);
 				tableNames.Add(typeof(User).Name);
 				tableNames.Add(typeof(Trail).Name);
+				tableNames.Add(typeof(Media).Name);
 				tableNames.Add(typeof(Point).Name);
 				tableNames.Add(typeof(TrailsToActivities).Name);
 				tableNames.Add(typeof(TrailsToAmenities).Name);
@@ -79,6 +79,8 @@ namespace Columbia583
 						break;
 					}
 				}
+
+				// TODO: Make sure the tables have all the correct columns.
 
 				// Determine if the database has been initialized based on the table existences.
 				databaseInitialized = allTablesExist;
@@ -111,13 +113,13 @@ namespace Columbia583
 				connection.CreateTable<Activity>();
 				connection.CreateTable<Amenity>();
 				connection.CreateTable<MapTile>();
-				connection.CreateTable<Media>();
 				connection.CreateTable<Organization>();
 				connection.CreateTable<Role>();
 
 				// Create all the tables that have foreign keys.
 				connection.CreateTable<User>();					// References Organization.
 				connection.CreateTable<Trail>();				// References Organization and User.
+				connection.CreateTable<Media>();				// References Trail.
 				connection.CreateTable<Point>();				// References Trail and MapTile.
 				connection.CreateTable<TrailsToActivities>();	// References Trail and Activity.
 				connection.CreateTable<TrailsToAmenities>();	// References Trail and Amenity.
@@ -178,13 +180,13 @@ namespace Columbia583
 				connection.InsertAll(activities);
 				connection.InsertAll(amenities);
 				connection.InsertAll(mapTiles);
-				connection.InsertAll(media);
 				connection.InsertAll(organizations);
 				connection.InsertAll(roles);
 
 				// Insert the data that has foreign keys.
 				connection.InsertAll(users);
 				connection.InsertAll(trails);
+				connection.InsertAll(media);
 				connection.InsertAll(points);
 				connection.InsertAll(trailsToActivities);
 				connection.InsertAll(trailsToAmenities);
@@ -1074,7 +1076,6 @@ namespace Columbia583
 				connection.UpdateAll(activities);
 				connection.UpdateAll(amenities);
 				connection.UpdateAll(mapTiles);
-				connection.UpdateAll(media);
 				connection.UpdateAll(organizations);
 				connection.UpdateAll(roles);
 
@@ -1082,6 +1083,7 @@ namespace Columbia583
 				// TODO: Figure out how to handle foreign keys for updates.
 				// Currently ON UPDATE NO ACTION
 				connection.UpdateAll(points);
+				connection.UpdateAll(media);
 				connection.UpdateAll(trails);
 				connection.UpdateAll(users);
 				connection.UpdateAll(comments);
@@ -1127,6 +1129,7 @@ namespace Columbia583
 				foreach(var row in trailsToAmenities)	connection.Delete(row);
 				foreach(var row in points)				connection.Delete(row);
 				foreach(var row in comments)			connection.Delete(row);
+				foreach(var row in media)				connection.Delete(row);
 				foreach(var row in trails)				connection.Delete(row);
 				foreach(var row in users)				connection.Delete(row);
 				
@@ -1134,7 +1137,6 @@ namespace Columbia583
 				foreach(var row in activities)		connection.Delete(row);
 				foreach(var row in amenities)		connection.Delete(row);
 				foreach(var row in mapTiles)		connection.Delete(row);
-				foreach(var row in media)			connection.Delete(row);
 				foreach(var row in organizations)	connection.Delete(row);
 				foreach(var row in roles)			connection.Delete(row);
 
@@ -1165,6 +1167,7 @@ namespace Columbia583
 				connection.DeleteAll<TrailsToActivities>();
 				connection.DeleteAll<TrailsToAmenities>();
 				connection.DeleteAll<Point>();
+				connection.DeleteAll<Media>();
 				connection.DeleteAll<Trail>();
 				connection.DeleteAll<User>();
 
@@ -1172,7 +1175,6 @@ namespace Columbia583
 				connection.DeleteAll<Activity>();
 				connection.DeleteAll<Amenity>();
 				connection.DeleteAll<MapTile>();
-				connection.DeleteAll<Media>();
 				connection.DeleteAll<Organization>();
 				connection.DeleteAll<Role>();
 				connection.DeleteAll<AppGlobals>();
@@ -1203,6 +1205,7 @@ namespace Columbia583
 				connection.DropTable<TrailsToActivities>();
 				connection.DropTable<TrailsToAmenities>();
 				connection.DropTable<Point>();
+				connection.DropTable<Media>();
 				connection.DropTable<Trail>();
 				connection.DropTable<User>();
 
@@ -1210,7 +1213,6 @@ namespace Columbia583
 				connection.DropTable<Activity>();
 				connection.DropTable<Amenity>();
 				connection.DropTable<MapTile>();
-				connection.DropTable<Media>();
 				connection.DropTable<Organization>();
 				connection.DropTable<Role>();
 				connection.DropTable<AppGlobals>();

@@ -41,8 +41,7 @@ namespace Columbia583.Android.hi
 			splashProgressLabel = FindViewById<TextView> (Resource.Id.txtSplashProgressLabel);
 
 			// Create a background thread for the app initialization.
-			// NOTE: The UI doesn't load until this entire method has completed.  So, the
-			// initialization must go into a background thread.
+			// NOTE: The UI doesn't load until this entire method has completed.  So, the initialization must go into a background thread.
 			// TODO: Fix bug where rotating the screen during the splash screen's loading creates multiple threads.
 			new Thread (new ThreadStart (() => {
 				// Define the number of tasks to complete for the progress bar.
@@ -50,8 +49,10 @@ namespace Columbia583.Android.hi
 				int totalTasks = 1;
 
 				// If the database has been initialized, update it.  Otherwise, initialize it.
+				// DEBUG: Force initialize until database initialized check checks for column existences.
 				Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common ();
 				bool databaseInitialized = dataAccessLayer.databaseInitialized ();
+				databaseInitialized = false;
 				if (databaseInitialized == true)
 				{
 					dataAccessLayer.updateDatabase ();

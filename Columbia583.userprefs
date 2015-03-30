@@ -1,10 +1,9 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.virtualNexus" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Android\MainMenuActivity.cs">
     <Files>
-      <File FileName="Android\MainMenuActivity.cs" Line="232" Column="74" />
-      <File FileName="c:\Users\RPrime\Documents\Projects\Columbia583\Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="862" Column="24" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Common.cs" Line="1194" Column="27" />
+      <File FileName="Android\MainMenuActivity.cs" Line="230" Column="103" />
+      <File FileName="Android\SplashActivity.cs" Line="55" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

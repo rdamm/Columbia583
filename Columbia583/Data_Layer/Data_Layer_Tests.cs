@@ -53,7 +53,6 @@ namespace Columbia583
 			Activity[] activities = new Activity[3];
 			Amenity[] amenities = new Amenity[3];
 			MapTile[] mapTiles = new MapTile[1];
-			Media[] media = new Media[1];
 			Organization[] organizations = new Organization[1];
 			Role[] roles = new Role[1];
 			activities [0] = new Activity (1, "Hiking", imageBytes, DateTime.Now);
@@ -63,7 +62,6 @@ namespace Columbia583
 			amenities [1] = new Amenity (2, "Campground", new byte[0], DateTime.Now);
 			amenities [2] = new Amenity (3, "Picnic Area", new byte[0], DateTime.Now);
 			mapTiles [0] = new MapTile (1, 100, 200, 10, 20, "mapTile_100x200_10x20.jpg", new byte[0], DateTime.Now, DateTime.Now);
-			media [0] = new Media (1, "Baby Deer Looks Cute", "Image", "", new byte[0], DateTime.Now, DateTime.Now);
 			organizations [0] = new Organization (1, "Columbia Valley Greenways Trail Alliance", DateTime.Now);
 			roles [0] = new Role (1, "Administrator", DateTime.Now);
 
@@ -71,13 +69,15 @@ namespace Columbia583
 			// TODO: Figure out how to nullify the next point ID field.
 			User[] users = new User[1];
 			Trail[] trails = new Trail[3];
+			Media[] media = new Media[1];
 			Point[] points = new Point[6];
 			TrailsToActivities[] trailsToActivities = new TrailsToActivities[4];
 			TrailsToAmenities[] trailsToAmenities = new TrailsToAmenities[4];
-			users [0] = new User (1, 0, "rob_orchiston@greenways.ca", "rob_orchiston", DateTime.Now);
+			users [0] = new User (1, 0, "rob_orchiston@greenways.ca", "rob_orchiston", DateTime.Now, DateTime.Now, false);
 			trails [0] = new Trail (1, 1, 1, "Trail 1", "Radium", "", "", "32 km", "2 hours", "A hike through the valley.", "", Difficulty.More_Difficult, 4, "", "", "", "", "", true, true, DateTime.Now);
 			trails [1] = new Trail (2, 1, 1, "Trail 2", "Invermere", "", "", "16 km", "1 hours", "A hike along the creeks.", "", Difficulty.Easy, 2, "", "", "", "", "", true, true, DateTime.Now);
 			trails [2] = new Trail (3, 1, 1, "Trail 3", "Windermere", "", "", "8 km", "30 minutes", "A hike alongside Lake Invermere.", "", Difficulty.Easiest, 3, "", "", "", "", "", true, true, DateTime.Now);
+			media [0] = new Media (1, 1, "Baby Deer Looks Cute", "Image", "", new byte[0], DateTime.Now, DateTime.Now, DateTime.Now, false);
 			points [0] = new Point (1, 1, 1, 2, "", "", 100, 101, true, DateTime.Now);
 			points [1] = new Point (2, 1, 1, -1, "", "", 110, 111, false, DateTime.Now);
 			points [2] = new Point (3, 1, 1, 4, "", "", 120, 121, true, DateTime.Now);

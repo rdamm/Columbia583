@@ -89,10 +89,10 @@ namespace Columbia583.Android
 		/// <param name="eventArgs">Event arguments.</param>
 		protected void requestLoginEvent(object sender, EventArgs eventArgs)
 		{
-			// Create an OAuth authentication request.
+			// Create an OAuth authentication request.  Add email to the scope to include it in the account request permissions.
 			var auth = new OAuth2Authenticator (
 				clientId: "370094413194090",
-				scope: "",
+				scope: "email",
 				authorizeUrl: new Uri ("https://m.facebook.com/dialog/oauth/"),
 				redirectUrl: new Uri ("http://www.facebook.com/connect/login_success.html"));
 
@@ -209,16 +209,18 @@ namespace Columbia583.Android
 						string json = t.Result.GetResponseText();
 						OAuthUser userProfile = JsonConvert.DeserializeObject<OAuthUser>(json);
 
-						// TODO: Get the user's email from the profile.  Will need to figure out how to set permissions in OAuth login request.
-						string userEmail = "ry.damm@gmail.com";
+						// Get the user's email from the profile.
+						string userEmail = userProfile.email;
 
 						// Get the user from the local users.  If the user doesn't exist, create it.
 						Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
 						User user = dataAccessLayerCommon.getUserByEmail(userEmail);
 						if (user == null)
 						{
-							// TODO: Create the user in the database.
-							user = new User(1000, 0, userEmail, userProfile.name, DateTime.Now);
+							// Create the user.
+							user = new User(0, 0, userEmail, userProfile.name, DateTime.Now, DateTime.Now, true);
+							Data_Access_Layer_Upload dataAccessLayerUpload = new Data_Access_Layer_Upload();
+							dataAccessLayerUpload.uploadUser(user);
 						}
 
 						// Set the active user in the app globals.

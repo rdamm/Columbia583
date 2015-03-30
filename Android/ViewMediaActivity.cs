@@ -35,27 +35,28 @@ namespace Columbia583.Android
 			// Set the view for the page.
 			SetContentView (Resource.Layout.ViewMedia);
 
+			// Get the extras.
+			int mediaId = Intent.GetIntExtra ("mediaId", 0);
+
+			// Load the media.
+			Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
+			Media media = dataAccessLayerCommon.getMedia (mediaId);
+
 			// Get the controls.
 			mediaGallerySelectedMediaTitle = FindViewById<TextView> (Resource.Id.mediaGallerySelectedMediaTitle);
 			mediaGallerySelectedMediaImage = FindViewById<ImageView> (Resource.Id.mediaGallerySelectedMediaImage);
 			mediaGallerySelectedMediaComment = FindViewById<TextView> (Resource.Id.mediaGallerySelectedMediaComment);
-
-			// Deserialize the media.
-			string mediaJsonStr = Intent.GetStringExtra ("media") ?? "Media not found.";
-			Media media = Newtonsoft.Json.JsonConvert.DeserializeObject<Media> (mediaJsonStr);
-
+			
 			// Show the media's text.
 			mediaGallerySelectedMediaTitle.Text = media.title;
 			mediaGallerySelectedMediaComment.Text = media.title;
 
 			// Show the media's image.
-			// TODO: Remove the background color once real images are used.
 			Bitmap bitmap = BitmapFactory.DecodeByteArray(media.mediaImage, 0, media.mediaImage.Length);
 			mediaGallerySelectedMediaImage.SetMinimumHeight (256);
 			mediaGallerySelectedMediaImage.SetMinimumWidth (256);
 			mediaGallerySelectedMediaImage.SetMaxHeight (256);
 			mediaGallerySelectedMediaImage.SetMaxWidth (256);
-			mediaGallerySelectedMediaImage.SetBackgroundColor (global::Android.Graphics.Color.White);
 			mediaGallerySelectedMediaImage.SetImageBitmap(bitmap);
 		}
 	}

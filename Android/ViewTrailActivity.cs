@@ -205,29 +205,13 @@ namespace Columbia583.Android
 
 							// Load the upload media page.
 							var intent = new Intent(this, typeof(UploadMediaActivity));
+							intent.PutExtra ("trailId", trail.id);
 							StartActivity(intent);
+
+							// TODO: When the upload media page closes, refresh the available media.
 
 						};
 					}
-
-					// DEBUG: Populate this trail's media with activities.
-					// TODO: Use actual media.
-					// DEBUG: Outer for loop being used to evaluate layout behaviour for multiple lines worth of images.
-					List<Media> trailMedia = new List<Media>();
-					Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common();
-					List<Activity> activities2 = new List<Activity>(dataAccessLayer.getActivities());
-					for (int rows = 0; rows < 3; rows++)
-					{
-						foreach(Activity activity in activities2)
-						{
-							// Encapsulate the activity in a media object for testing.
-							Media activityMedia = new Media();
-							activityMedia.title = activity.activityName;
-							activityMedia.mediaImage = activity.activityIcon;
-							trailMedia.Add(activityMedia);
-						}
-					}
-					mediaList = trailMedia.ToArray();
 
 					// Create an adapter to populate the page with images and associate them with common indices.
 					trailGallery.Adapter = new MediaAdapter (this, mediaList);
@@ -236,10 +220,9 @@ namespace Columbia583.Android
 						// Get the selected media.
 						Media selectedMedia = mediaList[args.Position];
 
-						// Load the selected media in a new activity.
+						// Show the selected media in a new activity.
 						var intent = new Intent(this, typeof(ViewMediaActivity));
-						string mediaJsonStr = Newtonsoft.Json.JsonConvert.SerializeObject(selectedMedia);
-						intent.PutExtra("media", mediaJsonStr);
+						intent.PutExtra("mediaId", selectedMedia.id);
 						StartActivity(intent);
 
 					};

@@ -20,6 +20,23 @@ namespace Columbia583
 
 
 		/// <summary>
+		/// Converts the API's time to date time.  Returns the converted datetime, or the epoch's datetime if the conversion fails.
+		/// </summary>
+		/// <returns>The time to date time.</returns>
+		public static DateTime convertTimeToDateTime(string apiTime)
+		{
+			try
+			{
+				return Convert.ToDateTime(apiTime);
+			}
+			catch (Exception e)
+			{
+				return new DateTime(1970, 1, 1);
+			}
+		}
+
+
+		/// <summary>
 		/// Determines whether the database has been initialized or not.
 		/// </summary>
 		/// <returns><c>true</c>, if database was initialized, <c>false</c> otherwise.</returns>
@@ -78,14 +95,23 @@ namespace Columbia583
 					// Get this trail's user.
 					if (currentTrail.user != null)
 					{
-						users.Add(new User(currentTrail.user.id, currentTrail.user.org_id, currentTrail.user.email, currentTrail.user.username, Convert.ToDateTime(currentTrail.user.updated_at)));
+						// Convert the API's times into datetime objects.
+						DateTime createdTime = convertTimeToDateTime(currentTrail.user.created_at);
+						DateTime updatedTime = convertTimeToDateTime(currentTrail.user.updated_at);
+
+						// Insert into the database.
+						users.Add(new User(currentTrail.user.id, currentTrail.user.org_id, currentTrail.user.email, currentTrail.user.username, createdTime, updatedTime, false));
 						userId = currentTrail.user.id;
 					}
 
 					// Get this trail's organization.
 					if (currentTrail.organization != null)
 					{
-						organizations.Add(new Organization(currentTrail.organization.id, currentTrail.organization.organization, Convert.ToDateTime(currentTrail.organization.updated_at)));
+						// Convert the API's times into datetime objects.
+						DateTime updatedTime = convertTimeToDateTime(currentTrail.organization.updated_at);
+
+						// Insert into the database.
+						organizations.Add(new Organization(currentTrail.organization.id, currentTrail.organization.organization, updatedTime));
 						orgId = currentTrail.organization.id;
 					}
 
@@ -115,7 +141,11 @@ namespace Columbia583
 								}
 							}
 
-							activities.Add(new Activity(activity.id, activity.name, imageBytes, Convert.ToDateTime(activity.updated_at)));
+							// Convert the API's times into datetime objects.
+							DateTime updatedTime = convertTimeToDateTime(activity.updated_at);
+
+							// Insert into the database.
+							activities.Add(new Activity(activity.id, activity.name, imageBytes, updatedTime));
 							trailsToActivities.Add(new TrailsToActivities(currentTrail.id, activity.id));
 						}
 					}
@@ -146,7 +176,11 @@ namespace Columbia583
 								}
 							}
 
-							amenities.Add(new Amenity(amenity.id, amenity.name, imageBytes, Convert.ToDateTime(amenity.updated_at)));
+							// Convert the API's times into datetime objects.
+							DateTime updatedTime = convertTimeToDateTime(amenity.updated_at);
+
+							// Insert into the database.
+							amenities.Add(new Amenity(amenity.id, amenity.name, imageBytes, updatedTime));
 							trailsToAmenities.Add(new TrailsToAmenities(currentTrail.id, amenity.id));
 						}
 					}
@@ -191,10 +225,13 @@ namespace Columbia583
 						trailDifficulty = (Difficulty) Enum.Parse(typeof(Difficulty), currentTrail.difficulty);
 					}
 
+					// Convert the API's times into datetime objects.
+					DateTime trailUpdatedTime = convertTimeToDateTime(currentTrail.updated_at);
+
 					// Get the base trail.
 					trails.Add(new Trail(currentTrail.id, userId, orgId, currentTrail.name, currentTrail.location, currentTrail.kml_name, currentTrail.kml_content, currentTrail.distance,
 						currentTrail.duration, currentTrail.description, currentTrail.directions, trailDifficulty, currentTrail.rating, currentTrail.hazards, currentTrail.surface,
-						currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, Convert.ToDateTime(currentTrail.updated_at)));
+						currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, trailUpdatedTime));
 				}
 
 				// Remove duplicate entries in the resulting lists.
@@ -253,8 +290,11 @@ namespace Columbia583
 						username = "Anonymous";
 					}
 
+					// Convert the API's times into datetime objects.
+					DateTime updatedTime = convertTimeToDateTime(currentComment.updated_at);
+
 					// Get base comment
-					comments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, username, Convert.ToDateTime(currentComment.updated_at)));
+					comments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, username, updatedTime));
 				}
 
 				comments = comments.Distinct ().ToList ();
@@ -380,14 +420,18 @@ namespace Columbia583
 					// Get this trail's user.
 					if (currentTrail.user != null)
 					{
+						// Convert the API's times into datetime objects.
+						DateTime createdTime = convertTimeToDateTime(currentTrail.user.created_at);
+						DateTime updatedTime = convertTimeToDateTime(currentTrail.user.updated_at);
+
 						// If the user exists, update it.  Otherwise, insert it.
 						if(dataLayer.getUser(currentTrail.user.id) != null)
 						{
-							updateUsers.Add(new User(currentTrail.user.id, currentTrail.user.org_id, currentTrail.user.email, currentTrail.user.username, Convert.ToDateTime(currentTrail.user.updated_at)));
+							updateUsers.Add(new User(currentTrail.user.id, currentTrail.user.org_id, currentTrail.user.email, currentTrail.user.username, createdTime, updatedTime, false));
 						}
 						else
 						{
-							insertUsers.Add(new User(currentTrail.user.id, currentTrail.user.org_id, currentTrail.user.email, currentTrail.user.username, Convert.ToDateTime(currentTrail.user.updated_at)));
+							insertUsers.Add(new User(currentTrail.user.id, currentTrail.user.org_id, currentTrail.user.email, currentTrail.user.username, createdTime, updatedTime, false));
 						}
 						userId = currentTrail.user.id;
 					}
@@ -395,14 +439,17 @@ namespace Columbia583
 					// Get this trail's organization.
 					if (currentTrail.organization != null)
 					{
+						// Convert the API's times into datetime objects.
+						DateTime updatedTime = convertTimeToDateTime(currentTrail.organization.updated_at);
+
 						// If the organization exists, update it.  Otherwise, insert it.
 						if(dataLayer.getOrganization(currentTrail.organization.id) != null)
 						{
-							updateOrganizations.Add(new Organization(currentTrail.organization.id, currentTrail.organization.organization, Convert.ToDateTime(currentTrail.organization.updated_at)));
+							updateOrganizations.Add(new Organization(currentTrail.organization.id, currentTrail.organization.organization, updatedTime));
 						}
 						else
 						{
-							insertOrganizations.Add(new Organization(currentTrail.organization.id, currentTrail.organization.organization, Convert.ToDateTime(currentTrail.organization.updated_at)));
+							insertOrganizations.Add(new Organization(currentTrail.organization.id, currentTrail.organization.organization, updatedTime));
 						}
 						orgId = currentTrail.organization.id;
 					}
@@ -434,14 +481,17 @@ namespace Columbia583
 								}
 							}
 
+							// Convert the API's times into datetime objects.
+							DateTime updatedTime = convertTimeToDateTime(activity.updated_at);
+
 							// If the activity exists, update it.  Otherwise, insert it.
 							if(dataLayer.getActivity(activity.id) != null)
 							{
-								updateActivities.Add(new Activity(activity.id, activity.name, imageBytes, Convert.ToDateTime(activity.updated_at)));
+								updateActivities.Add(new Activity(activity.id, activity.name, imageBytes, updatedTime));
 							}
 							else
 							{
-								insertActivities.Add(new Activity(activity.id, activity.name, imageBytes, Convert.ToDateTime(activity.updated_at)));
+								insertActivities.Add(new Activity(activity.id, activity.name, imageBytes, updatedTime));
 							}
 
 							// Add this activity to the trail's activities.
@@ -476,14 +526,17 @@ namespace Columbia583
 								}
 							}
 
+							// Convert the API's times into datetime objects.
+							DateTime updatedTime = convertTimeToDateTime(amenity.updated_at);
+
 							// If the amenity exists, update it.  Otherwise, insert it.
 							if(dataLayer.getAmenity(amenity.id) != null)
 							{
-								updateAmenities.Add(new Amenity(amenity.id, amenity.name, imageBytes, Convert.ToDateTime(amenity.updated_at)));
+								updateAmenities.Add(new Amenity(amenity.id, amenity.name, imageBytes, updatedTime));
 							}
 							else
 							{
-								insertAmenities.Add(new Amenity(amenity.id, amenity.name, imageBytes, Convert.ToDateTime(amenity.updated_at)));
+								insertAmenities.Add(new Amenity(amenity.id, amenity.name, imageBytes, updatedTime));
 							}
 
 							// Add this amenity to the trail's amenities.
@@ -537,28 +590,34 @@ namespace Columbia583
 						trailDifficulty = (Difficulty) Enum.Parse(typeof(Difficulty), currentTrail.difficulty);
 					}
 
+					// Convert the API's times into datetime objects.
+					DateTime trailUpdatedTime = convertTimeToDateTime(currentTrail.updated_at);
+
 					// If the base trail exists, update it.  Otherwise, insert it.
 					if(dataLayer.getTrail(currentTrail.id) != null)
 					{
 						updateTrails.Add(new Trail(currentTrail.id, userId, orgId, currentTrail.name, currentTrail.location, currentTrail.kml_name, currentTrail.kml_content, currentTrail.distance,
 							currentTrail.duration, currentTrail.description, currentTrail.directions, trailDifficulty, currentTrail.rating, currentTrail.hazards, currentTrail.surface,
-							currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, Convert.ToDateTime(currentTrail.updated_at)));
+							currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, trailUpdatedTime));
 					}
 					else
 					{
 						insertTrails.Add(new Trail(currentTrail.id, userId, orgId, currentTrail.name, currentTrail.location, currentTrail.kml_name, currentTrail.kml_content, currentTrail.distance,
 							currentTrail.duration, currentTrail.description, currentTrail.directions, trailDifficulty, currentTrail.rating, currentTrail.hazards, currentTrail.surface,
-							currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, Convert.ToDateTime(currentTrail.updated_at)));
+							currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, trailUpdatedTime));
 					}
 				}
 
 				foreach(Webservice_Comment currentComment in webserviceComments)
 				{
+					// Convert the API's times into datetime objects.
+					DateTime updatedTime = convertTimeToDateTime(currentComment.updated_at);
+
 					// Get base comment
 					if (dataLayer.getComment(currentComment.id) != null) {
-						updateComments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, Convert.ToDateTime(currentComment.updated_at)));
+						updateComments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, updatedTime));
 					} else {
-						insertComments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, Convert.ToDateTime(currentComment.updated_at)));
+						insertComments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, updatedTime));
 					}
 				}
 
@@ -752,7 +811,7 @@ namespace Columbia583
 
 					foreach (User u in dataLayer.getUsers()) {
 						if (u.orgId == org.id) {
-							updateUsers.Add(new User(u.id, 0, u.email, u.username, currentTime));
+							updateUsers.Add(new User(u.id, 0, u.email, u.username, currentTime, currentTime, false));
 						}
 					}
 				}
@@ -887,6 +946,18 @@ namespace Columbia583
 		{
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
 			return dataLayer.getAmenities ().ToArray ();
+		}
+
+
+		/// <summary>
+		/// Gets the media.
+		/// </summary>
+		/// <returns>The media.</returns>
+		/// <param name="id">Identifier.</param>
+		public Media getMedia(int id)
+		{
+			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			return dataLayer.getMedia(id);
 		}
 	}
 }
