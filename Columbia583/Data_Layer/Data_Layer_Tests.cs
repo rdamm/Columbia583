@@ -107,8 +107,8 @@ namespace Columbia583
 		/// <returns>The datetime of the last database update.</returns>
 		public string getDatabaseLastUpdated()
 		{
-			Data_Layer_Common dataLayer = new Data_Layer_Common ();
-			DateTime databaseLastUpdated = dataLayer.getDatabaseLastUpdated ();
+			Data_Layer_App_Globals dataLayerAppGlobals = new Data_Layer_App_Globals();
+			DateTime databaseLastUpdated = dataLayerAppGlobals.getDatabaseLastUpdated ();
 
 			if (databaseLastUpdated != null) {
 				Console.WriteLine (databaseLastUpdated.ToLongDateString());
@@ -130,8 +130,8 @@ namespace Columbia583
 			DateTime databaseLastUpdated = DateTime.Now;
 
 			// Set the database last updated date.
-			Data_Layer_Common dataLayer = new Data_Layer_Common ();
-			dataLayer.setDatabaseLastUpdated (databaseLastUpdated);
+			Data_Layer_App_Globals dataLayerAppGlobals = new Data_Layer_App_Globals();
+			dataLayerAppGlobals.setDatabaseLastUpdated (databaseLastUpdated);
 
 			return "Successfully set the datetime of the last database update.";
 		}

@@ -38,7 +38,8 @@ namespace Columbia583
 
 
 		/// <summary>
-		/// Determines whether the database has been initialized or not.
+		/// Determines whether the database has been initialized or not by checking for the existence of
+		/// all the required tables.
 		/// </summary>
 		/// <returns><c>true</c>, if database was initialized, <c>false</c> otherwise.</returns>
 		public bool databaseInitialized()
@@ -50,13 +51,37 @@ namespace Columbia583
 				// Open connection to local database.
 				var connection = new SQLiteConnection(getPathToDatabase());
 
-				// Create the table existence queries.
+				// Get a list of expected table names.
+				List<string> tableNames = new List<string>();
+				tableNames.Add(typeof(AppGlobals).Name);
+				tableNames.Add(typeof(Activity).Name);
+				tableNames.Add(typeof(Amenity).Name);
+				tableNames.Add(typeof(MapTile).Name);
+				tableNames.Add(typeof(Media).Name);
+				tableNames.Add(typeof(Organization).Name);
+				tableNames.Add(typeof(Role).Name);
+				tableNames.Add(typeof(User).Name);
+				tableNames.Add(typeof(Trail).Name);
+				tableNames.Add(typeof(Point).Name);
+				tableNames.Add(typeof(TrailsToActivities).Name);
+				tableNames.Add(typeof(TrailsToAmenities).Name);
+
+				// Check if the tables exist.
 				string tableExistsQuery = "SELECT name FROM sqlite_master WHERE type = 'table' AND name = ?";
-				SQLiteCommand activityExistsCommand = connection.CreateCommand(tableExistsQuery, typeof(Activity).Name);
-				bool activityExists = (activityExistsCommand.ExecuteScalar<string>() != null);
+				bool allTablesExist = true;
+				foreach(string tableName in tableNames)
+				{
+					SQLiteCommand tableExistsCommand = connection.CreateCommand(tableExistsQuery, tableName);
+					bool tableExists = (tableExistsCommand.ExecuteScalar<string>() != null);
+					if (tableExists != true)
+					{
+						allTablesExist = false;
+						break;
+					}
+				}
 
 				// Determine if the database has been initialized based on the table existences.
-				databaseInitialized = activityExists;
+				databaseInitialized = allTablesExist;
 				
 				// Close connection to local database.
 				connection.Close();
@@ -82,13 +107,13 @@ namespace Columbia583
 				var connection = new SQLiteConnection(getPathToDatabase());
 
 				// Create all the tables that have no foreign keys.
+				connection.CreateTable<AppGlobals>();
 				connection.CreateTable<Activity>();
 				connection.CreateTable<Amenity>();
 				connection.CreateTable<MapTile>();
 				connection.CreateTable<Media>();
 				connection.CreateTable<Organization>();
 				connection.CreateTable<Role>();
-				connection.CreateTable<DatabaseLastUpdated>();
 
 				// Create all the tables that have foreign keys.
 				connection.CreateTable<User>();					// References Organization.
@@ -96,6 +121,10 @@ namespace Columbia583
 				connection.CreateTable<Point>();				// References Trail and MapTile.
 				connection.CreateTable<TrailsToActivities>();	// References Trail and Activity.
 				connection.CreateTable<TrailsToAmenities>();	// References Trail and Amenity.
+
+				// Populate the app globals.  Initialize the database last updated time to the epoch.
+				AppGlobals appGlobals = new AppGlobals(0, new DateTime(1970, 1, 1));
+				connection.Insert(appGlobals);
 
 				// Close connection to local database.
 				connection.Close();
@@ -179,68 +208,6 @@ namespace Columbia583
 
 				connection.Close ();
 			} catch (SQLiteException ex) {
-				// TODO: Log the error message.
-				Console.WriteLine (ex.Message);
-			}
-		}
-
-
-		/// <summary>
-		/// Gets the datetime of the last database update.
-		/// </summary>
-		/// <returns>The datetime of the last update.</returns>
-		public DateTime getDatabaseLastUpdated()
-		{
-			DateTime databaseLastUpdated = DateTime.FromOADate(0);
-			try
-			{
-				// Open connection to local database.
-				var connection = new SQLiteConnection(getPathToDatabase());
-
-				// Get the last time the database was updated.
-				var query = connection.Table<DatabaseLastUpdated>();
-				if (query.Count() > 0)
-				{
-					DatabaseLastUpdated row = (DatabaseLastUpdated)query.First();
-					databaseLastUpdated = row.timestamp;
-				}
-
-				// Close connection to local database.
-				connection.Close();
-			}
-			catch (SQLiteException ex)
-			{
-				// TODO: Log the error message.
-				Console.WriteLine (ex.Message);
-			}
-
-			return databaseLastUpdated;
-		}
-
-
-		/// <summary>
-		/// Sets the datetime of the last database update.
-		/// </summary>
-		/// <param name="newUpdateTime">The new datetime for the last database update.</param>
-		public void setDatabaseLastUpdated(DateTime newUpdateTime)
-		{
-			try
-			{
-				// Open connection to local database.
-				var connection = new SQLiteConnection(getPathToDatabase());
-
-				// Encapsulate the given datetime in an object.
-				DatabaseLastUpdated databaseLastUpdated = new DatabaseLastUpdated(newUpdateTime);
-
-				// Set the last time the database was updated.
-				connection.DeleteAll<DatabaseLastUpdated>();
-				connection.Insert(databaseLastUpdated);
-
-				// Close connection to local database.
-				connection.Close();
-			}
-			catch (SQLiteException ex)
-			{
 				// TODO: Log the error message.
 				Console.WriteLine (ex.Message);
 			}
@@ -945,6 +912,40 @@ namespace Columbia583
 
 
 		/// <summary>
+		/// Gets the user by their email.
+		/// </summary>
+		/// <returns>The user.</returns>
+		/// <param name="email">Email.</param>
+		public User getUserByEmail(string email)
+		{
+			User user = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get the user.
+				var userQueryResponse = connection.Query<User>("SELECT * FROM User WHERE email = ?", email);
+				foreach(User u in userQueryResponse)
+				{
+					user = u;
+					break;
+				}
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return user;
+		}
+
+
+		/// <summary>
 		/// Gets the trails to activities.
 		/// </summary>
 		/// <returns>The trails to activities.</returns>
@@ -1166,7 +1167,6 @@ namespace Columbia583
 				connection.DeleteAll<Point>();
 				connection.DeleteAll<Trail>();
 				connection.DeleteAll<User>();
-				connection.DeleteAll<DatabaseLastUpdated>();
 
 				// Delete the data that has no foreign keys.
 				connection.DeleteAll<Activity>();
@@ -1175,6 +1175,7 @@ namespace Columbia583
 				connection.DeleteAll<Media>();
 				connection.DeleteAll<Organization>();
 				connection.DeleteAll<Role>();
+				connection.DeleteAll<AppGlobals>();
 
 				// Close connection to local database.
 				connection.Close();
@@ -1204,7 +1205,6 @@ namespace Columbia583
 				connection.DropTable<Point>();
 				connection.DropTable<Trail>();
 				connection.DropTable<User>();
-				connection.DropTable<DatabaseLastUpdated>();
 
 				// Drop the tables that have no foreign keys.
 				connection.DropTable<Activity>();
@@ -1213,6 +1213,7 @@ namespace Columbia583
 				connection.DropTable<Media>();
 				connection.DropTable<Organization>();
 				connection.DropTable<Role>();
+				connection.DropTable<AppGlobals>();
 
 				// Close connection to local database.
 				connection.Close();

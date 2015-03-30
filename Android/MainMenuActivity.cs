@@ -209,8 +209,23 @@ namespace Columbia583.Android
 						string json = t.Result.GetResponseText();
 						OAuthUser userProfile = JsonConvert.DeserializeObject<OAuthUser>(json);
 
+						// TODO: Get the user's email from the profile.  Will need to figure out how to set permissions in OAuth login request.
+						string userEmail = "ry.damm@gmail.com";
+
+						// Get the user from the local users.  If the user doesn't exist, create it.
+						Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
+						User user = dataAccessLayerCommon.getUserByEmail(userEmail);
+						if (user == null)
+						{
+							// TODO: Create the user in the database.
+							user = new User(1000, 0, userEmail, userProfile.name, DateTime.Now);
+						}
+
+						// Set the active user in the app globals.
+						dataAccessLayerCommon.setActiveUser(user.id);
+
 						// Update the username view.
-						RunOnUiThread (() => loggedInUsersUsernameText.Text = "Logged in as " + userProfile.name);
+						RunOnUiThread (() => loggedInUsersUsernameText.Text = "Logged in as " + userProfile.name + ".");
 
 						// Show the logout button.
 						RunOnUiThread (() => loginButton.Visibility = ViewStates.Invisible);
@@ -244,12 +259,17 @@ namespace Columbia583.Android
 		/// </summary>
 		protected void destroyOauthLogins()
 		{
+			// Destroy all stored OAuth Facebook logins.
 			AccountStore accountStore = AccountStore.Create (this);
 			IEnumerable<Account> accounts = accountStore.FindAccountsForService ("Facebook");
 			foreach (Account a in accounts)
 			{
 				accountStore.Delete (a, "Facebook");
 			}
+
+			// Destroy the active user in the app globals.
+			Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
+			dataAccessLayerCommon.setActiveUser (0);
 		}
 	}
 }

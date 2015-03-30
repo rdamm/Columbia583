@@ -45,9 +45,17 @@ namespace Columbia583.Android
 			if (btnStopRecordingTrail != null) {
 				btnStopRecordingTrail.Click += StopRecordingTrailEvent;
 			}
+
+			// Get a reference to the record trail service.
+			RecordTrailService currentRecordTrailService = RecordTrailService.getService ();
 		}
 
 
+		/// <summary>
+		/// Starts recording the trail.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="eventArgs">Event arguments.</param>
 		void RecordTrailEvent(object sender, EventArgs eventArgs)
 		{
 			// Start the record trail service.
@@ -55,20 +63,28 @@ namespace Columbia583.Android
 		}
 
 
+		/// <summary>
+		/// Stops recording the trail and opens the upload trail form.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="eventArgs">Event arguments.</param>
 		void StopRecordingTrailEvent(object sender, EventArgs eventArgs)
 		{
-			// Get a reference to the service.
+			// Get a reference to the record trail service.
 			RecordTrailService currentRecordTrailService = RecordTrailService.getService ();
 
 			// Get the trail that has been recorded so far.
-			if (currentRecordTrailService != null) {
-				List<Location> recordedPoints = currentRecordTrailService.getRecordedPoints ();
+			List<Location> recordedPoints = null;
+			if (currentRecordTrailService != null)
+			{
+				recordedPoints = currentRecordTrailService.getRecordedPoints ();
 			}
 
 			// Stop the record trail service.
 			StopService (new Intent (this, typeof(RecordTrailService)));
 
-			// Open the upload trail form, passing in the recorded points.
+			// TODO: Open the upload trail form, passing in the recorded points.
+
 		}
 	}
 }

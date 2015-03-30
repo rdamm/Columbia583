@@ -1,11 +1,10 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.virtualNexus" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\MainMenuActivity.cs">
     <Files>
-      <File FileName="Android\ViewTrailActivity.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Common.cs" Line="1" Column="1" />
-      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="800" Column="7" />
-      <File FileName="Columbia583\Service_Access_Layer\Webservice_Trails.cs" Line="24" Column="51" />
+      <File FileName="Android\MainMenuActivity.cs" Line="232" Column="74" />
+      <File FileName="c:\Users\RPrime\Documents\Projects\Columbia583\Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="862" Column="24" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Common.cs" Line="1194" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

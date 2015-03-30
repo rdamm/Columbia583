@@ -51,9 +51,9 @@ namespace Columbia583.Android.hi
 
 				// If the database has been initialized, update it.  Otherwise, initialize it.
 				Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common ();
-				if (dataAccessLayer.databaseInitialized () == true)
+				bool databaseInitialized = dataAccessLayer.databaseInitialized ();
+				if (databaseInitialized == true)
 				{
-					// TODO: Uncomment once the update works without redownloading everything.
 					dataAccessLayer.updateDatabase ();
 					Console.WriteLine("Splash screen has updated the database.");
 				}

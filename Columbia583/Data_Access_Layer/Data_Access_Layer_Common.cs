@@ -223,7 +223,8 @@ namespace Columbia583
 				trailsToAmenities.ToArray(), users.ToArray());
 
 			// Store the current time in the database as the last-updated time.
-			dataLayer.setDatabaseLastUpdated (currentTime);
+			Data_Layer_App_Globals dataLayerAppGlobals = new Data_Layer_App_Globals();
+			dataLayerAppGlobals.setDatabaseLastUpdated (currentTime);
 
 			Console.WriteLine ("Database Initialized!");
 		}
@@ -264,7 +265,8 @@ namespace Columbia583
 			dataLayer.insertCommentRows (comments.ToArray ());
 
 			// Store the current time in the database as the last-updated time.
-			dataLayer.setDatabaseLastUpdated (currentTime);
+			Data_Layer_App_Globals dataLayerAppGlobals = new Data_Layer_App_Globals();
+			dataLayerAppGlobals.setDatabaseLastUpdated (currentTime);
 
 			Console.WriteLine ("Comments Initialized!");
 		}
@@ -283,7 +285,8 @@ namespace Columbia583
 			DateTime currentTime = DateTime.Now;
 
 			// Get the last time the database was updated.
-			DateTime lastUpdated = dataLayer.getDatabaseLastUpdated ();
+			Data_Layer_App_Globals dataLayerAppGlobals = new Data_Layer_App_Globals();
+			DateTime lastUpdated = dataLayerAppGlobals.getDatabaseLastUpdated ();
 
 			// Get the data from the webservice.
 			string urlDate = lastUpdated.ToString("yyyy-MM-dd");
@@ -749,7 +752,7 @@ namespace Columbia583
 
 					foreach (User u in dataLayer.getUsers()) {
 						if (u.orgId == org.id) {
-							updateUsers.Add(new User(u.id, null, u.email, u.username, currentTime));
+							updateUsers.Add(new User(u.id, 0, u.email, u.username, currentTime));
 						}
 					}
 				}
@@ -793,7 +796,7 @@ namespace Columbia583
 							trailDifficulty = (Difficulty) Enum.Parse(typeof(Difficulty), currentTrail.difficulty);
 						}
 						if (currentTrail.user != null && currentTrail.user.id == u.id) {
-							updateTrails.Add(new Trail(currentTrail.id, null, orgId, currentTrail.name, currentTrail.location, currentTrail.kml_name, currentTrail.kml_content, currentTrail.distance,
+							updateTrails.Add(new Trail(currentTrail.id, currentTrail.user.id, orgId, currentTrail.name, currentTrail.location, currentTrail.kml_name, currentTrail.kml_content, currentTrail.distance,
 								currentTrail.duration, currentTrail.description, currentTrail.directions, trailDifficulty, currentTrail.rating, currentTrail.hazards, currentTrail.surface,
 								currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, currentTime));
 						}
@@ -814,7 +817,7 @@ namespace Columbia583
 					new TrailsToActivities[0], new TrailsToAmenities[0], deleteUsers.ToArray ());
 
 				// Store the current time in the database as the last-updated time.
-				dataLayer.setDatabaseLastUpdated (currentTime);
+				dataLayerAppGlobals.setDatabaseLastUpdated (currentTime);
 
 				Console.WriteLine ("Database Updated!");
 			}
@@ -822,6 +825,46 @@ namespace Columbia583
 			{
 				Console.WriteLine (e.Message);
 			}
+		}
+
+
+		/// <summary>
+		/// Gets the active user.
+		/// </summary>
+		/// <returns>The active user.</returns>
+		public User getActiveUser()
+		{
+			// Get the active user's ID.
+			Data_Layer_App_Globals dataLayerAppGlobals = new Data_Layer_App_Globals ();
+			int activeUserId = dataLayerAppGlobals.getActiveUserId ();
+
+			// Get the active user from the ID.
+			Data_Layer_Common dataLayerCommon = new Data_Layer_Common();
+			return dataLayerCommon.getUser (activeUserId);
+		}
+
+
+		/// <summary>
+		/// Sets the active user.
+		/// </summary>
+		/// <param name="userId">User identifier.</param>
+		public void setActiveUser(int userId)
+		{
+			// Set the active user's ID.
+			Data_Layer_App_Globals dataLayerAppGlobals = new Data_Layer_App_Globals();
+			dataLayerAppGlobals.setActiveUserId (userId);
+		}
+
+
+		/// <summary>
+		/// Gets the user by their email.
+		/// </summary>
+		/// <returns>The user.</returns>
+		/// <param name="email">Email.</param>
+		public User getUserByEmail(string email)
+		{
+			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			return dataLayer.getUserByEmail (email);
 		}
 
 
