@@ -98,6 +98,7 @@
     <Compile Include="RecordTrailActivity.cs" />
     <Compile Include="Services\RecordTrailService.cs" />
     <Compile Include="TestMapActivity.cs" />
+    <Compile Include="MainMapActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -1173,6 +1174,7 @@
     <AndroidResource Include="Resources\drawable\point.png" />
     <AndroidResource Include="Resources\drawable\sky_small.png" />
     <AndroidResource Include="Resources\layout\Map2.axml" />
+    <AndroidResource Include="Resources\menu\popup_menu.xml" />
   </ItemGroup>
   <Import Project="..\Columbia583\Columbia583.projitems" Label="Shared" Condition="Exists('..\Columbia583\Columbia583.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
@@ -1186,6 +1188,7 @@
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Resources\raw\" />
+    <Folder Include="Resources\menu\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.auth">

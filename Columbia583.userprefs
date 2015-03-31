@@ -2,11 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AVD_for_Nexus_5_by_Google" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Android\ViewTrailActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\DebugMenuActivity.cs" Line="2" Column="2" />
-      <File FileName="ViewPagerIndicator-master\Library\CirclePageIndicator.cs" Line="30" Column="30" />
-      <File FileName="Android\TestMapActivity.cs" Line="4" Column="4" />
-      <File FileName="Columbia583\App.cs" Line="54" Column="54" />
+      <File FileName="Android\ViewTrailActivity.cs" Line="47" Column="47" />
+      <File FileName="Android\DebugMenuActivity.cs" Line="1" Column="1" />
+      <File FileName="ViewPagerIndicator-master\Library\CirclePageIndicator.cs" Line="1" Column="1" />
+      <File FileName="Android\TestMapActivity.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\App.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
