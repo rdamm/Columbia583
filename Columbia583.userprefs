@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\MainMenuActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\SplashActivity.cs">
     <Files>
-      <File FileName="Android\MainMenuActivity.cs" Line="230" Column="103" />
-      <File FileName="Android\SplashActivity.cs" Line="55" Column="33" />
+      <File FileName="Android\MainMenuActivity.cs" Line="218" Column="24" />
+      <File FileName="Android\SplashActivity.cs" Line="59" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

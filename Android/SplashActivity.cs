@@ -15,6 +15,7 @@ using Xamarin.Forms.Platform.Android;
 
 using System.Threading;
 using System.Threading.Tasks;
+using Android.Net;
 
 namespace Columbia583.Android.hi
 {
@@ -48,30 +49,60 @@ namespace Columbia583.Android.hi
 				int completedTasks = 0;
 				int totalTasks = 1;
 
-				// TODO: Check if the network is available.  If so, run network-dependent methods.
-
-				// If the database has been initialized, update it.  Otherwise, initialize it.
-				Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common ();
-				bool databaseInitialized = dataAccessLayer.databaseInitialized ();
-				if (databaseInitialized == true)
+				// Check if the network is available via WiFi.  We don't want network-dependent methods to run
+				// without an internet connection, and we don't want bandwidth-heavy methods to run if only the
+				// cellular network is available.
+				bool connectedToWifi = false;
+				var connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
+				var activeConnection = connectivityManager.ActiveNetworkInfo;
+				if ((activeConnection != null) && activeConnection.IsConnected)
 				{
-					dataAccessLayer.updateDatabase ();
-					Console.WriteLine("Splash screen has updated the database.");
+					var wifiState = connectivityManager.GetNetworkInfo(ConnectivityType.Wifi).GetState();
+					if (wifiState == NetworkInfo.State.Connected)
+					{
+						connectedToWifi = true;
+					}
+				}
+
+				// If WiFi is available, run the database initialization.
+				if (connectedToWifi == true)
+				{
+					// Check if the database has been initialized.
+					Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common ();
+					bool databaseInitialized = dataAccessLayer.databaseInitialized ();
+
+					// Initialize / update the local database.
+					if (databaseInitialized == true)
+					{
+						dataAccessLayer.updateDatabase ();
+						Console.WriteLine("Splash screen has updated the database.");
+					}
+					else
+					{
+						dataAccessLayer.initializeDatabase ();
+						dataAccessLayer.initializeComments();
+						Console.WriteLine("Splash screen has initialized the database.");
+					}
+					completedTasks++;
+					Console.WriteLine("Database updated in splash activity initializer.");
+
+					// Update the progress bar.
+					RunOnUiThread(() => {
+						splashProgressBar.Progress = ((int)((float)completedTasks / (float)totalTasks * 100));
+						splashProgressLabel.Text = "Database updated.";
+					});
 				}
 				else
 				{
-					dataAccessLayer.initializeDatabase ();
-					dataAccessLayer.initializeComments();
-					Console.WriteLine("Splash screen has initialized the database.");
-				}
-				completedTasks++;
-				Console.WriteLine("Database updated in splash activity initializer.");
+					completedTasks++;
+					Console.WriteLine("WiFi unavailable.  Skipping database update.");
 
-				// Update the progress bar.
-				RunOnUiThread(() => {
-					splashProgressBar.Progress = ((int)((float)completedTasks / (float)totalTasks * 100));
-					splashProgressLabel.Text = "Database updated.";
-				});
+					// Update the progress bar.
+					RunOnUiThread(() => {
+						splashProgressBar.Progress = ((int)((float)completedTasks / (float)totalTasks * 100));
+						splashProgressLabel.Text = "WiFi unavailable.  Database update skipped.";
+					});
+				}
 
 				// Load the main menu.
 				RunOnUiThread(() => {
