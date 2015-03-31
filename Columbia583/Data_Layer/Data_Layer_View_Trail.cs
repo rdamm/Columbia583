@@ -49,6 +49,105 @@ namespace Columbia583
 
 
 		/// <summary>
+		/// Gets the activities for the given trail.
+		/// </summary>
+		/// <returns>The activities.</returns>
+		/// <param name="trailId">Trail identifier.</param>
+		public List<Activity> getActivities(int trailId)
+		{
+			List<Activity> activityList = new List<Activity> ();
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(Data_Layer_Common.getPathToDatabase());
+
+				// Get the activities for this trail.
+				var activitiesQueryResponse = connection.Query<Activity>("SELECT * FROM Activity INNER JOIN TrailsToActivities ON Activity.id = TrailsToActivities.activityId WHERE trailId = ?", trailId);
+				foreach(Activity activity in activitiesQueryResponse)
+				{
+					activityList.Add(activity);
+				}
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return activityList;
+		}
+
+
+		/// <summary>
+		/// Gets the amenities for the given trail.
+		/// </summary>
+		/// <returns>The amenities.</returns>
+		/// <param name="trailId">Trail identifier.</param>
+		public List<Amenity> getAmenities(int trailId)
+		{
+			List<Amenity> amenityList = new List<Amenity> ();
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(Data_Layer_Common.getPathToDatabase());
+
+				// Get the amenities for this trail.
+				var amenitiesQueryResponse = connection.Query<Amenity>("SELECT * FROM Amenity INNER JOIN TrailsToAmenities ON Amenity.id = TrailsToAmenities.amenityId WHERE trailId = ?", trailId);
+				foreach(Amenity amenity in amenitiesQueryResponse)
+				{
+					amenityList.Add(amenity);
+				}
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return amenityList;
+		}
+
+
+		/// <summary>
+		/// Gets the points for the given trail.
+		/// </summary>
+		/// <returns>The points.</returns>
+		/// <param name="trailId">Trail identifier.</param>
+		public List<Point> getPoints(int trailId)
+		{
+			List<Point> pointsList = new List<Point> ();
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(Data_Layer_Common.getPathToDatabase());
+
+				// Get the points for this trail.
+				var pointsQueryResponse = connection.Query<Point>("SELECT * FROM Point WHERE trailId = ?", trailId);
+				foreach(Point point in pointsQueryResponse)
+				{
+					pointsList.Add(point);
+				}
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return pointsList;
+		}
+
+
+		/// <summary>
 		/// Gets the media for the given trail.
 		/// </summary>
 		/// <returns>The media.</returns>

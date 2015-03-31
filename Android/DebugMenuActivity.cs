@@ -22,6 +22,7 @@ namespace Columbia583.Android
 		protected Button testDataAccessButton = null;
 		protected Button testImageButton = null;
 		protected Button testRecordTrailButton = null;
+		protected Button testScanQrCodeButton = null;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -40,6 +41,7 @@ namespace Columbia583.Android
 			testDataAccessButton = FindViewById<Button> (Resource.Id.button_dataAccessTests);
 			testImageButton = FindViewById<Button> (Resource.Id.button_imageTests);
 			testRecordTrailButton = FindViewById<Button> (Resource.Id.button_recordTrailTests);
+			testScanQrCodeButton = FindViewById<Button> (Resource.Id.button_scanQrCodeTests);
 
 			// Assign the event handlers.
 			if (testDatabaseButton != null) {
@@ -74,6 +76,15 @@ namespace Columbia583.Android
 
 					// Load the record trail page.
 					var intent = new Intent(this, typeof(RecordTrailActivity));
+					StartActivity(intent);
+
+				};
+			}
+			if (testScanQrCodeButton != null) {
+				testScanQrCodeButton.Click += (sender, e) => {
+
+					// Load the scan QR code page.
+					var intent = new Intent(this, typeof(ScanQrCodeActivity));
 					StartActivity(intent);
 
 				};

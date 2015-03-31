@@ -1,10 +1,23 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\SplashActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\DebugMenuActivity.cs">
     <Files>
-      <File FileName="Android\MainMenuActivity.cs" Line="218" Column="24" />
-      <File FileName="Android\SplashActivity.cs" Line="59" Column="6" />
+      <File FileName="Android\DebugMenuActivity.cs" Line="44" Column="83" />
+      <File FileName="Android\ScanQrCodeActivity.cs" Line="33" Column="48" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Columbia583.Android" expanded="True">
+            <Node name="Resources" expanded="True">
+              <Node name="layout" expanded="True">
+                <Node name="DebugMenu.axml" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

@@ -170,6 +170,9 @@ namespace Columbia583.Android
 		/// <returns>The logged in user.</returns>
 		protected Account getLoggedInUser()
 		{
+			// TODO: Get the username from the local database instead.  OAuth requests cannot be made when out of
+			// network range.
+
 			// Get the user's login info and show their username.
 			AccountStore accountStore = AccountStore.Create (this);
 			IEnumerable<Account> accounts = accountStore.FindAccountsForService ("Facebook");

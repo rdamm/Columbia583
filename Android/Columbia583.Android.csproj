@@ -77,6 +77,12 @@
     <Reference Include="Xamarin.Auth.Android">
       <HintPath>..\Components\xamarin.auth-1.2.3.1\lib\android\Xamarin.Auth.Android.dll</HintPath>
     </Reference>
+    <Reference Include="zxing.monoandroid">
+      <HintPath>..\Components\zxing.net.mobile-1.4.7.2\lib\android\zxing.monoandroid.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXing.Net.Mobile">
+      <HintPath>..\Components\zxing.net.mobile-1.4.7.2\lib\android\ZXing.Net.Mobile.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -96,6 +102,7 @@
     <Compile Include="UploadMediaActivity.cs" />
     <Compile Include="Resources\layout\MediaAdapter.cs" />
     <Compile Include="ViewMediaActivity.cs" />
+    <Compile Include="ScanQrCodeActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -127,6 +134,7 @@
     <AndroidResource Include="Resources\layout\RecordTrail.axml" />
     <AndroidResource Include="Resources\layout\UploadMedia.axml" />
     <AndroidResource Include="Resources\layout\ViewMedia.axml" />
+    <AndroidResource Include="Resources\layout\ScanQrCode.axml" />
   </ItemGroup>
   <Import Project="..\Columbia583\Columbia583.projitems" Label="Shared" Condition="Exists('..\Columbia583\Columbia583.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
@@ -143,6 +151,10 @@
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.auth">
       <Version>1.2.3.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="zxing.net.mobile">
+      <Version>1.4.7.2</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
