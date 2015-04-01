@@ -1,9 +1,0 @@
-﻿<Properties StartupItem="Android/Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
-  <MonoDevelop.Ide.Workbench />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Columbia583.Android AndroidDesignerPreferredDevice="Nexus 4" />
-</Properties>
