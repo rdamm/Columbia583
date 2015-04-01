@@ -16,8 +16,13 @@ namespace Columbia583.Android
 	[Activity (Label = "SearchTrailPage2")]			
 	public class SearchTrailPage2 : AndroidActivity
 	{
+		protected bool preventSpinnerSelectEventFiringOnCreate = true;
+
 		Dictionary<string, List<string> > dictGroup = new Dictionary<string, List<string> > ();
 		List<string> lstKeys = new List<string> ();
+
+		protected SearchResult[] trails = null;
+		protected SearchResult[] debugSearchResults = null;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -36,13 +41,13 @@ namespace Columbia583.Android
 			SearchFilter result = Newtonsoft.Json.JsonConvert.DeserializeObject<SearchFilter> (getResult);
 
 			Data_Access_Layer_Search_Trails data_access_trails = new Data_Access_Layer_Search_Trails ();
-			SearchResult[] trails = data_access_trails.getTrailsBySearchFilter (result);
+			trails = data_access_trails.getTrailsBySearchFilter (result);
 
 			List<string> names= new List<string>();
 
 			if (trails.Length == 0) {
 				Application_Layer_Search_Trails applicationLayer_searchTrails = new Application_Layer_Search_Trails ();
-				SearchResult[] debugSearchResults = applicationLayer_searchTrails.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
+				debugSearchResults = applicationLayer_searchTrails.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
 
 				foreach(SearchResult t in debugSearchResults){
 					names.Add (t.trail.name);
@@ -59,28 +64,41 @@ namespace Columbia583.Android
 			_adapterFrom.SetDropDownViewResource (global::Android.Resource.Layout.SimpleSpinnerDropDownItem);
 			spinner.Adapter = _adapterFrom; 
 
+
+
 			spinner.ItemSelected += (object sender, AdapterView.ItemSelectedEventArgs e) => {
+
+				if (preventSpinnerSelectEventFiringOnCreate == true)
+				{
+					preventSpinnerSelectEventFiringOnCreate = false;
+					return;
+				}
+
 				int position = spinner.SelectedItemPosition;
 				if(e.Position == position){
-					//var intent = new Intent (this, typeof(ViewTrailActivity));
+					
 
 					String foundName = names.ElementAt(position);
 
 					Console.Out.WriteLine(foundName);
-//					foreach(){
-//
-//					}
-//
-//					string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject (trail);
-//					string activitiesJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(searchResult.activities);
-//					string amenitiesJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(searchResult.amenities);
-//					string pointsJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(searchResult.points);
-//					intent.PutExtra ("viewedTrail", trailJSONStr);
-//					intent.PutExtra("activities", activitiesJSONstr);
-//					intent.PutExtra("amenities", amenitiesJSONstr);
-//					intent.PutExtra("points", pointsJSONstr);
-//
-//					StartActivity (intent);
+					SearchResult getTrail;
+
+					if(trails.Length != 0)
+						getTrail = trails[position];
+					else
+						getTrail = debugSearchResults[position];
+					
+					var intent = new Intent (this, typeof(ViewTrailActivity));
+					string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject (getTrail.trail);
+					string activitiesJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(getTrail.activities);
+					string amenitiesJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(getTrail.amenities);
+					string pointsJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(getTrail.points);
+					intent.PutExtra ("viewedTrail", trailJSONStr);
+					intent.PutExtra("activities", activitiesJSONstr);
+					intent.PutExtra("amenities", amenitiesJSONstr);
+					intent.PutExtra("points", pointsJSONstr);
+
+					StartActivity (intent);
 				}
 			};
 		}
