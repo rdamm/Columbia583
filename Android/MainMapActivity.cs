@@ -31,7 +31,6 @@ namespace Columbia583.Android
 		private MapView _mapView;
 		private MarkerLayer _markerLayer;
 		private GeometryLayer _geometryLayer;
-		protected global::Android.Widget.Button showTrailsButton = null;
 		protected global::Android.Widget.Button changeFiltersButton = null;
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -231,7 +230,7 @@ namespace Columbia583.Android
 			AddMarker ("Edgewater", "Default Location", e_long, e_lat);
 			AddMarker ("Start", "TestTrail", -115.8953927736605f, 50.67251672121988f);
 
-			showTrailsButton = FindViewById <global::Android.Widget.Button> (Resource.Id.showTrails);
+			var showTrailsButton = FindViewById <global::Android.Widget.Button> (Resource.Id.showTrails);
 			changeFiltersButton = FindViewById<global::Android.Widget.Button> (Resource.Id.changeFilters);
 
 			if (changeFiltersButton != null){
@@ -240,14 +239,10 @@ namespace Columbia583.Android
 					StartActivity(intent);
 				};
 			}
-
-			if (showTrailsButton != null) {
-				showTrailsButton.Click += (sender, e) => {
-					PopupMenu menu = new PopupMenu (this, showTrailsButton);
-					menu.Inflate (Resource.Menu.popup_menu);
-					menu.Show ();
-				};
-			}
+				
+			//SearchResult[] results 
+			showTrailsButton.Click += delegate { ShowDialog(1); };
+				
 		}
 
 		protected override void OnStart ()
@@ -300,6 +295,13 @@ namespace Columbia583.Android
 			markerStyleBuilder.SetColor ( Nutiteq.SDK.Color.White );
 			markerStyleBuilder.SetSize ( 0.5f );
 			return markerStyleBuilder;
+		}
+		protected override Dialog OnCreateDialog(Bundle args)
+		{
+			var builder = new AlertDialog.Builder(this);
+			builder.SetTitle(Resource.String.trailList);
+			builder.SetItems (;
+			return builder.Create();
 		}
 	}
 }

@@ -8,4 +8,5 @@
 	<string name="submitButtonName">Submit</string>
 	<string name="activitiesList">Select Activities</string>
 	<string name="amenitiesList">Select Amenities</string>
+	<string name="trailList">List of Trails</string>
 </resources>

@@ -4112,6 +4112,9 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0b0005
 			public const int submitButtonName = 2131427333;
 			
+			// aapt resource value: 0x7f0b0008
+			public const int trailList = 2131427336;
+			
 			static String()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

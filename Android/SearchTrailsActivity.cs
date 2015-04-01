@@ -513,7 +513,7 @@ namespace Columbia583.Android
 								StartActivity (intent);
 
 							};
-							searchResultsGrid.AddView (trailElements[i]);
+							searchResultsGrid.AddView (trailElements[i]);	
 						}
 					}
 				}
