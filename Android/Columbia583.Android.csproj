@@ -120,7 +120,6 @@
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
     <AndroidResource Include="Resources\layout\ViewTrail.axml" />
-    <AndroidResource Include="Resources\layout\SearchTrails.axml" />
     <AndroidResource Include="Resources\layout\ViewTrailBase.axml" />
     <AndroidResource Include="Resources\layout\ViewTrail2.axml" />
     <AndroidResource Include="Resources\layout\TestDatabase.axml" />
