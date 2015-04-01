@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources> 
+    <string name="GreenValley">appname</string>
+     <string name="trail_prompt">Choose a Trail</string> 
+</resources>

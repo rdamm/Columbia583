@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="activities_check_list">
+    <item>Cross Country Skiing</item>
+	<item>Hiking</item>
+	<item>Mountain Biking</item>
+	<item>Trail Running</item>
+	<item>Wheelchair</item>
+</string-array>
+<string-array name="amenities_check_list">
+	<item>camping</item>
+	<item>campfire</item>
+	<item>restrooms</item>
+</string-array>
+</resources>
