@@ -452,7 +452,7 @@ namespace Columbia583.Android
 			}
 
 			// Encapsulate the filter parameters.
-			SearchFilter searchFilter = new SearchFilter(activitiesList_ID.ToArray(), amenitiesList_ID.ToArray(), difficulty.ToArray(), rating, minDuration, maxDuration, minDistance, maxDistance);
+			SearchFilter searchFilter = new SearchFilter(activitiesList_ID.ToArray(), amenitiesList_ID.ToArray(), 0, rating, minDuration, maxDuration, minDistance, maxDistance);
 
 			return searchFilter;
 		}

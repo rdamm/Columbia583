@@ -1,19 +1,17 @@
 ﻿<Properties StartupItem="Android/Columbia583.Android.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android/SearchTrailPage2.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android/SplashActivity.cs">
     <Files>
-      <File FileName="Android/SearchTrailsActivity.cs" Line="1" Column="1" />
-      <File FileName="Android/SearchTrails.cs" Line="1" Column="1" />
-      <File FileName="Android/SearchTrailPage2.cs" Line="39" Column="48" />
-      <File FileName="Android/UploadTrail.cs" Line="1" Column="1" />
-      <File FileName="Android/SearchExpandView.cs" Line="1" Column="1" />
+      <File FileName="Android/SearchTrailPage2.cs" Line="51" Column="5" />
+      <File FileName="Android/UploadTrail.cs" Line="21" Column="38" />
+      <File FileName="Android/SplashActivity.cs" Line="77" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/Android/SearchTrails.cs" line="139" column="85" />
-      <Breakpoint file="/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/Android/SearchTrails.cs" line="142" column="1" />
-      <Breakpoint file="/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/Android/SearchTrails.cs" line="140" column="1" />
+      <Breakpoint file="/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/Android/SearchTrailPage2.cs" line="77" column="1" />
+      <Breakpoint file="/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/Android/SearchTrailPage2.cs" line="81" column="1" />
+      <Breakpoint file="/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/Android/SearchTrailPage2.cs" line="86" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

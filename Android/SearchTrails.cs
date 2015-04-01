@@ -17,7 +17,7 @@ namespace Columbia583.Android
 	[Activity (Label = "SearchTrails")]			
 	public class SearchTrails : AndroidActivity
 	{
-		private Difficulty getDifficulty;
+		private int getDifficulty=0;
 		private string getDistance="0";
 		private int getRating= -1;
 		private string getDuration="0";
@@ -34,6 +34,18 @@ namespace Columbia583.Android
 		List<int> amenitiesList_ID = new List<int> ();
 		bool getOpen, getActive;
 
+		SeekBar difficulty ;
+		TextView diffText ;
+		TextView ratingText ;
+		TextView durationText ;
+		TextView distanceText ;
+		Button activity ;
+		Button amenity ;
+		RatingBar rating ;
+		SeekBar maxDuration ;
+		SeekBar maxDistance ;
+		Button upload ;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -48,17 +60,17 @@ namespace Columbia583.Android
 			// Set the view for the page.
 			SetContentView (Resource.Layout.SearchTrailsPage);
 
-			var difficulty = FindViewById<SeekBar> (Resource.Id.difficultyBar);
-			var diffText = FindViewById<TextView> (Resource.Id.difficultyText);
-			var ratingText = FindViewById<TextView> (Resource.Id.ratingText);
-			var durationText = FindViewById<TextView> (Resource.Id.durationText);
-			var distanceText = FindViewById<TextView> (Resource.Id.distanceText);
-			var activity = FindViewById<Button> (Resource.Id.activityButton);
-			var amenity = FindViewById<Button> (Resource.Id.amenityButton);
-			var rating = FindViewById<RatingBar> (Resource.Id.ratingBar);
-			var maxDuration = FindViewById<SeekBar> (Resource.Id.MaxdurationBar);
-			var maxDistance = FindViewById<SeekBar> (Resource.Id.maxDistanceBar);
-			var upload = FindViewById<Button> (Resource.Id.update);
+			difficulty = FindViewById<SeekBar> (Resource.Id.difficultyBar);
+			diffText = FindViewById<TextView> (Resource.Id.difficultyText);
+			 ratingText = FindViewById<TextView> (Resource.Id.ratingText);
+			 durationText = FindViewById<TextView> (Resource.Id.durationText);
+			 distanceText = FindViewById<TextView> (Resource.Id.distanceText);
+			 activity = FindViewById<Button> (Resource.Id.activityButton);
+			 amenity = FindViewById<Button> (Resource.Id.amenityButton);
+			 rating = FindViewById<RatingBar> (Resource.Id.ratingBar);
+			 maxDuration = FindViewById<SeekBar> (Resource.Id.MaxdurationBar);
+			 maxDistance = FindViewById<SeekBar> (Resource.Id.maxDistanceBar);
+			 upload = FindViewById<Button> (Resource.Id.update);
 
 			difficulty.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) => {
 				Data_Layer_Common dataLayer = new Data_Layer_Common ();
@@ -67,23 +79,23 @@ namespace Columbia583.Android
 				if(e.FromUser){
 					if(e.Progress <=20){
 						diffText.Text = String.Format("You have selected easiest difficulty.");
-						getDifficulty = Difficulty.Easiest;
+						getDifficulty = (int) Difficulty.Easiest;
 					}
 					else if(e.Progress <=40 && e.Progress > 20){
 						diffText.Text = String.Format("You have selected easy difficulty.");
-						getDifficulty = Difficulty.Easy;
+						getDifficulty = (int)Difficulty.Easy;
 					}
 					else if(e.Progress <=60 && e.Progress > 40){
 						diffText.Text = String.Format("You have selected more difficult difficulty.");
-						getDifficulty = Difficulty.More_Difficult;
+						getDifficulty = (int) Difficulty.More_Difficult;
 					}
 					else if(e.Progress <=80 && e.Progress > 60){
 						diffText.Text = String.Format("You have selected very difficult difficulty.");
-						getDifficulty = Difficulty.Very_Difficult;
+						getDifficulty = (int) Difficulty.Very_Difficult;
 					}
 					else if(e.Progress <=100 && e.Progress > 80){
 						diffText.Text = String.Format("You have selected extremely difficult difficulty.");
-						getDifficulty = Difficulty.Extremely_Difficult;
+						getDifficulty = (int) Difficulty.Extremely_Difficult;
 					}
 
 				}
@@ -130,6 +142,7 @@ namespace Columbia583.Android
 			};
 
 			upload.Click += (object sender, EventArgs e) => {
+				getRating =(int) rating.Rating;
 //				Application_Layer_Search_Trails applicationLayer_searchTrails = new Application_Layer_Search_Trails ();
 //				SearchResult[] debugSearchResults = applicationLayer_searchTrails.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
 
@@ -251,9 +264,6 @@ namespace Columbia583.Android
 			
 		protected SearchFilter getSearchFilter()
 		{
-			List<Difficulty> difficulty = new List<Difficulty>();
-
-			difficulty.Add (getDifficulty);
 
 			int minDuration = 0;
 			int maxDuration = int.Parse (getDuration);
@@ -261,7 +271,7 @@ namespace Columbia583.Android
 			int maxDistance = int.Parse(getDistance);
 
 			// Encapsulate the filter parameters.
-			SearchFilter searchFilter = new SearchFilter(activitiesList_ID.ToArray(), amenitiesList_ID.ToArray(), difficulty.ToArray(), getRating, minDuration, maxDuration, minDistance, maxDistance);
+			SearchFilter searchFilter = new SearchFilter(activitiesList_ID.ToArray(), amenitiesList_ID.ToArray(), getDifficulty, getRating, minDuration, maxDuration, minDistance, maxDistance);
 
 			return searchFilter;
 		}

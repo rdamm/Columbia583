@@ -68,13 +68,13 @@ namespace Columbia583.Android.hi
 
 				// Update the progress bar.
 				RunOnUiThread(() => {
-					splashProgressBar.Progress = ((int)((float)completedTasks / (float)totalTasks * 100));
+					//splashProgressBar.Progress = ((int)((float)completedTasks / (float)totalTasks * 100));
 					splashProgressLabel.Text = "Database updated.";
 				});
 
 				// Load the main menu.
 				RunOnUiThread(() => {
-					splashProgressLabel.Text = "Starting app...";
+					//splashProgressLabel.Text = "Starting app...";
 					Console.WriteLine("Starting main menu activity.");
 					StartActivity (typeof(MainMenuActivity));
 				});
