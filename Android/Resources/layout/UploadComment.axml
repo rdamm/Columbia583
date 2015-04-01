@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="263.3dp"
+        android:id="@+id/scrollView1">
+        <MultiAutoCompleteTextView
+            android:height="263dp"
+            android:autoText="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/multiAutoCompleteTextView1" />
+    </ScrollView>
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1"
+        android:translationX="40dp"
+        android:id="@+id/ratingBar1" />
+    <Button
+        android:text="Upload Comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1" />
+</LinearLayout>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/scrollView1">
+    <LinearLayout
+        p1:orientation="vertical"
+        p1:layout_width="match_parent"
+        p1:layout_height="match_parent"
+        p1:id="@+id/linearLayout1">
+        <Button
+            p1:text="Select Activity"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/acitvity" />
+        <Button
+            p1:text="Select Amenity"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/amenity" />
+        <TextView
+            p1:text="Select Difficulty"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/difficultyText" />
+        <SeekBar
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/seekBar1" />
+        <TextView
+            p1:text="Select Distance"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/distance" />
+        <SeekBar
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/seekBar2" />
+        <TextView
+            p1:text="Select Duration"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/duration" />
+        <SeekBar
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/seekBar3" />
+        <TextView
+            p1:text="Select Rating"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/textView4" />
+        <RatingBar
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/ratingBar1"
+            p1:numStars="5"
+            p1:stepSize="1" />
+        <TextView
+            p1:text="Trail Name"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/textView5" />
+        <MultiAutoCompleteTextView
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/multiAutoCompleteTextView1" />
+        <TextView
+            p1:text="Trail Directions"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/textView6" />
+        <MultiAutoCompleteTextView
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/multiAutoCompleteTextView2" />
+        <TextView
+            p1:text="Trail Description"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/textView7" />
+        <MultiAutoCompleteTextView
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/multiAutoCompleteTextView3" />
+        <TextView
+            p1:text="Trail Hazards"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/textView8" />
+        <MultiAutoCompleteTextView
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/multiAutoCompleteTextView4" />
+        <TextView
+            p1:text="Season"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/textView8" />
+        <MultiAutoCompleteTextView
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/multiAutoCompleteTextView5" />
+        <TextView
+            p1:text="Location"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/textView8" />
+        <MultiAutoCompleteTextView
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/multiAutoCompleteTextView6" />
+        <TextView
+            p1:text="Maintenance"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/textView8" />
+        <MultiAutoCompleteTextView
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/multiAutoCompleteTextView7" />
+        <TextView
+            p1:text="Land Access"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/textView8" />
+        <MultiAutoCompleteTextView
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/multiAutoCompleteTextView8" />
+        <TextView
+            p1:text="Surface"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/textView8" />
+        <MultiAutoCompleteTextView
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/multiAutoCompleteTextView9" />
+        <TextView
+            p1:text="Trail Open Or Closed"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/textView9" />
+        <RadioButton
+            p1:text="Open"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/radioButton1" />
+        <RadioButton
+            p1:text="Closed"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/radioButton2" />
+        <TextView
+            p1:text="Trail Active"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/textView10" />
+        <RadioButton
+            p1:text="Active"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/radioButton3" />
+        <RadioButton
+            p1:text="Unactive"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/radioButton4" />
+        <Button
+            p1:text="Upload"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/upload" />
+    </LinearLayout>
+</ScrollView>
