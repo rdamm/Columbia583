@@ -231,7 +231,7 @@ namespace Columbia583
 					// Get the base trail.
 					trails.Add(new Trail(currentTrail.id, userId, orgId, currentTrail.name, currentTrail.location, currentTrail.kml_name, currentTrail.kml_content, currentTrail.distance,
 						currentTrail.duration, currentTrail.description, currentTrail.directions, trailDifficulty, currentTrail.rating, currentTrail.hazards, currentTrail.surface,
-						currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, trailUpdatedTime));
+						currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, trailUpdatedTime,Convert.ToDateTime(currentTrail.created_at), true));
 				}
 
 				// Remove duplicate entries in the resulting lists.
@@ -601,13 +601,13 @@ namespace Columbia583
 					{
 						updateTrails.Add(new Trail(currentTrail.id, userId, orgId, currentTrail.name, currentTrail.location, currentTrail.kml_name, currentTrail.kml_content, currentTrail.distance,
 							currentTrail.duration, currentTrail.description, currentTrail.directions, trailDifficulty, currentTrail.rating, currentTrail.hazards, currentTrail.surface,
-							currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, trailUpdatedTime));
+							currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, trailUpdatedTime, Convert.ToDateTime(currentTrail.created_at), true));
 					}
 					else
 					{
 						insertTrails.Add(new Trail(currentTrail.id, userId, orgId, currentTrail.name, currentTrail.location, currentTrail.kml_name, currentTrail.kml_content, currentTrail.distance,
 							currentTrail.duration, currentTrail.description, currentTrail.directions, trailDifficulty, currentTrail.rating, currentTrail.hazards, currentTrail.surface,
-							currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, trailUpdatedTime));
+							currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, trailUpdatedTime, Convert.ToDateTime(currentTrail.created_at), true));
 					}
 				}
 
@@ -863,7 +863,7 @@ namespace Columbia583
 						if (currentTrail.user != null && currentTrail.user.id == u.id) {
 							updateTrails.Add(new Trail(currentTrail.id, currentTrail.user.id, orgId, currentTrail.name, currentTrail.location, currentTrail.kml_name, currentTrail.kml_content, currentTrail.distance,
 								currentTrail.duration, currentTrail.description, currentTrail.directions, trailDifficulty, currentTrail.rating, currentTrail.hazards, currentTrail.surface,
-								currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, currentTime));
+								currentTrail.landAccess, currentTrail.maintenance, currentTrail.season, trailOpen, currentTrail.active, currentTime, Convert.ToDateTime(currentTrail.created_at), true));
 						}
 					}
 				}
@@ -966,6 +966,41 @@ namespace Columbia583
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
 			return dataLayer.getMedia(id);
 		}
+
+		//insert comment, call to data layer common
+		public void insertComment(Comment comment){
+			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			dataLayer.insertComment (comment);
+		}
+
+		//insert trail, call to data layer common
+		public void insertTrail(Trail trail){
+			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			dataLayer.insertTrail (trail);
+		}
+
+		//get a specific comment id.
+		public Comment getComment(int id){
+			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			return dataLayer.getComment (id);
+		}
+
+		//get all comments
+		public List<Comment> getCommentID(){
+			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			return dataLayer.getCommentid ();
+		}
+
+		/// <summary>
+		/// get a specific trail id.
+		/// </summary>
+		/// <returns>The trail I.</returns>
+		/// <param name="id">Identifier.</param>
+		public Trail getTrailID(int id){
+			Data_Layer_Common dataLayer = new Data_Layer_Common ();
+			return dataLayer.getTrailid (id);
+		}
+
 	}
 }
 

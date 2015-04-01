@@ -75,9 +75,9 @@ namespace Columbia583
 			TrailsToAmenities[] trailsToAmenities = new TrailsToAmenities[4];
 			FavouriteTrails[] favouriteTrails = new FavouriteTrails[0];
 			users [0] = new User (1, 0, "rob_orchiston@greenways.ca", "rob_orchiston", DateTime.Now, DateTime.Now, false);
-			trails [0] = new Trail (1, 1, 1, "Trail 1", "Radium", "", "", "32 km", "2 hours", "A hike through the valley.", "", Difficulty.More_Difficult, 4, "", "", "", "", "", true, true, DateTime.Now);
-			trails [1] = new Trail (2, 1, 1, "Trail 2", "Invermere", "", "", "16 km", "1 hours", "A hike along the creeks.", "", Difficulty.Easy, 2, "", "", "", "", "", true, true, DateTime.Now);
-			trails [2] = new Trail (3, 1, 1, "Trail 3", "Windermere", "", "", "8 km", "30 minutes", "A hike alongside Lake Invermere.", "", Difficulty.Easiest, 3, "", "", "", "", "", true, true, DateTime.Now);
+			trails [0] = new Trail (1, 1, 1, "Trail 1", "Radium", "", "", "32 km", "2 hours", "A hike through the valley.", "", Difficulty.More_Difficult, 4, "", "", "", "", "", true, true, DateTime.Now,DateTime.Now,true);
+			trails [1] = new Trail (2, 1, 1, "Trail 2", "Invermere", "", "", "16 km", "1 hours", "A hike along the creeks.", "", Difficulty.Easy, 2, "", "", "", "", "", true, true, DateTime.Now,DateTime.Now,true);
+			trails [2] = new Trail (3, 1, 1, "Trail 3", "Windermere", "", "", "8 km", "30 minutes", "A hike alongside Lake Invermere.", "", Difficulty.Easiest, 3, "", "", "", "", "", true, true, DateTime.Now,DateTime.Now,true);
 			media [0] = new Media (1, 1, "Baby Deer Looks Cute", "Image", "", new byte[0], DateTime.Now, DateTime.Now, DateTime.Now, false);
 			points [0] = new Point (1, 1, 1, 2, "", "", 100, 101, true, DateTime.Now);
 			points [1] = new Point (2, 1, 1, -1, "", "", 110, 111, false, DateTime.Now);

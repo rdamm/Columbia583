@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Newtonsoft.Json;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -45,7 +45,7 @@ namespace Columbia583.Android
 		protected global::Android.Widget.Button uploadMediaButton = null;
 		protected GridView trailGallery = null;
 		//private GestureDetector _gestureDetector;
-
+		protected global::Android.Widget.Button commentButton = null;
 		protected bool debugTrailA = true;
 
 		protected override void OnCreate (Bundle bundle)
@@ -207,6 +207,21 @@ namespace Columbia583.Android
 						borderText.Text = "\n";
 						commentsLayout.AddView(borderText);
 					}
+
+					commentButton = view.FindViewById<global::Android.Widget.Button> (Resource.Id.uploadComment);
+
+					commentButton.Click += (object sender, EventArgs e) => {
+
+						var intent = new Intent (this, typeof(UploadComment));
+
+						string jsonModel = JsonConvert.SerializeObject (trail);
+						//string jsonModelUser = JsonConvert.SerializeObject();
+						intent.PutExtra ("Trail Data", jsonModel);
+						//intent.PutExtra("User Data", jsonModelUser);
+
+						StartActivity (intent);
+					};
+
 
 					return view;
 

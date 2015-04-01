@@ -26,6 +26,7 @@ namespace Columbia583.Android
 		protected TextView loggedInUsersUsernameText = null;
 		protected Button scanQrCodeButton = null;
 		protected Button viewFavouriteTrailsButton = null;
+		protected Button upload_trail = null;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -41,13 +42,20 @@ namespace Columbia583.Android
 
 			// Get the controls.
 			searchTrailsButton = FindViewById<Button> (Resource.Id.button_searchTrails);
-			debugAndTestsButton = FindViewById<Button> (Resource.Id.button_debugAndTests);
+			//debugAndTestsButton = FindViewById<Button> (Resource.Id.button_debugAndTests);
 			loginButton = FindViewById<Button> (Resource.Id.button_login);
 			logoutButton = FindViewById<Button> (Resource.Id.button_logout);
 			loggedInUsersUsernameText = FindViewById<TextView> (Resource.Id.txtLoggedInUsersUsername);
 			scanQrCodeButton = FindViewById<Button> (Resource.Id.button_scanQrCode);
 			viewFavouriteTrailsButton = FindViewById<Button> (Resource.Id.button_viewFavouriteTrails);
+			upload_trail = FindViewById<Button> (Resource.Id.uploadTrail);
 
+			upload_trail.Enabled = false;
+			Data_Access_Layer_Common data_access_layer = new Data_Access_Layer_Common();
+			User getUser = data_access_layer.getActiveUser();
+			if (getUser != null)
+				upload_trail.Enabled = true;
+			
 			// Get the active user and show their username.
 			Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
 			User activeUser = dataAccessLayerCommon.getActiveUser ();
@@ -67,8 +75,17 @@ namespace Columbia583.Android
 				searchTrailsButton.Click += (sender, e) => {
 
 					// Load the search trails page.
-					var intent = new Intent(this, typeof(SearchTrailsActivity));
+					var intent = new Intent(this, typeof(SearchTrailsPage));
 					StartActivity(intent);
+
+				};
+			}if (upload_trail != null) {
+				upload_trail.Click += (sender, e) => {
+
+					// Load the search trails page.
+					var intent = new Intent(this, typeof(UploadTrail));
+					StartActivity(intent);
+
 
 				};
 			}
@@ -81,15 +98,15 @@ namespace Columbia583.Android
 
 				};
 			}
-			if (debugAndTestsButton != null) {
-				debugAndTestsButton.Click += (sender, e) => {
-
-					// Load the debug and tests page.
-					var intent = new Intent(this, typeof(DebugMenuActivity));
-					StartActivity(intent);
-
-				};
-			}
+//			if (debugAndTestsButton != null) {
+//				debugAndTestsButton.Click += (sender, e) => {
+//
+//					// Load the debug and tests page.
+//					var intent = new Intent(this, typeof(DebugMenuActivity));
+//					StartActivity(intent);
+//
+//				};
+//			}
 			if (loginButton != null) {
 				loginButton.Click += requestLoginEvent;
 			}

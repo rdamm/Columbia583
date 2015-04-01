@@ -66,6 +66,7 @@ namespace Columbia583
 				tableTypes.Add(typeof(TrailsToActivities));
 				tableTypes.Add(typeof(TrailsToAmenities));
 				tableTypes.Add(typeof(FavouriteTrails));
+				tableTypes.Add(typeof(Comment));
 
 				// Check if the tables exist.
 				string tableExistsQuery = "SELECT name FROM sqlite_master WHERE type = 'table' AND name = ?";
@@ -148,6 +149,7 @@ namespace Columbia583
 				connection.CreateTable<MapTile>();
 				connection.CreateTable<Organization>();
 				connection.CreateTable<Role>();
+				connection.CreateTable<Comment>();
 
 				// Create all the tables that have foreign keys.
 				connection.CreateTable<User>();					// References Organization.
@@ -186,6 +188,41 @@ namespace Columbia583
 			}
 		}
 
+		public void insertTrail(Trail trail){
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				connection.Insert(trail);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+		}
+
+		public void insertComment(Comment comment){
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				connection.Insert(comment);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+		}
 
 		/// <summary>
 		/// Inserts the rows.
@@ -284,6 +321,10 @@ namespace Columbia583
 			return activities;
 		}
 
+		public string[] getDifficulty(){
+			string[] names = Enum.GetNames (typeof(Difficulty));
+			return names;
+		}
 
 		/// <summary>
 		/// Gets the amenities.
@@ -714,6 +755,40 @@ namespace Columbia583
 		/// </summary>
 		/// <returns>The comment.</returns>
 		/// <param name="id">Identifier.</param>
+		public List<Comment> getCommentid()
+		{
+			List<Comment> comment = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get the amenity.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				var query = connection.Table<Comment>();
+				comment = new List<Comment>();
+				foreach(Comment c in query)
+				{
+					comment.Add(c);
+				}
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return comment;
+		}
+			
+		/// <summary>
+		/// Gets the comment.
+		/// </summary>
+		/// <returns>The comment.</returns>
+		/// <param name="id">Identifier.</param>
 		public Comment getComment(int id)
 		{
 			Comment comment = null;
@@ -768,7 +843,30 @@ namespace Columbia583
 			return mapTile;
 		}
 
+		public Trail getTrailid(int id)
+		{
+			Trail trail = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
 
+				// Get the amenity.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				trail = connection.Find<Trail>(id);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return trail;
+		}
+			
 		/// <summary>
 		/// Gets the media.
 		/// </summary>

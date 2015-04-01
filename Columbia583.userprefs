@@ -1,12 +1,6 @@
-﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Layer\Data_Layer_Favourites.cs">
-    <Files>
-      <File FileName="Android\MainMenuActivity.cs" Line="90" Column="44" />
-      <File FileName="Columbia583\Data_Layer\Data_Layer_Favourites.cs" Line="76" Column="36" />
-      <File FileName="Android\FavouriteTrailsActivity.cs" Line="23" Column="40" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+﻿<Properties StartupItem="Android/Columbia583.Android.csproj" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

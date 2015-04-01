@@ -19,11 +19,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button_viewFavouriteTrails" />
-    <Button
+<!--  <Button
         android:text="Debug and Tests Menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_debugAndTests" />
+        android:id="@+id/button_debugAndTests" />    -->
+    <Button
+        android:text="Upload Trail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/uploadTrail" />
     <Button
         android:text="Login"
         android:layout_width="match_parent"
@@ -34,15 +39,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button_logout" />
+    <Button
+        android:text="Scan Trail QR Code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_scanQrCode" />
     <TextView
         android:text="Not Logged In"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtLoggedInUsersUsername" />
-    <Button
-        android:text="Scan Trail QR Code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button_scanQrCode" />
 </LinearLayout>

@@ -104,6 +104,10 @@
     <Compile Include="ViewMediaActivity.cs" />
     <Compile Include="FavouriteTrailsActivity.cs" />
     <Compile Include="Helpers\NetworkHelper.cs" />
+    <Compile Include="UploadComment.cs" />
+    <Compile Include="UploadTrail.cs" />
+    <Compile Include="SearchTrailsPage.cs" />
+    <Compile Include="SearchTrailPage2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -137,6 +141,11 @@
     <AndroidResource Include="Resources\layout\ViewMedia.axml" />
     <AndroidResource Include="Resources\layout\ScanQrCode.axml" />
     <AndroidResource Include="Resources\layout\FavouriteTrails.axml" />
+    <AndroidResource Include="Resources\layout\UploadComment.axml" />
+    <AndroidResource Include="Resources\layout\UploadTrail.axml" />
+    <AndroidResource Include="Resources\layout\SearchTrailPage.axml" />
+    <AndroidResource Include="Resources\layout\SearchTrailPage2.axml" />
+    <AndroidResource Include="Resources\values\String.xml" />
   </ItemGroup>
   <Import Project="..\Columbia583\Columbia583.projitems" Label="Shared" Condition="Exists('..\Columbia583\Columbia583.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
