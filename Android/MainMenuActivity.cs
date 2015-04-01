@@ -42,10 +42,11 @@ namespace Columbia583.Android
 			loginButton = FindViewById<Button> (Resource.Id.button_login);
 			loggedInUsersUsernameText = FindViewById<TextView> (Resource.Id.txtLoggedInUsersUsername);
 
-			// Get the logged in user and show their username.
-			Account account = getLoggedInUser ();
-			displayUsername (account);
-			
+			if (NetworkHelper.wifiAvailable (this)) {
+				// Get the logged in user and show their username.
+				Account account = getLoggedInUser ();
+				displayUsername (account);
+			}
 			// Assign the event handlers.
 			if (searchTrailsButton != null) {
 				searchTrailsButton.Click += (sender, e) => {

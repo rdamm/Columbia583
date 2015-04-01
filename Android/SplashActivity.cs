@@ -49,6 +49,8 @@ namespace Columbia583.Android.hi
 				int completedTasks = 0;
 				int totalTasks = 1;
 
+				if (NetworkHelper.wifiAvailable(this))
+				{
 				// If the database has been initialized, update it.  Otherwise, initialize it.
 				Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common ();
 				if (dataAccessLayer.databaseInitialized () == true)
@@ -65,7 +67,7 @@ namespace Columbia583.Android.hi
 				}
 				completedTasks++;
 				Console.WriteLine("Database updated in splash activity initializer.");
-
+				}
 				// Update the progress bar.
 				RunOnUiThread(() => {
 					splashProgressBar.Progress = ((int)((float)completedTasks / (float)totalTasks * 100));
