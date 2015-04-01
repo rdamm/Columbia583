@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.a9325661" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Android\SearchTrailsActivity.cs">
@@ -10,10 +11,16 @@
       <File FileName="Columbia583\SQLite.cs" Line="16" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+=======
+﻿<Properties StartupItem="Android/Columbia583.Android.csproj" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
+  <MonoDevelop.Ide.Workbench />
+>>>>>>> f0220a1df1a0b4262fb2e80cf6fc30fe8b198f3f
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+<<<<<<< HEAD
   <MonoDevelop.Ide.ItemProperties.Columbia583.Android MonoForAntroid.PreferredDevice="Nexus 4" />
 =======
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
@@ -25,3 +32,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 >>>>>>> Stash
 </Properties>
+=======
+  <MonoDevelop.Ide.ItemProperties.Columbia583.Android AndroidDesignerPreferredDevice="Nexus 4" />
+</Properties>
+>>>>>>> f0220a1df1a0b4262fb2e80cf6fc30fe8b198f3f

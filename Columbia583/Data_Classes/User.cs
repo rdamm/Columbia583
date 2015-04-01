@@ -19,20 +19,30 @@ namespace Columbia583
 		// or tokens of other users.
 		public string email { get; set; }
 		public string username { get; set; }
-		public DateTime timestamp { get; set; }
+		public DateTime createdAt { get; set; }
+		public DateTime updatedAt { get; set; }
+		public bool pushToServer { get; set; }
 		
 		public User()
 		{
-
+			this.id = 0;
+			this.orgId = 0;
+			this.email = "";
+			this.username = "";
+			this.createdAt = new DateTime(1970, 1, 1);
+			this.updatedAt = new DateTime(1970, 1, 1);
+			this.pushToServer = false;
 		}
 
-		public User (int id, int orgId, string email, string username, DateTime timestamp)
+		public User (int id, int orgId, string email, string username, DateTime createdAt, DateTime updatedAt, bool pushToServer)
 		{
 			this.id = id;
 			this.orgId = orgId;
 			this.email = email;
 			this.username = username;
-			this.timestamp = timestamp;
+			this.createdAt = createdAt;
+			this.updatedAt = updatedAt;
+			this.pushToServer = pushToServer;
 		}
 
 

@@ -22,7 +22,7 @@ namespace Columbia583
 		public string description { get; set; }
 		public double lat { get; set; }
 		public double lon { get; set; }
-		public bool primary { get; set; }
+		public bool primaryPoint { get; set; }
 		public DateTime timestamp { get; set; }
 
 		public Point()
@@ -30,7 +30,7 @@ namespace Columbia583
 
 		}
 
-		public Point (int id, int trailId, int mapTileId, int nextPointId, string title, string description, double lat, double lon, bool primary, DateTime timestamp)
+		public Point (int id, int trailId, int mapTileId, int nextPointId, string title, string description, double lat, double lon, bool primaryPoint, DateTime timestamp)
 		{
 			this.id = id;
 			this.trailId = trailId;
@@ -40,7 +40,7 @@ namespace Columbia583
 			this.nextPointId = nextPointId;
 			this.lat = lat;
 			this.lon = lon;
-			this.primary = primary;
+			this.primaryPoint = primaryPoint;
 			this.timestamp = timestamp;
 		}
 	}

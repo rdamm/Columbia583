@@ -15,7 +15,7 @@ using Xamarin.Forms.Platform.Android;
 
 namespace Columbia583.Android
 {
-	[Activity (Label = "TestDatabaseActivity")]			
+	[Activity (Label = "TestDatabaseActivity", ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]			
 	public class TestDatabaseActivity : AndroidActivity
 	{
 		protected Button createTablesButton = null;

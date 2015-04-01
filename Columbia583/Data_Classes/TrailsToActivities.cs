@@ -8,6 +8,8 @@ namespace Columbia583
 	public class TrailsToActivities : IEquatable<TrailsToActivities>
 	{
 		// Keys and references.
+		[PrimaryKey, AutoIncrement]
+		public int id { get; set; }
 		[ForeignKey(typeof(Trail))]
 		public int trailId { get; set; }
 		[ForeignKey(typeof(Activity))]

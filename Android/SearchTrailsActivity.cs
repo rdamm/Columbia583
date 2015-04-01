@@ -15,7 +15,7 @@ using Android.Graphics;
 
 namespace Columbia583.Android
 {
-	[Activity (Label = "Columbia583.Android_Search_Trails", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity (Label = "Columbia583.Android_Search_Trails", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]
 	public class SearchTrailsActivity : AndroidActivity
 	{
 		// Define some structs for iterating through the checkboxes.
@@ -41,7 +41,7 @@ namespace Columbia583.Android
 				this.checkbox = checkbox;
 			}
 		}
-			
+
 		private const int activityDialog = 1;
 		private const int amenityDialog = 2;
 
@@ -122,7 +122,7 @@ namespace Columbia583.Android
 			//viewTrailButton = FindViewById<Button> (Resource.Id.button_viewTrail);
 
 			Application_Layer_Search_Trails applicationLayer_searchTrails = new Application_Layer_Search_Trails ();
-			SearchResult[] debugSearchResults = applicationLayer_searchTrails.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
+			ListableTrail[] debugSearchResults = applicationLayer_searchTrails.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
 			//List<SearchResult> debugSearchResults = dataLayer.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
 
 			// Get the activities and amenities.
@@ -159,7 +159,7 @@ namespace Columbia583.Android
 				debugAmenities [0] = new Amenity (1, "restrooms", new byte[0], DateTime.Now);
 				debugAmenities[1] = new Amenity(2, "camping", new byte[0], DateTime.Now);
 				*/
-				
+
 				this.setSearchResults(debugSearchResults);
 			}
 
@@ -253,14 +253,14 @@ namespace Columbia583.Android
 			// Assign an event handler to the update search results button.
 			if (updateSearchResultsButton != null) {
 				updateSearchResultsButton.Click += (sender, e) => {
-					
+
 					// Get the search filter parameters from the controls.
 					SearchFilter searchFilter = this.getSearchFilter();
 
 					// Get the search results.
 					//List<SearchResult> results = dataLayer.getTrailsBySearchFilter(searchFilter);
 					//Application_Layer_Search_Trails applicationLayer_searchTrails = new Application_Layer_Search_Trails ();
-					SearchResult[] trails = applicationLayer_searchTrails.getTrailsBySearchFilter (searchFilter);
+					ListableTrail[] trails = applicationLayer_searchTrails.getTrailsBySearchFilter (searchFilter);
 
 					// Show the search results.
 					this.setSearchResults(trails);
@@ -324,15 +324,17 @@ namespace Columbia583.Android
 			int i = 0;
 
 			activitiesList_String.ToArray ();
+			Data_Layer_Search_Trails dlSearch = new Data_Layer_Search_Trails ();
+			activitiesList_ID.Clear ();
 
 			foreach (string s in activitiesList_String)
 			{
-				Activity activity = new Activity (i, activitiesList_String[i], new byte[0], DateTime.Now);
-
-				activitiesList_ID.Add (activity.id);
+				//Activity activity = new Activity (i, activitiesList_String[i], new byte[0], DateTime.Now);
+				activitiesList_ID.Add (dlSearch.getActivityIdByName(s));
 
 				i++;
 			}
+			Console.WriteLine ("Activities submitted.");
 
 			dialog.Dismiss ();
 		}
@@ -345,11 +347,15 @@ namespace Columbia583.Android
 
 			amenitiesList_String.ToArray ();
 
+			Data_Layer_Search_Trails dlSearch = new Data_Layer_Search_Trails ();
+
+			amenitiesList_ID.Clear ();
+
 			foreach (string t in amenitiesList_String)
 			{
-				Amenity amenity = new Amenity (j, amenitiesList_String[j], new byte[0], DateTime.Now);
+				//Amenity amenity = new Amenity (j, amenitiesList_String[j], new byte[0], DateTime.Now);
 
-				amenitiesList_ID.Add (amenity.id);
+				amenitiesList_ID.Add (dlSearch.getAmenityIdByName(t));
 
 				j++;
 			}
@@ -385,9 +391,9 @@ namespace Columbia583.Android
 				amenitiesList_String.Remove (amenitiesSelected [args.Which]);
 			}
 		}
-			
+
 		/** Get the search filters from the controls. **/
-		 
+
 		protected SearchFilter getSearchFilter()
 		{
 			List<Difficulty> difficulty = new List<Difficulty>();
@@ -446,7 +452,8 @@ namespace Columbia583.Android
 			}
 
 			// Encapsulate the filter parameters.
-			SearchFilter searchFilter = new SearchFilter(activitiesList_ID.ToArray(), amenitiesList_ID.ToArray(), difficulty.ToArray(), rating, minDuration, maxDuration, minDistance, maxDistance);
+			SearchFilter searchFilter=null; 
+			//= new SearchFilter(activitiesList_ID.ToArray(), amenitiesList_ID.ToArray(), difficulty.ToArray(), rating, minDuration, maxDuration, minDistance, maxDistance);
 
 			return searchFilter;
 		}
@@ -455,7 +462,7 @@ namespace Columbia583.Android
 		/**
 		 * Display the search results in the grid.
 		 * */
-		protected void setSearchResults(SearchResult[] searchResults)
+		protected void setSearchResults(ListableTrail[] searchResults)
 		{
 			// Display the trails in the view.
 			if (searchResultsGrid != null) {
@@ -464,15 +471,15 @@ namespace Columbia583.Android
 
 				// Show a summary of each matching trail.
 				if (searchResults != null) {
-					foreach(SearchResult searchResult in searchResults) {
+					foreach(ListableTrail searchResult in searchResults) {
 						Trail trail = searchResult.trail;
 
 						const int NUM_ELEMENTS_PER_TRAIL = 4;
 						TextView[] trailElements = new TextView[NUM_ELEMENTS_PER_TRAIL];
-//						// TODO: Display the trail name.
+						//						// TODO: Display the trail name.
 						trailElements[0] = new TextView (this);
 						trailElements[0].Text = trail.name;
-//
+						//
 						// TODO: Display the trail rating.
 						trailElements[1] = new TextView (this);
 						string ratingStars = "";
@@ -480,12 +487,12 @@ namespace Columbia583.Android
 							ratingStars += "*";
 						}
 						trailElements[1].Text = ratingStars;
-//
-//						// TODO: Display the trail difficulty.
+						//
+						//						// TODO: Display the trail difficulty.
 						trailElements[2] = new TextView (this);
 						trailElements[2].Text = trail.difficulty.ToString().Replace("_", " ");
-//
-//						// TODO: Display the trail distance.
+						//
+						//						// TODO: Display the trail distance.
 						trailElements[3] = new TextView (this);
 						trailElements[3].Text = trail.distance + " km";
 

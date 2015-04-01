@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Newtonsoft.Json;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -19,9 +19,11 @@ using DK.Ostebaronen.Droid.ViewPagerIndicator;
 
 namespace Columbia583.Android
 {
-	[Activity (Label = "Columbia583.Android_View_Trail", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity (Label = "Columbia583.Android_View_Trail", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]
 	public class ViewTrailActivity : FragmentActivity
 	{
+		protected int trailId;
+
 		protected ViewPager pager = null;
 		protected MyFragmentPagerAdapter adapter = null;
 		protected CirclePageIndicator pageIndicator = null;
@@ -39,9 +41,11 @@ namespace Columbia583.Android
 		protected TextView season = null;
 		protected TextView maintenance = null;
 		protected LinearLayout commentsLayout = null;
-		protected Gallery trailGallery = null;
+		protected global::Android.Widget.Button addToFavouritesButton = null;
+		protected global::Android.Widget.Button uploadMediaButton = null;
+		protected GridView trailGallery = null;
 		//private GestureDetector _gestureDetector;
-
+		protected global::Android.Widget.Button commentButton = null;
 		protected bool debugTrailA = true;
 
 		protected override void OnCreate (Bundle bundle)
@@ -68,8 +72,14 @@ namespace Columbia583.Android
 			Point[] points = Newtonsoft.Json.JsonConvert.DeserializeObject<Point[]> (pointsJSONstr);
 			trailName.Text = trail.name;
 
+			trailId = trail.id;
+
 			Activity[] debugActivities = new Activity[6];
 			Amenity[] debugAmenities = new Amenity[2];
+
+			// Get the trail's media.
+			Data_Access_Layer_View_Trail dataAccessLayerViewTrail = new Data_Access_Layer_View_Trail();
+			Media[] mediaList = dataAccessLayerViewTrail.getMedia(trail.id);
 
 			if (debugTrailA) {
 				debugActivities [0] = new Activity (1, "Hiking", new byte[0], DateTime.Now);
@@ -95,6 +105,7 @@ namespace Columbia583.Android
 					openStatus = view.FindViewById<TextView>(Resource.Id.openStatus);
 					season = view.FindViewById<TextView>(Resource.Id.season);
 					maintenance = view.FindViewById<TextView>(Resource.Id.maintenance);
+					addToFavouritesButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.btnAddToFavourites);
 
 					// Get trail data.
 					distance.Text = trail.distance + " km";
@@ -109,6 +120,22 @@ namespace Columbia583.Android
 					}
 					season.Text = "Season: " + trail.season;
 					maintenance.Text = trail.maintenance;
+
+					// Set the event handlers.
+					if (addToFavouritesButton != null) {
+						addToFavouritesButton.Click += (sender, e) => {
+
+							// Get the active user's ID.
+							Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
+							User activeUser = dataAccessLayerCommon.getActiveUser();
+							int activeUserId = activeUser.id;
+
+							// Add the trail to the user's favourites list.
+							Data_Access_Layer_Favourites dataAccessLayerFavourites = new Data_Access_Layer_Favourites();
+							dataAccessLayerFavourites.addFavouriteTrail(activeUserId, trailId);
+
+						};
+					}
 
 					return view;
 				}
@@ -149,15 +176,23 @@ namespace Columbia583.Android
 					Comment[] comments = dvt.getComments(trail.id);
 					foreach (Comment comment in comments)
 					{
-						RatingBar rating = new RatingBar(this);
-						rating.NumStars = 5;
-						rating.IsIndicator = true;
-						rating.StepSize = 1.0F;
-						rating.Rating = comment.rating;
-						commentsLayout.AddView(rating);
+						RatingBar ratingBar = new RatingBar(this);
+						ratingBar.NumStars = 5;
+						ratingBar.IsIndicator = true;
+						ratingBar.StepSize = 1.0F;
+						ratingBar.Rating = comment.rating;
+						commentsLayout.AddView(ratingBar);
 
 						TextView username = new TextView(this);
-						username.Text = dvt.getUserForComment(comment).username;
+						/*
+						if (dvt.getUserForComment(comment) != null) {
+							username.Text = dvt.getUserForComment(comment).username;
+						} else {
+							username.Text = "Anonymous";
+						}
+						*/
+						username.Text = comment.username;
+						username.TextSize = 17f;
 						commentsLayout.AddView(username);
 
 						TextView date = new TextView(this);
@@ -173,6 +208,21 @@ namespace Columbia583.Android
 						commentsLayout.AddView(borderText);
 					}
 
+					commentButton = view.FindViewById<global::Android.Widget.Button> (Resource.Id.uploadComment);
+
+					commentButton.Click += (object sender, EventArgs e) => {
+
+						var intent = new Intent (this, typeof(UploadComment));
+
+						string jsonModel = JsonConvert.SerializeObject (trail);
+						//string jsonModelUser = JsonConvert.SerializeObject();
+						intent.PutExtra ("Trail Data", jsonModel);
+						//intent.PutExtra("User Data", jsonModelUser);
+
+						StartActivity (intent);
+					};
+
+
 					return view;
 
 				}
@@ -180,7 +230,39 @@ namespace Columbia583.Android
 			adapter.AddFragmentView((i, v, b) =>
 				{
 					var view = LayoutInflater.Inflate(Resource.Layout.ViewTrail4, v, false);
-					//trailGallery = view.FindViewById<LinearLayout>(Resource.Id.trailGallery);
+
+					// Get the controls.
+					trailGallery = view.FindViewById<GridView>(Resource.Id.trailGallery);
+					uploadMediaButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.btnUploadMedia);
+
+					// Set the event handlers.
+					if (uploadMediaButton != null)
+					{
+						uploadMediaButton.Click += (sender, e) => {
+
+							// Load the upload media page.
+							var intent = new Intent(this, typeof(UploadMediaActivity));
+							intent.PutExtra ("trailId", trail.id);
+							StartActivity(intent);
+
+							// TODO: When the upload media page closes, refresh the available media.
+
+						};
+					}
+
+					// Create an adapter to populate the page with images and associate them with common indices.
+					trailGallery.Adapter = new MediaAdapter (this, mediaList);
+					trailGallery.ItemClick += delegate (object sender, AdapterView.ItemClickEventArgs args) {
+
+						// Get the selected media.
+						Media selectedMedia = mediaList[args.Position];
+
+						// Show the selected media in a new activity.
+						var intent = new Intent(this, typeof(ViewMediaActivity));
+						intent.PutExtra("mediaId", selectedMedia.id);
+						StartActivity(intent);
+
+					};
 
 					return view;
 				}

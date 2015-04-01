@@ -18,7 +18,7 @@ namespace Columbia583
 		/// </summary>
 		/// <returns>The trails by search filter.</returns>
 		/// <param name="searchFilter">Search filter.</param>
-		public SearchResult[] getTrailsBySearchFilter(SearchFilter searchFilter)
+		public ListableTrail[] getTrailsBySearchFilter(SearchFilter searchFilter)
 		{
 			Data_Layer_Search_Trails dataLayer = new Data_Layer_Search_Trails();
 			return dataLayer.getTrailsBySearchFilter (searchFilter).ToArray ();

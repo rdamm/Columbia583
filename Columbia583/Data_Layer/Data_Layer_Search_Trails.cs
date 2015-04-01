@@ -16,16 +16,13 @@ namespace Columbia583
 
 		}
 
-
-		// TODO: Finish the activity and amenity search parameters.
-
-
+		
 		/// <summary>
 		/// Gets the trails by search filter.
 		/// </summary>
 		/// <returns>The trails by search filter.</returns>
 		/// <param name="searchFilter">Search filter.</param>
-		public List<SearchResult> getTrailsBySearchFilter(SearchFilter searchFilter)
+		public List<ListableTrail> getTrailsBySearchFilter(SearchFilter searchFilter)
 		{
 			// Search filter parameters should be split by their type and ANDed together.  Each type will have different specific logic, but all rows should be met to be a match.
 			// eg. WHERE (
@@ -37,7 +34,7 @@ namespace Columbia583
 			//		(distance >= 2 AND distance <= 6)
 			// )
 
-			List<SearchResult> searchResults = null;
+			List<ListableTrail> searchResults = null;
 			try
 			{
 				// Open connection to local database.
@@ -63,7 +60,7 @@ namespace Columbia583
 							// Using Greenways website's AND
 							activityLine += " AND ";
 						}
-						activityLine += "(id IN (SELECT id FROM Trail INNER JOIN TrailsToActivities ON Trail.id = TrailsToActivities.trailId WHERE activityId = ?))";
+						activityLine += "(Trail.id IN (SELECT Trail.id FROM Trail INNER JOIN TrailsToActivities ON Trail.id = TrailsToActivities.trailId WHERE activityId = ?))";
 						parameters.Add(activity);
 					}
 					activityLine += ")";
@@ -85,30 +82,30 @@ namespace Columbia583
 						{
 							amenityLine += " AND ";
 						}
-						amenityLine += "(id IN (SELECT id FROM Trail INNER JOIN TrailsToAmenities ON Trail.id = TrailsToAmenities.trailId WHERE amenityId = ?))";
+						amenityLine += "(Trail.id IN (SELECT Trail.id FROM Trail INNER JOIN TrailsToAmenities ON Trail.id = TrailsToAmenities.trailId WHERE amenityId = ?))";
 						parameters.Add(amenity);
 					}
 					amenityLine += ")";
 					// TODO: Add the line and its parameters to the lists.
 					lines.Add(amenityLine);
 				}
-				if (searchFilter.difficulty != null && searchFilter.difficulty.Length > 0)
+				if (searchFilter.difficulty != 0)
 				{
 					string difficultyLine = "(";
 					bool firstDiff = true;
-					foreach(Difficulty d in searchFilter.difficulty)
-					{
-						if (firstDiff)
-						{
-							firstDiff = false;
-						}
-						else
-						{
-							difficultyLine += " OR ";
-						}
+//					foreach(Difficulty d in searchFilter.difficulty)
+//					{
+//						if (firstDiff)
+//						{
+//							firstDiff = false;
+//						}
+//						else
+//						{
+//							difficultyLine += " OR ";
+//						}
 						difficultyLine += "difficulty = ?";
-						parameters.Add((int)d);
-					}
+					parameters.Add((int)searchFilter.difficulty);
+					//}
 					difficultyLine += ")";
 					lines.Add(difficultyLine);
 				}
@@ -177,10 +174,16 @@ namespace Columbia583
 				whereQuery += ")";
 
 				// Get all trails that match the search filter.
-				var response = connection.Query<Trail>("SELECT * FROM Trail " + whereQuery, parameters.ToArray());
+				List<Trail> response;
+
+				//test to see if whereQuery is empty, if so get all trails by default.
+				if(whereQuery == "WHERE ()"){
+					 response = connection.Query<Trail>("SELECT * FROM Trail");
+				}else
+					 response = connection.Query<Trail>("SELECT * FROM Trail " + whereQuery, parameters.ToArray());
 
 				// For each matching trail, get its points, activities, and amenities.
-				searchResults = new List<SearchResult>();
+				searchResults = new List<ListableTrail>();
 				foreach (Trail trailRow in response)
 				{
 					List<Point> points = new List<Point>();
@@ -209,7 +212,7 @@ namespace Columbia583
 					}
 
 					// Encapsulate the data into a search result and add it to the list.
-					SearchResult searchResult = new SearchResult(trailRow, points.ToArray(), activities.ToArray(), amenities.ToArray());
+					ListableTrail searchResult = new ListableTrail(trailRow, points.ToArray(), activities.ToArray(), amenities.ToArray());
 					searchResults.Add(searchResult);
 				}
 
@@ -223,6 +226,60 @@ namespace Columbia583
 			}
 
 			return searchResults;
+		}
+
+		public int getActivityIdByName(string name)
+		{
+			int activityId = -1;
+			Console.WriteLine ("Activity name: " + name);
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(Data_Layer_Common.getPathToDatabase());
+
+				// Get the user.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				Activity acti = connection.Query<Activity>("SELECT * FROM Activity WHERE activityName = ?", name)[0];
+				activityId = acti.id;
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			Console.WriteLine ("Activity name: " + name + ", Activity id: ", + activityId);
+			return activityId;
+		}
+
+		public int getAmenityIdByName(string name)
+		{
+			int amenityId = -1;
+			Console.WriteLine ("Amenity name: " + name);
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(Data_Layer_Common.getPathToDatabase());
+
+				// Get the user.
+				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
+				Amenity ame = connection.Query<Amenity>("SELECT * FROM Amenity WHERE amenityName = ?", name)[0];
+				amenityId = ame.id;
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+			Console.WriteLine ("Amenity name: " + name + ", Amenity id: " + amenityId);
+
+			return amenityId;
 		}
 	}
 }
