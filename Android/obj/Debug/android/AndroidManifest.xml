@@ -15,12 +15,18 @@
       </intent-filter>
     </activity>
     <activity android:label="DebugMenuActivity" android:screenOrientation="portrait" android:name="columbia583.android.DebugMenuActivity" />
-    <activity android:label="TestUploadActivity" android:screenOrientation="portrait" android:name="columbia583.android.TestUploadActivity" />
+    <activity android:label="RecordTrailActivity" android:name="columbia583.android.RecordTrailActivity" />
+    <service android:name="columbia583.android.RecordTrailService" />
+    <activity android:label="TestUploadActivity" android:screenOrientation="portrait" android:name="columbia583.android.UploadMediaActivity" />
+    <activity android:label="ViewMediaActivity" android:name="columbia583.android.ViewMediaActivity" />
+    <activity android:label="FavouriteTrailsActivity" android:name="columbia583.android.FavouriteTrailsActivity" />
     <activity android:label="UploadComment" android:name="columbia583.android.UploadComment" />
     <activity android:label="UploadTrail" android:name="columbia583.android.UploadTrail" />
-    <activity android:label="SearchTrails" android:name="columbia583.android.SearchTrails" />
-    <activity android:label="Upload" android:name="columbia583.android.Upload" />
+    <activity android:label="SearchTrailsPage" android:name="columbia583.android.SearchTrailsPage" />
     <activity android:label="SearchTrailPage2" android:name="columbia583.android.SearchTrailPage2" />
+    <activity android:label="Web Authenticator" android:name="xamarin.auth.FormAuthenticatorActivity" />
+    <activity android:label="Web Authenticator" android:name="xamarin.auth.WebAuthenticatorActivity" />
+    <activity android:configChanges="keyboardHidden|orientation|screenLayout" android:label="Scanner" android:name="zxing.mobile.ZxingActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="Columbia583.Android.mono.MonoRuntimeProvider.__mono_init__" />
     <receiver android:name="mono.android.Seppuku">
       <intent-filter>
@@ -31,4 +37,8 @@
   </application>
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.CAMERA" />
 </manifest>

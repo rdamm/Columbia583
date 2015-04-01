@@ -18,7 +18,6 @@ C:\Users\RPrime\Documents\Projects\Columbia583\Columbia583.NUnit\bin\Debug\Colum
 C:\Users\RPrime\Documents\Projects\Columbia583\Columbia583.NUnit\bin\Debug\Columbia583.NUnit.dll.mdb
 C:\Users\RPrime\Documents\Projects\Columbia583\Columbia583.NUnit\bin\Debug\Columbia583.NUnit.apk
 C:\Users\RPrime\Documents\Projects\Columbia583\Columbia583.NUnit\bin\Debug\Columbia583.NUnit-Signed.apk
-C:\Users\RPrime\Documents\Projects\Columbia583\Columbia583.NUnit\obj\Debug\Columbia583.NUnit.csprojResolveAssemblyReference.cache
 C:\Users\RPrime\Documents\Projects\Columbia583\Columbia583.NUnit\obj\Debug\Columbia583.NUnit.dll
 C:\Users\RPrime\Documents\Projects\Columbia583\Columbia583.NUnit\obj\Debug\Columbia583.NUnit.pdb
 C:\Users\RPrime\Documents\Projects\Columbia583\Columbia583.NUnit\obj\Debug\android\bin\Columbia583.NUnit.apk

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Xamarin.Forms.Platform.Android;
 
 using Android.App;
 using Android.Content;
@@ -10,16 +11,12 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Xamarin.Forms.Platform.Android;
-
 
 namespace Columbia583.Android
 {
 	[Activity (Label = "UploadTrail")]			
 	public class UploadTrail : AndroidActivity
 	{
-		Dictionary<string, List<string> > dictGroup = new Dictionary<string, List<string> > ();
-		List<string> lstKeys = new List<string> ();
 		private const int activityDialog = 1;
 		private const int amenityDialog = 2;
 
@@ -27,16 +24,26 @@ namespace Columbia583.Android
 		List<string> activities_check_list = new List<string> ();
 		List<string> activitiesList_String = new List<string> ();
 		List<int> activitiesList_ID = new List<int> ();
-		bool getOpen, getActive;
-		// Amenities.
-		//protected LinearLayout amenityOptions = null;
-		//protected ScrollView amenityOptionsScroll = null;
-		//protected List<CheckboxToAmenity> amenityCheckBoxes = null;
+
 		String[] amenitiesSelected;
 		List<string> amenities_check_list = new List<string> ();
 		List<string> amenitiesList_String = new List<string> ();
 		List<int> amenitiesList_ID = new List<int> ();
-		ExpandView myView= null;
+		bool getOpen, getActive;
+
+		private string distance = "";
+		private string duration= "";
+		private Difficulty getDifficulty;
+		private int getRating;
+		private string hazards= "";
+		private string surface= "";
+		private string landAccess= "";
+		private string maintenance= "";
+		private string season= "";
+		private string location="";
+		private string name = "";
+		private string directions = "";
+		private string discription = "";
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -51,51 +58,38 @@ namespace Columbia583.Android
 			// Set the view for the page.
 			SetContentView (Resource.Layout.UploadTrail);
 
-			CreateExpendableListData ();
-			List<string> titles = new List<string>();
-			titles.Add ("Select Difficulty");
-			titles.Add ("Select Rating");
-			titles.Add ("Select Duration");
-			titles.Add ("Select Distance");
-			titles.Add ("Hazards");
-			titles.Add ("Surface");
-			titles.Add ("Land Access");
-			titles.Add ("Maintenance");
-			titles.Add ("Season");
-			titles.Add ("Location");
-			titles.Add ("Trail Name");
-			titles.Add ("Trail Description");
-			titles.Add ("Directions to trail");
+			var selectActivity = FindViewById<Button> (Resource.Id.acitvity);
+			var selectAmenity = FindViewById<Button> (Resource.Id.amenity);
+			var upload = FindViewById<Button> (Resource.Id.upload);
 
-			var selectActivity = FindViewById<Button> (Resource.Id.button1);
-			var selectAmenity = FindViewById<Button> (Resource.Id.button2);
-			var upload = FindViewById<Button> (Resource.Id.button3);
-			var open = FindViewById<RadioButton> (Resource.Id.radioButton1);
-			var closed = FindViewById<RadioButton> (Resource.Id.radioButton2);
-			var active = FindViewById<RadioButton> (Resource.Id.radioButton3);
-			var unactive = FindViewById<RadioButton> (Resource.Id.radioButton4);
+			var diffText = FindViewById<TextView> (Resource.Id.difficultyText);
+			var textDist = FindViewById<TextView> (Resource.Id.distance);
+			var textDurat = FindViewById<TextView> (Resource.Id.duration);
 
-			var ctlExListBox = FindViewById<ExpandableListView> (Resource.Id.expandableListView1);
-			ctlExListBox.SetAdapter (
-				myView = new ExpandView (this, dictGroup, titles)
+			var difficulty = FindViewById<SeekBar> (Resource.Id.seekBar1);
+			var Tdistance = FindViewById<SeekBar> (Resource.Id.seekBar2);
+			var Tduration = FindViewById<SeekBar> (Resource.Id.seekBar3);
+			var rating = FindViewById<RatingBar> (Resource.Id.ratingBar1);
+			var trailName = FindViewById<MultiAutoCompleteTextView> (Resource.Id.multiAutoCompleteTextView1);
+			var Tdirections = FindViewById<MultiAutoCompleteTextView> (Resource.Id.multiAutoCompleteTextView2);
+			var Tdescription = FindViewById<MultiAutoCompleteTextView> (Resource.Id.multiAutoCompleteTextView3);
+			var Thazards = FindViewById<MultiAutoCompleteTextView> (Resource.Id.multiAutoCompleteTextView4);
+			var Tseason = FindViewById<MultiAutoCompleteTextView> (Resource.Id.multiAutoCompleteTextView5);
+			var Tlocation = FindViewById<MultiAutoCompleteTextView> (Resource.Id.multiAutoCompleteTextView6);
+			var Tmaintenance = FindViewById<MultiAutoCompleteTextView> (Resource.Id.multiAutoCompleteTextView7);
+			var TlandAccess = FindViewById<MultiAutoCompleteTextView> (Resource.Id.multiAutoCompleteTextView8);
+			var Tsurface = FindViewById<MultiAutoCompleteTextView> (Resource.Id.multiAutoCompleteTextView9);
 
-			);
-
-			//			imageButton.SetAdapter(new ExpandList(this, dictGroup,titles));
-
-
-			ctlExListBox.ChildClick += delegate(object sender, ExpandableListView.ChildClickEventArgs e) {
-				var itmGroup = lstKeys [e.GroupPosition];
-				var itmChild = dictGroup [itmGroup] [e.ChildPosition];
-
-				//Toast.MakeText (this, string.Format ("You Click on Group {0} with child {1}", itmGroup, itmChild), ToastLength.Long).Show ();			
-			};
+			var Topen = FindViewById<RadioButton> (Resource.Id.radioButton1);
+			var Tclosed = FindViewById<RadioButton> (Resource.Id.radioButton2);
+			var Tactive = FindViewById<RadioButton> (Resource.Id.radioButton3);
+			var Tunactive = FindViewById<RadioButton> (Resource.Id.radioButton4);
 
 			Data_Layer_Common dataLayer2 = new Data_Layer_Common ();
-			List<activity> debugActivities = dataLayer2.getActivities ();
+			List<Activity> debugActivities = dataLayer2.getActivities ();
 			List<Amenity> debugAmenities = dataLayer2.getAmenities ();
 
-			foreach (activity act in debugActivities) 
+			foreach (Activity act in debugActivities) 
 			{
 				activities_check_list.Add(act.activityName);
 			}
@@ -113,54 +107,105 @@ namespace Columbia583.Android
 				ShowDialog(amenityDialog);
 			};
 
-			open.Click += (object sender, EventArgs e) => {
+			difficulty.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) => {
+				Data_Layer_Common dataLayer = new Data_Layer_Common ();
+				string[] names = dataLayer.getDifficulty ();
+
+				if(e.FromUser){
+					if(e.Progress <=20){
+						diffText.Text = String.Format("You have selected easiest difficulty.");
+						getDifficulty = Difficulty.Easiest;
+					}
+					else if(e.Progress <=40 && e.Progress > 20){
+						diffText.Text = String.Format("You have selected easy difficulty.");
+						getDifficulty = Difficulty.Easy;
+					}
+					else if(e.Progress <=60 && e.Progress > 40){
+						diffText.Text = String.Format("You have selected more difficult difficulty.");
+						getDifficulty = Difficulty.More_Difficult;
+					}
+					else if(e.Progress <=80 && e.Progress > 60){
+						diffText.Text = String.Format("You have selected very difficult difficulty.");
+						getDifficulty = Difficulty.Very_Difficult;
+					}
+					else if(e.Progress <=100 && e.Progress > 80){
+						diffText.Text = String.Format("You have selected extremely difficult difficulty.");
+						getDifficulty = Difficulty.Extremely_Difficult;
+					}
+
+				}
+			};
+
+			rating.Click += (object sender, EventArgs e) => {
+				getRating = (int) rating.Rating;
+			};
+
+			Tduration.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) => {
+				if(e.FromUser){
+					textDurat.Text= String.Format("You have selected {0} as duration",e.Progress);
+					duration= e.Progress.ToString();
+				}
+			};
+
+			Tdistance.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) => {
+				if(e.FromUser){
+					textDist.Text = String.Format("You have selected {0} as minimum distance",e.Progress);
+					distance = String.Format("{0}",e.Progress);
+				}
+			};
+
+
+			Topen.Click += (object sender, EventArgs e) => {
 				getOpen = true;
 			};
 
-			closed.Click += (object sender, EventArgs e) => {
+			Tclosed.Click += (object sender, EventArgs e) => {
 				getOpen = false;
 			};
 
-			active.Click += (object sender, EventArgs e) => {
+			Tactive.Click += (object sender, EventArgs e) => {
 				getActive = true;
 			};
 
-			unactive.Click += (object sender, EventArgs e) => {
+			Tunactive.Click += (object sender, EventArgs e) => {
 				getActive = false;
 			};
 
-			upload.Click += (object sender, EventArgs e) => {
-				Data_Access_Layer_Common data_access_layer = new Data_Access_Layer_Common();
-				Random num = new Random();
 
-				Trail trail = new Trail(1000, 2,2,myView.name, myView.location,"","",myView.distance,myView.duration,myView.discription,myView.directions,myView.getDifficulty,myView.getRating,myView.hazards,myView.surface,myView.landAccess,myView.maintenance,myView.season,getOpen,getActive,DateTime.Now,DateTime.Now,true);
+			upload.Click += (object sender, EventArgs e) => {
+				getRating = (int) rating.Rating;
+				hazards = Thazards.Text;
+				surface = Tsurface.Text;
+				landAccess = TlandAccess.Text;
+				name = trailName.Text;
+				discription = Tdescription.Text;
+				directions = Tdirections.Text;
+				season = Tseason.Text;
+				location = Tlocation.Text;
+
+				Data_Access_Layer_Common data_access_layer = new Data_Access_Layer_Common();
+				User getUser = data_access_layer.getActiveUser();
+
+				Random num = new Random();
+				int getnum = num.Next();
+				Trail trail = new Trail(getnum,getUser.id ,getUser.orgId,name,location,"","",distance,duration,discription,directions, getDifficulty, getRating,hazards,surface,landAccess,maintenance,season, getOpen, getActive,DateTime.Now,DateTime.Now,true);
 				data_access_layer.insertTrail(trail);
 				//Console.Out.WriteLine(myView.getRating);
 				//Console.Out.WriteLine(myView.getDifficulty);
 
-				Trail list_trail = data_access_layer.getTrailID(1000);
-				Console.Out.WriteLine(list_trail.description);
+				Trail list_trail = data_access_layer.getTrailID(getnum);
+				Console.Out.WriteLine(list_trail.directions);
 				Console.Out.WriteLine(list_trail.difficulty);
 
-//				foreach(var i in list_comments){
-//					Console.Out.WriteLine(i.text);
-//				}
+				//				foreach(var i in list_comments){
+				//					Console.Out.WriteLine(i.text);
+				//				}
+
+				Toast.MakeText(this, "Trail has been uploaded", ToastLength.Short).Show();
 
 
 			};
-		}
 
-		void CreateExpendableListData ()
-		{
-			for (int iGroup = 1; iGroup <= 13; iGroup++) {
-				var lstChild = new List<string> ();
-				for (int iChild = 1; iChild <= 1; iChild++) {
-					lstChild.Add (string.Format ("Group {0} Child {1}", iGroup, iChild));
-				}
-				dictGroup.Add (string.Format ("Group {0}", iGroup), lstChild);
-			}
-
-			lstKeys = new List<string> (dictGroup.Keys);
 		}
 
 		protected override Dialog OnCreateDialog(int id, Bundle args)

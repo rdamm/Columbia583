@@ -33,12 +33,12 @@ namespace Columbia583.Android
 			// Set the view for the page.
 			SetContentView (Resource.Layout.UploadComment);
 
-			String[] autocomplete = new String[]{"trail","this","me","my"};
+			//String[] autocomplete = new String[]{"trail","this","me","my"};
 
 			var textbox = FindViewById<MultiAutoCompleteTextView> (Resource.Id.multiAutoCompleteTextView1);
 			var rating = FindViewById<RatingBar> (Resource.Id.ratingBar1);
 			var buttonUpload = FindViewById<Button> (Resource.Id.button1);
-			buttonUpload.Text = "Upload";
+			//buttonUpload.Text = "Upload";
 
 			//string trail = Intent.GetStringExtra ("Trail Data") ?? "Data not available!!";
 			//Trail trail = this.Intent.Extras.Get("Trail Data") ?? "Data not available";
@@ -61,7 +61,7 @@ namespace Columbia583.Android
 				Toast.MakeText(this, "Comment has been uploaded", ToastLength.Short).Show();
 
 			};
-				
+
 			//			ArrayAdapter autoCompleteAdapter = new ArrayAdapter(this, Android.Resource.Layout.UploadComment, autocomplete);
 			//			textbox.Adapter = autoCompleteAdapter;
 

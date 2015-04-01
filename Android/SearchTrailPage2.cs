@@ -21,8 +21,8 @@ namespace Columbia583.Android
 		Dictionary<string, List<string> > dictGroup = new Dictionary<string, List<string> > ();
 		List<string> lstKeys = new List<string> ();
 
-		protected SearchResult[] trails = null;
-		protected SearchResult[] debugSearchResults = null;
+		protected ListableTrail[] trails = null;
+		protected ListableTrail[] debugSearchResults = null;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -35,7 +35,7 @@ namespace Columbia583.Android
 			SetPage (App.GetMainPage ());
 
 			// Set the view for the page.
-			SetContentView (Resource.Layout.SearchView);
+			SetContentView (Resource.Layout.SearchTrailPage2);
 
 			string getResult = Intent.GetStringExtra ("search") ?? "No filter found";
 			SearchFilter result = Newtonsoft.Json.JsonConvert.DeserializeObject<SearchFilter> (getResult);
@@ -45,15 +45,15 @@ namespace Columbia583.Android
 
 			List<string> names= new List<string>();
 
-			if (trails.Length == 0) {
+			if (trails.Length ==0 || trails == null) {
 				Application_Layer_Search_Trails applicationLayer_searchTrails = new Application_Layer_Search_Trails ();
 				debugSearchResults = applicationLayer_searchTrails.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
 
-				foreach(SearchResult t in debugSearchResults){
+				foreach(ListableTrail t in debugSearchResults){
 					names.Add (t.trail.name);
 				}
 			} else {
-				foreach(SearchResult t in trails){
+				foreach(ListableTrail t in trails){
 					names.Add (t.trail.name);
 				}
 			}
@@ -64,30 +64,31 @@ namespace Columbia583.Android
 			_adapterFrom.SetDropDownViewResource (global::Android.Resource.Layout.SimpleSpinnerDropDownItem);
 			spinner.Adapter = _adapterFrom; 
 
-
+			int position=-1;
 
 			spinner.ItemSelected += (object sender, AdapterView.ItemSelectedEventArgs e) => {
 
 				if (preventSpinnerSelectEventFiringOnCreate == true)
 				{
 					preventSpinnerSelectEventFiringOnCreate = false;
+					//position = spinner.SelectedItemPosition;
 					return;
 				}
-
-				int position = spinner.SelectedItemPosition;
+				position = spinner.SelectedItemPosition;
 				if(e.Position == position){
-					
+
 
 					String foundName = names.ElementAt(position);
 
 					Console.Out.WriteLine(foundName);
-					SearchResult getTrail;
+					ListableTrail getTrail;
 
 					if(trails.Length != 0)
 						getTrail = trails[position];
 					else
 						getTrail = debugSearchResults[position];
-					
+					Console.Out.WriteLine(getTrail.trail.name);
+
 					var intent = new Intent (this, typeof(ViewTrailActivity));
 					string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject (getTrail.trail);
 					string activitiesJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(getTrail.activities);
@@ -99,6 +100,7 @@ namespace Columbia583.Android
 					intent.PutExtra("points", pointsJSONstr);
 
 					StartActivity (intent);
+
 				}
 			};
 		}

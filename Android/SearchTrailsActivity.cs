@@ -122,17 +122,17 @@ namespace Columbia583.Android
 			//viewTrailButton = FindViewById<Button> (Resource.Id.button_viewTrail);
 
 			Application_Layer_Search_Trails applicationLayer_searchTrails = new Application_Layer_Search_Trails ();
-			SearchResult[] debugSearchResults = applicationLayer_searchTrails.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
+			ListableTrail[] debugSearchResults = applicationLayer_searchTrails.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
 			//List<SearchResult> debugSearchResults = dataLayer.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
 
 			// Get the activities and amenities.
 			Data_Layer_Common dataLayer2 = new Data_Layer_Common ();
-			List<activity> debugActivities = dataLayer2.getActivities ();
+			List<Activity> debugActivities = dataLayer2.getActivities ();
 			List<Amenity> debugAmenities = dataLayer2.getAmenities ();
 
-			foreach (activity act in debugActivities) 
+			foreach (Activity activity in debugActivities) 
 			{
-				activities_check_list.Add(act.activityName);
+				activities_check_list.Add(activity.activityName);
 			}
 
 			foreach (Amenity amenity in debugAmenities) 
@@ -260,7 +260,7 @@ namespace Columbia583.Android
 					// Get the search results.
 					//List<SearchResult> results = dataLayer.getTrailsBySearchFilter(searchFilter);
 					//Application_Layer_Search_Trails applicationLayer_searchTrails = new Application_Layer_Search_Trails ();
-					SearchResult[] trails = applicationLayer_searchTrails.getTrailsBySearchFilter (searchFilter);
+					ListableTrail[] trails = applicationLayer_searchTrails.getTrailsBySearchFilter (searchFilter);
 
 					// Show the search results.
 					this.setSearchResults(trails);
@@ -452,7 +452,8 @@ namespace Columbia583.Android
 			}
 
 			// Encapsulate the filter parameters.
-			SearchFilter searchFilter = new SearchFilter(activitiesList_ID.ToArray(), amenitiesList_ID.ToArray(), 0, rating, minDuration, maxDuration, minDistance, maxDistance);
+			SearchFilter searchFilter=null; 
+			//= new SearchFilter(activitiesList_ID.ToArray(), amenitiesList_ID.ToArray(), difficulty.ToArray(), rating, minDuration, maxDuration, minDistance, maxDistance);
 
 			return searchFilter;
 		}
@@ -461,7 +462,7 @@ namespace Columbia583.Android
 		/**
 		 * Display the search results in the grid.
 		 * */
-		protected void setSearchResults(SearchResult[] searchResults)
+		protected void setSearchResults(ListableTrail[] searchResults)
 		{
 			// Display the trails in the view.
 			if (searchResultsGrid != null) {
@@ -470,7 +471,7 @@ namespace Columbia583.Android
 
 				// Show a summary of each matching trail.
 				if (searchResults != null) {
-					foreach(SearchResult searchResult in searchResults) {
+					foreach(ListableTrail searchResult in searchResults) {
 						Trail trail = searchResult.trail;
 
 						const int NUM_ELEMENTS_PER_TRAIL = 4;

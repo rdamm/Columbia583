@@ -15,23 +15,39 @@
         android:layout_height="wrap_content"
         android:id="@+id/button_searchTrails" />
     <Button
+        android:text="Favourite Trails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_viewFavouriteTrails" />
+<!--  <Button
         android:text="Debug and Tests Menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_debugAndTests" />
-    <Button
-        android:text="Search for Trails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/searchforTrails" />
+        android:id="@+id/button_debugAndTests" />    -->
     <Button
         android:text="Upload Trail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/uploadTrail" />
     <Button
-        android:text="Upload a trail"
+        android:text="Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button1" />
+        android:id="@+id/button_login" />
+    <Button
+        android:text="Logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_logout" />
+    <Button
+        android:text="Scan Trail QR Code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_scanQrCode" />
+    <TextView
+        android:text="Not Logged In"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtLoggedInUsersUsername" />
 </LinearLayout>

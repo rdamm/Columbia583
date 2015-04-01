@@ -31,10 +31,10 @@ namespace Columbia583
 		public string getActivities()
 		{
 			Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common ();
-			activity[] activities = dataAccessLayer.getActivities ();
+			Activity[] activities = dataAccessLayer.getActivities ();
 			if (activities != null) {
-				foreach (activity act in activities) {
-					Console.WriteLine (act.id + " - " + act.activityName);
+				foreach (Activity activity in activities) {
+					Console.WriteLine (activity.id + " - " + activity.activityName);
 				}
 				return "Successfully got activities.";
 			} else {

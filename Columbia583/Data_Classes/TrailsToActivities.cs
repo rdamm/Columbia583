@@ -12,7 +12,7 @@ namespace Columbia583
 		public int id { get; set; }
 		[ForeignKey(typeof(Trail))]
 		public int trailId { get; set; }
-		[ForeignKey(typeof(activity))]
+		[ForeignKey(typeof(Activity))]
 		public int activityId { get; set; }
 
 		public TrailsToActivities ()

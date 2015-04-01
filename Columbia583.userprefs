@@ -1,18 +1,14 @@
-﻿<Properties StartupItem="Android/Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android/SplashActivity.cs">
+﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Layer\Data_Layer_Favourites.cs">
     <Files>
-      <File FileName="Android/SearchTrailPage2.cs" Line="51" Column="5" />
-      <File FileName="Android/UploadTrail.cs" Line="21" Column="38" />
-      <File FileName="Android/SplashActivity.cs" Line="77" Column="6" />
+      <File FileName="Android\MainMenuActivity.cs" Line="90" Column="44" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Favourites.cs" Line="76" Column="36" />
+      <File FileName="Android\FavouriteTrailsActivity.cs" Line="23" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/Android/SearchTrailPage2.cs" line="77" column="1" />
-      <Breakpoint file="/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/Android/SearchTrailPage2.cs" line="81" column="1" />
-      <Breakpoint file="/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/Android/SearchTrailPage2.cs" line="86" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Columbia583.Android AndroidDesignerPreferredDevice="Nexus 4" />

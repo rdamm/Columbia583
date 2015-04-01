@@ -1,14 +1,17 @@
-/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/Android/bin/Debug/Columbia583.Android.dll
-/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/packages/Newtonsoft.Json.6.0.8/lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll
-/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/packages/Xamarin.Android.Support.v4.21.0.3.0/lib/MonoAndroid10/Xamarin.Android.Support.v4.dll
-/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/packages/Xamarin.Android.Support.v13.21.0.3.0/lib/MonoAndroid32/Xamarin.Android.Support.v13.dll
-/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/packages/SQLite.Net-PCL.2.5.1/lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll
-/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/packages/SQLiteNetExtensions.1.2.5/lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll
-/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/packages/Xamarin.Forms.1.4.1.6349/lib/MonoAndroid10/Xamarin.Forms.Platform.Android.dll
-/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/packages/Xamarin.Forms.1.4.1.6349/lib/MonoAndroid10/FormsViewGroup.dll
-/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/packages/Xamarin.Forms.1.4.1.6349/lib/MonoAndroid10/Xamarin.Forms.Core.dll
-/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/packages/Xamarin.Forms.1.4.1.6349/lib/MonoAndroid10/Xamarin.Forms.Xaml.dll
-/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-6/ViewPagerIndicator-master/Library/bin/Debug/DK.Ostebaronen.Droid.ViewPagerIndicator.dll
+/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-7/Android/bin/Debug/Columbia583.Android.dll
+/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-7/packages/Newtonsoft.Json.6.0.8/lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll
+/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-7/packages/Xamarin.Android.Support.v4.21.0.3.0/lib/MonoAndroid10/Xamarin.Android.Support.v4.dll
+/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-7/packages/Xamarin.Android.Support.v13.21.0.3.0/lib/MonoAndroid32/Xamarin.Android.Support.v13.dll
+/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-7/packages/SQLite.Net-PCL.2.5.1/lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll
+/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-7/packages/SQLiteNetExtensions.1.2.5/lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll
+/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-7/Components/xamarin.auth-1.2.3.1/lib/android/Xamarin.Auth.Android.dll
+/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-7/packages/Xamarin.Forms.1.4.1.6349/lib/MonoAndroid10/FormsViewGroup.dll
+/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-7/packages/Xamarin.Forms.1.4.1.6349/lib/MonoAndroid10/Xamarin.Forms.Core.dll
+/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-7/packages/Xamarin.Forms.1.4.1.6349/lib/MonoAndroid10/Xamarin.Forms.Platform.Android.dll
+/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-7/packages/Xamarin.Forms.1.4.1.6349/lib/MonoAndroid10/Xamarin.Forms.Xaml.dll
+/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-7/Components/zxing.net.mobile-1.4.7.2/lib/android/zxing.monoandroid.dll
+/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-7/Components/zxing.net.mobile-1.4.7.2/lib/android/ZXing.Net.Mobile.dll
+/Users/mariamdost/Documents/4th year SENGG courses/ENEL-589/Columbia583-master-7/ViewPagerIndicator-master/Library/bin/Debug/DK.Ostebaronen.Droid.ViewPagerIndicator.dll
 /Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Collections.Concurrent.dll
 /Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Collections.dll
 /Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.ComponentModel.Annotations.dll

@@ -22,7 +22,7 @@ namespace Columbia583
 		/// </summary>
 		/// <returns>The trails by search filter.</returns>
 		/// <param name="searchFilter">Search filter.</param>
-		public List<SearchResult> getTrailsBySearchFilter(SearchFilter searchFilter)
+		public List<ListableTrail> getTrailsBySearchFilter(SearchFilter searchFilter)
 		{
 			// Search filter parameters should be split by their type and ANDed together.  Each type will have different specific logic, but all rows should be met to be a match.
 			// eg. WHERE (
@@ -34,7 +34,7 @@ namespace Columbia583
 			//		(distance >= 2 AND distance <= 6)
 			// )
 
-			List<SearchResult> searchResults = null;
+			List<ListableTrail> searchResults = null;
 			try
 			{
 				// Open connection to local database.
@@ -93,8 +93,8 @@ namespace Columbia583
 				{
 					string difficultyLine = "(";
 					bool firstDiff = true;
-					//foreach(Difficulty d in searchFilter.difficulty)
-					//{
+//					foreach(Difficulty d in searchFilter.difficulty)
+//					{
 //						if (firstDiff)
 //						{
 //							firstDiff = false;
@@ -174,14 +174,20 @@ namespace Columbia583
 				whereQuery += ")";
 
 				// Get all trails that match the search filter.
-				var response = connection.Query<Trail>("SELECT * FROM Trail " + whereQuery, parameters.ToArray());
+				List<Trail> response;
+
+				//test to see if whereQuery is empty, if so get all trails by default.
+				if(whereQuery == "WHERE ()"){
+					 response = connection.Query<Trail>("SELECT * FROM Trail");
+				}else
+					 response = connection.Query<Trail>("SELECT * FROM Trail " + whereQuery, parameters.ToArray());
 
 				// For each matching trail, get its points, activities, and amenities.
-				searchResults = new List<SearchResult>();
+				searchResults = new List<ListableTrail>();
 				foreach (Trail trailRow in response)
 				{
 					List<Point> points = new List<Point>();
-					List<activity> activities = new List<activity>();
+					List<Activity> activities = new List<Activity>();
 					List<Amenity> amenities = new List<Amenity>();
 
 					// Get the points.
@@ -192,10 +198,10 @@ namespace Columbia583
 					}
 
 					// Get the activities.
-					var activitiesQueryResponse = connection.Query<activity>("SELECT * FROM Activity INNER JOIN TrailsToActivities ON Activity.id = TrailsToActivities.activityId WHERE trailId = ?", trailRow.id);
-					foreach(activity act in activitiesQueryResponse)
+					var activitiesQueryResponse = connection.Query<Activity>("SELECT * FROM Activity INNER JOIN TrailsToActivities ON Activity.id = TrailsToActivities.activityId WHERE trailId = ?", trailRow.id);
+					foreach(Activity activity in activitiesQueryResponse)
 					{
-						activities.Add(act);
+						activities.Add(activity);
 					}
 
 					// Get the amenities.
@@ -206,7 +212,7 @@ namespace Columbia583
 					}
 
 					// Encapsulate the data into a search result and add it to the list.
-					SearchResult searchResult = new SearchResult(trailRow, points.ToArray(), activities.ToArray(), amenities.ToArray());
+					ListableTrail searchResult = new ListableTrail(trailRow, points.ToArray(), activities.ToArray(), amenities.ToArray());
 					searchResults.Add(searchResult);
 				}
 
@@ -233,7 +239,7 @@ namespace Columbia583
 
 				// Get the user.
 				// NOTE: Find will return null if row not found.  Don't use Get; it throws Object Not Supported exceptions.
-				activity acti = connection.Query<activity>("SELECT * FROM Activity WHERE activityName = ?", name)[0];
+				Activity acti = connection.Query<Activity>("SELECT * FROM Activity WHERE activityName = ?", name)[0];
 				activityId = acti.id;
 
 				// Close connection to local database.

@@ -3,7 +3,7 @@ using SQLite;
 
 namespace Columbia583
 {
-	public class activity : IEquatable<activity>
+	public class Activity : IEquatable<Activity>
 	{
 		// Keys and references.
 		[PrimaryKey]
@@ -14,12 +14,12 @@ namespace Columbia583
 		public byte[] activityIcon { get; set; }
 		public DateTime timestamp { get; set; }
 		
-		public activity()
+		public Activity()
 		{
 
 		}
 
-		public activity (int id, string activityName, byte[] activityIcon, DateTime timestamp)
+		public Activity (int id, string activityName, byte[] activityIcon, DateTime timestamp)
 		{
 			this.id = id;
 			this.activityName = activityName;
@@ -33,7 +33,7 @@ namespace Columbia583
 		/// Checks whether this and the given object are equal by comparing IDs.
 		/// </summary>
 		/// <returns>True if the IDs are the same, false otherwise.</returns>
-		public bool Equals(activity other)
+		public bool Equals(Activity other)
 		{
 			// Check whether the compared object is null. 
 			if (Object.ReferenceEquals(other, null)) return false;

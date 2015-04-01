@@ -62,8 +62,8 @@
     <Reference Include="SQLiteNetExtensions">
       <HintPath>..\packages\SQLiteNetExtensions.1.2.5\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\SQLiteNetExtensions.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Platform.Android">
-      <HintPath>..\packages\Xamarin.Forms.1.4.1.6349\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll</HintPath>
+    <Reference Include="Xamarin.Auth.Android">
+      <HintPath>..\Components\xamarin.auth-1.2.3.1\lib\android\Xamarin.Auth.Android.dll</HintPath>
     </Reference>
     <Reference Include="FormsViewGroup">
       <HintPath>..\packages\Xamarin.Forms.1.4.1.6349\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
@@ -71,8 +71,17 @@
     <Reference Include="Xamarin.Forms.Core">
       <HintPath>..\packages\Xamarin.Forms.1.4.1.6349\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Forms.Platform.Android">
+      <HintPath>..\packages\Xamarin.Forms.1.4.1.6349\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.1.4.1.6349\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.monoandroid">
+      <HintPath>..\Components\zxing.net.mobile-1.4.7.2\lib\android\zxing.monoandroid.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXing.Net.Mobile">
+      <HintPath>..\Components\zxing.net.mobile-1.4.7.2\lib\android\ZXing.Net.Mobile.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -88,14 +97,17 @@
     <Compile Include="TestImageActivity.cs" />
     <Compile Include="SplashActivity.cs" />
     <Compile Include="DebugMenuActivity.cs" />
-    <Compile Include="TestUploadActivity.cs" />
+    <Compile Include="RecordTrailActivity.cs" />
+    <Compile Include="Services\RecordTrailService.cs" />
+    <Compile Include="UploadMediaActivity.cs" />
+    <Compile Include="Resources\layout\MediaAdapter.cs" />
+    <Compile Include="ViewMediaActivity.cs" />
+    <Compile Include="FavouriteTrailsActivity.cs" />
+    <Compile Include="Helpers\NetworkHelper.cs" />
     <Compile Include="UploadComment.cs" />
     <Compile Include="UploadTrail.cs" />
-    <Compile Include="SearchTrails.cs" />
-    <Compile Include="ExpandView.cs" />
-    <Compile Include="Upload.cs" />
+    <Compile Include="SearchTrailsPage.cs" />
     <Compile Include="SearchTrailPage2.cs" />
-    <Compile Include="SearchExpandView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -124,20 +136,15 @@
     <AndroidResource Include="Resources\drawable\greenways_header_background.png" />
     <AndroidResource Include="Resources\drawable\greenways_header_logo.png" />
     <AndroidResource Include="Resources\layout\DebugMenu.axml" />
-    <AndroidResource Include="Resources\layout\TestUpload.axml" />
+    <AndroidResource Include="Resources\layout\RecordTrail.axml" />
+    <AndroidResource Include="Resources\layout\UploadMedia.axml" />
+    <AndroidResource Include="Resources\layout\ViewMedia.axml" />
+    <AndroidResource Include="Resources\layout\ScanQrCode.axml" />
+    <AndroidResource Include="Resources\layout\FavouriteTrails.axml" />
     <AndroidResource Include="Resources\layout\UploadComment.axml" />
     <AndroidResource Include="Resources\layout\UploadTrail.axml" />
-    <AndroidResource Include="Resources\layout\ListControl_Group.axml" />
-    <AndroidResource Include="Resources\layout\ListControl_ChildItem.axml" />
-    <AndroidResource Include="Resources\layout\Child_Difficulty.axml" />
-    <AndroidResource Include="Resources\layout\Child_Distance.axml" />
-    <AndroidResource Include="Resources\layout\Child_Rating.axml" />
-    <AndroidResource Include="Resources\layout\Child_Description.axml" />
-    <AndroidResource Include="Resources\layout\Child_TrailName.axml" />
-    <AndroidResource Include="Resources\layout\UploadTrail2.axml" />
-    <AndroidResource Include="Resources\layout\SearchTrailsPage.axml" />
+    <AndroidResource Include="Resources\layout\SearchTrailPage.axml" />
     <AndroidResource Include="Resources\layout\SearchTrailPage2.axml" />
-    <AndroidResource Include="Resources\layout\SearchView.axml" />
     <AndroidResource Include="Resources\values\String.xml" />
   </ItemGroup>
   <Import Project="..\Columbia583\Columbia583.projitems" Label="Shared" Condition="Exists('..\Columbia583\Columbia583.projitems')" />
@@ -148,5 +155,19 @@
       <Project>{FA322A14-2B8E-4496-B950-4D8263CA0A2D}</Project>
       <Name>Library</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="xamarin.auth">
+      <Version>1.2.3.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="zxing.net.mobile">
+      <Version>1.4.7.2</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
   </ItemGroup>
 </Project>

@@ -73,15 +73,15 @@ namespace Columbia583.Android
 
 					// Get the activities.
 					Data_Layer_Common dataLayer = new Data_Layer_Common();
-					List<activity> activities = dataLayer.getActivities();
+					List<Activity> activities = dataLayer.getActivities();
 
 					// Show the first activity's image.
-					activity act = activities.First<activity>();
-					byte[] activityImage = act.activityIcon;
+					Activity activity = activities.First<Activity>();
+					byte[] activityImage = activity.activityIcon;
 					if (activityImage != null)
 					{
 						// Decode the byte array to get a bitmap.
-						Bitmap bitmap = BitmapFactory.DecodeByteArray(act.activityIcon, 0, act.activityIcon.Length);
+						Bitmap bitmap = BitmapFactory.DecodeByteArray(activity.activityIcon, 0, activity.activityIcon.Length);
 
 						// Define the view's display size.
 						imageTestImage.SetMinimumHeight(256);
@@ -94,7 +94,7 @@ namespace Columbia583.Android
 
 						// Set the image's bitmap in its view.
 						imageTestImage.SetImageBitmap(bitmap);
-						Console.WriteLine("First activity image set. (" + act.activityIcon.Length + " bytes )");
+						Console.WriteLine("First activity image set. (" + activity.activityIcon.Length + " bytes )");
 					}
 					else
 					{
@@ -112,18 +112,18 @@ namespace Columbia583.Android
 
 					// Get the activities.
 					Data_Layer_Common dataLayer = new Data_Layer_Common();
-					List<activity> activities = dataLayer.getActivities();
+					List<Activity> activities = dataLayer.getActivities();
 
-					foreach(activity act in activities)
+					foreach(Activity activity in activities)
 					{
-						byte[] activityImage = act.activityIcon;
+						byte[] activityImage = activity.activityIcon;
 						if (activityImage != null)
 						{
 							// Create a new view for this activity's image.
 							ImageView imageView = new ImageView(this);
 
 							// Decode the byte array to get a bitmap.
-							Bitmap bitmap = BitmapFactory.DecodeByteArray(act.activityIcon, 0, act.activityIcon.Length);
+							Bitmap bitmap = BitmapFactory.DecodeByteArray(activity.activityIcon, 0, activity.activityIcon.Length);
 
 							// Define the view's display size.
 							imageView.SetMinimumHeight(256);
@@ -136,7 +136,7 @@ namespace Columbia583.Android
 
 							// Set the image's bitmap in its view.
 							imageView.SetImageBitmap(bitmap);
-							Console.WriteLine("First activity image set. (" + act.activityIcon.Length + " bytes )");
+							Console.WriteLine("First activity image set. (" + activity.activityIcon.Length + " bytes )");
 
 							// Add the view to the layout.
 							dynamicallyDisplayImagesLinearLayout.AddView(imageView);
