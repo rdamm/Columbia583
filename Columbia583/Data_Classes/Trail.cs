@@ -65,8 +65,7 @@ namespace Columbia583
 			this.active = active;
 			this.timestamp = timestamp;
 		}
-
-
+			
 		/// <param name="other">The object to be compared to this.  Needed for equatable.</param>
 		/// <summary>
 		/// Checks whether this and the given object are equal by comparing IDs.
@@ -83,7 +82,7 @@ namespace Columbia583
 			// Check whether the IDs are equal.
 			return id.Equals(other.id);
 		}
-
+			
 
 		/// <summary>
 		/// Gets the hash code for this object.  Needed for equatable.

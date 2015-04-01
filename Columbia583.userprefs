@@ -1,8 +1,18 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\SearchTrailsActivity.cs">
+    <Files>
+      <File FileName="Android\SearchTrailsActivity.cs" Line="548" Column="78" />
+      <File FileName="Android\TestMapActivity.cs" Line="214" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+>>>>>>> origin/kjnguyen_february
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Columbia583.Android AndroidDesignerPreferredDevice="Nexus 4" />
 </Properties>
