@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="Columbia583.Android">
+  <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="14" />
+  <application android:label="Columbia583.Android" android:icon="@drawable/icon" android:name="mono.android.app.Application" android:debuggable="true">
+    <activity android:configChanges="orientation|screenSize" android:label="Columbia583.Android_Main_Menu" android:screenOrientation="portrait" android:name="columbia583.android.MainMenuActivity" />
+    <activity android:configChanges="orientation|screenSize" android:label="Columbia583.Android_View_Trail" android:screenOrientation="portrait" android:name="columbia583.android.ViewTrailActivity" />
+    <activity android:configChanges="orientation|screenSize" android:label="Columbia583.Android_Search_Trails" android:screenOrientation="portrait" android:name="columbia583.android.SearchTrailsActivity" />
+    <activity android:label="TestDatabaseActivity" android:screenOrientation="portrait" android:name="columbia583.android.TestDatabaseActivity" />
+    <activity android:label="TestDataAccessActivity" android:screenOrientation="portrait" android:name="columbia583.android.TestDataAccessActivity" />
+    <activity android:label="TestImage" android:screenOrientation="portrait" android:name="columbia583.android.TestImageActivity" />
+    <activity android:noHistory="true" android:screenOrientation="portrait" android:name="columbia583.android.hi.SplashActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:label="DebugMenuActivity" android:screenOrientation="portrait" android:name="columbia583.android.DebugMenuActivity" />
+    <activity android:label="RecordTrailActivity" android:name="columbia583.android.RecordTrailActivity" />
+    <service android:name="columbia583.android.RecordTrailService" />
+    <activity android:label="TestUploadActivity" android:screenOrientation="portrait" android:name="columbia583.android.UploadMediaActivity" />
+    <activity android:label="ViewMediaActivity" android:name="columbia583.android.ViewMediaActivity" />
+    <activity android:label="FavouriteTrailsActivity" android:name="columbia583.android.FavouriteTrailsActivity" />
+    <activity android:label="UploadComment" android:name="columbia583.android.UploadComment" />
+    <activity android:label="UploadTrail" android:name="columbia583.android.UploadTrail" />
+    <activity android:label="SearchTrailsPage" android:name="columbia583.android.SearchTrailsPage" />
+    <activity android:label="SearchTrailPage2" android:name="columbia583.android.SearchTrailPage2" />
+    <activity android:label="Web Authenticator" android:name="xamarin.auth.FormAuthenticatorActivity" />
+    <activity android:label="Web Authenticator" android:name="xamarin.auth.WebAuthenticatorActivity" />
+    <activity android:configChanges="keyboardHidden|orientation|screenLayout" android:label="Scanner" android:name="zxing.mobile.ZxingActivity" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="Columbia583.Android.mono.MonoRuntimeProvider.__mono_init__" />
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.Columbia583.Android" />
+      </intent-filter>
+    </receiver>
+  </application>
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.CAMERA" />
+</manifest>

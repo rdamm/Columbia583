@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="160.0dp"
+        android:id="@+id/imageView1" />
+    <TextView
+        android:text="Trail Activities"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:layout_marginLeft="3.0dp" />
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="55.0dp"
+        android:id="@+id/scrollView1">
+    <!--<Gallery
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/gallery1" />-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/activities"
+            android:paddingLeft="3.0dp" />
+    </ScrollView>
+    <TextView
+        android:text="Directions to Trail Head"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:layout_marginLeft="3.0dp" />
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="55.0dp"
+        android:id="@+id/scrollView2">
+        <TextView
+            android:text="Directions here"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="55.0dp"
+            android:id="@+id/directions"
+            android:layout_marginLeft="3.0dp" />
+    </ScrollView>
+    <TextView
+        android:text="Trail Amenities"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:layout_marginLeft="3.0dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="75.0dp"
+        android:id="@+id/amenities"
+        android:layout_marginLeft="3.0dp" />
+</LinearLayout>
