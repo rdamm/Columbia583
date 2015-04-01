@@ -14,8 +14,9 @@ using Xamarin.Forms.Platform.Android;
 
 using Android.Support.V4.View;
 using Android.Support.V4.App;
-
 using DK.Ostebaronen.Droid.ViewPagerIndicator;
+//using DK.Ostebaronen.Droid.ViewPagerIndicator;
+//using DK.Ostebaronen.Droid.ViewPagerIndicator;
 
 namespace Columbia583.Android
 {

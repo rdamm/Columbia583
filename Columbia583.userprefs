@@ -13,6 +13,7 @@
   </MonoDevelop.Ide.Workbench>
 =======
 ﻿<Properties StartupItem="Android/Columbia583.Android.csproj" GitUserInfo="UsingGIT">
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
   <MonoDevelop.Ide.Workbench />
 >>>>>>> f0220a1df1a0b4262fb2e80cf6fc30fe8b198f3f
@@ -26,6 +27,16 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.a9325661" />
   <MonoDevelop.Ide.Workbench />
+=======
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android/ViewTrailActivity.cs">
+    <Files>
+      <File FileName="Android/MainMenuActivity.cs" Line="1" Column="1" />
+      <File FileName="Android/SearchTrailPage2.cs" Line="1" Column="1" />
+      <File FileName="Android/ViewTrailActivity.cs" Line="17" Column="47" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+>>>>>>> Stash
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
