@@ -1,0 +1,42 @@
+﻿CREATE TABLE Activity
+(
+	activityID INTEGER NOT NULL PRIMARY KEY,
+	activityName varchar(63),
+	activityIcon varchar(63),
+	timestamp TIMESTAMP
+);
+
+CREATE TABLE Amenity
+(
+	amenityID INTEGER NOT NULL PRIMARY KEY,
+	amenityName varchar(63),
+	amenityIcon varchar(63),
+	timestamp TIMESTAMP
+);
+
+CREATE TABLE Trail
+(
+	trailID INTEGER NOT NULL PRIMARY KEY,
+	userID INTEGER,
+	orgID INTEGER,
+	trailName varchar(63),
+	trailLocation varchar(255),
+	trailKmlURL varchar(255),
+	trailKmlContent varchar(255),
+	trailDistance varchar(15),
+	trailDuration varchar(15),
+	trailDescription varchar(255),
+	trailDirections varchar(255),
+	trailDifficulty INTEGER,
+	trailRating INTEGER,
+	trailActivityIDs ARRAY,
+	trailAmenityIDs ARRAY,
+	trailHazards varchar(255),
+	trailSurface varchar(31),
+	trailLandAccess varchar(63),
+	trailMaintenance varchar(255),
+	trailSeason varchar(15),
+	trailOpen BOOLEAN,
+	trailActive BOOLEAN,
+	trailTimeStamp TIMESTAMP
+);
