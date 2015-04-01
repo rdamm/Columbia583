@@ -14,6 +14,8 @@ Columbia583.Android.UploadTrail;columbia583.android.UploadTrail
 Columbia583.Android.SearchTrails;columbia583.android.SearchTrails
 Columbia583.Android.ExpandView;columbia583.android.ExpandView
 Columbia583.Android.Upload;columbia583.android.Upload
+Columbia583.Android.SearchTrailPage2;columbia583.android.SearchTrailPage2
+Columbia583.Android.SearchExpandView;columbia583.android.SearchExpandView
 Android.Support.V4.App.FragmentManager.IOnBackStackChangedListenerImplementor;mono.android.support.v4.app.FragmentManager_OnBackStackChangedListenerImplementor
 Android.Support.V4.Content.Loader.IOnLoadCompleteListenerImplementor;mono.android.support.v4.content.Loader_OnLoadCompleteListenerImplementor
 Android.Support.V4.View.ActionProvider.ISubUiVisibilityListenerImplementor;mono.android.support.v4.view.ActionProvider_SubUiVisibilityListenerImplementor

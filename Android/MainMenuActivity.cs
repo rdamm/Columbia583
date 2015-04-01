@@ -24,7 +24,6 @@ namespace Columbia583.Android
 		protected Button searchTrails = null;
 		protected Button upload =null;
 
-
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);

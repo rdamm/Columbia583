@@ -59,7 +59,9 @@
         <RatingBar
             p1:layout_width="wrap_content"
             p1:layout_height="wrap_content"
-            p1:id="@+id/ratingBar1" />
+            p1:id="@+id/ratingBar1"
+            p1:numStars="5"
+            p1:stepSize="1" />
         <TextView
             p1:text="Trail Name"
             p1:textAppearance="?android:attr/textAppearanceSmall"
