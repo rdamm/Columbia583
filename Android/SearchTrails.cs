@@ -267,7 +267,7 @@ namespace Columbia583.Android
 		}
 
 		protected void setSearchResults(SearchFilter searchResults){
-			var intent = new Intent (this, typeof(SearchView));
+			var intent = new Intent (this, typeof(SearchTrailPage2));
 			string result = Newtonsoft.Json.JsonConvert.SerializeObject(searchResults);
 			intent.PutExtra("search", result);
 			StartActivity (intent);
