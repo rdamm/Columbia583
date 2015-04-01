@@ -13,7 +13,7 @@ namespace Columbia583
 
 		}
 
-		public SearchResult[] getTrailsBySearchFilter(SearchFilter searchFilter)
+		public ListableTrail[] getTrailsBySearchFilter(SearchFilter searchFilter)
 		{
 			// Get the trails.
 			Business_Layer_Search_Trails businessLayer_searchTrails = new Business_Layer_Search_Trails ();

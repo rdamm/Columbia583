@@ -52,17 +52,7 @@ namespace Columbia583.Android.hi
 				// Check if the network is available via WiFi.  We don't want network-dependent methods to run
 				// without an internet connection, and we don't want bandwidth-heavy methods to run if only the
 				// cellular network is available.
-				bool connectedToWifi = false;
-				var connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
-				var activeConnection = connectivityManager.ActiveNetworkInfo;
-				if ((activeConnection != null) && activeConnection.IsConnected)
-				{
-					var wifiState = connectivityManager.GetNetworkInfo(ConnectivityType.Wifi).GetState();
-					if (wifiState == NetworkInfo.State.Connected)
-					{
-						connectedToWifi = true;
-					}
-				}
+				bool connectedToWifi = NetworkHelper.wifiAvailable(this);
 
 				// If WiFi is available, run the database initialization.
 				if (connectedToWifi == true)

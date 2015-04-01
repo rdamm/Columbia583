@@ -28,8 +28,8 @@ namespace Columbia583
 			// Insert the user into the database.
 			User[] usersToInsert = { user };
 			Data_Layer_Common dataLayer = new Data_Layer_Common();
-			dataLayer.insertRows(new Activity[0], new Amenity[0], new MapTile[0], new Media[0], new Organization[0], new Point[0], new Role[0], new Trail[0], new TrailsToActivities[0],
-				new TrailsToAmenities[0], usersToInsert);
+			dataLayer.insertRows(new Activity[0], new Amenity[0], new FavouriteTrails[0], new MapTile[0], new Media[0], new Organization[0], new Point[0],
+				new Role[0], new Trail[0], new TrailsToActivities[0], new TrailsToAmenities[0], usersToInsert);
 
 			// Upload the user to the server.
 			Service_Access_Layer_Upload serviceAccessLayerUpload = new Service_Access_Layer_Upload();
@@ -40,8 +40,8 @@ namespace Columbia583
 			{
 				user.pushToServer = false;
 				User[] usersToUpdate = { user };
-				dataLayer.updateRows(new Activity[0], new Amenity[0], new Comment[0], new MapTile[0], new Media[0], new Organization[0], new Point[0], new Role[0], new Trail[0], new TrailsToActivities[0],
-					new TrailsToAmenities[0], usersToUpdate);
+				dataLayer.updateRows(new Activity[0], new Amenity[0], new Comment[0], new FavouriteTrails[0], new MapTile[0], new Media[0], new Organization[0],
+					new Point[0], new Role[0], new Trail[0], new TrailsToActivities[0], new TrailsToAmenities[0], usersToUpdate);
 			}
 		}
 
@@ -64,8 +64,8 @@ namespace Columbia583
 			// Insert the media into the database.
 			Media[] mediaToInsert = { media };
 			Data_Layer_Common dataLayer = new Data_Layer_Common();
-			dataLayer.insertRows(new Activity[0], new Amenity[0], new MapTile[0], mediaToInsert, new Organization[0], new Point[0], new Role[0], new Trail[0], new TrailsToActivities[0],
-				new TrailsToAmenities[0], new User[0]);
+			dataLayer.insertRows(new Activity[0], new Amenity[0], new FavouriteTrails[0], new MapTile[0], mediaToInsert, new Organization[0], new Point[0],
+				new Role[0], new Trail[0], new TrailsToActivities[0], new TrailsToAmenities[0], new User[0]);
 
 			// Upload the media to the server.
 			Service_Access_Layer_Upload serviceAccessLayerUpload = new Service_Access_Layer_Upload();
@@ -76,8 +76,8 @@ namespace Columbia583
 			{
 				media.pushToServer = false;
 				Media[] mediaToUpdate = { media };
-				dataLayer.updateRows(new Activity[0], new Amenity[0], new Comment[0], new MapTile[0], mediaToUpdate, new Organization[0], new Point[0], new Role[0], new Trail[0], new TrailsToActivities[0],
-					new TrailsToAmenities[0], new User[0]);
+				dataLayer.updateRows(new Activity[0], new Amenity[0], new Comment[0], new FavouriteTrails[0], new MapTile[0], mediaToUpdate,
+					new Organization[0], new Point[0], new Role[0], new Trail[0], new TrailsToActivities[0], new TrailsToAmenities[0], new User[0]);
 			}
 		}
 	}

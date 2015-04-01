@@ -254,10 +254,13 @@ namespace Columbia583
 			Media[] media = new Media[0];
 			Point[] points = new Point[0];
 			Role[] roles = new Role[0];
+
+			// Default the favourite trails to an empty list.  They are not stored on the server.
+			FavouriteTrails[] favouriteTrails = new FavouriteTrails[0];
 			
 			// Store the data in the local database.
-			dataLayer.insertRows (activities.ToArray(), amenities.ToArray(), mapTiles, media, organizations.ToArray(), points, roles, trails.ToArray(), trailsToActivities.ToArray(),
-				trailsToAmenities.ToArray(), users.ToArray());
+			dataLayer.insertRows (activities.ToArray(), amenities.ToArray(), favouriteTrails, mapTiles, media, organizations.ToArray(), points, roles, trails.ToArray(),
+				trailsToActivities.ToArray(), trailsToAmenities.ToArray(), users.ToArray());
 
 			// Store the current time in the database as the last-updated time.
 			Data_Layer_App_Globals dataLayerAppGlobals = new Data_Layer_App_Globals();
@@ -767,14 +770,17 @@ namespace Columbia583
 				}
 
 				// Delete ALL entries in the pairing tables.
-				dataLayer.deleteRows(new Activity[0], new Amenity[0], new Comment[0], new MapTile[0], new Media[0], new Organization[0], new Point[0], new Role[0], new Trail[0],
-					existingTrailsToActivities.ToArray(), existingTrailsToAmenities.ToArray(), new User[0]);
+				dataLayer.deleteRows(new Activity[0], new Amenity[0], new Comment[0], new FavouriteTrails[0], new MapTile[0], new Media[0], new Organization[0],
+					new Point[0], new Role[0], new Trail[0], existingTrailsToActivities.ToArray(), existingTrailsToAmenities.ToArray(), new User[0]);
 
 				// TODO: Get the remaining database data.
 				MapTile[] mapTiles = new MapTile[0];
 				Media[] media = new Media[0];
 				Point[] points = new Point[0];
 				Role[] roles = new Role[0];
+
+				// Do not update the favourite trails.
+				FavouriteTrails[] favouriteTrails = new FavouriteTrails[0];
 
 				// Fuse all the pairing table data together
 				var enumTrailsToActivities = trailsToActivities.Concat(remainingTrailsToActivities);
@@ -864,17 +870,17 @@ namespace Columbia583
 				updateTrails = updateTrails.Distinct().ToList();
 
 				// Update the rows that must be updated.
-				dataLayer.updateRows (updateActivities.ToArray(), updateAmenities.ToArray(), updateComments.ToArray(), mapTiles, media, updateOrganizations.ToArray(), points, roles, updateTrails.ToArray(),
-					new TrailsToActivities[0], new TrailsToAmenities[0], updateUsers.ToArray());
+				dataLayer.updateRows (updateActivities.ToArray(), updateAmenities.ToArray(), updateComments.ToArray(), favouriteTrails, mapTiles, media, updateOrganizations.ToArray(),
+					points, roles, updateTrails.ToArray(), new TrailsToActivities[0], new TrailsToAmenities[0], updateUsers.ToArray());
 
 				// Insert the rows that must be inserted.
-				dataLayer.insertRows (insertActivities.ToArray(), insertAmenities.ToArray(), mapTiles, media, insertOrganizations.ToArray(), points, roles, insertTrails.ToArray(),
-					trailsToActivities.ToArray(), trailsToAmenities.ToArray(), insertUsers.ToArray());
+				dataLayer.insertRows (insertActivities.ToArray(), insertAmenities.ToArray(), favouriteTrails, mapTiles, media, insertOrganizations.ToArray(), points, roles,
+					insertTrails.ToArray(), trailsToActivities.ToArray(), trailsToAmenities.ToArray(), insertUsers.ToArray());
 				dataLayer.insertCommentRows(insertComments.ToArray());
 
 				// Delete the rows that must be deleted.
-				dataLayer.deleteRows (deleteActivities.ToArray (), deleteAmenities.ToArray (), deleteComments.ToArray(), mapTiles, media, deleteOrganizations.ToArray (), points, roles, deleteTrails.ToArray (),
-					new TrailsToActivities[0], new TrailsToAmenities[0], deleteUsers.ToArray ());
+				dataLayer.deleteRows (deleteActivities.ToArray (), deleteAmenities.ToArray (), deleteComments.ToArray(), favouriteTrails, mapTiles, media, deleteOrganizations.ToArray (),
+					points, roles, deleteTrails.ToArray (), new TrailsToActivities[0], new TrailsToAmenities[0], deleteUsers.ToArray ());
 
 				// Store the current time in the database as the last-updated time.
 				dataLayerAppGlobals.setDatabaseLastUpdated (currentTime);

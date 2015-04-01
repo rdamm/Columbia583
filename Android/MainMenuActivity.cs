@@ -24,6 +24,8 @@ namespace Columbia583.Android
 		protected Button loginButton = null;
 		protected Button logoutButton = null;
 		protected TextView loggedInUsersUsernameText = null;
+		protected Button scanQrCodeButton = null;
+		protected Button viewFavouriteTrailsButton = null;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -43,15 +45,21 @@ namespace Columbia583.Android
 			loginButton = FindViewById<Button> (Resource.Id.button_login);
 			logoutButton = FindViewById<Button> (Resource.Id.button_logout);
 			loggedInUsersUsernameText = FindViewById<TextView> (Resource.Id.txtLoggedInUsersUsername);
+			scanQrCodeButton = FindViewById<Button> (Resource.Id.button_scanQrCode);
+			viewFavouriteTrailsButton = FindViewById<Button> (Resource.Id.button_viewFavouriteTrails);
 
-			// Get the logged in user and show their username.
-			Account account = getLoggedInUser ();
-			if (account != null) {
-				// Show the username.
-				displayUsername (account);
-			} else {
-				// Clear the username.
-				clearUsername ();
+			// Get the active user and show their username.
+			Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
+			User activeUser = dataAccessLayerCommon.getActiveUser ();
+			if (activeUser != null)
+			{
+				// Set the active user.
+				setActiveUser(activeUser);
+			}
+			else
+			{
+				// Clear the active user.
+				clearActiveUser();
 			}
 			
 			// Assign the event handlers.
@@ -60,6 +68,15 @@ namespace Columbia583.Android
 
 					// Load the search trails page.
 					var intent = new Intent(this, typeof(SearchTrailsActivity));
+					StartActivity(intent);
+
+				};
+			}
+			if (viewFavouriteTrailsButton != null) {
+				viewFavouriteTrailsButton.Click += (sender, e) => {
+
+					// Load the view favourite trails page.
+					var intent = new Intent(this, typeof(FavouriteTrailsActivity));
 					StartActivity(intent);
 
 				};
@@ -79,6 +96,9 @@ namespace Columbia583.Android
 			if (logoutButton != null) {
 				logoutButton.Click += logoutEvent;
 			}
+			if (scanQrCodeButton != null) {
+				scanQrCodeButton.Click += ScanQrCodeEvent;
+			}
 		}
 
 
@@ -89,18 +109,26 @@ namespace Columbia583.Android
 		/// <param name="eventArgs">Event arguments.</param>
 		protected void requestLoginEvent(object sender, EventArgs eventArgs)
 		{
-			// Create an OAuth authentication request.  Add email to the scope to include it in the account request permissions.
-			var auth = new OAuth2Authenticator (
-				clientId: "370094413194090",
-				scope: "email",
-				authorizeUrl: new Uri ("https://m.facebook.com/dialog/oauth/"),
-				redirectUrl: new Uri ("http://www.facebook.com/connect/login_success.html"));
+			// If the network is available, continue with login.
+			if (NetworkHelper.networkAvailable (this) == true)
+			{
+				// Create an OAuth authentication request.  Add email to the scope to include it in the account request permissions.
+				var auth = new OAuth2Authenticator (
+					           clientId: "370094413194090",
+					           scope: "email",
+					           authorizeUrl: new Uri ("https://m.facebook.com/dialog/oauth/"),
+					           redirectUrl: new Uri ("http://www.facebook.com/connect/login_success.html"));
 
-			// Open the login screen.
-			StartActivity (auth.GetUI (this));
+				// Open the login screen.
+				StartActivity (auth.GetUI (this));
 
-			// Once the login screen has completed, run this event.
-			auth.Completed += responseLoginEvent;
+				// Once the login screen has completed, run this event.
+				auth.Completed += responseLoginEvent;
+			}
+			else
+			{
+				Toast.MakeText (this, "Network unavailable.  Cannot log in.", ToastLength.Short).Show();
+			}
 		}
 
 
@@ -116,35 +144,55 @@ namespace Columbia583.Android
 			// Get the account from the login response arguments.
 			Account account = eventArgs.Account;
 
-			// Destroy all other Facebook logins.  This does not support multiple login storage.
-			destroyOauthLogins();
+			// Clear the active user.
+			clearActiveUser();
 
-			// If the user was logged in successfully, store their login info and update the username.
-			// Otherwise, destroy their login info and clear the username.
+			// If the user was logged in successfully, get their account info.
 			if (eventArgs.IsAuthenticated)
 			{
-				if (account != null) {
-					// Store their login.
-					AccountStore accountStore = AccountStore.Create (this);
-					accountStore.Save (account, "Facebook");
+				if (account != null)
+				{
+					// If the network is available, continue with login.
+					if (NetworkHelper.networkAvailable (this) == true)
+					{
+						// Get the user's Facebook profile info.
+						var request = new OAuth2Request ("GET", new Uri ("https://graph.facebook.com/me"), null, account);
+						request.GetResponseAsync ().ContinueWith (t => {
+							// If the response is invalid, log the error.
+							if (t.IsFaulted)
+							{
+								Console.WriteLine ("Error: " + t.Exception.InnerException.Message);
+							}
+							else
+							{
+								// Get the user's info from the response.
+								string json = t.Result.GetResponseText ();
+								OAuthUser userProfile = JsonConvert.DeserializeObject<OAuthUser> (json);
 
-					// Update the username display.
-					displayUsername (eventArgs.Account);
-				} else {
-					// Clear the username display.
-					clearUsername ();
-				}
-			}
-			else
-			{
-				// Destroy their login.
-				if (account != null) {
-					AccountStore accountStore = AccountStore.Create (this);
-					accountStore.Delete (account, "Facebook");
-				}
+								// Get the user's email from the profile.
+								string userEmail = userProfile.email;
 
-				// Clear the username display.
-				clearUsername ();
+								// Get the user from the local users.  If the user doesn't exist, create it.
+								Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common ();
+								User user = dataAccessLayerCommon.getUserByEmail (userEmail);
+								if (user == null)
+								{
+									// Create the user.
+									user = new User (0, 0, userEmail, userProfile.name, DateTime.Now, DateTime.Now, true);
+									Data_Access_Layer_Upload dataAccessLayerUpload = new Data_Access_Layer_Upload ();
+									dataAccessLayerUpload.uploadUser (user);
+								}
+
+								// Set the active user.
+								setActiveUser (user);
+							}
+						});
+					}
+					else
+					{
+						Toast.MakeText (this, "Network unavailable.  Cannot log in.", ToastLength.Short).Show();
+					}
+				}
 			}
 		}
 
@@ -156,125 +204,123 @@ namespace Columbia583.Android
 		/// <param name="eventArgs">Event arguments.</param>
 		protected void logoutEvent(object sender, EventArgs eventArgs)
 		{
-			// Destroy all Facebook logins.
-			destroyOauthLogins();
-
-			// Clear the username display.
-			clearUsername();
+			// Clear the active user.
+			clearActiveUser();
 		}
 
 
 		/// <summary>
-		/// Gets the logged in user.
+		/// Sets the active user.
 		/// </summary>
-		/// <returns>The logged in user.</returns>
-		protected Account getLoggedInUser()
+		/// <param name="userId">User identifier.</param>
+		protected void setActiveUser(User user)
 		{
-			// TODO: Get the username from the local database instead.  OAuth requests cannot be made when out of
-			// network range.
+			// Set the active user.
+			Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
+			dataAccessLayerCommon.setActiveUser (user.id);
 
-			// Get the user's login info and show their username.
-			AccountStore accountStore = AccountStore.Create (this);
-			IEnumerable<Account> accounts = accountStore.FindAccountsForService ("Facebook");
-			Account account = null;
-			foreach(Account a in accounts)
-			{
-				// TODO: Find a way to get the first element.
-				account = a;
-				break;
-			}
+			// DEBUG: Display the active user.
+			User activeUser = dataAccessLayerCommon.getActiveUser();
 
-			return account;
+			// Change the username view.
+			RunOnUiThread (() => loggedInUsersUsernameText.Text = "Logged in as " + user.username + ".");
+
+			// Show the login button.
+			RunOnUiThread (() => loginButton.Visibility = ViewStates.Invisible);
+			RunOnUiThread (() => logoutButton.Visibility = ViewStates.Visible);
 		}
 
 
 		/// <summary>
-		/// Displays the username of the given account.  Will clear the username if the account is null, or if
-		/// the username response request fails.
+		/// Clears the active user.
 		/// </summary>
-		/// <param name="account">Account.</param>
-		protected void displayUsername(Account account)
+		protected void clearActiveUser()
 		{
-			if (account != null)
-			{
-				// Get the user's profile info.
-				var request = new OAuth2Request ("GET", new Uri ("https://graph.facebook.com/me"), null, account);
-				request.GetResponseAsync().ContinueWith (t => {
-					// If the response is invalid, then act as if the login failed.
-					if (t.IsFaulted)
-					{
-						Console.WriteLine ("Error: " + t.Exception.InnerException.Message);
-						clearUsername ();
-					}
-					else
-					{
-						// Get the user's info from the response.
-						string json = t.Result.GetResponseText();
-						OAuthUser userProfile = JsonConvert.DeserializeObject<OAuthUser>(json);
+			// Clear the active user.
+			Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
+			dataAccessLayerCommon.setActiveUser (0);
 
-						// Get the user's email from the profile.
-						string userEmail = userProfile.email;
+			// DEBUG: Display the active user.
+			User activeUser = dataAccessLayerCommon.getActiveUser();
 
-						// Get the user from the local users.  If the user doesn't exist, create it.
-						Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
-						User user = dataAccessLayerCommon.getUserByEmail(userEmail);
-						if (user == null)
-						{
-							// Create the user.
-							user = new User(0, 0, userEmail, userProfile.name, DateTime.Now, DateTime.Now, true);
-							Data_Access_Layer_Upload dataAccessLayerUpload = new Data_Access_Layer_Upload();
-							dataAccessLayerUpload.uploadUser(user);
-						}
-
-						// Set the active user in the app globals.
-						dataAccessLayerCommon.setActiveUser(user.id);
-
-						// Update the username view.
-						RunOnUiThread (() => loggedInUsersUsernameText.Text = "Logged in as " + userProfile.name + ".");
-
-						// Show the logout button.
-						RunOnUiThread (() => loginButton.Visibility = ViewStates.Invisible);
-						RunOnUiThread (() => logoutButton.Visibility = ViewStates.Visible);
-					}
-				});
-			}
-			else
-			{
-				clearUsername ();
-			}
-		}
-
-
-		/// <summary>
-		/// Clears the username view.
-		/// </summary>
-		protected void clearUsername()
-		{
 			// Change the username view.
 			RunOnUiThread (() => loggedInUsersUsernameText.Text = "Not logged in.");
 
 			// Show the login button.
-			loginButton.Visibility = ViewStates.Visible;
-			logoutButton.Visibility = ViewStates.Invisible;
+			RunOnUiThread (() => loginButton.Visibility = ViewStates.Visible);
+			RunOnUiThread (() => logoutButton.Visibility = ViewStates.Invisible);
 		}
 
 
 		/// <summary>
-		/// Destroys the OAuth logins.
+		/// Scans the QR code of a trail and opens that trail's page if it is a valid QR code.
 		/// </summary>
-		protected void destroyOauthLogins()
+		/// <param name="sender">Sender.</param>
+		/// <param name="eventArgs">Event arguments.</param>
+		async protected void ScanQrCodeEvent(object sender, EventArgs eventArgs)
 		{
-			// Destroy all stored OAuth Facebook logins.
-			AccountStore accountStore = AccountStore.Create (this);
-			IEnumerable<Account> accounts = accountStore.FindAccountsForService ("Facebook");
-			foreach (Account a in accounts)
-			{
-				accountStore.Delete (a, "Facebook");
-			}
+			// Scan the QR code.
+			var scanner = new ZXing.Mobile.MobileBarcodeScanner(this);
+			var result = await scanner.Scan();
 
-			// Destroy the active user in the app globals.
-			Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
-			dataAccessLayerCommon.setActiveUser (0);
+			// If a result was found, determine the trail ID from it and open the trail.
+			if (result != null)
+			{
+				// DEBUG: Display the raw barcode.
+				Console.WriteLine ("Scanned Barcode: " + result.Text);
+
+				// Get the barcode's text from the result.
+				string barcodeText = result.Text;
+
+				// Check if the barcode text follows the expected format: http://trails.greenways.ca/trails/[TRAIL_ID]
+				if (barcodeText.Length <= 34)
+				{
+					Toast.MakeText (this, "Invalid QR code detected.", ToastLength.Long).Show();
+					return;
+				}
+				string barcodeDomain = barcodeText.Substring(0, 34);
+				if (barcodeDomain != "http://trails.greenways.ca/trails/") {
+					Toast.MakeText (this, "Invalid QR code detected.", ToastLength.Long).Show();
+					return;
+				}
+
+				// Pull the ID from the barcode text.
+				int trailId = 0;
+				string trailIdString = barcodeText.Substring (34, barcodeText.Length - 34);
+				try
+				{
+					trailId = Int32.Parse(trailIdString);
+				}
+				catch (Exception e)
+				{
+					Toast.MakeText (this, "Invalid QR code detected.", ToastLength.Long).Show();
+					return;
+				}
+
+				// Load the trail details.
+				Data_Access_Layer_View_Trail dataAccessLayerViewTrail = new Data_Access_Layer_View_Trail ();
+				Trail trail = dataAccessLayerViewTrail.getTrail (trailId);
+				if (trail == null)
+				{
+					Toast.MakeText (this, "Trail not found.", ToastLength.Long).Show();
+					return;
+				}
+				Activity[] activities = dataAccessLayerViewTrail.getActivities (trailId);
+				Amenity[] amenities = dataAccessLayerViewTrail.getAmenities (trailId);
+				Point[] points = dataAccessLayerViewTrail.getPoints (trailId);
+
+				// Load the trail's page.
+				var intent = new Intent (this, typeof(ViewTrailActivity));
+				string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject (trail);
+				string activitiesJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(activities);
+				string amenitiesJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(amenities);
+				string pointsJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(points);
+				intent.PutExtra ("viewedTrail", trailJSONStr);
+				intent.PutExtra("activities", activitiesJSONstr);
+				intent.PutExtra("amenities", amenitiesJSONstr);
+				intent.PutExtra("points", pointsJSONstr);
+				StartActivity (intent);
+			}
 		}
 	}
 }

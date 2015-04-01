@@ -22,7 +22,7 @@ namespace Columbia583
 		/// </summary>
 		/// <returns>The trails by search filter.</returns>
 		/// <param name="searchFilter">Search filter.</param>
-		public List<SearchResult> getTrailsBySearchFilter(SearchFilter searchFilter)
+		public List<ListableTrail> getTrailsBySearchFilter(SearchFilter searchFilter)
 		{
 			// Search filter parameters should be split by their type and ANDed together.  Each type will have different specific logic, but all rows should be met to be a match.
 			// eg. WHERE (
@@ -34,7 +34,7 @@ namespace Columbia583
 			//		(distance >= 2 AND distance <= 6)
 			// )
 
-			List<SearchResult> searchResults = null;
+			List<ListableTrail> searchResults = null;
 			try
 			{
 				// Open connection to local database.
@@ -177,7 +177,7 @@ namespace Columbia583
 				var response = connection.Query<Trail>("SELECT * FROM Trail " + whereQuery, parameters.ToArray());
 
 				// For each matching trail, get its points, activities, and amenities.
-				searchResults = new List<SearchResult>();
+				searchResults = new List<ListableTrail>();
 				foreach (Trail trailRow in response)
 				{
 					List<Point> points = new List<Point>();
@@ -206,7 +206,7 @@ namespace Columbia583
 					}
 
 					// Encapsulate the data into a search result and add it to the list.
-					SearchResult searchResult = new SearchResult(trailRow, points.ToArray(), activities.ToArray(), amenities.ToArray());
+					ListableTrail searchResult = new ListableTrail(trailRow, points.ToArray(), activities.ToArray(), amenities.ToArray());
 					searchResults.Add(searchResult);
 				}
 

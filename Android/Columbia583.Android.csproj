@@ -102,7 +102,8 @@
     <Compile Include="UploadMediaActivity.cs" />
     <Compile Include="Resources\layout\MediaAdapter.cs" />
     <Compile Include="ViewMediaActivity.cs" />
-    <Compile Include="ScanQrCodeActivity.cs" />
+    <Compile Include="FavouriteTrailsActivity.cs" />
+    <Compile Include="Helpers\NetworkHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -135,6 +136,7 @@
     <AndroidResource Include="Resources\layout\UploadMedia.axml" />
     <AndroidResource Include="Resources\layout\ViewMedia.axml" />
     <AndroidResource Include="Resources\layout\ScanQrCode.axml" />
+    <AndroidResource Include="Resources\layout\FavouriteTrails.axml" />
   </ItemGroup>
   <Import Project="..\Columbia583\Columbia583.projitems" Label="Shared" Condition="Exists('..\Columbia583\Columbia583.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
@@ -147,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.auth">

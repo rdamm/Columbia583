@@ -65,6 +65,7 @@ namespace Columbia583
 				tableTypes.Add(typeof(Point));
 				tableTypes.Add(typeof(TrailsToActivities));
 				tableTypes.Add(typeof(TrailsToAmenities));
+				tableTypes.Add(typeof(FavouriteTrails));
 
 				// Check if the tables exist.
 				string tableExistsQuery = "SELECT name FROM sqlite_master WHERE type = 'table' AND name = ?";
@@ -155,6 +156,7 @@ namespace Columbia583
 				connection.CreateTable<Point>();				// References Trail and MapTile.
 				connection.CreateTable<TrailsToActivities>();	// References Trail and Activity.
 				connection.CreateTable<TrailsToAmenities>();	// References Trail and Amenity.
+				connection.CreateTable<FavouriteTrails>();		// References Trail and User.
 
 				// Populate the app globals.  Initialize the database last updated time to the epoch.
 				AppGlobals appGlobals = new AppGlobals(0, new DateTime(1970, 1, 1));
@@ -192,6 +194,7 @@ namespace Columbia583
 		/// <param name="activities">Activities.</param>
 		/// <param name="amenities">Amenities.</param>
 		/// <param name="mapTiles">Map tiles.</param>
+		/// <param name="favouriteTrails">Favourite trails.</param>
 		/// <param name="media">Media.</param>
 		/// <param name="organizations">Organizations.</param>
 		/// <param name="points">Points.</param>
@@ -200,7 +203,7 @@ namespace Columbia583
 		/// <param name="trailsToActivities">Trails to activities.</param>
 		/// <param name="trailsToAmenities">Trails to amenities.</param>
 		/// <param name="users">Users.</param>
-		public void insertRows(Activity[] activities, Amenity[] amenities, MapTile[] mapTiles, Media[] media, Organization[] organizations,
+		public void insertRows(Activity[] activities, Amenity[] amenities, FavouriteTrails[] favouriteTrails, MapTile[] mapTiles, Media[] media, Organization[] organizations,
 			Point[] points, Role[] roles, Trail[] trails, TrailsToActivities[] trailsToActivities, TrailsToAmenities[] trailsToAmenities, User[] users)
 		{
 			try
@@ -222,6 +225,7 @@ namespace Columbia583
 				connection.InsertAll(points);
 				connection.InsertAll(trailsToActivities);
 				connection.InsertAll(trailsToAmenities);
+				connection.InsertAll(favouriteTrails);
 
 				// Close connection to local database.
 				connection.Close();
@@ -980,6 +984,40 @@ namespace Columbia583
 
 
 		/// <summary>
+		/// Gets the favourite trails.
+		/// </summary>
+		/// <returns>The favourite trails.</returns>
+		public List<FavouriteTrails> getFavouriteTrails()
+		{
+			List<FavouriteTrails> favouriteTrails = null;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(getPathToDatabase());
+
+				// Get all IDs.
+				// TODO: Find a more efficient way to get the IDs.
+				var query = connection.Table<FavouriteTrails>();
+				favouriteTrails = new List<FavouriteTrails>();
+				foreach(FavouriteTrails favouriteTrail in query)
+				{
+					favouriteTrails.Add(favouriteTrail);
+				}
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return favouriteTrails;
+		}
+
+
+		/// <summary>
 		/// Gets the trails to activities.
 		/// </summary>
 		/// <returns>The trails to activities.</returns>
@@ -1087,6 +1125,7 @@ namespace Columbia583
 		/// <param name="activities">Activities.</param>
 		/// <param name="amenities">Amenities.</param>
 		/// <param name="comments">Comments.</param>
+		/// <param name="favouriteTrails">Favourite trails.</param>
 		/// <param name="mapTiles">Map tiles.</param>
 		/// <param name="media">Media.</param>
 		/// <param name="organizations">Organizations.</param>
@@ -1096,7 +1135,7 @@ namespace Columbia583
 		/// <param name="trailsToActivities">Trails to activities.</param>
 		/// <param name="trailsToAmenities">Trails to amenities.</param>
 		/// <param name="users">Users.</param>
-		public void updateRows(Activity[] activities, Amenity[] amenities, Comment[] comments, MapTile[] mapTiles, Media[] media, Organization[] organizations,
+		public void updateRows(Activity[] activities, Amenity[] amenities, Comment[] comments, FavouriteTrails[] favouriteTrails, MapTile[] mapTiles, Media[] media, Organization[] organizations,
 			Point[] points, Role[] roles, Trail[] trails, TrailsToActivities[] trailsToActivities, TrailsToAmenities[] trailsToAmenities, User[] users)
 		{
 			try
@@ -1138,6 +1177,7 @@ namespace Columbia583
 		/// <param name="activities">Activities.</param>
 		/// <param name="amenities">Amenities.</param>
 		/// <param name="comments">Comments.</param>
+		/// <param name="favouriteTrails">Favourite trails.</param>
 		/// <param name="mapTiles">Map tiles.</param>
 		/// <param name="media">Media.</param>
 		/// <param name="organizations">Organizations.</param>
@@ -1147,7 +1187,7 @@ namespace Columbia583
 		/// <param name="trailsToActivities">Trails to activities.</param>
 		/// <param name="trailsToAmenities">Trails to amenities.</param>
 		/// <param name="users">Users.</param>
-		public void deleteRows(Activity[] activities, Amenity[] amenities, Comment[] comments, MapTile[] mapTiles, Media[] media, Organization[] organizations,
+		public void deleteRows(Activity[] activities, Amenity[] amenities, Comment[] comments, FavouriteTrails[] favouriteTrails, MapTile[] mapTiles, Media[] media, Organization[] organizations,
 			Point[] points, Role[] roles, Trail[] trails, TrailsToActivities[] trailsToActivities, TrailsToAmenities[] trailsToAmenities, User[] users)
 		{
 			try
@@ -1157,6 +1197,7 @@ namespace Columbia583
 				
 				// Delete the data that has foreign keys.
 				// TODO: Fix deletion for TrailsToActivities and TrailsToAmenities.  Their class definition doesn't have a primary key.
+				foreach(var row in favouriteTrails)		connection.Delete(row);
 				foreach(var row in trailsToActivities)	connection.Delete(row);
 				foreach(var row in trailsToAmenities)	connection.Delete(row);
 				foreach(var row in points)				connection.Delete(row);
@@ -1196,6 +1237,7 @@ namespace Columbia583
 
 				// Delete the data that has foreign keys.
 				connection.DeleteAll<Comment>();
+				connection.DeleteAll<FavouriteTrails>();
 				connection.DeleteAll<TrailsToActivities>();
 				connection.DeleteAll<TrailsToAmenities>();
 				connection.DeleteAll<Point>();
@@ -1234,6 +1276,7 @@ namespace Columbia583
 
 				// Drop the tables that have foreign keys.
 				connection.DropTable<Comment>();
+				connection.DropTable<FavouriteTrails>();
 				connection.DropTable<TrailsToActivities>();
 				connection.DropTable<TrailsToAmenities>();
 				connection.DropTable<Point>();

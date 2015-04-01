@@ -22,6 +22,8 @@ namespace Columbia583.Android
 	[Activity (Label = "Columbia583.Android_View_Trail", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]
 	public class ViewTrailActivity : FragmentActivity
 	{
+		protected int trailId;
+
 		protected ViewPager pager = null;
 		protected MyFragmentPagerAdapter adapter = null;
 		protected CirclePageIndicator pageIndicator = null;
@@ -39,6 +41,7 @@ namespace Columbia583.Android
 		protected TextView season = null;
 		protected TextView maintenance = null;
 		protected LinearLayout commentsLayout = null;
+		protected global::Android.Widget.Button addToFavouritesButton = null;
 		protected global::Android.Widget.Button uploadMediaButton = null;
 		protected GridView trailGallery = null;
 		//private GestureDetector _gestureDetector;
@@ -68,6 +71,8 @@ namespace Columbia583.Android
 			Amenity[] amenities = Newtonsoft.Json.JsonConvert.DeserializeObject<Amenity[]> (amenitiesJSONstr);
 			Point[] points = Newtonsoft.Json.JsonConvert.DeserializeObject<Point[]> (pointsJSONstr);
 			trailName.Text = trail.name;
+
+			trailId = trail.id;
 
 			Activity[] debugActivities = new Activity[6];
 			Amenity[] debugAmenities = new Amenity[2];
@@ -100,6 +105,7 @@ namespace Columbia583.Android
 					openStatus = view.FindViewById<TextView>(Resource.Id.openStatus);
 					season = view.FindViewById<TextView>(Resource.Id.season);
 					maintenance = view.FindViewById<TextView>(Resource.Id.maintenance);
+					addToFavouritesButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.btnAddToFavourites);
 
 					// Get trail data.
 					distance.Text = trail.distance + " km";
@@ -114,6 +120,22 @@ namespace Columbia583.Android
 					}
 					season.Text = "Season: " + trail.season;
 					maintenance.Text = trail.maintenance;
+
+					// Set the event handlers.
+					if (addToFavouritesButton != null) {
+						addToFavouritesButton.Click += (sender, e) => {
+
+							// Get the active user's ID.
+							Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
+							User activeUser = dataAccessLayerCommon.getActiveUser();
+							int activeUserId = activeUser.id;
+
+							// Add the trail to the user's favourites list.
+							Data_Access_Layer_Favourites dataAccessLayerFavourites = new Data_Access_Layer_Favourites();
+							dataAccessLayerFavourites.addFavouriteTrail(activeUserId, trailId);
+
+						};
+					}
 
 					return view;
 				}

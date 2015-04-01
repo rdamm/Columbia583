@@ -73,6 +73,7 @@ namespace Columbia583
 			Point[] points = new Point[6];
 			TrailsToActivities[] trailsToActivities = new TrailsToActivities[4];
 			TrailsToAmenities[] trailsToAmenities = new TrailsToAmenities[4];
+			FavouriteTrails[] favouriteTrails = new FavouriteTrails[0];
 			users [0] = new User (1, 0, "rob_orchiston@greenways.ca", "rob_orchiston", DateTime.Now, DateTime.Now, false);
 			trails [0] = new Trail (1, 1, 1, "Trail 1", "Radium", "", "", "32 km", "2 hours", "A hike through the valley.", "", Difficulty.More_Difficult, 4, "", "", "", "", "", true, true, DateTime.Now);
 			trails [1] = new Trail (2, 1, 1, "Trail 2", "Invermere", "", "", "16 km", "1 hours", "A hike along the creeks.", "", Difficulty.Easy, 2, "", "", "", "", "", true, true, DateTime.Now);
@@ -95,7 +96,7 @@ namespace Columbia583
 			
 			// Insert the rows.
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
-			dataLayer.insertRows(activities, amenities, mapTiles, media, organizations, points, roles, trails, trailsToActivities, trailsToAmenities, users);
+			dataLayer.insertRows(activities, amenities, favouriteTrails, mapTiles, media, organizations, points, roles, trails, trailsToActivities, trailsToAmenities, users);
 
 			return "Successfully inserted rows.";
 		}
@@ -207,10 +208,10 @@ namespace Columbia583
 
 			// Get the search results.
 			Data_Layer_Search_Trails dataLayer = new Data_Layer_Search_Trails ();
-			List<SearchResult> searchResults = dataLayer.getTrailsBySearchFilter (searchFilter);
+			List<ListableTrail> searchResults = dataLayer.getTrailsBySearchFilter (searchFilter);
 
 			if (searchResults != null) {
-				foreach (SearchResult searchResult in searchResults) {
+				foreach (ListableTrail searchResult in searchResults) {
 					Console.WriteLine (searchResult.trail.id + " - " + searchResult.trail.name);
 
 					Console.Write(" -Activities: ");
@@ -278,6 +279,7 @@ namespace Columbia583
 			List<Activity> activities = new List<Activity> ();
 			List<Amenity> amenities = new List<Amenity> ();
 			List<Comment> comments = new List<Comment> ();
+			List<FavouriteTrails> favouriteTrails = new List<FavouriteTrails> ();
 			List<MapTile> mapTiles = new List<MapTile> ();
 			List<Media> media = new List<Media> ();
 			List<Organization> organizations = new List<Organization> ();
@@ -293,8 +295,8 @@ namespace Columbia583
 
 			// Delete some data from the tables.
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
-			dataLayer.deleteRows (activities.ToArray(), amenities.ToArray(), comments.ToArray(), mapTiles.ToArray(), media.ToArray(), organizations.ToArray(), points.ToArray(), roles.ToArray(),
-				trails.ToArray(), trailsToActivities.ToArray(), trailsToAmenities.ToArray(), users.ToArray());
+			dataLayer.deleteRows (activities.ToArray(), amenities.ToArray(), comments.ToArray(), favouriteTrails.ToArray(), mapTiles.ToArray(), media.ToArray(),
+				organizations.ToArray(), points.ToArray(), roles.ToArray(), trails.ToArray(), trailsToActivities.ToArray(), trailsToAmenities.ToArray(), users.ToArray());
 
 			return "Successfully deleted some rows.";
 		}

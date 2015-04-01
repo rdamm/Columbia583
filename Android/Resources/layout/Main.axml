@@ -15,6 +15,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/button_searchTrails" />
     <Button
+        android:text="Favourite Trails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_viewFavouriteTrails" />
+    <Button
         android:text="Debug and Tests Menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,4 +40,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtLoggedInUsersUsername" />
+    <Button
+        android:text="Scan Trail QR Code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_scanQrCode" />
 </LinearLayout>
