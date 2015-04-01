@@ -24,16 +24,18 @@ namespace Columbia583
 		public double lon { get; set; }
 		public bool primary { get; set; }
 		public DateTime timestamp { get; set; }
+		public int sequenceId { get; set; }
 
 		public Point()
 		{
 
 		}
 
-		public Point (int id, int trailId, int mapTileId, int nextPointId, string title, string description, double lat, double lon, bool primary, DateTime timestamp)
+		public Point (int id, int trailId, int sequenceId, int mapTileId, int nextPointId, string title, string description, double lat, double lon, bool primary, DateTime timestamp)
 		{
 			this.id = id;
 			this.trailId = trailId;
+			this.sequenceId = sequenceId;
 			this.mapTileId = mapTileId;
 			this.title = title;
 			this.description = description;

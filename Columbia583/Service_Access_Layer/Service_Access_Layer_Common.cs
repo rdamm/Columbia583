@@ -50,7 +50,7 @@ namespace Columbia583
 
 		/// <summary>
 		/// Gets all updates since the given date, encapsulated in a list of trails.  The given
-		/// last updated date must be in the form of YYYY-MM-DD (eg. 2015-02-30).
+		/// last updated date must be in the form of YYYY-MM-DD (eg. 2015-02-28).
 		/// </summary>
 		/// <returns>The updates.</returns>
 		/// <param name="lastUpdated">Last updated date.</param>
@@ -115,6 +115,11 @@ namespace Columbia583
 
 			return allComments;
 		}
+
+		/*public List<Point> getCoordinates()
+		{
+			List<Point> allPoints = null;
+		}*/
 	}
 }
 

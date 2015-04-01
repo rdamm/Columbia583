@@ -3,14 +3,9 @@
     android:id="@+id/layout1"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:weightSum="1">
-    <ImageView
-        android:src="@android:drawable/ic_menu_gallery"
-        android:layout_width="match_parent"
-        android:layout_height="160.0dp"
-        android:id="@+id/imageView1"
-        android:layout_marginLeft="3.0dp" />
+    android:layout_height="wrap_content"
+    android:weightSum="1"
+    android:fitsSystemWindows="true">
     <RatingBar
         android:layout_width="240.7dp"
         android:layout_height="wrap_content"
@@ -38,18 +33,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView5"
-        android:layout_marginLeft="3.0dp" />
+        android:layout_marginLeft="3.0dp"
+        android:drawableLeft="@drawable/description" />
     <ScrollView
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="50.0dp"
+        android:layout_height="100.0dp"
         android:id="@+id/scrollView3">
         <TextView
             android:text="Description Here"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/description"
             android:paddingLeft="3.0dp" />
     </ScrollView>
