@@ -32,6 +32,11 @@ namespace Columbia583.Android
 		private MarkerLayer _markerLayer;
 		private GeometryLayer _geometryLayer;
 		protected global::Android.Widget.Button changeFiltersButton = null;
+		protected bool preventSpinnerSelectEventFiringOnCreate = true;
+		Dictionary<string, List<string> > dictGroup = new Dictionary<string, List<string> > ();
+		List<string> lstKeys = new List<string> ();
+		protected SearchResult[] trails = null;
+		protected SearchResult[] debugSearchResults = null;
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -230,18 +235,63 @@ namespace Columbia583.Android
 			AddMarker ("Edgewater", "Default Location", e_long, e_lat);
 			AddMarker ("Start", "TestTrail", -115.8953927736605f, 50.67251672121988f);
 
-			var showTrailsButton = FindViewById <global::Android.Widget.Button> (Resource.Id.showTrails);
 			changeFiltersButton = FindViewById<global::Android.Widget.Button> (Resource.Id.changeFilters);
 
 			if (changeFiltersButton != null){
 				changeFiltersButton.Click += (sender, e) => {
-					var intent = new Intent(this, typeof(SearchTrailsActivity));
+					var intent = new Intent(this, typeof(SearchTrails));
 					StartActivity(intent);
 				};
 			}
-				
-			//SearchResult[] results 
-			showTrailsButton.Click += delegate { ShowDialog(1); };
+			Application_Layer_Search_Trails applicationLayer_searchTrails = new Application_Layer_Search_Trails ();
+			string getResult = Intent.GetStringExtra ("search") ?? "No filter found";
+			if (getResult != "No filter found") {
+				SearchFilter searchFilter = Newtonsoft.Json.JsonConvert.DeserializeObject<SearchFilter> (getResult);
+				trails = applicationLayer_searchTrails.getTrailsBySearchFilter (searchFilter);
+			}
+
+			List<string> names= new List<string>();
+			if (trails == null || trails.Length == 0) {
+				debugSearchResults = applicationLayer_searchTrails.getTrailsBySearchFilter (new SearchFilter (){ rating = 1 });
+				foreach(SearchResult t in debugSearchResults){
+					names.Add (t.trail.name);
+				}
+			} else {
+				foreach(SearchResult t in trails){
+					names.Add (t.trail.name);
+				}
+			}
+			var spinner = FindViewById<Spinner> (Resource.Id.Spinner2);
+			ArrayAdapter _adapterFrom = new ArrayAdapter (this, global::Android.Resource.Layout.SimpleSpinnerItem, names.ToArray());
+			_adapterFrom.SetDropDownViewResource (global::Android.Resource.Layout.SimpleSpinnerDropDownItem);
+			spinner.Adapter = _adapterFrom;
+			spinner.ItemSelected += (object sender, AdapterView.ItemSelectedEventArgs e) => {
+				if (preventSpinnerSelectEventFiringOnCreate == true)
+				{
+					preventSpinnerSelectEventFiringOnCreate = false;
+					return;
+				}
+				int position = spinner.SelectedItemPosition;
+				if(e.Position == position){
+					String foundName = names.ElementAt(position);
+					Console.Out.WriteLine(foundName);
+					SearchResult getTrail;
+					if(trails != null && trails.Length > 0) 
+						getTrail = trails[position];
+					else
+						getTrail = debugSearchResults[position];
+					var intent = new Intent (this, typeof(ViewTrailActivity));
+					string trailJSONStr = Newtonsoft.Json.JsonConvert.SerializeObject (getTrail.trail);
+					string activitiesJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(getTrail.activities);
+					string amenitiesJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(getTrail.amenities);
+					string pointsJSONstr = Newtonsoft.Json.JsonConvert.SerializeObject(getTrail.points);
+					intent.PutExtra ("viewedTrail", trailJSONStr);
+					intent.PutExtra("activities", activitiesJSONstr);
+					intent.PutExtra("amenities", amenitiesJSONstr);
+					intent.PutExtra("points", pointsJSONstr);
+					StartActivity (intent);
+				}
+			};
 				
 		}
 
@@ -295,13 +345,6 @@ namespace Columbia583.Android
 			markerStyleBuilder.SetColor ( Nutiteq.SDK.Color.White );
 			markerStyleBuilder.SetSize ( 0.5f );
 			return markerStyleBuilder;
-		}
-		protected override Dialog OnCreateDialog(Bundle args)
-		{
-			var builder = new AlertDialog.Builder(this);
-			builder.SetTitle(Resource.String.trailList);
-			builder.SetItems (;
-			return builder.Create();
 		}
 	}
 }

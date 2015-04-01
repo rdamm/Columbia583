@@ -246,7 +246,10 @@ namespace Columbia583
 			}
 		}
 
-
+		public string[] getDifficulty(){
+			string[] names = Enum.GetNames (typeof(Difficulty));
+			return names;
+		}
 		/// <summary>
 		/// Gets the activities.
 		/// </summary>

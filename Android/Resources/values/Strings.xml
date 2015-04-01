@@ -9,4 +9,6 @@
 	<string name="activitiesList">Select Activities</string>
 	<string name="amenitiesList">Select Amenities</string>
 	<string name="trailList">List of Trails</string>
+	<string name="GreenValley">appname</string>
+	<string name="trail_prompt">Choose a Trail</string> 
 </resources>

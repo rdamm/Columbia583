@@ -6,11 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/startLayout">
-    <Button
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/trail_prompt"
+        android:id="@+id/Spinner2" />
+<!--   <Button
         android:text="View List of Trails"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:id="@+id/showTrails" />
+        android:id="@+id/showTrails" /> -->
     <com.nutiteq.MapView
         android:id="@+id/mapView2"
         android:layout_width="match_parent"
@@ -23,7 +28,7 @@
         android:layout_centerHorizontal="false"
         android:layout_alignParentLeft="false"
         android:layout_alignParentRight="false"
-        android:layout_marginTop="45.5dp" />
+        android:layout_marginTop="35dp" />
     <Button
         android:text="Change Filters"
         android:layout_width="match_parent"
