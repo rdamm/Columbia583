@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<!-- Search Filters -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+    <!-- Activities -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+            <TextView
+                android:text="Select Activities to Include in Search"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_activityLabel" />
+            <Button
+                android:text="Activities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/activitiesButton" />
+        </LinearLayout>
+    <!-- /Activities -->
+    <!-- Amenities -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <TextView
+                android:text="Select Amenities to Include in Search"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_amenityLabel" />
+            <Button
+                android:text="Amenities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/amentiesButton" />
+        </LinearLayout>
+    <!-- /Amenities -->
+    <!-- Difficulties -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+            <TextView
+                android:text="Select a Difficulty"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_difficultyLabel" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="59.7dp"
+                android:layout_weight="1">
+                <CheckBox
+                    android:text="Easiest"
+                    android:layout_width="82.5dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox_difficulty_easiest" />
+                <CheckBox
+                    android:text="Easy"
+                    android:layout_width="82.5dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox_difficulty_easy" />
+                <CheckBox
+                    android:text="More Difficult"
+                    android:layout_width="82.5dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox_difficulty_moreDifficult" />
+                <CheckBox
+                    android:text="Very Difficult"
+                    android:layout_width="82.5dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox_difficulty_veryDifficult" />
+                <CheckBox
+                    android:text="Extremely Difficult"
+                    android:layout_width="82.5dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox_difficulty_extremelyDifficult" />
+            </LinearLayout>
+        </LinearLayout>
+    <!-- /Difficulties -->
+    <!-- Rating -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+            <TextView
+                android:text="Select a Minimum Rating"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView1" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingsOptions">
+                <RadioGroup
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:id="@+id/radioGroup_ratings">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:id="@+id/radioButton_rating_1"
+                        android:text="*" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioButton_rating_2"
+                        android:text="**" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioButton_rating_3"
+                        android:text="***" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioButton_rating_4"
+                        android:text="****" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioButton_rating_5"
+                        android:text="*****" />
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+    <!-- /Rating -->
+    <!-- Duration -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+            <TextView
+                android:text="Select a Maximum Duration"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_maxDurationLabel" />
+            <EditText
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_maxDuration" />
+        </LinearLayout>
+    <!-- /Duration -->
+    <!-- Distance -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+            <TextView
+                android:text="Select a Maximum Distance"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_maxDistanceLabel" />
+            <EditText
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText_maxDistance" />
+        </LinearLayout>
+    <!-- /Distance -->
+    </LinearLayout>
+<!-- /Search Filters -->
+<!-- Results -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="261.7dp"
+        android:layout_weight="1">
+        <Button
+            android:id="@+id/button_updateSearchResults"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_updateSearchResults" />
+        <ScrollView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView1">
+            <GridLayout
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="4"
+                android:rowCount="2"
+                android:id="@+id/gridLayout_searchResults">
+            <!-- Search Results Inside -->
+            <!--
+            <TextView
+                android:text="Edgewater Trail"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView_testLabel1" />
+            <TextView
+                android:text="****"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView_testLabel2" />
+            <TextView
+                android:text="Easiest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView_testLabel3" />
+            <TextView
+                android:text="66.69 km"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView_testLabel4" />
+            <TextView
+                android:text="Niles"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView_testLabel5" />
+            <TextView
+                android:text="****"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView_testLabel6" />
+            <TextView
+                android:text="Very Difficult"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView_testLabel7" />
+            <TextView
+                android:text="113.12 km"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView_testLabel8" />
+            <TextView
+                android:text="Findlay Creek Trail 2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView_testLabel9" />
+            <TextView
+                android:text="*****"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView_testLabel10" />
+            <TextView
+                android:text="Extremely Difficult"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView_testLabel11" />
+            <TextView
+                android:text="0.59 km"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView_testLabel12" />
+            -->
+            <!-- /Search Results Inside -->
+            </GridLayout>
+        </ScrollView>
+    <!--
+        <Button
+            android:id="@+id/button_viewTrail"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_viewTrail" />
+            -->
+    </LinearLayout>
+<!-- /Results -->
+</LinearLayout>

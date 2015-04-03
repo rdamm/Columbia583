@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/startLayout">
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/trail_prompt"
+        android:id="@+id/Spinner2" />
+<!--   <Button
+        android:text="View List of Trails"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/showTrails" /> -->
+    <com.nutiteq.MapView
+        android:id="@+id/mapView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentTop="false"
+        android:layout_centerVertical="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="false"
+        android:layout_marginTop="35dp" />
+    <Button
+        android:text="Change Filters"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:id="@+id/changeFilters"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="false" />
+    <ZoomControls
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/zoomControls2"
+        android:layout_marginBottom="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="true" />
+</RelativeLayout>

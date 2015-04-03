@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/scrollView1">
+    <LinearLayout
+        p1:orientation="vertical"
+        p1:layout_width="match_parent"
+        p1:layout_height="match_parent"
+        p1:id="@+id/linearLayout1">
+        <Button
+            p1:text="Select Activity"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/activityButton" />
+        <Button
+            p1:text="Select Amenity"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/amenityButton"
+            p1:layout_marginBottom="10dp" />
+        <TextView
+            p1:text="Select Difficulty"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/difficultyText" />
+        <SeekBar
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/difficultyBar"
+            p1:layout_marginBottom="10dp" />
+        <TextView
+            p1:text="Select Minimum Rating"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/ratingText" />
+        <RatingBar
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/ratingBar"
+            p1:numStars="5"
+            p1:stepSize="1" />
+        <TextView
+            p1:text="Select Maximum Duration"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/durationText" />
+        <SeekBar
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/MaxdurationBar"
+            p1:layout_marginBottom="10dp" />
+        <TextView
+            p1:text="Select Maximum Distance"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/distanceText" />
+        <SeekBar
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/maxDistanceBar"
+            p1:layout_marginBottom="10dp" />
+        <Button
+            p1:text="Update Search Results"
+            p1:layout_width="match_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/update" />
+    </LinearLayout>
+</ScrollView>
