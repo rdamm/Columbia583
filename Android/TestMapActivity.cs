@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Net;
 
 using Android.App;
 using Android.Content;
@@ -28,6 +29,8 @@ namespace Columbia583.Android
 		private MapView _mapView;
 		private MarkerLayer _markerLayer;
 		private GeometryLayer _geometryLayer;
+		protected double[,] long_lat = null;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -79,7 +82,7 @@ namespace Columbia583.Android
 			_mapView.Zoom = 11;
 
 			/// constrain zoom range as we have limited set of tiles
-			_mapView.Constraints.ZoomRange = new Range (11, 20);
+			_mapView.Constraints.ZoomRange = new Range (1, 20);
 
 			double Cal_lat = 51.0486f, Cal_long = -114.0708f, e_lat = 50.70f, e_long = -116.132f;
 			MapPos focusPoint = mapLayer.Projection.FromWgs84( e_long, e_lat);
@@ -113,7 +116,9 @@ namespace Columbia583.Android
 			lineStyle.Color = new Nutiteq.SDK.Color (0, 0, 255);
 			lineStyle.PickingWidth = 100.0f;
 
-			IList<MapPos> mapPos = new List<MapPos> ();
+			IList<MapPos> array_lat_long = new List<MapPos> ();
+			getCoordinatesFromFile ();
+			/*IList<MapPos> mapPos = new List<MapPos> ();
 			float[] mapPosArray = {
 				-115.8953927736605f,
 				50.67251672121988f,
@@ -217,9 +222,17 @@ namespace Columbia583.Android
 			}
 			//mapPos.Add (proj.FromWgs84((float)e_long, (float)e_lat));
 			//mapPos.Add (proj.FromWgs84((float)Cal_long, (float)Cal_lat));
-			//mapPos.Add (new MapPos (Cal_lat, Cal_long));
+			//mapPos.Add (new MapPos (Cal_lat, Cal_long));*/
+			if (long_lat != null) {
+				for (int i = 0; i < long_lat.Length / 2; i++) {
+					array_lat_long.Add (proj.FromWgs84 ((float)long_lat [i, 0], (float)long_lat [i, 1]));
+				}
+			} else {
+				array_lat_long.Add (proj.FromWgs84 ((float)e_long, (float)e_lat));
+				array_lat_long.Add (proj.FromWgs84 ((float)e_long, (float)e_lat));
+			}
 
-			_geometryLayer.Add(new Line(mapPos, new DefaultLabel("Line"), lineStyle, null));
+			_geometryLayer.Add(new Line(array_lat_long, new DefaultLabel("Line"), lineStyle, null));
 
 			/// Add marker
 			AddMarker ("Marker", "Calgary", Cal_long, Cal_lat);
@@ -278,6 +291,286 @@ namespace Columbia583.Android
 			markerStyleBuilder.SetColor ( Nutiteq.SDK.Color.White );
 			markerStyleBuilder.SetSize ( 0.5f );
 			return markerStyleBuilder;
+		}
+
+		private string getKMLString(string trailName)
+		{
+			string kmlFile;
+
+			if (trailName.Contains ("Bear Lake")) {
+				kmlFile = "Bear Lake.kml";
+			}
+			else if (trailName.Contains ("5 passes")) {
+				kmlFile = "5 passes.kml";
+			} 
+			else if (trailName.Contains ("Brewer Creek")) {
+				kmlFile = "Brewer Creek Loop.kml";
+			}
+			else if (trailName.Contains("Chalice Creek")){
+				kmlFile = "Chalice.kml";
+			}
+			else if (trailName.Contains ("Cobalt Lake")) {
+				kmlFile = "Cobalt Lake.kml";
+			}
+			else if (trailName.Contains ("Cobb Lake")) {
+				kmlFile = "Cobb Lake Trail - KNP.kml";
+			}
+			else if (trailName.Contains ("Conrad Kain")) {
+				kmlFile = "Conrad Kain.kml";
+			}
+			else if (trailName.Contains ("Diana Lake")) {
+				kmlFile = "Diana Lake.kml";
+			}
+			else if (trailName.Contains ("Dog Lake")) {
+				kmlFile = "Dog Lake - KNP.kml";
+			}
+			else if (trailName.Contains ("Findlay Falls")) {
+				kmlFile = "Findlay Falls.kml";
+			}
+			else if (trailName.Contains ("Fireweed Loop - lower - TF")) {
+				kmlFile = "Fireweed Loop - lower.kml";
+			}
+			else if (trailName.Contains ("Fireweed Loop - upper - TF")) {
+				kmlFile = "Fireweed Loop - upper.kml";
+			}
+			else if (trailName.Contains ("Gibraltar Lookout")) {
+				kmlFile = "Gibraltar Trail.kml";
+			}
+			else if (trailName.Contains ("Graves Lookout")) {
+				kmlFile = "Graves Lookout.kml";
+			}
+			else if (trailName.Contains ("Hoodoos Trail")) {
+				kmlFile = "Hoodoos Loop Track.kml";
+			}
+			else if (trailName.Contains ("James Chabot")) {
+				kmlFile = "Dragonfly Boardwalk.kml";
+			}
+			else if (trailName.Contains ("Juniper Trail")) {
+				kmlFile = "Juniper Trail - KNP.kml";
+			}
+			else if (trailName.Contains ("Kimpton Creek")) {
+				kmlFile = "Kimpton Trail - KNP.kml";
+			}
+			else if (trailName.Contains ("Kindersley Pass")) {
+				kmlFile = "Kindersley Creek Trail - KNP.kml";
+			}
+			else if (trailName.Contains ("Lake Enid")) {
+				kmlFile = "Lake Enid.kml";
+			}
+			else if (trailName.Contains ("Lake of the Hanging Glacier")) {
+				kmlFile = "Lake of the Hanging Glacier.kml";
+			}
+			else if (trailName.Contains ("Lakit Lookout")) {
+				kmlFile = "Lakit Lookout.kml";
+			}
+			else if (trailName.Contains ("Lower Bugaboo Falls")) {
+				kmlFile = "Lower Bugaboo Falls.kml";
+			}
+			else if (trailName.Contains ("Marble Canyon")) {
+				kmlFile = "Marble Canyon.kml";
+			}
+			else if (trailName.Contains ("Marvel Pass")) {
+				kmlFile = "Aurora Creek_Marvel Pass.kml";
+			}
+			else if (trailName.Contains ("Mause Creek")) {
+				kmlFile = "Mause Creek Tarns_Tanglefoot Lake.kml";
+			}
+			else if (trailName.Contains ("McLean Lake")) {
+				kmlFile = "McLean Lake.kml";
+			}
+			else if (trailName.Contains ("Mount Stevens")) {
+				kmlFile = "Teepee Mountain.kml";
+			}
+			else if (trailName.Contains ("Mount Swansea - SE Ridge")) {
+				kmlFile = "Mt Swansea SE Ridge.kml";
+			}
+			else if (trailName.Contains ("Mount Swansea W Ridge")) {
+				kmlFile = "Mt Swansea.kml";
+			}
+			else if (trailName.Contains ("Olive Lake")) {
+				kmlFile = "Olive Lake Trail -KNP.kml";
+			}
+			else if (trailName.Contains ("Paint Pots")) {
+				kmlFile = "Paint Pots Trail - KNP.kml";
+			}
+			else if (trailName.Contains ("Paint Pots via Marble Canyon")) {
+				kmlFile = "Paint Pots to Marble Canyon Trail - KNP.kml";
+			}
+			else if (trailName.Contains ("Pedley Pass")) {
+				kmlFile = "Pedley Loop.kml";
+			}
+			else if (trailName.Contains ("Premier Lake")) {
+				kmlFile = "Premier Lake Trails.kml";
+			}
+			else if (trailName.Contains ("Ptarmigan Lake")) {
+				kmlFile = "Ptarmigan Lake.kml";
+			}
+			else if (trailName.Contains ("Redstreak Campground")) {
+				kmlFile = "Redstreak Campground Trail -KNP.kml";
+			}
+			else if (trailName.Contains ("Redstreak Creek")) {
+				kmlFile = "Redstreak Creek Trail - KNP.kml";
+			}
+			else if (trailName.Contains ("Redstreak Loop")) {
+				kmlFile = "Redstreak Loop -KNP.kml";
+			}
+			else if (trailName.Contains ("Redstreak Restoration")) {
+				kmlFile = "Redstreak Restoration Trail - KNP.kml";
+			}
+			else if (trailName.Contains ("Septet Pass")) {
+				kmlFile = "Septet Pass.kml";
+			}
+			else if (trailName.Contains ("Sinclair Creek Greenway")) {
+				kmlFile = "Sinclair Creek Trail.kml";
+			}
+			else if (trailName.Contains ("Sinclar Creek Trail")) {
+				kmlFile = "Sinclair Creek Trail - KNP.kml";
+			}
+			else if (trailName.Contains ("Source of the Columbia Pathway")) {
+				kmlFile = "Source of the Columbia.kml";
+			}
+			else if (trailName.Contains ("Stanley Glacier")) {
+				kmlFile = "Stanley Glacier -TF.kml";
+			}
+			else if (trailName.Contains ("Templeton Lake")) {
+				kmlFile = "Templeton.kml";
+			}
+			else if (trailName.Contains ("Coyote Campsite/Sugarloaf")) {
+				kmlFile = "Top of the World - Coyote Creek campst.kml";
+			}
+			else if (trailName.Contains ("Fish Lake")) {
+				kmlFile = "Top of the World - Fish Lake.kml";
+			}
+			else if (trailName.Contains ("Sparkle Lake")) {
+				kmlFile = "Top of the World - Sparkle Lake.kml";
+			}
+			else if (trailName.Contains ("Wildhorse Ridge")) {
+				kmlFile = "Top of the World - Wildhorse.kml";
+			}
+			else if (trailName.Contains ("Welsh Lakes")) {
+				kmlFile = "Welsh Lakes - lower only.kml";
+			}
+			else if (trailName.Contains ("Whiteswan Lake")) {
+				kmlFile = "Whiteswan Lake.kml";
+			}
+			else{
+				kmlFile = "Findlay Falls.kml";
+			}
+
+			return kmlFile;
+		}
+
+		private void readKML(string kmlString)
+		{
+			string urlLookup = @"http://trails.greenways.ca/kml/";
+
+			string webReqUrl = urlLookup + kmlString;
+
+			Console.WriteLine ("Web Request made to: {0}", webReqUrl);
+
+			HttpWebRequest webRequest = (HttpWebRequest) WebRequest.Create(webReqUrl);
+
+			using (HttpWebResponse response = (HttpWebResponse) webRequest.GetResponse())
+			using (var content = response.GetResponseStream ())
+			using (var reader = new StreamReader (content)) {
+				var strContent = reader.ReadToEnd ();
+				var path = @"/storage/emulated/0/Documents/";
+				var filename = System.IO.Path.Combine(path, "output.txt");
+
+				System.IO.File.WriteAllText(filename, strContent);
+
+				getCoordinatesFromFile ();
+			}
+
+
+			//var url = new Uri ("http://trails.greenways.ca/kml/Templeton.kml");	
+
+			//webClient.Headers [HttpRequestHeader.IfModifiedSince] = "Sat, 29 Oct 1994 19:43:31 GMT";
+
+			//webClient.Encoding = Encoding.UTF8;
+
+			//webClient.DownloadStringAsync (url);
+
+			/*webClient.DownloadStringCompleted += (sender, e) => {
+				try
+				{
+;					var text = e.Result; // get the downloaded text
+;					var path = @"/storage/emulated/0/Documents/";
+;					var filename = System.IO.Path.Combine(path, "output.txt");
+;
+;					global_filename = filename;
+;					string web_text = text;
+;					Console.WriteLine (web_text);
+;
+;					File.WriteAllText (filename, text);
+;				}
+;				catch(Exception ex){
+;					Console.WriteLine("Jack's Exception: " + ex.Message);
+;				}
+;			};*/
+		}
+
+		void getCoordinatesFromFile()
+		{
+			int token_length = 0;
+
+			string path = @"/storage/emulated/0/Documents/output.txt";
+
+			string fileContents = System.IO.File.ReadAllText(path);
+			int start = fileContents.LastIndexOf ("<LineString><coordinates>") + "<LineString><coordinates>".Length;
+			int length = fileContents.IndexOf ("</coordinates></LineString>") - start;
+			string sub = fileContents.Substring (start, length);
+
+			string[] longitude_array;
+			string[] latitude_array;
+
+			//Console.WriteLine (sub);
+			string[] tokens = sub.Split(new char[2]{' ', ','});
+
+			token_length = tokens.Length;
+			longitude_array = new string[token_length/3];
+			latitude_array = new string[token_length/3];
+
+			for(int i = 0; i < token_length/3; i++) 
+			{
+				if (tokens [3 * i] != String.Empty || tokens[3*i] != null
+					|| tokens [3 * i + 1] != String.Empty || tokens[3 * i + 1] != null) 
+				{
+					longitude_array [i] = tokens [3 * i];
+					latitude_array [i] = tokens [3 * i + 1];
+				}
+			}
+
+			long_lat = new double[longitude_array.Length, 2];
+
+
+			for (int j = 0; j < longitude_array.Length; j++) 
+			{
+				long_lat [j, 0] = Convert.ToDouble(longitude_array [j]);
+				long_lat [j, 1] = Convert.ToDouble(latitude_array [j]);
+			}
+
+			/*for (int k = 0; k < long_lat.Length/2; k++) 
+			{
+				if (long_lat [k, 0] > 0)
+					long_lat [k, 0] = long_lat [k, 0] * -1;
+;			}*/
+
+			/*array_size = counter_two/2;
+			;			long_lat = new double[array_size,2];
+			;
+			;			foreach (string line in lines) 
+				;			{
+				;				long_lat [counter_two, 0] = Convert.ToDouble (lines [3 * counter_two]);
+				;				long_lat [counter_two, 1] = Convert.ToDouble (lines [3 * counter_two + 1]);
+				;				counter_two += 1;
+				;			}
+			;
+			;			for (int i = 0; i < array_size; i++) 
+				;			{
+				;				long_lat [i, 0] = Convert.ToDouble(lines [2 * i]);
+				;				long_lat [i, 1] = Convert.ToDouble(lines [2 * i + 1]);
+				;			}*/
 		}
 	}
 }
