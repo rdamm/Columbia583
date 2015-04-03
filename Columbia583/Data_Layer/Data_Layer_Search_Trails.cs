@@ -16,7 +16,7 @@ namespace Columbia583
 
 		}
 
-		
+
 		/// <summary>
 		/// Gets the trails by search filter.
 		/// </summary>
@@ -93,17 +93,17 @@ namespace Columbia583
 				{
 					string difficultyLine = "(";
 					bool firstDiff = true;
-//					foreach(Difficulty d in searchFilter.difficulty)
-//					{
-//						if (firstDiff)
-//						{
-//							firstDiff = false;
-//						}
-//						else
-//						{
-//							difficultyLine += " OR ";
-//						}
-						difficultyLine += "difficulty = ?";
+					//					foreach(Difficulty d in searchFilter.difficulty)
+					//					{
+					//						if (firstDiff)
+					//						{
+					//							firstDiff = false;
+					//						}
+					//						else
+					//						{
+					//							difficultyLine += " OR ";
+					//						}
+					difficultyLine += "difficulty = ?";
 					parameters.Add((int)searchFilter.difficulty);
 					//}
 					difficultyLine += ")";
@@ -178,9 +178,9 @@ namespace Columbia583
 
 				//test to see if whereQuery is empty, if so get all trails by default.
 				if(whereQuery == "WHERE ()"){
-					 response = connection.Query<Trail>("SELECT * FROM Trail");
+					response = connection.Query<Trail>("SELECT * FROM Trail");
 				}else
-					 response = connection.Query<Trail>("SELECT * FROM Trail " + whereQuery, parameters.ToArray());
+					response = connection.Query<Trail>("SELECT * FROM Trail " + whereQuery, parameters.ToArray());
 
 				// For each matching trail, get its points, activities, and amenities.
 				searchResults = new List<ListableTrail>();

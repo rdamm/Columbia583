@@ -7,7 +7,7 @@ namespace Columbia583
 	{
 		public Data_Layer_App_Globals ()
 		{
-			
+
 		}
 
 

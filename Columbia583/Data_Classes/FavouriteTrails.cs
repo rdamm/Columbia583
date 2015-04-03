@@ -17,7 +17,7 @@ namespace Columbia583
 
 		public FavouriteTrails ()
 		{
-			
+
 		}
 
 		public FavouriteTrails (int userId, int trailId)

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -8,23 +8,20 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-
+using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
 using Android.Support.V4.View;
 using Android.Support.V4.App;
+
 using DK.Ostebaronen.Droid.ViewPagerIndicator;
-//using DK.Ostebaronen.Droid.ViewPagerIndicator;
-//using DK.Ostebaronen.Droid.ViewPagerIndicator;
 
 namespace Columbia583.Android
 {
 	[Activity (Label = "Columbia583.Android_View_Trail", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]
 	public class ViewTrailActivity : FragmentActivity
 	{
-		protected int trailId;
-
 		protected ViewPager pager = null;
 		protected MyFragmentPagerAdapter adapter = null;
 		protected CirclePageIndicator pageIndicator = null;
@@ -42,12 +39,16 @@ namespace Columbia583.Android
 		protected TextView season = null;
 		protected TextView maintenance = null;
 		protected LinearLayout commentsLayout = null;
+		protected GridView trailGallery = null;
+
 		protected global::Android.Widget.Button addToFavouritesButton = null;
 		protected global::Android.Widget.Button uploadMediaButton = null;
-		protected GridView trailGallery = null;
-		//private GestureDetector _gestureDetector;
 		protected global::Android.Widget.Button commentButton = null;
+		//private GestureDetector _gestureDetector;
+
 		protected bool debugTrailA = true;
+
+		protected global::Android.Widget.Button viewTrailMapsButton = null;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -73,14 +74,11 @@ namespace Columbia583.Android
 			Point[] points = Newtonsoft.Json.JsonConvert.DeserializeObject<Point[]> (pointsJSONstr);
 			trailName.Text = trail.name;
 
-			trailId = trail.id;
+			Data_Access_Layer_View_Trail dataAccessLayerViewTrail = new Data_Access_Layer_View_Trail();
+			Media[] mediaList = dataAccessLayerViewTrail.getMedia(trail.id);
 
 			Activity[] debugActivities = new Activity[6];
 			Amenity[] debugAmenities = new Amenity[2];
-
-			// Get the trail's media.
-			Data_Access_Layer_View_Trail dataAccessLayerViewTrail = new Data_Access_Layer_View_Trail();
-			Media[] mediaList = dataAccessLayerViewTrail.getMedia(trail.id);
 
 			if (debugTrailA) {
 				debugActivities [0] = new Activity (1, "Hiking", new byte[0], DateTime.Now);
@@ -106,7 +104,6 @@ namespace Columbia583.Android
 					openStatus = view.FindViewById<TextView>(Resource.Id.openStatus);
 					season = view.FindViewById<TextView>(Resource.Id.season);
 					maintenance = view.FindViewById<TextView>(Resource.Id.maintenance);
-					addToFavouritesButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.btnAddToFavourites);
 
 					// Get trail data.
 					distance.Text = trail.distance + " km";
@@ -122,22 +119,14 @@ namespace Columbia583.Android
 					season.Text = "Season: " + trail.season;
 					maintenance.Text = trail.maintenance;
 
-					// Set the event handlers.
-					if (addToFavouritesButton != null) {
-						addToFavouritesButton.Click += (sender, e) => {
+					viewTrailMapsButton = view.FindViewById<global::Android.Widget.Button> (Resource.Id.button_map);
 
-							// Get the active user's ID.
-							Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
-							User activeUser = dataAccessLayerCommon.getActiveUser();
-							int activeUserId = activeUser.id;
-
-							// Add the trail to the user's favourites list.
-							Data_Access_Layer_Favourites dataAccessLayerFavourites = new Data_Access_Layer_Favourites();
-							dataAccessLayerFavourites.addFavouriteTrail(activeUserId, trailId);
-
+					if (viewTrailMapsButton != null){
+						viewTrailMapsButton.Click += (sender, e) => {
+							var intent = new Intent(this, typeof(TestMapActivity));
+							StartActivity(intent);
 						};
 					}
-
 					return view;
 				}
 			);
@@ -223,7 +212,6 @@ namespace Columbia583.Android
 						StartActivity (intent);
 					};
 
-
 					return view;
 
 				}
@@ -231,7 +219,7 @@ namespace Columbia583.Android
 			adapter.AddFragmentView((i, v, b) =>
 				{
 					var view = LayoutInflater.Inflate(Resource.Layout.ViewTrail4, v, false);
-
+					//trailGallery = view.FindViewById<LinearLayout>(Resource.Id.trailGallery);
 					// Get the controls.
 					trailGallery = view.FindViewById<GridView>(Resource.Id.trailGallery);
 					uploadMediaButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.btnUploadMedia);

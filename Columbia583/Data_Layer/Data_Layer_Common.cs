@@ -92,7 +92,7 @@ namespace Columbia583
 				{
 					// Get the table's name.
 					string tableName = tableType.Name;
-					
+
 					// Get the column names from the table's properties.
 					System.Reflection.PropertyInfo[] properties = tableType.GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
 
@@ -115,10 +115,10 @@ namespace Columbia583
 						}
 					}
 				}
-				
+
 				// Determine if the database has been initialized based on the table and column existences.
 				databaseInitialized = allTablesExist && allColumnsExist;
-				
+
 				// Close connection to local database.
 				connection.Close();
 			}
@@ -783,7 +783,7 @@ namespace Columbia583
 
 			return comment;
 		}
-			
+
 		/// <summary>
 		/// Gets the comment.
 		/// </summary>
@@ -866,7 +866,7 @@ namespace Columbia583
 
 			return trail;
 		}
-			
+
 		/// <summary>
 		/// Gets the media.
 		/// </summary>
@@ -1216,7 +1216,7 @@ namespace Columbia583
 			return userIds;
 		}
 
-		
+
 		/// <summary>
 		/// Updates the rows.
 		/// </summary>
@@ -1240,7 +1240,7 @@ namespace Columbia583
 			{
 				// Open connection to local database.
 				var connection = new SQLiteConnection(getPathToDatabase());
-				
+
 				// Update the data that has no foreign keys.
 				connection.UpdateAll(activities);
 				connection.UpdateAll(amenities);
@@ -1257,7 +1257,7 @@ namespace Columbia583
 				connection.UpdateAll(users);
 				connection.UpdateAll(comments);
 
-				
+
 				// Close connection to local database.
 				connection.Close();
 			}
@@ -1268,7 +1268,7 @@ namespace Columbia583
 			}
 		}
 
-		
+
 		/// <summary>
 		/// Deletes the rows.
 		/// </summary>
@@ -1292,7 +1292,7 @@ namespace Columbia583
 			{
 				// Open connection to local database.
 				var connection = new SQLiteConnection(getPathToDatabase());
-				
+
 				// Delete the data that has foreign keys.
 				// TODO: Fix deletion for TrailsToActivities and TrailsToAmenities.  Their class definition doesn't have a primary key.
 				foreach(var row in favouriteTrails)		connection.Delete(row);
@@ -1303,7 +1303,7 @@ namespace Columbia583
 				foreach(var row in media)				connection.Delete(row);
 				foreach(var row in trails)				connection.Delete(row);
 				foreach(var row in users)				connection.Delete(row);
-				
+
 				// Delete the data that has no foreign keys.
 				foreach(var row in activities)		connection.Delete(row);
 				foreach(var row in amenities)		connection.Delete(row);
@@ -1321,7 +1321,7 @@ namespace Columbia583
 			}
 		}
 
-		
+
 		/// <summary>
 		/// Clears the tables.
 		/// NOTE: SQLite doesn't reset the primary key index when a table is cleared.  To reset, drop and recreate the tables.

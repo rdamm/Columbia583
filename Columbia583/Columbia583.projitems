@@ -29,10 +29,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)SQLite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\TrailsToActivities.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\TrailsToAmenities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\SearchResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Access_Layer\Data_Access_Layer_Common.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Access_Layer\Data_Access_Layer_View_Trail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Layer\Data_Layer_Tests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Layer\Data_Layer_View_Trail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Layer\DatabaseLastUpdated.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Access_Layer\Data_Access_Layer_Tests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service_Access_Layer\Service_Access_Layer_Common.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service_Access_Layer\Webservice_User.cs" />
@@ -43,14 +45,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\Comment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service_Access_Layer\Webservice_Comment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\OAuthUser.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service_Access_Layer\Service_Access_Layer_Upload.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data_Access_Layer\Data_Access_Layer_Upload.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\ListableTrail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\FavouriteTrails.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\AppGlobals.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Layer\Data_Layer_App_Globals.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\FavouriteTrails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data_Access_Layer\Data_Access_Layer_Upload.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Access_Layer\Data_Access_Layer_Favourites.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data_Layer\Data_Layer_Favourites.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data_Classes\ListableTrail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service_Access_Layer\Service_Access_Layer_Upload.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data_Layer\" />

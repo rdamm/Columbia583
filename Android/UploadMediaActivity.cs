@@ -84,7 +84,7 @@ namespace Columbia583.Android
 						Toast.MakeText(this, "Please set the title.", ToastLength.Long).Show();
 						return;
 					}
-					
+
 					// Convert the bitmap into a byte array.
 					MemoryStream stream = new MemoryStream();
 					selectedImageBitmap.Compress(Bitmap.CompressFormat.Png, 0, stream);

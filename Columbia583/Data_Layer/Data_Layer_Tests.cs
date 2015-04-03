@@ -93,7 +93,7 @@ namespace Columbia583
 			trailsToAmenities [1] = new TrailsToAmenities (1, 2);
 			trailsToAmenities [2] = new TrailsToAmenities (2, 1);
 			trailsToAmenities [3] = new TrailsToAmenities (3, 1);
-			
+
 			// Insert the rows.
 			Data_Layer_Common dataLayer = new Data_Layer_Common ();
 			dataLayer.insertRows(activities, amenities, favouriteTrails, mapTiles, media, organizations, points, roles, trails, trailsToActivities, trailsToAmenities, users);
@@ -257,7 +257,7 @@ namespace Columbia583
 			}
 		}
 
-		
+
 		/// <summary>
 		/// Updates the tables with sample data.
 		/// </summary>

@@ -248,7 +248,7 @@ namespace Columbia583
 			{
 				Console.WriteLine (e.Message);
 			}
-			
+
 			// TODO: Get the remaining database data.
 			MapTile[] mapTiles = new MapTile[0];
 			Media[] media = new Media[0];
@@ -257,7 +257,7 @@ namespace Columbia583
 
 			// Default the favourite trails to an empty list.  They are not stored on the server.
 			FavouriteTrails[] favouriteTrails = new FavouriteTrails[0];
-			
+
 			// Store the data in the local database.
 			dataLayer.insertRows (activities.ToArray(), amenities.ToArray(), favouriteTrails, mapTiles, media, organizations.ToArray(), points, roles, trails.ToArray(),
 				trailsToActivities.ToArray(), trailsToAmenities.ToArray(), users.ToArray());
@@ -546,7 +546,7 @@ namespace Columbia583
 							trailsToAmenities.Add(new TrailsToAmenities(currentTrail.id, amenity.id));
 						}
 					}
-						
+
 					/*
 					 * if (currentTrail.point != null && currentTrail.point.Count > 0)
 					 * {

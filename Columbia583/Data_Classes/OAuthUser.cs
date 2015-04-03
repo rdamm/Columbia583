@@ -18,7 +18,7 @@ namespace Columbia583
 
 		public OAuthUser ()
 		{
-			
+			//{"id":"10152618837852315","first_name":"Ryan","gender":"male","last_name":"Damm","link":"https:\/\/www.facebook.com\/app_scoped_user_id\/10152618837852315\/","locale":"en_US","name":"Ryan Damm","timezone":-6,"updated_time":"2015-03-23T22:41:59+0000","verified":true}
 		}
 	}
 }

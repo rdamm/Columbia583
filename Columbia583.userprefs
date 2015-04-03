@@ -1,10 +1,14 @@
 ﻿<Properties StartupItem="Android/Columbia583.Android.csproj" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android/ViewTrailActivity.cs">
     <Files>
       <File FileName="Android/MainMenuActivity.cs" Line="1" Column="1" />
       <File FileName="Android/SearchTrailPage2.cs" Line="1" Column="1" />
-      <File FileName="Android/ViewTrailActivity.cs" Line="1" Column="1" />
+      <File FileName="Columbia583.NUnit/TestsSample.cs" Line="1" Column="1" />
+      <File FileName="Columbia583.NUnit/MainActivity.cs" Line="1" Column="1" />
+      <File FileName="Android/UploadComment.cs" Line="21" Column="39" />
+      <File FileName="Android/UploadMediaActivity.cs" Line="12" Column="22" />
+      <File FileName="Android/ViewTrailActivity.cs" Line="47" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

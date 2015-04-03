@@ -5,12 +5,11 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:weightSum="1">
-    <ImageView
-        android:src="@android:drawable/ic_menu_gallery"
+    <Button
+        android:text="View Map"
         android:layout_width="match_parent"
-        android:layout_height="160.0dp"
-        android:id="@+id/imageView1"
-        android:layout_marginLeft="3.0dp" />
+        android:layout_height="wrap_content"
+        android:id="@+id/button_map" />
     <RatingBar
         android:layout_width="240.7dp"
         android:layout_height="wrap_content"
@@ -43,7 +42,7 @@
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="50.0dp"
+        android:layout_height="100.0dp"
         android:id="@+id/scrollView3">
         <TextView
             android:text="Description Here"
@@ -101,9 +100,4 @@
         android:id="@+id/difficultyRating"
         android:hint="Easiest?"
         android:layout_marginLeft="3.0dp" />
-    <Button
-        android:text="Add to Favourites"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnAddToFavourites" />
 </LinearLayout>

@@ -22,7 +22,7 @@ namespace Columbia583
 		public DateTime createdAt { get; set; }
 		public DateTime updatedAt { get; set; }
 		public bool pushToServer { get; set; }
-		
+
 		public User()
 		{
 			this.id = 0;

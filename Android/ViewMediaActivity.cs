@@ -46,7 +46,7 @@ namespace Columbia583.Android
 			mediaGallerySelectedMediaTitle = FindViewById<TextView> (Resource.Id.mediaGallerySelectedMediaTitle);
 			mediaGallerySelectedMediaImage = FindViewById<ImageView> (Resource.Id.mediaGallerySelectedMediaImage);
 			mediaGallerySelectedMediaComment = FindViewById<TextView> (Resource.Id.mediaGallerySelectedMediaComment);
-			
+
 			// Show the media's text.
 			mediaGallerySelectedMediaTitle.Text = media.title;
 			mediaGallerySelectedMediaComment.Text = media.title;

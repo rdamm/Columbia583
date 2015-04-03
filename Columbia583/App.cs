@@ -31,6 +31,17 @@ namespace Columbia583
 			};
 		}
 
+		public static Page GetMapsPage()
+		{
+			return new ContentPage {
+				Content = new Label {
+					Text = "Maps Page",
+					VerticalOptions = LayoutOptions.CenterAndExpand,
+					HorizontalOptions = LayoutOptions.CenterAndExpand,
+				},
+			};
+		}
+
 		public static Page GetViewTrailPage()
 		{
 			return new ContentPage {

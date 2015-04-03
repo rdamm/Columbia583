@@ -15,7 +15,6 @@ using Xamarin.Forms.Platform.Android;
 
 using System.Threading;
 using System.Threading.Tasks;
-using Android.Net;
 
 namespace Columbia583.Android.hi
 {
@@ -42,57 +41,38 @@ namespace Columbia583.Android.hi
 			splashProgressLabel = FindViewById<TextView> (Resource.Id.txtSplashProgressLabel);
 
 			// Create a background thread for the app initialization.
-			// NOTE: The UI doesn't load until this entire method has completed.  So, the initialization must go into a background thread.
+			// NOTE: The UI doesn't load until this entire method has completed.  So, the
+			// initialization must go into a background thread.
 			// TODO: Fix bug where rotating the screen during the splash screen's loading creates multiple threads.
 			new Thread (new ThreadStart (() => {
 				// Define the number of tasks to complete for the progress bar.
 				int completedTasks = 0;
 				int totalTasks = 1;
 
-				// Check if the network is available via WiFi.  We don't want network-dependent methods to run
-				// without an internet connection, and we don't want bandwidth-heavy methods to run if only the
-				// cellular network is available.
-				bool connectedToWifi = NetworkHelper.wifiAvailable(this);
-
-				// If WiFi is available, run the database initialization.
-				if (connectedToWifi == true)
+				if (NetworkHelper.wifiAvailable(this))
 				{
-					// Check if the database has been initialized.
-					Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common ();
-					bool databaseInitialized = dataAccessLayer.databaseInitialized ();
-
-					// Initialize / update the local database.
-					if (databaseInitialized == true)
-					{
-						dataAccessLayer.updateDatabase ();
-						Console.WriteLine("Splash screen has updated the database.");
-					}
-					else
-					{
-						dataAccessLayer.initializeDatabase ();
-						dataAccessLayer.initializeComments();
-						Console.WriteLine("Splash screen has initialized the database.");
-					}
-					completedTasks++;
-					Console.WriteLine("Database updated in splash activity initializer.");
-
-					// Update the progress bar.
-					RunOnUiThread(() => {
-						splashProgressBar.Progress = ((int)((float)completedTasks / (float)totalTasks * 100));
-						splashProgressLabel.Text = "Database updated.";
-					});
+				// If the database has been initialized, update it.  Otherwise, initialize it.
+				Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common ();
+				if (dataAccessLayer.databaseInitialized () == true)
+				{
+					// TODO: Uncomment once the update works without redownloading everything.
+					dataAccessLayer.updateDatabase ();
+					Console.WriteLine("Splash screen has updated the database.");
 				}
 				else
 				{
-					completedTasks++;
-					Console.WriteLine("WiFi unavailable.  Skipping database update.");
-
-					// Update the progress bar.
-					RunOnUiThread(() => {
-						splashProgressBar.Progress = ((int)((float)completedTasks / (float)totalTasks * 100));
-						splashProgressLabel.Text = "WiFi unavailable.  Database update skipped.";
-					});
+					dataAccessLayer.initializeDatabase ();
+					dataAccessLayer.initializeComments();
+					Console.WriteLine("Splash screen has initialized the database.");
 				}
+				completedTasks++;
+				Console.WriteLine("Database updated in splash activity initializer.");
+				}
+				// Update the progress bar.
+				RunOnUiThread(() => {
+					splashProgressBar.Progress = ((int)((float)completedTasks / (float)totalTasks * 100));
+					splashProgressLabel.Text = "Database updated.";
+				});
 
 				// Load the main menu.
 				RunOnUiThread(() => {

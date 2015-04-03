@@ -55,7 +55,7 @@ namespace Columbia583.Android
 			User getUser = data_access_layer.getActiveUser();
 			if (getUser != null)
 				upload_trail.Enabled = true;
-			
+
 			// Get the active user and show their username.
 			Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
 			User activeUser = dataAccessLayerCommon.getActiveUser ();
@@ -69,13 +69,13 @@ namespace Columbia583.Android
 				// Clear the active user.
 				clearActiveUser();
 			}
-			
+
 			// Assign the event handlers.
 			if (searchTrailsButton != null) {
 				searchTrailsButton.Click += (sender, e) => {
 
 					// Load the search trails page.
-					var intent = new Intent(this, typeof(SearchTrailsPage));
+					var intent = new Intent(this, typeof(SearchTrails));
 					StartActivity(intent);
 
 				};
@@ -98,15 +98,15 @@ namespace Columbia583.Android
 
 				};
 			}
-//			if (debugAndTestsButton != null) {
-//				debugAndTestsButton.Click += (sender, e) => {
-//
-//					// Load the debug and tests page.
-//					var intent = new Intent(this, typeof(DebugMenuActivity));
-//					StartActivity(intent);
-//
-//				};
-//			}
+			//			if (debugAndTestsButton != null) {
+			//				debugAndTestsButton.Click += (sender, e) => {
+			//
+			//					// Load the debug and tests page.
+			//					var intent = new Intent(this, typeof(DebugMenuActivity));
+			//					StartActivity(intent);
+			//
+			//				};
+			//			}
 			if (loginButton != null) {
 				loginButton.Click += requestLoginEvent;
 			}
@@ -131,10 +131,10 @@ namespace Columbia583.Android
 			{
 				// Create an OAuth authentication request.  Add email to the scope to include it in the account request permissions.
 				var auth = new OAuth2Authenticator (
-					           clientId: "370094413194090",
-					           scope: "email",
-					           authorizeUrl: new Uri ("https://m.facebook.com/dialog/oauth/"),
-					           redirectUrl: new Uri ("http://www.facebook.com/connect/login_success.html"));
+					clientId: "370094413194090",
+					scope: "email",
+					authorizeUrl: new Uri ("https://m.facebook.com/dialog/oauth/"),
+					redirectUrl: new Uri ("http://www.facebook.com/connect/login_success.html"));
 
 				// Open the login screen.
 				StartActivity (auth.GetUI (this));
@@ -202,6 +202,7 @@ namespace Columbia583.Android
 
 								// Set the active user.
 								setActiveUser (user);
+								upload_trail.Enabled = true;
 							}
 						});
 					}
@@ -223,6 +224,8 @@ namespace Columbia583.Android
 		{
 			// Clear the active user.
 			clearActiveUser();
+			upload_trail.Enabled = false;
+
 		}
 
 

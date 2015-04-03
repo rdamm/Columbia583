@@ -8,7 +8,7 @@ namespace Columbia583
 	{
 		public Data_Layer_Favourites ()
 		{
-			
+
 		}
 
 
@@ -26,7 +26,7 @@ namespace Columbia583
 				var connection = new SQLiteConnection(Data_Layer_Common.getPathToDatabase());
 
 				favouriteTrails = new List<ListableTrail>();
-				
+
 				// Get the trails from the user's favourites.
 				List<Trail> trails = new List<Trail>();
 				var trailResponse = connection.Query<Trail>("SELECT * FROM Trail INNER JOIN FavouriteTrails ON Trail.id = FavouriteTrails.trailId WHERE FavouriteTrails.userId = ?", userId);
@@ -96,7 +96,7 @@ namespace Columbia583
 				// Add the trail to the user's favourites.
 				FavouriteTrails favouriteTrail = new FavouriteTrails(userId, trailId);
 				connection.Insert(favouriteTrail);
-				
+
 				// Close connection to local database.
 				connection.Close();
 			}
