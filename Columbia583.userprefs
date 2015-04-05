@@ -1,19 +1,18 @@
-﻿<Properties StartupItem="Android/Columbia583.Android.csproj" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
-  <MonoDevelop.Ide.Workbench>
+﻿<Properties StartupItem="Android\Columbia583.Android.csproj" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\MainMenuActivity.cs">
     <Files>
-      <File FileName="Android/MainMenuActivity.cs" Line="1" Column="1" />
-      <File FileName="Android/SearchTrailPage2.cs" Line="1" Column="1" />
-      <File FileName="Columbia583.NUnit/TestsSample.cs" Line="1" Column="1" />
-      <File FileName="Columbia583.NUnit/MainActivity.cs" Line="1" Column="1" />
-      <File FileName="Android/UploadComment.cs" Line="1" Column="1" />
-      <File FileName="Android/UploadMediaActivity.cs" Line="1" Column="1" />
-      <File FileName="Android/ViewTrailActivity.cs" Line="42" Column="22" />
+      <File FileName="Android\MainMenuActivity.cs" Line="10" Column="1" />
+      <File FileName="Android\SearchTrailPage2.cs" Line="1" Column="1" />
+      <File FileName="Columbia583.NUnit\TestsSample.cs" Line="1" Column="1" />
+      <File FileName="Columbia583.NUnit\MainActivity.cs" Line="1" Column="1" />
+      <File FileName="Android\UploadComment.cs" Line="1" Column="1" />
+      <File FileName="Android\UploadMediaActivity.cs" Line="1" Column="1" />
+      <File FileName="Android\ViewTrailActivity.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Columbia583.Android AndroidDesignerPreferredDevice="Nexus 4" />
 </Properties>
