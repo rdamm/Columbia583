@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Android\MainMenuActivity.cs">
     <Files>
-      <File FileName="Android\MainMenuActivity.cs" Line="10" Column="1" />
+      <File FileName="Android\MainMenuActivity.cs" Line="44" Column="80" />
       <File FileName="Android\SearchTrailPage2.cs" Line="1" Column="1" />
       <File FileName="Columbia583.NUnit\TestsSample.cs" Line="1" Column="1" />
       <File FileName="Columbia583.NUnit\MainActivity.cs" Line="1" Column="1" />

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<component format="1" id="NutiteqMapsSDK">
+  <name>Nutiteq Maps SDK</name>
+  <publisher>Nutiteq</publisher>
+  <publisher-url>http://www.nutiteq.com</publisher-url>
+  <version>1.0.1</version>
+  <summary>Add 3D Maps to your Xamarin apps.</summary>
+  <samples>
+    <sample id="NutiteqSDK.Samples">
+      <name>Map Sample Apps.</name>
+      <summary>Simple and advanced sample app for getting started with Nutiteq Android 3D Maps SDK</summary>
+    </sample>
+  </samples>
+</component>
