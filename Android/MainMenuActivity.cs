@@ -19,14 +19,12 @@ namespace Columbia583.Android
 	[Activity (Label = "Columbia583.Android_Main_Menu", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]
 	public class MainMenuActivity : AndroidActivity
 	{
+		protected LinearLayout loginWrapper = null;
 		protected Button searchTrailsButton = null;
-		protected Button debugAndTestsButton = null;
-		protected Button loginButton = null;
-		protected Button logoutButton = null;
-		protected TextView loggedInUsersUsernameText = null;
-		protected Button scanQrCodeButton = null;
 		protected Button viewFavouriteTrailsButton = null;
-		protected Button upload_trail = null;
+		protected Button uploadTrail = null;
+		protected Button scanQrCodeButton = null;
+		protected Button optionsMenuButton = null;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -41,20 +39,12 @@ namespace Columbia583.Android
 			SetContentView (Resource.Layout.Main);
 
 			// Get the controls.
+			loginWrapper = FindViewById<LinearLayout> (Resource.Id.layout_loginWrapper);
 			searchTrailsButton = FindViewById<Button> (Resource.Id.button_searchTrails);
-			//debugAndTestsButton = FindViewById<Button> (Resource.Id.button_debugAndTests);
-			loginButton = FindViewById<Button> (Resource.Id.button_login);
-			logoutButton = FindViewById<Button> (Resource.Id.button_logout);
-			loggedInUsersUsernameText = FindViewById<TextView> (Resource.Id.txtLoggedInUsersUsername);
-			scanQrCodeButton = FindViewById<Button> (Resource.Id.button_scanQrCode);
 			viewFavouriteTrailsButton = FindViewById<Button> (Resource.Id.button_viewFavouriteTrails);
-			upload_trail = FindViewById<Button> (Resource.Id.uploadTrail);
-
-			upload_trail.Enabled = false;
-			Data_Access_Layer_Common data_access_layer = new Data_Access_Layer_Common();
-			User getUser = data_access_layer.getActiveUser();
-			if (getUser != null)
-				upload_trail.Enabled = true;
+			uploadTrail = FindViewById<Button> (Resource.Id.uploadTrail);
+			scanQrCodeButton = FindViewById<Button> (Resource.Id.button_scanQrCode);
+			optionsMenuButton = FindViewById<Button> (Resource.Id.button_options);
 
 			// Get the active user and show their username.
 			Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
@@ -79,8 +69,8 @@ namespace Columbia583.Android
 					StartActivity(intent);
 
 				};
-			}if (upload_trail != null) {
-				upload_trail.Click += (sender, e) => {
+			}if (uploadTrail != null) {
+				uploadTrail.Click += (sender, e) => {
 
 					// Load the search trails page.
 					var intent = new Intent(this, typeof(UploadTrail));
@@ -98,23 +88,17 @@ namespace Columbia583.Android
 
 				};
 			}
-			//			if (debugAndTestsButton != null) {
-			//				debugAndTestsButton.Click += (sender, e) => {
-			//
-			//					// Load the debug and tests page.
-			//					var intent = new Intent(this, typeof(DebugMenuActivity));
-			//					StartActivity(intent);
-			//
-			//				};
-			//			}
-			if (loginButton != null) {
-				loginButton.Click += requestLoginEvent;
-			}
-			if (logoutButton != null) {
-				logoutButton.Click += logoutEvent;
-			}
 			if (scanQrCodeButton != null) {
 				scanQrCodeButton.Click += ScanQrCodeEvent;
+			}
+			if (optionsMenuButton != null) {
+				optionsMenuButton.Click += (sender, e) => {
+
+					// Load the options menu page.
+					var intent = new Intent(this, typeof(OptionsMenuActivity));
+					StartActivity(intent);
+
+				};
 			}
 		}
 
@@ -202,7 +186,6 @@ namespace Columbia583.Android
 
 								// Set the active user.
 								setActiveUser (user);
-								upload_trail.Enabled = true;
 							}
 						});
 					}
@@ -224,8 +207,6 @@ namespace Columbia583.Android
 		{
 			// Clear the active user.
 			clearActiveUser();
-			upload_trail.Enabled = false;
-
 		}
 
 
@@ -239,15 +220,25 @@ namespace Columbia583.Android
 			Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
 			dataAccessLayerCommon.setActiveUser (user.id);
 
-			// DEBUG: Display the active user.
-			User activeUser = dataAccessLayerCommon.getActiveUser();
+			// Display the active user.
+			RunOnUiThread (() => {
+				// Create a new login status view.
+				TextView loginStatus = new TextView(this);
+				loginStatus.Text = "Logged in as " + user.username + ".  Not " + user.username + "?  Logout here.";
+				loginStatus.SetTextColor(global::Android.Graphics.Color.CornflowerBlue);
+				loginStatus.PaintFlags = global::Android.Graphics.PaintFlags.UnderlineText;
+				loginStatus.Gravity = GravityFlags.Right;
 
-			// Change the username view.
-			RunOnUiThread (() => loggedInUsersUsernameText.Text = "Logged in as " + user.username + ".");
+				// Set the view's event handler.
+				loginStatus.Click += logoutEvent;
 
-			// Show the login button.
-			RunOnUiThread (() => loginButton.Visibility = ViewStates.Invisible);
-			RunOnUiThread (() => logoutButton.Visibility = ViewStates.Visible);
+				// Add the status to the wrapper.
+				loginWrapper.RemoveAllViews();
+				loginWrapper.AddView(loginStatus);
+
+				// Enable the upload trail button.
+				uploadTrail.Enabled = true;
+			});
 		}
 
 
@@ -260,15 +251,25 @@ namespace Columbia583.Android
 			Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
 			dataAccessLayerCommon.setActiveUser (0);
 
-			// DEBUG: Display the active user.
-			User activeUser = dataAccessLayerCommon.getActiveUser();
+			// Clear the active user display.
+			RunOnUiThread (() => {
+				// Create a new login status view.
+				TextView loginStatus = new TextView (this);
+				loginStatus.Text = "Not logged in.  Login here.";
+				loginStatus.SetTextColor (global::Android.Graphics.Color.CornflowerBlue);
+				loginStatus.PaintFlags = global::Android.Graphics.PaintFlags.UnderlineText;
+				loginStatus.Gravity = GravityFlags.Right;
 
-			// Change the username view.
-			RunOnUiThread (() => loggedInUsersUsernameText.Text = "Not logged in.");
+				// Set the view's event handler.
+				loginStatus.Click += requestLoginEvent;
 
-			// Show the login button.
-			RunOnUiThread (() => loginButton.Visibility = ViewStates.Visible);
-			RunOnUiThread (() => logoutButton.Visibility = ViewStates.Invisible);
+				// Add the status to the wrapper.
+				loginWrapper.RemoveAllViews ();
+				loginWrapper.AddView (loginStatus);
+
+				// Disable the upload trail button.
+				uploadTrail.Enabled = false;
+			});
 		}
 
 

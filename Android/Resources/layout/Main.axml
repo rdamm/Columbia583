@@ -3,6 +3,13 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_loginWrapper" />
     <ImageView
         android:src="@drawable/greenways_header_logo"
         android:layout_width="match_parent"
@@ -19,35 +26,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button_viewFavouriteTrails" />
-<!--  <Button
-        android:text="Debug and Tests Menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button_debugAndTests" />    -->
     <Button
         android:text="Upload Trail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/uploadTrail" />
     <Button
-        android:text="Login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button_login" />
-    <Button
-        android:text="Logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button_logout" />
-    <Button
         android:text="Scan Trail QR Code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button_scanQrCode" />
-    <TextView
-        android:text="Not Logged In"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+    <Button
+        android:text="Options"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtLoggedInUsersUsername" />
+        android:id="@+id/button_options" />
 </LinearLayout>

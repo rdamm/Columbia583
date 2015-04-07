@@ -1,36 +1,6 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs">
-    <Files>
-      <File FileName="Android\MainMenuActivity.cs" Line="44" Column="80" />
-      <File FileName="Android\SearchTrailPage2.cs" Line="1" Column="1" />
-      <File FileName="Columbia583.NUnit\TestsSample.cs" Line="1" Column="1" />
-      <File FileName="Columbia583.NUnit\MainActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\UploadComment.cs" Line="1" Column="1" />
-      <File FileName="Android\UploadMediaActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\ViewTrailActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\TestMapActivity.cs" Line="17" Column="7" />
-      <File FileName="c:\Users\Jaclyn\Documents\GitHub\Columbia583\Android\MainMapActivity.cs" Line="395" Column="4" />
-      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Common.cs" Line="600" Column="17" />
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Columbia583" expanded="True">
-            <Node name="Data_Access_Layer" expanded="True">
-              <Node name="Data_Access_Layer_Common.cs" selected="True" />
-            </Node>
-            <Node name="Data_Layer" expanded="True" />
-          </Node>
-          <Node name="Columbia583.Android" expanded="True">
-            <Node name="References" expanded="True" />
-            <Node name="ComponentReferenceFolder" expanded="True" />
-            <Node name="Packages" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.virtualNexus" />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
