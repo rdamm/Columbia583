@@ -552,7 +552,7 @@ namespace Columbia583
 					 * {
 					 * 		foreach (Webservice_Point point in currentTrail.point)
 					 * 		{
-					 * 			if (dataLayet.getPoint(point.id) != null)
+					 * 			if (dataLayer.getPoint(point.id) != null)
 					 * 			{
 					 * 				updatePoints.Add(new Point(point.id, point.trailId, point.mapTileId, point.nextPointId, point.title, point.description, point.lat, point.lon, point.primary, point.timestamp));
 					 * 			}
