@@ -41,6 +41,15 @@ namespace Columbia583.Android
 		protected LinearLayout commentsLayout = null;
 		protected GridView trailGallery = null;
 
+		// Store references to the view fragments.
+		protected global::Android.Views.View viewFragment1 = null;
+		protected global::Android.Views.View viewFragment2 = null;
+		protected global::Android.Views.View viewFragment3 = null;
+		protected global::Android.Views.View viewFragment4 = null;
+
+		// Store the trail's media.
+		protected Media[] mediaList = null;
+
 		protected global::Android.Widget.Button addToFavouritesButton = null;
 		protected global::Android.Widget.Button uploadMediaButton = null;
 		protected global::Android.Widget.Button commentButton = null;
@@ -49,6 +58,17 @@ namespace Columbia583.Android
 		protected bool debugTrailA = true;
 
 		protected global::Android.Widget.Button viewTrailMapsButton = null;
+
+		protected int trailId;
+
+
+		protected override void OnResume ()
+		{
+			base.OnResume ();
+
+			// Refresh the page's media.
+			refreshMedia ();
+		}
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -72,10 +92,11 @@ namespace Columbia583.Android
 			Activity[] activities = Newtonsoft.Json.JsonConvert.DeserializeObject<Activity[]> (activitiesJSONstr);
 			Amenity[] amenities = Newtonsoft.Json.JsonConvert.DeserializeObject<Amenity[]> (amenitiesJSONstr);
 			Point[] points = Newtonsoft.Json.JsonConvert.DeserializeObject<Point[]> (pointsJSONstr);
+			trailId = trail.id;
 			trailName.Text = trail.name;
 
 			Data_Access_Layer_View_Trail dataAccessLayerViewTrail = new Data_Access_Layer_View_Trail();
-			Media[] mediaList = dataAccessLayerViewTrail.getMedia(trail.id);
+			mediaList = dataAccessLayerViewTrail.getMedia(trailId);
 
 			Activity[] debugActivities = new Activity[6];
 			Amenity[] debugAmenities = new Amenity[2];
@@ -127,6 +148,10 @@ namespace Columbia583.Android
 							StartActivity(intent);
 						};
 					}
+
+					// Store a reference to the view fragment.
+					viewFragment1 = view;
+
 					return view;
 				}
 			);
@@ -153,6 +178,10 @@ namespace Columbia583.Android
 							amenitiesLayout.AddView(amenityName);
 						}
 					}
+
+					// Store a reference to the view fragment.
+					viewFragment2 = view;
+
 					return view;
 				}
 			);
@@ -163,7 +192,7 @@ namespace Columbia583.Android
 
 					// query for all comments for trailId = seeHere
 					Data_Access_Layer_View_Trail dvt = new Data_Access_Layer_View_Trail();
-					Comment[] comments = dvt.getComments(trail.id);
+					Comment[] comments = dvt.getComments(trailId);
 					foreach (Comment comment in comments)
 					{
 						RatingBar ratingBar = new RatingBar(this);
@@ -212,6 +241,9 @@ namespace Columbia583.Android
 						StartActivity (intent);
 					};
 
+					// Store a reference to the view fragment.
+					viewFragment3 = view;
+
 					return view;
 
 				}
@@ -219,7 +251,7 @@ namespace Columbia583.Android
 			adapter.AddFragmentView((i, v, b) =>
 				{
 					var view = LayoutInflater.Inflate(Resource.Layout.ViewTrail4, v, false);
-					//trailGallery = view.FindViewById<LinearLayout>(Resource.Id.trailGallery);
+
 					// Get the controls.
 					trailGallery = view.FindViewById<GridView>(Resource.Id.trailGallery);
 					uploadMediaButton = view.FindViewById<global::Android.Widget.Button>(Resource.Id.btnUploadMedia);
@@ -231,10 +263,8 @@ namespace Columbia583.Android
 
 							// Load the upload media page.
 							var intent = new Intent(this, typeof(UploadMediaActivity));
-							intent.PutExtra ("trailId", trail.id);
+							intent.PutExtra ("trailId", trailId);
 							StartActivity(intent);
-
-							// TODO: When the upload media page closes, refresh the available media.
 
 						};
 					}
@@ -253,12 +283,38 @@ namespace Columbia583.Android
 
 					};
 
+					// Store a reference to the view fragment.
+					viewFragment4 = view;
+
 					return view;
 				}
 			);
 			pager.Adapter = adapter;
 			pageIndicator.SetViewPager(pager);
 
+		}
+
+
+		/// <summary>
+		/// Refreshs the page's media.
+		/// </summary>
+		protected void refreshMedia()
+		{
+			// If the view fragment isn't set, do nothing.
+			if (viewFragment4 == null)
+			{
+				return;
+			}
+
+			// Get the controls.
+			trailGallery = viewFragment4.FindViewById<GridView>(Resource.Id.trailGallery);
+
+			// Get the updated media.
+			Data_Access_Layer_View_Trail dataAccessLayerViewTrail = new Data_Access_Layer_View_Trail();
+			mediaList = dataAccessLayerViewTrail.getMedia(trailId);
+
+			// Update the media contained in the gallery's adapter.
+			trailGallery.Adapter = new MediaAdapter (this, mediaList);
 		}
 	}
 }
