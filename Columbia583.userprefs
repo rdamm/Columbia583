@@ -1,8 +1,15 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.virtualNexus" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\RecordTrailActivity.cs">
+    <Files>
+      <File FileName="Android\RecordTrailActivity.cs" Line="42" Column="4" />
+      <File FileName="Android\Services\RecordTrailService.cs" Line="154" Column="4" />
+      <File FileName="Android\UploadTrail.cs" Line="214" Column="14" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Columbia583.Android AndroidDesignerPreferredDevice="Nexus 4" />
 </Properties>

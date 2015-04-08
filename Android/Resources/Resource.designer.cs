@@ -636,12 +636,6 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0d0051
 			public const int btnSetDatabaseLastUpdated = 2131558481;
 			
-			// aapt resource value: 0x7f0d0020
-			public const int btnStartRecordingTrail = 2131558432;
-			
-			// aapt resource value: 0x7f0d0021
-			public const int btnStopRecordingTrail = 2131558433;
-			
 			// aapt resource value: 0x7f0d001e
 			public const int btnUpdateDatabaseNow = 2131558430;
 			
@@ -773,6 +767,9 @@ namespace Columbia583.Android
 			
 			// aapt resource value: 0x7f0d000e
 			public const int layout_loginWrapper = 2131558414;
+			
+			// aapt resource value: 0x7f0d0021
+			public const int layout_recordTrailWrapper = 2131558433;
 			
 			// aapt resource value: 0x7f0d003b
 			public const int linearLayout1 = 2131558459;
@@ -989,6 +986,9 @@ namespace Columbia583.Android
 			
 			// aapt resource value: 0x7f0d001d
 			public const int txtOptionsTitle = 2131558429;
+			
+			// aapt resource value: 0x7f0d0020
+			public const int txtRecordTrailTitle = 2131558432;
 			
 			// aapt resource value: 0x7f0d004a
 			public const int txtSplashProgressLabel = 2131558474;

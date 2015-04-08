@@ -69,13 +69,13 @@ namespace Columbia583.Android
 					StartActivity(intent);
 
 				};
-			}if (uploadTrail != null) {
+			}
+			if (uploadTrail != null) {
 				uploadTrail.Click += (sender, e) => {
 
-					// Load the search trails page.
-					var intent = new Intent(this, typeof(UploadTrail));
+					// Load the record trail page.
+					var intent = new Intent(this, typeof(RecordTrailActivity));
 					StartActivity(intent);
-
 
 				};
 			}

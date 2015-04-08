@@ -15,10 +15,11 @@ using Xamarin.Forms.Platform.Android;
 
 using System.Threading;
 using System.Threading.Tasks;
+using Android.Content.PM;
 
 namespace Columbia583.Android
 {
-	[Activity (Label = "OptionsMenuActivity")]			
+	[Activity (Label = "OptionsMenuActivity", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]			
 	public class OptionsMenuActivity : AndroidActivity
 	{
 		protected Button btnUpdateDatabaseNow = null;

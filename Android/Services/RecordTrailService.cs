@@ -112,9 +112,23 @@ namespace Columbia583.Android
 		}
 
 
+		/// <summary>
+		/// Gets the list of recorded points.
+		/// </summary>
+		/// <returns>The recorded points.</returns>
 		public List<Location> getRecordedPoints()
 		{
 			return recordedPoints;
+		}
+
+
+		/// <summary>
+		/// Determines if the service is currently recording a trail.
+		/// </summary>
+		/// <returns><c>true</c>, if recording is in progress, <c>false</c> otherwise.</returns>
+		public bool getRecordingInProgress()
+		{
+			return recordingInProgress;
 		}
 
 
@@ -139,11 +153,14 @@ namespace Columbia583.Android
 		public void OnLocationChanged (Location location)
 		{
 			// If currently recording a trail, add the current location.
-			if (recordingInProgress == true) {
+			if (recordingInProgress == true)
+			{
 				recordedPoints.Add (location);
 				Toast.MakeText (this, "Added (" + location.Longitude + ", " + location.Latitude + ") to trail points.", ToastLength.Short).Show ();
 				Console.WriteLine ("Added (" + location.Longitude + ", " + location.Latitude + ") to trail points.");
-			} else {
+			}
+			else
+			{
 				Console.WriteLine ("OnLocationChanged called, but not currently recording.");
 			}
 		}

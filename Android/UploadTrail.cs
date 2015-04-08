@@ -58,6 +58,7 @@ namespace Columbia583.Android
 			// Set the view for the page.
 			SetContentView (Resource.Layout.UploadTrail);
 
+			// Get the controls.
 			var selectActivity = FindViewById<Button> (Resource.Id.acitvity);
 			var selectAmenity = FindViewById<Button> (Resource.Id.amenity);
 			var upload = FindViewById<Button> (Resource.Id.upload);
@@ -84,6 +85,10 @@ namespace Columbia583.Android
 			var Tclosed = FindViewById<RadioButton> (Resource.Id.radioButton2);
 			var Tactive = FindViewById<RadioButton> (Resource.Id.radioButton3);
 			var Tunactive = FindViewById<RadioButton> (Resource.Id.radioButton4);
+
+			// Get the points from the intent.
+			string pointsJsonStr = Intent.GetStringExtra("points") ?? "";
+			List<Point> points = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Point>> (pointsJsonStr);
 
 			Data_Layer_Common dataLayer2 = new Data_Layer_Common ();
 			List<Activity> debugActivities = dataLayer2.getActivities ();
@@ -193,6 +198,8 @@ namespace Columbia583.Android
 				//Console.Out.WriteLine(myView.getRating);
 				//Console.Out.WriteLine(myView.getDifficulty);
 
+				// TODO: Write the list of points to the database.
+
 				Trail list_trail = data_access_layer.getTrailID(getnum);
 				Console.Out.WriteLine(list_trail.directions);
 				Console.Out.WriteLine(list_trail.difficulty);
@@ -203,6 +210,8 @@ namespace Columbia583.Android
 
 				Toast.MakeText(this, "Trail has been uploaded", ToastLength.Short).Show();
 
+				// Close this page.
+				Finish();
 
 			};
 
