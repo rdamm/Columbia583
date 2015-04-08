@@ -60,6 +60,9 @@ namespace Columbia583.Android
 				//Alert user the commen has been uploaded
 				Toast.MakeText(this, "Comment has been uploaded", ToastLength.Short).Show();
 
+				// Close the page.
+				Finish();
+
 			};
 
 			//			ArrayAdapter autoCompleteAdapter = new ArrayAdapter(this, Android.Resource.Layout.UploadComment, autocomplete);

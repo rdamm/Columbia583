@@ -49,7 +49,6 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Json" />
-    <Reference Include="Mono.Android.Export" />
     <Reference Include="Xamarin.Android.Support.v4">
       <HintPath>..\packages\Xamarin.Android.Support.v4.21.0.3.0\lib\MonoAndroid10\Xamarin.Android.Support.v4.dll</HintPath>
     </Reference>
@@ -86,6 +85,7 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.1.4.1.6349\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Android.Export" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -114,6 +114,7 @@
     <Compile Include="Resources\layout\MediaAdapter.cs" />
     <Compile Include="ViewMediaActivity.cs" />
     <Compile Include="OptionsMenuActivity.cs" />
+    <Compile Include="Services\DatabaseUpdateService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

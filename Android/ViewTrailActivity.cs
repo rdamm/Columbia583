@@ -66,8 +66,9 @@ namespace Columbia583.Android
 		{
 			base.OnResume ();
 
-			// Refresh the page's media.
+			// Refresh the page's media and comments.
 			refreshMedia ();
+			refreshComment ();
 		}
 
 		protected override void OnCreate (Bundle bundle)
@@ -291,6 +292,54 @@ namespace Columbia583.Android
 			);
 			pager.Adapter = adapter;
 			pageIndicator.SetViewPager(pager);
+
+		}
+
+
+		/// <summary>
+		/// Refreshs the page's comments.
+		/// </summary>
+		protected void refreshComment()
+		{
+			if (viewFragment3 == null)
+			{
+				return;
+			}
+
+			// Get the controls.
+			commentsLayout = viewFragment3.FindViewById<LinearLayout>(Resource.Id.commentsLayout);
+
+			commentsLayout.RemoveAllViews ();
+
+			var layout = viewFragment3.FindViewById<LinearLayout>(Resource.Id.commentsLayout);
+			Data_Access_Layer_View_Trail dataAccessLayerViewTrail = new Data_Access_Layer_View_Trail();
+			Comment[] comments = dataAccessLayerViewTrail.getComments(trailId);
+			foreach (Comment comment in comments)
+			{
+				RatingBar ratingBar = new RatingBar(this);
+				ratingBar.NumStars = 5;
+				ratingBar.IsIndicator = true;
+				ratingBar.StepSize = 1.0F;
+				ratingBar.Rating = comment.rating;
+				commentsLayout.AddView(ratingBar);
+
+				TextView username = new TextView(this);
+				username.Text = comment.username;
+				username.TextSize = 17f;
+				commentsLayout.AddView(username);
+
+				TextView date = new TextView(this);
+				date.Text = comment.date.ToString();
+				commentsLayout.AddView(date);
+
+				TextView commentText = new TextView(this);
+				commentText.Text = comment.text;
+				commentsLayout.AddView(commentText);
+
+				TextView borderText = new TextView(this);
+				borderText.Text = "\n";
+				commentsLayout.AddView(borderText);
+			}
 
 		}
 
