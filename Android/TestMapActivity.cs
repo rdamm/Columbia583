@@ -30,6 +30,8 @@ namespace Columbia583.Android
 		private MarkerLayer _markerLayer;
 		private GeometryLayer _geometryLayer;
 		protected double[,] long_lat = null;
+		private MapPos focusPoint;
+		private RasterLayer mapLayer;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -65,7 +67,7 @@ namespace Columbia583.Android
 			IRasterDataSource dataSource = new PackagedRasterDataSource (proj, 11, 15, "t{zoom}_{x}_{y}", ApplicationContext);
 			// Alternative is to use offlines tiles in MBTiles format. MBTiles data source is included as sample and it uses file-based tile storage.
 			//IRasterDataSource dataSource = new MBTilesRasterDataSource (proj, 0, 5, "/sdcard/mapxt/osm.mbtiles");
-			RasterLayer mapLayer = new RasterLayer (dataSource, 0);
+			mapLayer = new RasterLayer (dataSource, 0);
 
 			/// Set online base layer  
 			_mapView.Layers.BaseLayer = mapLayer;
@@ -79,14 +81,14 @@ namespace Columbia583.Android
 			_mapView.Constraints.Rotatable = false;
 
 			/// zoom - 0 = world, like on most web maps
-			_mapView.Zoom = 11;
+			_mapView.Zoom = 14.5f;
 
 			/// constrain zoom range as we have limited set of tiles
 			_mapView.Constraints.ZoomRange = new Range (1, 20);
 
 			double Cal_lat = 51.0486f, Cal_long = -114.0708f, e_lat = 50.70f, e_long = -116.132f;
-			MapPos focusPoint = mapLayer.Projection.FromWgs84( e_long, e_lat);
-			_mapView.FocusPoint = focusPoint;
+			//MapPos focusPoint = mapLayer.Projection.FromWgs84( e_long, e_lat);
+			//_mapView.FocusPoint = focusPoint;
 
 			// get the zoomcontrols defined in main.xml, set zoom listeners
 			ZoomControls zoomControls = FindViewById<ZoomControls> ( Resource.Id.zoomcontrols );
@@ -99,7 +101,7 @@ namespace Columbia583.Android
 			_geometryLayer = new GeometryLayer(_mapView.Layers.BaseLayer.Projection);
 			_mapView.Layers.AddLayer(_geometryLayer);
 
-			int minZoom = 11;
+			int minZoom = 10;
 
 			Bitmap pointMarker = UnscaledBitmapLoader.DecodeResource (Resources, Resource.Drawable.point);
 			Bitmap lineMarker = UnscaledBitmapLoader.DecodeResource (Resources, Resource.Drawable.line);
@@ -235,9 +237,9 @@ namespace Columbia583.Android
 			_geometryLayer.Add(new Line(array_lat_long, new DefaultLabel("Line"), lineStyle, null));
 
 			/// Add marker
-			AddMarker ("Marker", "Calgary", Cal_long, Cal_lat);
-			AddMarker ("Edgewater", "Default Location", e_long, e_lat);
-			AddMarker ("Start", "TestTrail", -115.8953927736605f, 50.67251672121988f);
+			//AddMarker ("Marker", "Calgary", Cal_long, Cal_lat);
+			//AddMarker ("Edgewater", "Default Location", e_long, e_lat);
+			//AddMarker ("Start", "TestTrail", -115.8953927736605f, 50.67251672121988f);
 
 		}
 
@@ -548,8 +550,33 @@ namespace Columbia583.Android
 			{
 				long_lat [j, 0] = Convert.ToDouble(longitude_array [j]);
 				long_lat [j, 1] = Convert.ToDouble(latitude_array [j]);
+
+				AddMarker("Marker", "Trail Head", long_lat[0, 0], long_lat[0, 1]);
 			}
 
+			double minlong = long_lat [0, 0];
+			double maxlong = long_lat [0, 0];
+
+			double minlat = long_lat [0, 1];
+			double maxlat = long_lat [0, 1];
+
+			for (int j = 1; j < longitude_array.Length; j++) {
+				if (maxlong < long_lat [j, 0])
+					maxlong = long_lat [j, 0];
+				if (minlong > long_lat [j, 0])
+					minlong = long_lat [j, 0];
+				if (maxlat < long_lat [j, 1])
+					maxlat = long_lat [j, 1];
+				if (minlat > long_lat [j, 1])
+					minlat = long_lat [j, 1];
+			}
+
+			double foclong = (maxlong + minlong) / 2.0f;
+			double foclat = (maxlat + minlat) / 2.0f;
+
+			focusPoint = mapLayer.Projection.FromWgs84 (foclong, foclat);
+
+			_mapView.FocusPoint = focusPoint;
 			/*for (int k = 0; k < long_lat.Length/2; k++) 
 			{
 				if (long_lat [k, 0] > 0)
@@ -574,4 +601,3 @@ namespace Columbia583.Android
 		}
 	}
 }
-
