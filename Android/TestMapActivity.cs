@@ -29,7 +29,7 @@ namespace Columbia583.Android
 		private MapView _mapView;
 		private MarkerLayer _markerLayer;
 		private GeometryLayer _geometryLayer;
-		private double[,] long_lat = null;
+		protected double[,] long_lat = null;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -120,8 +120,6 @@ namespace Columbia583.Android
 			getCoordinatesFromFile ();
 			/*IList<MapPos> mapPos = new List<MapPos> ();
 			float[] mapPosArray = {
-			/*float[] mapPosArray = {
->>>>>>> Stash
 				-115.8953927736605f,
 				50.67251672121988f,
 				-115.8954425128605f,
@@ -218,7 +216,13 @@ namespace Columbia583.Android
 				50.66798075849497f,
 				-115.8888357154974f,
 				50.66787933493015f
-			};*/
+			};
+			for (int i = 0; i < mapPosArray.Length; i+=2) {
+				mapPos.Add(proj.FromWgs84(mapPosArray[i], mapPosArray[i+1]));
+			}
+			//mapPos.Add (proj.FromWgs84((float)e_long, (float)e_lat));
+			//mapPos.Add (proj.FromWgs84((float)Cal_long, (float)Cal_lat));
+			//mapPos.Add (new MapPos (Cal_lat, Cal_long));*/
 			if (long_lat != null) {
 				for (int i = 0; i < long_lat.Length / 2; i++) {
 					array_lat_long.Add (proj.FromWgs84 ((float)long_lat [i, 0], (float)long_lat [i, 1]));
@@ -227,9 +231,6 @@ namespace Columbia583.Android
 				array_lat_long.Add (proj.FromWgs84 ((float)e_long, (float)e_lat));
 				array_lat_long.Add (proj.FromWgs84 ((float)e_long, (float)e_lat));
 			}
-			//mapPos.Add (proj.FromWgs84((float)e_long, (float)e_lat));
-			//mapPos.Add (proj.FromWgs84((float)Cal_long, (float)Cal_lat));
-			//mapPos.Add (new MapPos (Cal_lat, Cal_long));*/
 
 			_geometryLayer.Add(new Line(array_lat_long, new DefaultLabel("Line"), lineStyle, null));
 
@@ -570,150 +571,6 @@ namespace Columbia583.Android
 				;				long_lat [i, 0] = Convert.ToDouble(lines [2 * i]);
 				;				long_lat [i, 1] = Convert.ToDouble(lines [2 * i + 1]);
 				;			}*/
-			
-			if (trailName.CompareTo ("5 passes") == 1) 
-			{
-				kmlFile = "5 passes.kml";
-			} 
-			else if (trailName.Contains ("Bear Lake") == 1)
-			{
-				kmlFile = "Bear Lake.kml";
-			}
-			else if (trailName.Contains ("Brewer Creek") == 1)
-			{
-				kmlFile = "Brewer Creek Loop.kml";
-			}
-			else if (trailName.Contains ("Chalice Creek") == 1)
-			{
-				kmlFile = "Chalice.kml";
-			}
-			else if (trailName.Contains ("Bear Lake") == 1)
-			{
-				kmlFile = "5 passes.kml";
-			}
-			else if (trailName.Contains ("Bear Lake") == 1)
-			{
-				kmlFile = "5 passes.kml";
-			}
-			else
-			{
-				kmlFile = "Findlay Falls.kml";
-			}
-
-			return kmlFile;
-		}
-
-		private void readKML(string kmlString)
-		{
-			string urlLookup = @"http://trails.greenways.ca/kml/";
-
-			string webReqUrl = urlLookup + kmlString;
-
-			Console.WriteLine ("Web Request made to: {0}", webReqUrl);
-
-			HttpWebRequest webRequest = (HttpWebRequest) WebRequest.Create(webReqUrl);
-
-			using (HttpWebResponse response = (HttpWebResponse) webRequest.GetResponse())
-			using (var content = response.GetResponseStream ())
-			using (var reader = new StreamReader (content)) {
-				var strContent = reader.ReadToEnd ();
-				var path = @"/storage/emulated/0/Documents/";
-				var filename = System.IO.Path.Combine(path, "output.txt");
-
-				System.IO.File.WriteAllText(filename, strContent);
-
-				getCoordinatesFromFile ();
-			}
-
-
-			//var url = new Uri ("http://trails.greenways.ca/kml/Templeton.kml");	
-
-			//webClient.Headers [HttpRequestHeader.IfModifiedSince] = "Sat, 29 Oct 1994 19:43:31 GMT";
-
-			//webClient.Encoding = Encoding.UTF8;
-
-			//webClient.DownloadStringAsync (url);
-
-			/*webClient.DownloadStringCompleted += (sender, e) => {
-				try
-				{
-					var text = e.Result; // get the downloaded text
-					var path = @"/storage/emulated/0/Documents/";
-					var filename = System.IO.Path.Combine(path, "output.txt");
-
-					global_filename = filename;
-					string web_text = text;
-					Console.WriteLine (web_text);
-
-					File.WriteAllText (filename, text);
-				}
-				catch(Exception ex){
-					Console.WriteLine("Jack's Exception: " + ex.Message);
-				}
-			};*/
-		}
-
-		void getCoordinatesFromFile()
-		{
-			int token_length = 0;
-
-			string path = @"/storage/emulated/0/Documents/output.txt";
-
-			string fileContents = System.IO.File.ReadAllText(path);
-			int start = fileContents.LastIndexOf ("<LineString><coordinates>") + "<LineString><coordinates>".Length;
-			int length = fileContents.IndexOf ("</coordinates></LineString>") - start;
-			string sub = fileContents.Substring (start, length);
-
-			string[] longitude_array;
-			string[] latitude_array;
-
-			//Console.WriteLine (sub);
-			string[] tokens = sub.Split(new char[2]{' ', ','});
-
-			token_length = tokens.Length;
-			longitude_array = new string[token_length/3];
-			latitude_array = new string[token_length/3];
-
-			for(int i = 0; i < token_length/3; i++) 
-			{
-				if (tokens [3 * i] != String.Empty || tokens[3*i] != null
-					|| tokens [3 * i + 1] != String.Empty || tokens[3 * i + 1] != null) 
-				{
-					longitude_array [i] = tokens [3 * i];
-					latitude_array [i] = tokens [3 * i + 1];
-				}
-			}
-
-			long_lat = new double[longitude_array.Length, 2];
-
-
-			for (int j = 0; j < longitude_array.Length; j++) 
-			{
-				long_lat [j, 0] = Convert.ToDouble(longitude_array [j]);
-				long_lat [j, 1] = Convert.ToDouble(latitude_array [j]);
-			}
-
-			/*for (int k = 0; k < long_lat.Length/2; k++) 
-			{
-				if (long_lat [k, 0] > 0)
-					long_lat [k, 0] = long_lat [k, 0] * -1;
-			}*/
-
-			/*array_size = counter_two/2;
-			long_lat = new double[array_size,2];
-
-			foreach (string line in lines) 
-			{
-				long_lat [counter_two, 0] = Convert.ToDouble (lines [3 * counter_two]);
-				long_lat [counter_two, 1] = Convert.ToDouble (lines [3 * counter_two + 1]);
-				counter_two += 1;
-			}
-
-			for (int i = 0; i < array_size; i++) 
-			{
-				long_lat [i, 0] = Convert.ToDouble(lines [2 * i]);
-				long_lat [i, 1] = Convert.ToDouble(lines [2 * i + 1]);
-			}*/
 		}
 	}
 }
