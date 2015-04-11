@@ -124,8 +124,6 @@ namespace Columbia583.Android
 			_geometryLayer = new GeometryLayer(_mapView.Layers.BaseLayer.Projection);
 			_mapView.Layers.AddLayer(_geometryLayer);
 
-			int minZoom = 11;
-
 			Bitmap pointMarker = UnscaledBitmapLoader.DecodeResource (Resources, Resource.Drawable.point);
 			Bitmap lineMarker = UnscaledBitmapLoader.DecodeResource (Resources, Resource.Drawable.line);
 

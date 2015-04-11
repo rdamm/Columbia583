@@ -65,7 +65,7 @@ namespace Columbia583.Android
 				searchTrailsButton.Click += (sender, e) => {
 
 					// Load the search trails page.
-					var intent = new Intent(this, typeof(SearchTrails));
+					var intent = new Intent(this, typeof(MainMapActivity));
 					StartActivity(intent);
 
 				};
