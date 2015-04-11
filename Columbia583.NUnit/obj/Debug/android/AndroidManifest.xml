@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="Columbia583.NUnit">
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <uses-sdk android:minSdkVersion="22" />
-=======
   <uses-sdk android:minSdkVersion="21" />
->>>>>>> parent of 9602b4d... Added Mariam's View Changes and Swapped Login
-=======
-  <uses-sdk android:minSdkVersion="21" />
->>>>>>> parent of 9602b4d... Added Mariam's View Changes and Swapped Login
   <application android:label="Columbia583.NUnit" android:name="mono.android.app.Application" android:debuggable="true">
     <activity android:label="Columbia583.NUnit" android:name="columbia583.nunit.MainActivity">
       <intent-filter>

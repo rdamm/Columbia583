@@ -29,13 +29,28 @@
         android:layout_alignParentLeft="false"
         android:layout_alignParentRight="false"
         android:layout_marginTop="35dp" />
-    <Button
-        android:text="Change Filters"
-        android:layout_width="match_parent"
-        android:layout_height="46dp"
-        android:id="@+id/changeFilters"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentTop="false" />
+    <LinearLayout
+        android:id="@+id/mapsButtonContainer"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:text="Change Filters"
+            android:layout_width="match_parent"
+            android:layout_height="50.0dp"
+            android:id="@+id/changeFilters"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="false"
+            android:layout_weight="1" />
+        <Button
+            android:text=" View Trails"
+            android:layout_width="match_parent"
+            android:layout_height="50.0dp"
+            android:id="@+id/viewTrail"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="false"
+            android:layout_weight="1" />
+    </LinearLayout>
     <ZoomControls
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

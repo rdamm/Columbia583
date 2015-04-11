@@ -198,6 +198,7 @@ namespace Columbia583.Android
 			}
 			dialog.Dismiss ();
 		}
+
 		protected SearchFilter getSearchFilter()
 		{
 			getRating = (int) rating.Rating;
@@ -210,6 +211,7 @@ namespace Columbia583.Android
 			SearchFilter searchFilter = new SearchFilter(activitiesList_ID.ToArray(), amenitiesList_ID.ToArray(), getDifficulty, getRating, minDuration, maxDuration, minDistance, maxDistance);
 			return searchFilter;
 		}
+
 		protected void setSearchResults(SearchFilter searchResults){
 			var intent = new Intent (this, typeof(MainMapActivity));
 			string result = Newtonsoft.Json.JsonConvert.SerializeObject(searchResults);
