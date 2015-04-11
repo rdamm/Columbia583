@@ -1,13 +1,14 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.d8aaf13f" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.a9325661" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\MainMapActivity.cs">
     <Files>
       <File FileName="Android\SearchTrailsActivity.cs" Line="1" Column="1" />
-      <File FileName="Android\MainMapActivity.cs" Line="202" Column="59" />
+      <File FileName="Android\MainMapActivity.cs" Line="24" Column="30" />
       <File FileName="Columbia583\Data_Classes\SearchResult.cs" Line="1" Column="1" />
       <File FileName="Android\Resources\values\Strings.xml" Line="1" Column="1" />
       <File FileName="Android\Resources\menu\popup_menu.xml" Line="1" Column="1" />
       <File FileName="Android\TestMapActivity.cs" Line="1" Column="1" />
+      <File FileName="Android\Resources\Resource.designer.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
