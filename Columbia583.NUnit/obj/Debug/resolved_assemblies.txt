@@ -1,1 +1,29 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+C:\Users\nguye_000\Documents\GitHub\Columbia583\Columbia583.NUnit\bin\Debug\Columbia583.NUnit.dll
+=======
 C:\Users\RPrime\Documents\Projects\Columbia583\Columbia583.NUnit\bin\Debug\Columbia583.NUnit.dll
+>>>>>>> parent of 9602b4d... Added Mariam's View Changes and Swapped Login
+=======
+C:\Users\RPrime\Documents\Projects\Columbia583\Columbia583.NUnit\bin\Debug\Columbia583.NUnit.dll
+>>>>>>> parent of 9602b4d... Added Mariam's View Changes and Swapped Login
+=======
+C:\Users\RPrime\Documents\Projects\Columbia583\Columbia583.NUnit\bin\Debug\Columbia583.NUnit.dll
+>>>>>>> parent of 9602b4d... Added Mariam's View Changes and Swapped Login
+=======
+C:\Users\RPrime\Documents\Projects\Columbia583\Columbia583.NUnit\bin\Debug\Columbia583.NUnit.dll
+>>>>>>> parent of 9602b4d... Added Mariam's View Changes and Swapped Login
+=======
+C:\Users\Jan\Documents\Projects\rdamm\Columbia583\Columbia583.NUnit\bin\Debug\Columbia583.NUnit.dll
+>>>>>>> parent of 0428795... Fully fixed maps, view, and search
+=======
+C:\Users\RPrime\Documents\Projects\Columbia583\Columbia583.NUnit\bin\Debug\Columbia583.NUnit.dll
+>>>>>>> parent of 9602b4d... Added Mariam's View Changes and Swapped Login
+=======
+C:\Users\RPrime\Documents\Projects\Columbia583\Columbia583.NUnit\bin\Debug\Columbia583.NUnit.dll
+>>>>>>> parent of 9602b4d... Added Mariam's View Changes and Swapped Login

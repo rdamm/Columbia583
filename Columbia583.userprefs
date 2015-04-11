@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\RPrime\Documents\Projects\Columbia583\Android\MainMapActivity.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.virtualNexus" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\RPrime\Documents\Projects\Columbia583\Android\TestMapActivity.cs">
     <Files>
-      <File FileName="c:\Users\RPrime\Documents\Projects\Columbia583\Android\MainMapActivity.cs" Line="384" Column="1" />
+      <File FileName="Android\ViewTrailActivity.cs" Line="194" Column="20" />
+      <File FileName="c:\Users\RPrime\Documents\Projects\Columbia583\Android\TestMapActivity.cs" Line="513" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

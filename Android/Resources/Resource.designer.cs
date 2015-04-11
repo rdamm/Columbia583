@@ -552,8 +552,8 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0d0069
 			public const int acitvity = 2131558505;
 			
-			// aapt resource value: 0x7f0d0091
-			public const int activities = 2131558545;
+			// aapt resource value: 0x7f0d0092
+			public const int activities = 2131558546;
 			
 			// aapt resource value: 0x7f0d0024
 			public const int activitiesButton = 2131558436;
@@ -645,6 +645,9 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0d0068
 			public const int button1 = 2131558504;
 			
+			// aapt resource value: 0x7f0d0089
+			public const int button_addToFavourites = 2131558537;
+			
 			// aapt resource value: 0x7f0d0007
 			public const int button_dataAccessTests = 2131558407;
 			
@@ -696,23 +699,23 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0d002b
 			public const int checkBox_difficulty_veryDifficult = 2131558443;
 			
-			// aapt resource value: 0x7f0d0096
-			public const int commentsLayout = 2131558550;
+			// aapt resource value: 0x7f0d0097
+			public const int commentsLayout = 2131558551;
 			
-			// aapt resource value: 0x7f0d0095
-			public const int commentsList = 2131558549;
+			// aapt resource value: 0x7f0d0096
+			public const int commentsList = 2131558550;
 			
 			// aapt resource value: 0x7f0d009c
 			public const int contentFrame = 2131558556;
 			
-			// aapt resource value: 0x7f0d008b
-			public const int description = 2131558539;
+			// aapt resource value: 0x7f0d008d
+			public const int description = 2131558541;
 			
 			// aapt resource value: 0x7f0d003f
 			public const int difficultyBar = 2131558463;
 			
-			// aapt resource value: 0x7f0d0090
-			public const int difficultyRating = 2131558544;
+			// aapt resource value: 0x7f0d0091
+			public const int difficultyRating = 2131558545;
 			
 			// aapt resource value: 0x7f0d003e
 			public const int difficultyText = 2131558462;
@@ -765,6 +768,9 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0d0087
 			public const int layout1 = 2131558535;
 			
+			// aapt resource value: 0x7f0d008b
+			public const int layout2 = 2131558539;
+			
 			// aapt resource value: 0x7f0d000e
 			public const int layout_loginWrapper = 2131558414;
 			
@@ -780,8 +786,8 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0d0015
 			public const int mainView = 2131558421;
 			
-			// aapt resource value: 0x7f0d008f
-			public const int maintenance = 2131558543;
+			// aapt resource value: 0x7f0d0090
+			public const int maintenance = 2131558544;
 			
 			// aapt resource value: 0x7f0d0016
 			public const int mapView = 2131558422;
@@ -831,8 +837,8 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0d0000
 			public const int none = 2131558400;
 			
-			// aapt resource value: 0x7f0d008c
-			public const int openStatus = 2131558540;
+			// aapt resource value: 0x7f0d008e
+			public const int openStatus = 2131558542;
 			
 			// aapt resource value: 0x7f0d009b
 			public const int pageIndicator = 2131558555;
@@ -870,8 +876,8 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0d002f
 			public const int radioGroup_ratings = 2131558447;
 			
-			// aapt resource value: 0x7f0d0089
-			public const int rating = 2131558537;
+			// aapt resource value: 0x7f0d008c
+			public const int rating = 2131558540;
 			
 			// aapt resource value: 0x7f0d0041
 			public const int ratingBar = 2131558465;
@@ -888,17 +894,11 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0d000c
 			public const int scrollView1 = 2131558412;
 			
-			// aapt resource value: 0x7f0d0092
-			public const int scrollView2 = 2131558546;
-			
 			// aapt resource value: 0x7f0d008a
 			public const int scrollView3 = 2131558538;
 			
-			// aapt resource value: 0x7f0d008e
-			public const int scrollView4 = 2131558542;
-			
-			// aapt resource value: 0x7f0d008d
-			public const int season = 2131558541;
+			// aapt resource value: 0x7f0d008f
+			public const int season = 2131558543;
 			
 			// aapt resource value: 0x7f0d006b
 			public const int seekBar1 = 2131558507;
@@ -1005,8 +1005,8 @@ namespace Columbia583.Android
 			// aapt resource value: 0x7f0d0083
 			public const int upload = 2131558531;
 			
-			// aapt resource value: 0x7f0d0097
-			public const int uploadComment = 2131558551;
+			// aapt resource value: 0x7f0d0095
+			public const int uploadComment = 2131558549;
 			
 			// aapt resource value: 0x7f0d0012
 			public const int uploadTrail = 2131558418;

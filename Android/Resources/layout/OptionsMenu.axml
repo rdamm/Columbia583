@@ -11,12 +11,18 @@
         android:id="@+id/txtOptionsTitle" />
     <Button
         android:text="Update Database Now"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnUpdateDatabaseNow" />
+        android:id="@+id/btnUpdateDatabaseNow"
+        android:minWidth="260dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20.6dp" />
     <Button
         android:text="Reset Database"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnResetDatabase" />
+        android:id="@+id/btnResetDatabase"
+        android:minWidth="260dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20.6dp" />
 </LinearLayout>
