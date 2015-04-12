@@ -128,7 +128,7 @@ namespace Columbia583.Android
 					maintenance = view.FindViewById<TextView>(Resource.Id.maintenance);
 
 					// Get trail data.
-					distance.Text = trail.distance + " km";
+					distance.Text = trail.distance.Substring(0, 4) + " km";
 					duration.Text = trail.duration + " h";
 					description.Text = trail.description;
 					difficultyRating.Text = trail.difficulty.ToString().Replace("_", " ");

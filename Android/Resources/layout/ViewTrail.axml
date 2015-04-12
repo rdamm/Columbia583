@@ -32,29 +32,34 @@
         <LinearLayout
             android:id="@+id/layout2"
             android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <RatingBar
-                android:layout_width="240.7dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rating"
                 android:isIndicator="true"
                 android:numStars="5"
                 android:stepSize="1.0"
-                android:layout_marginLeft="110.0dp" />
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right" />
             <TextView
                 android:text="x km"
-                android:layout_width="200.0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
                 android:id="@+id/distance"
-                android:layout_marginLeft="240.0dp" />
+                android:layout_gravity="right"
+                android:layout_marginRight="3.0dp" />
             <TextView
                 android:text="y - z h"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_width="100.0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
                 android:id="@+id/duration"
-                android:layout_marginLeft="240.0dp" />
+                android:layout_gravity="right"
+                android:layout_marginRight="3.0dp" />
             <TextView
                 android:text="Trail Description"
                 android:paddingLeft="5dp"
