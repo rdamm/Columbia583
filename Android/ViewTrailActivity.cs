@@ -19,7 +19,7 @@ using DK.Ostebaronen.Droid.ViewPagerIndicator;
 
 namespace Columbia583.Android
 {
-	[Activity (Label = "Columbia583.Android_View_Trail", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]
+	[Activity (Label = "View Trail", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]
 	public class ViewTrailActivity : FragmentActivity
 	{
 		protected ViewPager pager = null;
