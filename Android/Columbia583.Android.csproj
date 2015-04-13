@@ -36,6 +36,11 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AndroidKeyStore>True</AndroidKeyStore>
+    <AndroidSigningKeyStore>C:\Program Files\Java\jdk1.7.0_71\bin\cvgta.jks</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>Columbia583</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>columbia583</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>Columbia583</AndroidSigningKeyPass>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -3508,6 +3513,7 @@
     <AndroidResource Include="Resources\raw\t12_733_1386.png" />
     <AndroidResource Include="Resources\raw\t12_733_1387.png" />
     <AndroidResource Include="Resources\raw\t12_733_1388.png" />
+    <AndroidResource Include="Resources\drawable\cvgta_app_icon.png" />
   </ItemGroup>
   <Import Project="..\Columbia583\Columbia583.projitems" Label="Shared" Condition="Exists('..\Columbia583\Columbia583.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
