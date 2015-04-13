@@ -6,11 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/startLayout">
-    <Spinner
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:prompt="@string/trail_prompt"
-        android:id="@+id/Spinner2" />
 <!--   <Button
         android:text="View List of Trails"
         android:layout_width="match_parent"
@@ -27,8 +22,7 @@
         android:layout_centerInParent="false"
         android:layout_centerHorizontal="false"
         android:layout_alignParentLeft="false"
-        android:layout_alignParentRight="false"
-        android:layout_marginTop="35dp" />
+        android:layout_alignParentRight="false" />
     <LinearLayout
         android:id="@+id/mapsButtonContainer"
         android:layout_height="wrap_content"

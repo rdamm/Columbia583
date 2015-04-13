@@ -40,7 +40,6 @@ namespace Columbia583.Android
 		private MarkerLayer _markerLayer;
 		private GeometryLayer _geometryLayer;
 		protected global::Android.Widget.Button changeFiltersButton = null;
-		protected bool preventSpinnerSelectEventFiringOnCreate = true;
 		Dictionary<string, List<string> > dictGroup = new Dictionary<string, List<string> > ();
 		List<string> lstKeys = new List<string> ();
 		protected ListableTrail[] trails = null;
