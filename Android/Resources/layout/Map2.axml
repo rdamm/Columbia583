@@ -37,7 +37,7 @@
             android:layout_alignParentTop="false"
             android:layout_weight="1" />
         <Button
-            android:text=" View Trails"
+            android:text=" View Trails "
             android:layout_width="match_parent"
             android:layout_height="50.0dp"
             android:id="@+id/viewTrail"
