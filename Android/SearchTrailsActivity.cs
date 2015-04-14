@@ -89,7 +89,7 @@ namespace Columbia583.Android
 			};
 			maxDistance.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) => {
 				if(e.FromUser){
-					distanceText.Text= String.Format("You have selected {0} as distance",e.Progress);
+					distanceText.Text= String.Format("You have selected {0} km as distance",e.Progress);
 					getDistance= e.Progress.ToString();
 				}
 			};
