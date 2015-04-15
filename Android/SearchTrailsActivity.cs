@@ -83,7 +83,7 @@ namespace Columbia583.Android
 			};
 			maxDuration.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) => {
 				if(e.FromUser){
-					durationText.Text= String.Format("You have selected {0} as duration",e.Progress);
+					durationText.Text= String.Format("You have selected {0} h as duration",e.Progress);
 					getDuration= e.Progress.ToString();
 				}
 			};

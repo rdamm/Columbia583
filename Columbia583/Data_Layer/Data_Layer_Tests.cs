@@ -204,7 +204,7 @@ namespace Columbia583
 		{
 			// Create a sample search filter.
 			// TODO: Add more filter parameters.
-			SearchFilter searchFilter = new SearchFilter () { rating = 3 };
+			SearchFilter searchFilter = new SearchFilter () { rating = 3, maxDuration = 2 };
 
 			// Get the search results.
 			Data_Layer_Search_Trails dataLayer = new Data_Layer_Search_Trails ();
