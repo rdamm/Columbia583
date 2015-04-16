@@ -41,32 +41,37 @@ namespace Columbia583.Android.hi
 			splashProgressLabel = FindViewById<TextView> (Resource.Id.txtSplashProgressLabel);
 
 			// Create a background thread for the app initialization.
-			// NOTE: The UI doesn't load until this entire method has completed.  So, the initialization must be threaded.
+			// NOTE: The UI doesn't load until this entire method has completed.  So, the
+			// initialization must go into a background thread.
 			// TODO: Fix bug where rotating the screen during the splash screen's loading creates multiple threads.
 			new Thread (new ThreadStart (() => {
 				// Define the number of tasks to complete for the progress bar.
 				int completedTasks = 0;
 				int totalTasks = 1;
 
-				// Check if WiFi is available.
-				if (NetworkHelper.wifiAvailable(this) == true)
+				if (NetworkHelper.wifiAvailable(this))
 				{
-					// If the database has not been initialized, initialize it.
-					Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common ();
-					bool databaseInitialized = dataAccessLayer.databaseInitialized ();
-					if (databaseInitialized != true)
-					{
-							dataAccessLayer.initializeDatabase ();
-							dataAccessLayer.initializeComments();
-							Console.WriteLine("Splash screen has initialized the database.");
-					}
+				// If the database has been initialized, update it.  Otherwise, initialize it.
+				Data_Access_Layer_Common dataAccessLayer = new Data_Access_Layer_Common ();
+				if (dataAccessLayer.databaseInitialized () == true)
+				{
+					// TODO: Uncomment once the update works without redownloading everything.
+					dataAccessLayer.updateDatabase ();
+					Console.WriteLine("Splash screen has updated the database.");
+				}
+				else
+				{
+					dataAccessLayer.initializeDatabase ();
+					dataAccessLayer.initializeComments();
+					Console.WriteLine("Splash screen has initialized the database.");
 				}
 				completedTasks++;
-
+				Console.WriteLine("Database updated in splash activity initializer.");
+				}
 				// Update the progress bar.
 				RunOnUiThread(() => {
 					splashProgressBar.Progress = ((int)((float)completedTasks / (float)totalTasks * 100));
-					splashProgressLabel.Text = "Database initialized.";
+					splashProgressLabel.Text = "Database updated.";
 				});
 
 				// Load the main menu.

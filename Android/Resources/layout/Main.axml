@@ -18,42 +18,27 @@
         android:id="@+id/imageView_headerLogo" />
     <Button
         android:text="Search Trails"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_searchTrails"
-        android:minWidth="260dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20.6dp" />
+        android:id="@+id/button_searchTrails" />
     <Button
         android:text="Favourite Trails"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_viewFavouriteTrails"
-        android:minWidth="260dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20.6dp" />
+        android:id="@+id/button_viewFavouriteTrails" />
     <Button
         android:text="Upload Trail"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/uploadTrail"
-        android:minWidth="260dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20.6dp" />
+        android:id="@+id/uploadTrail" />
     <Button
         android:text="Scan Trail QR Code"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_scanQrCode"
-        android:minWidth="260dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20.6dp" />
+        android:id="@+id/button_scanQrCode" />
     <Button
         android:text="Options"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_options"
-        android:minWidth="260dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20.6dp" />
+        android:id="@+id/button_options" />
 </LinearLayout>

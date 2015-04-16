@@ -142,30 +142,11 @@ namespace Columbia583.Android
 					maintenance.Text = trail.maintenance;
 
 					viewTrailMapsButton = view.FindViewById<global::Android.Widget.Button> (Resource.Id.button_map);
-					addToFavouritesButton = view.FindViewById<global::Android.Widget.Button> (Resource.Id.button_addToFavourites);
 
 					if (viewTrailMapsButton != null){
 						viewTrailMapsButton.Click += (sender, e) => {
 							var intent = new Intent(this, typeof(TestMapActivity));
 							StartActivity(intent);
-						};
-					}
-					if (addToFavouritesButton != null) {
-						addToFavouritesButton.Click += (sender, e) => {
-
-							// Get the active user's ID.
-							Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
-							User activeUser = dataAccessLayerCommon.getActiveUser();
-
-							// If there is a user logged in, add it to their favourites.
-							if (activeUser != null)
-							{
-								Data_Access_Layer_Favourites dataAccessLayerFavourites = new Data_Access_Layer_Favourites();
-								dataAccessLayerFavourites.addFavouriteTrail(activeUser.id, trailId);
-
-								Toast.MakeText(this, "Added to favourites.", ToastLength.Short).Show();
-							}
-
 						};
 					}
 

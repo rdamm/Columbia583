@@ -115,7 +115,7 @@ namespace Columbia583.Android
 			{
 				// Create an OAuth authentication request.  Add email to the scope to include it in the account request permissions.
 				var auth = new OAuth2Authenticator (
-					clientId: "1565758500378819",
+					clientId: "370094413194090",
 					scope: "email",
 					authorizeUrl: new Uri ("https://m.facebook.com/dialog/oauth/"),
 					redirectUrl: new Uri ("http://www.facebook.com/connect/login_success.html"));
