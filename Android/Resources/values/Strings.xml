@@ -6,6 +6,7 @@
 	<string name="positiveOption">OK</string>
 	<string name="negativeOption">Cancel</string>
 	<string name="submitButtonName">Submit</string>
+	<string name="okButtonName">OK</string>
 	<string name="activitiesList">Select Activities</string>
 	<string name="amenitiesList">Select Amenities</string>
 	<string name="trailList">List of Trails</string>

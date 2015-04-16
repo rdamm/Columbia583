@@ -83,13 +83,13 @@ namespace Columbia583.Android
 			};
 			maxDuration.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) => {
 				if(e.FromUser){
-					durationText.Text= String.Format("You have selected {0} as duration",e.Progress);
+					durationText.Text= String.Format("You have selected {0} h as duration",e.Progress);
 					getDuration= e.Progress.ToString();
 				}
 			};
 			maxDistance.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) => {
 				if(e.FromUser){
-					distanceText.Text= String.Format("You have selected {0} as distance",e.Progress);
+					distanceText.Text= String.Format("You have selected {0} km as distance",e.Progress);
 					getDistance= e.Progress.ToString();
 				}
 			};
@@ -198,6 +198,7 @@ namespace Columbia583.Android
 			}
 			dialog.Dismiss ();
 		}
+
 		protected SearchFilter getSearchFilter()
 		{
 			getRating = (int) rating.Rating;
@@ -210,6 +211,7 @@ namespace Columbia583.Android
 			SearchFilter searchFilter = new SearchFilter(activitiesList_ID.ToArray(), amenitiesList_ID.ToArray(), getDifficulty, getRating, minDuration, maxDuration, minDistance, maxDistance);
 			return searchFilter;
 		}
+
 		protected void setSearchResults(SearchFilter searchResults){
 			var intent = new Intent (this, typeof(MainMapActivity));
 			string result = Newtonsoft.Json.JsonConvert.SerializeObject(searchResults);

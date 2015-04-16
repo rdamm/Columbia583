@@ -1,8 +1,19 @@
 ﻿<Properties StartupItem="Android\Columbia583.Android.csproj" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\RPrime\Documents\Projects\Columbia583\Android\MainMapActivity.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Jelly Bean)" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\MainMenuActivity.cs">
     <Files>
-      <File FileName="c:\Users\RPrime\Documents\Projects\Columbia583\Android\MainMapActivity.cs" Line="384" Column="1" />
+      <File FileName="Android\ViewTrailActivity.cs" Line="38" Column="40" />
+      <File FileName="Android\MainMapActivity.cs" Line="163" Column="1" />
+      <File FileName="Android\MainMenuActivity.cs" Line="107" Column="93" />
+      <File FileName="Android\ViewPagerFragment.cs" Line="1" Column="1" />
+      <File FileName="Android\MyFragmentPagerAdapter.cs" Line="1" Column="1" />
+      <File FileName="Android\SearchTrailsActivity.cs" Line="86" Column="63" />
+      <File FileName="Android\SearchTrailPage2.cs" Line="1" Column="1" />
+      <File FileName="Android\SplashActivity.cs" Line="63" Column="6" />
+      <File FileName="Columbia583\Data_Classes\Trail.cs" Line="1" Column="1" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Search_Trails.cs" Line="216" Column="38" />
+      <File FileName="Columbia583\Data_Layer\Data_Layer_Tests.cs" Line="213" Column="32" />
+      <File FileName="Columbia583\Data_Classes\SearchFilter.cs" Line="17" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

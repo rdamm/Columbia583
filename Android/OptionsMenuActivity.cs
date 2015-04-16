@@ -111,6 +111,7 @@ namespace Columbia583.Android
 					// Initialize the database.
 					Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
 					dataAccessLayerCommon.initializeDatabase();
+					dataAccessLayerCommon.initializeComments();
 
 					// Inform the user that the database has initialized.
 					RunOnUiThread(() => {

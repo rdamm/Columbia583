@@ -65,7 +65,7 @@ namespace Columbia583.Android
 				searchTrailsButton.Click += (sender, e) => {
 
 					// Load the search trails page.
-					var intent = new Intent(this, typeof(SearchTrails));
+					var intent = new Intent(this, typeof(MainMapActivity));
 					StartActivity(intent);
 
 				};
@@ -115,7 +115,7 @@ namespace Columbia583.Android
 			{
 				// Create an OAuth authentication request.  Add email to the scope to include it in the account request permissions.
 				var auth = new OAuth2Authenticator (
-					clientId: "370094413194090",
+					clientId: "1565758500378819",
 					scope: "email",
 					authorizeUrl: new Uri ("https://m.facebook.com/dialog/oauth/"),
 					redirectUrl: new Uri ("http://www.facebook.com/connect/login_success.html"));

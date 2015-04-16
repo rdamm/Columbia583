@@ -19,7 +19,7 @@ using DK.Ostebaronen.Droid.ViewPagerIndicator;
 
 namespace Columbia583.Android
 {
-	[Activity (Label = "Columbia583.Android_View_Trail", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]
+	[Activity (Label = "View Trail", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = global::Android.Content.PM.ScreenOrientation.Portrait)]
 	public class ViewTrailActivity : FragmentActivity
 	{
 		protected ViewPager pager = null;
@@ -128,7 +128,7 @@ namespace Columbia583.Android
 					maintenance = view.FindViewById<TextView>(Resource.Id.maintenance);
 
 					// Get trail data.
-					distance.Text = trail.distance + " km";
+					distance.Text = trail.distance.Substring(0, 4) + " km";
 					duration.Text = trail.duration + " h";
 					description.Text = trail.description;
 					difficultyRating.Text = trail.difficulty.ToString().Replace("_", " ");
@@ -142,11 +142,30 @@ namespace Columbia583.Android
 					maintenance.Text = trail.maintenance;
 
 					viewTrailMapsButton = view.FindViewById<global::Android.Widget.Button> (Resource.Id.button_map);
+					addToFavouritesButton = view.FindViewById<global::Android.Widget.Button> (Resource.Id.button_addToFavourites);
 
 					if (viewTrailMapsButton != null){
 						viewTrailMapsButton.Click += (sender, e) => {
 							var intent = new Intent(this, typeof(TestMapActivity));
 							StartActivity(intent);
+						};
+					}
+					if (addToFavouritesButton != null) {
+						addToFavouritesButton.Click += (sender, e) => {
+
+							// Get the active user's ID.
+							Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
+							User activeUser = dataAccessLayerCommon.getActiveUser();
+
+							// If there is a user logged in, add it to their favourites.
+							if (activeUser != null)
+							{
+								Data_Access_Layer_Favourites dataAccessLayerFavourites = new Data_Access_Layer_Favourites();
+								dataAccessLayerFavourites.addFavouriteTrail(activeUser.id, trailId);
+
+								Toast.MakeText(this, "Added to favourites.", ToastLength.Short).Show();
+							}
+
 						};
 					}
 
