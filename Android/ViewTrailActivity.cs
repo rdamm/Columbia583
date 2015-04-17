@@ -50,7 +50,7 @@ namespace Columbia583.Android
 		// Store the trail's media.
 		protected Media[] mediaList = null;
 
-		protected global::Android.Widget.Button addToFavouritesButton = null;
+		protected global::Android.Widget.LinearLayout favouritesButtonWrapper = null;
 		protected global::Android.Widget.Button uploadMediaButton = null;
 		protected global::Android.Widget.Button commentButton = null;
 		//private GestureDetector _gestureDetector;
@@ -142,7 +142,7 @@ namespace Columbia583.Android
 					maintenance.Text = trail.maintenance;
 
 					viewTrailMapsButton = view.FindViewById<global::Android.Widget.Button> (Resource.Id.button_map);
-					addToFavouritesButton = view.FindViewById<global::Android.Widget.Button> (Resource.Id.button_addToFavourites);
+					favouritesButtonWrapper = view.FindViewById<global::Android.Widget.LinearLayout> (Resource.Id.layout_favouritesWrapper);
 
 					if (viewTrailMapsButton != null){
 						viewTrailMapsButton.Click += (sender, e) => {
@@ -150,23 +150,32 @@ namespace Columbia583.Android
 							StartActivity(intent);
 						};
 					}
-					if (addToFavouritesButton != null) {
-						addToFavouritesButton.Click += (sender, e) => {
+					if (favouritesButtonWrapper != null)
+					{
+						// Only provide favourites options if the user is logged in.
+						Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
+						User activeUser = dataAccessLayerCommon.getActiveUser ();
+						if (activeUser != null)
+						{
+							// Check if this trail is in the user's favourites.
+							Data_Access_Layer_Favourites dataAccessLayerFavourites = new Data_Access_Layer_Favourites();
+							bool trailIsFavourited = dataAccessLayerFavourites.trailIsFavourited(activeUser.id, trailId);
 
-							// Get the active user's ID.
-							Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
-							User activeUser = dataAccessLayerCommon.getActiveUser();
-
-							// If there is a user logged in, add it to their favourites.
-							if (activeUser != null)
+							// If the trail is in the user's favourites, set the remove button.  Otherwise, set the add button.
+							if (trailIsFavourited == true)
 							{
-								Data_Access_Layer_Favourites dataAccessLayerFavourites = new Data_Access_Layer_Favourites();
-								dataAccessLayerFavourites.addFavouriteTrail(activeUser.id, trailId);
-
-								Toast.MakeText(this, "Added to favourites.", ToastLength.Short).Show();
+								SetRemoveFromFavouritesButton();
 							}
-
-						};
+							else
+							{
+								SetAddToFavouritesButton();
+							}
+						}
+						else
+						{
+							// Clear the favourites wrapper.
+							ClearFavouritesWrapper();
+						}
 					}
 
 					// Store a reference to the view fragment.
@@ -383,6 +392,117 @@ namespace Columbia583.Android
 
 			// Update the media contained in the gallery's adapter.
 			trailGallery.Adapter = new MediaAdapter (this, mediaList);
+		}
+
+
+		/// <summary>
+		/// Sets the favourites wrapper to contain a button for adding to favourites.
+		/// </summary>
+		protected void SetAddToFavouritesButton()
+		{
+			// Create the add to favourites button.
+			global::Android.Widget.Button addToFavouritesButton = new global::Android.Widget.Button(this);
+			addToFavouritesButton.Text = "Add to Favourites";
+
+			// Set the event handler.
+			addToFavouritesButton.Click += AddToFavouritesEvent;
+
+			// Add the button to the wrapper.
+			favouritesButtonWrapper.RemoveAllViews();
+			favouritesButtonWrapper.AddView (addToFavouritesButton);
+		}
+
+
+		/// <summary>
+		/// Sets the favourites wrapper to contain a button for removing from favourites.
+		/// </summary>
+		protected void SetRemoveFromFavouritesButton()
+		{
+			// Create the remove from favourites button.
+			global::Android.Widget.Button removeFromFavouritesButton = new global::Android.Widget.Button(this);
+			removeFromFavouritesButton.Text = "Remove From Favourites";
+
+			// Set the event handler.
+			removeFromFavouritesButton.Click += RemoveFromFavouritesEvent;
+
+			// Add the button to the wrapper.
+			favouritesButtonWrapper.RemoveAllViews();
+			favouritesButtonWrapper.AddView(removeFromFavouritesButton);
+		}
+
+
+		/// <summary>
+		/// Clears the favourites wrapper.
+		/// </summary>
+		protected void ClearFavouritesWrapper()
+		{
+			favouritesButtonWrapper.RemoveAllViews();
+		}
+
+
+		/// <summary>
+		/// Adds this trail to the user's favourites.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="eventArgs">Event arguments.</param>
+		protected void AddToFavouritesEvent(object sender, EventArgs eventArgs)
+		{
+			// Only provide favourites options if the user is logged in.
+			Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
+			User activeUser = dataAccessLayerCommon.getActiveUser ();
+			if (activeUser != null)
+			{
+				// Add the trail to favourites.
+				Data_Access_Layer_Favourites dataAccessLayerFavourites = new Data_Access_Layer_Favourites();
+				dataAccessLayerFavourites.addFavouriteTrail(activeUser.id, trailId);
+
+				// Set the remove from favourites button.
+				SetRemoveFromFavouritesButton();
+
+				// Inform the user that the trail was added to favourites.
+				Toast.MakeText(this, "Added to your favourites.", ToastLength.Short).Show();
+			}
+			else
+			{
+				// Clear the favourites wrapper.
+				ClearFavouritesWrapper();
+
+				// Inform the user that a login is required.
+				Toast.MakeText (this, "Login required for favourites.", ToastLength.Short).Show ();
+			}
+		}
+
+
+		/// <summary>
+		/// Removes this trail from the user's favourites.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="eventArgs">Event arguments.</param>
+		protected void RemoveFromFavouritesEvent(object sender, EventArgs eventArgs)
+		{
+			// Only provide favourites options if the user is logged in.
+			Data_Access_Layer_Common dataAccessLayerCommon = new Data_Access_Layer_Common();
+			User activeUser = dataAccessLayerCommon.getActiveUser ();
+			if (activeUser != null)
+			{
+				// Remove the trail from favourites.
+				Data_Access_Layer_Favourites dataAccessLayerFavourites = new Data_Access_Layer_Favourites();
+				dataAccessLayerFavourites.removeFavouriteTrail(activeUser.id, trailId);
+
+				// Set the add to favourites button.
+				SetAddToFavouritesButton();
+
+				// Inform the user that the trail was removed from favourites.
+				Toast.MakeText(this, "Removed from your favourites.", ToastLength.Short).Show();
+			}
+			else
+			{
+				// Clear the favourites wrapper.
+				ClearFavouritesWrapper();
+
+				// Inform the user that a login is required.
+				Toast.MakeText (this, "Login required for favourites.", ToastLength.Short).Show ();
+			}
 		}
 	}
 }

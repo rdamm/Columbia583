@@ -7,9 +7,10 @@
         android:orientation="horizontal"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/layout_loginWrapper" />
+        android:id="@+id/layout_loginWrapper"
+        android:layout_gravity="right" />
     <ImageView
         android:src="@drawable/greenways_header_logo"
         android:layout_width="match_parent"

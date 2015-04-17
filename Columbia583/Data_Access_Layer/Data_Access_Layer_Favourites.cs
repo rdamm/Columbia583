@@ -23,6 +23,19 @@ namespace Columbia583
 
 
 		/// <summary>
+		/// Checks to see if the trail has been favourited by the given user.
+		/// </summary>
+		/// <returns><c>true</c>, if the trail is favourited, <c>false</c> otherwise.</returns>
+		/// <param name="userId">User identifier.</param>
+		/// <param name="trailId">Trail identifier.</param>
+		public bool trailIsFavourited(int userId, int trailId)
+		{
+			Data_Layer_Favourites dataLayerFavourites = new Data_Layer_Favourites ();
+			return dataLayerFavourites.trailIsFavourited (userId, trailId);
+		}
+
+
+		/// <summary>
 		/// Adds the trail to the user's favourites.
 		/// </summary>
 		/// <param name="userId">User identifier.</param>

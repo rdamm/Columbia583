@@ -27,20 +27,18 @@ namespace Columbia583
 
 				favouriteTrails = new List<ListableTrail>();
 
-				// Get the trails from the user's favourites.
-				List<Trail> trails = new List<Trail>();
-				var trailResponse = connection.Query<Trail>("SELECT * FROM Trail INNER JOIN FavouriteTrails ON Trail.id = FavouriteTrails.trailId WHERE FavouriteTrails.userId = ?", userId);
-				foreach(Trail trail in trailResponse)
-				{
-					trails.Add(trail);
-				}
+				// Get the IDs of the user's favourite trails.
+				List<FavouriteTrails> favouriteTrailRows = connection.Query<FavouriteTrails>("SELECT * FROM FavouriteTrails WHERE FavouriteTrails.userId = ?", userId);
 
-				// Get the details for each trail.
-				foreach(Trail trail in trails)
+				// Get the details of each trail.
+				foreach(FavouriteTrails favouriteTrailRow in favouriteTrailRows)
 				{
 					List<Point> points = new List<Point>();
 					List<Activity> activities = new List<Activity>();
 					List<Amenity> amenities = new List<Amenity>();
+
+					// Get the general trail info.
+					Trail trail = connection.Find<Trail>(favouriteTrailRow.trailId);
 
 					// Get the points.
 					var pointsQueryResponse = connection.Query<Point>("SELECT * FROM Point WHERE trailId = ?", trail.id);
@@ -66,6 +64,7 @@ namespace Columbia583
 					// Encapsulate the data into a listable trail.
 					ListableTrail listableTrail = new ListableTrail(trail, points.ToArray(), activities.ToArray(), amenities.ToArray());
 					favouriteTrails.Add(listableTrail);
+
 				}
 
 				// Close connection to local database.
@@ -82,6 +81,53 @@ namespace Columbia583
 
 
 		/// <summary>
+		/// Checks to see if the trail has been favourited by the given user.
+		/// </summary>
+		/// <returns><c>true</c>, if the trail is favourited, <c>false</c> otherwise.</returns>
+		/// <param name="userId">User identifier.</param>
+		/// <param name="trailId">Trail identifier.</param>
+		public bool trailIsFavourited(int userId, int trailId)
+		{
+			bool favourited = false;
+			try
+			{
+				// Open connection to local database.
+				var connection = new SQLiteConnection(Data_Layer_Common.getPathToDatabase());
+
+				// Check to see if the trail was favourited.
+				List<object> parameters = new List<object>();
+				parameters.Add(userId);
+				parameters.Add(trailId);
+				int resultCount = connection.ExecuteScalar<int> ("SELECT COUNT(*) FROM FavouriteTrails WHERE userId = ? AND trailId = ?", parameters.ToArray());
+				if (resultCount > 0)
+				{
+					favourited = true;
+				}
+
+				List<FavouriteTrails> trailResponse = connection.Query<FavouriteTrails>("SELECT * FROM FavouriteTrails WHERE userId = ? AND trailId = ?", parameters.ToArray());
+				/*
+				if (trailResponse != null && trailResponse.Count > 0)
+				{
+					favourited = true;
+				}
+				*/
+
+				List<FavouriteTrails> allTrailsResponse = connection.Query<FavouriteTrails>("SELECT * FROM FavouriteTrails", new object[0]);
+
+				// Close connection to local database.
+				connection.Close();
+			}
+			catch (SQLiteException ex)
+			{
+				// TODO: Log the error message.
+				Console.WriteLine (ex.Message);
+			}
+
+			return favourited;
+		}
+
+
+		/// <summary>
 		/// Adds the trail to the user's favourites.
 		/// </summary>
 		/// <param name="userId">User identifier.</param>
@@ -94,8 +140,10 @@ namespace Columbia583
 				var connection = new SQLiteConnection(Data_Layer_Common.getPathToDatabase());
 
 				// Add the trail to the user's favourites.
-				FavouriteTrails favouriteTrail = new FavouriteTrails(userId, trailId);
+				List<FavouriteTrails> allTrailsBeforeResponse = connection.Query<FavouriteTrails>("SELECT * FROM FavouriteTrails", new object[0]);
+				FavouriteTrails favouriteTrail = new FavouriteTrails(0, userId, trailId);
 				connection.Insert(favouriteTrail);
+				List<FavouriteTrails> allTrailsAfterResponse = connection.Query<FavouriteTrails>("SELECT * FROM FavouriteTrails", new object[0]);
 
 				// Close connection to local database.
 				connection.Close();
@@ -124,7 +172,7 @@ namespace Columbia583
 				object[] args = new object[2];
 				args[0] = userId;
 				args[1] = trailId;
-				var response = connection.Query<FavouriteTrails>("SELECT * FROM FavouriteTrails WHERE userId = ? AND trailId = ?", args);
+				List<FavouriteTrails> response = connection.Query<FavouriteTrails>("SELECT * FROM FavouriteTrails WHERE userId = ? AND trailId = ?", args);
 				foreach(FavouriteTrails favouriteTrail in response)
 				{
 					connection.Delete(favouriteTrail);
