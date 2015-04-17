@@ -15,14 +15,14 @@
         android:minWidth="260dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp" />
-    <Button
-        android:text="Add to Favourites"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_addToFavourites"
-        android:minWidth="260dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp" />
+        android:id="@+id/layout_favouritesWrapper"
+        android:layout_gravity="center" />
     <ScrollView
         android:minWidth="25px"
         android:minHeight="25px"

@@ -20,8 +20,9 @@ namespace Columbia583
 
 		}
 
-		public FavouriteTrails (int userId, int trailId)
+		public FavouriteTrails (int id, int userId, int trailId)
 		{
+			this.id = id;
 			this.userId = userId;
 			this.trailId = trailId;
 		}

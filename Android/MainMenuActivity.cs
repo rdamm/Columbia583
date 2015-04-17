@@ -236,8 +236,9 @@ namespace Columbia583.Android
 				loginWrapper.RemoveAllViews();
 				loginWrapper.AddView(loginStatus);
 
-				// Enable the upload trail button.
+				// Enable the upload and favourites buttons.
 				uploadTrail.Enabled = true;
+				viewFavouriteTrailsButton.Enabled = true;
 			});
 		}
 
@@ -267,8 +268,9 @@ namespace Columbia583.Android
 				loginWrapper.RemoveAllViews ();
 				loginWrapper.AddView (loginStatus);
 
-				// Disable the upload trail button.
+				// Disable the upload and favourites buttons.
 				uploadTrail.Enabled = false;
+				viewFavouriteTrailsButton.Enabled = false;
 			});
 		}
 
