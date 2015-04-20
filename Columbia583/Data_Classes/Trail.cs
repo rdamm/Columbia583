@@ -33,10 +33,9 @@ namespace Columbia583
 		public string season { get; set; }
 		public bool open { get; set; }
 		public bool active { get; set; }
-		//public DateTime timestamp { get; set; }
-		public DateTime date_uploaded { get; set; }
-		public DateTime date_created{ get; set; }
-		public bool flag_upload{ get; set; }
+		public DateTime createdAt { get; set; }
+		public DateTime updatedAt{ get; set; }
+		public bool pushToServer { get; set; }
 
 		public Trail()
 		{
@@ -44,7 +43,8 @@ namespace Columbia583
 		}
 
 		public Trail (int id, int userId, int orgId, string name, string location, string kmlName, string kmlContent, string distance, string duration, string description, string directions,
-			Difficulty difficulty, int rating, string hazards, string surface, string landAccess, string maintenance, string season, bool open, bool active, DateTime date_uploaded, DateTime date_created, bool flag_upload)
+			Difficulty difficulty, int rating, string hazards, string surface, string landAccess, string maintenance, string season, bool open, bool active, DateTime createdAt, DateTime updatedAt,
+			bool pushToServer)
 		{
 			this.id = id;
 			this.userId = userId;
@@ -66,10 +66,9 @@ namespace Columbia583
 			this.season = season;
 			this.open = open;
 			this.active = active;
-			//this.timestamp = timestamp;
-			this.date_created = date_created;
-			this.date_uploaded = date_uploaded;
-			this.flag_upload = flag_upload;
+			this.createdAt = createdAt;
+			this.updatedAt = updatedAt;
+			this.pushToServer = pushToServer;
 		}
 
 

@@ -188,25 +188,12 @@ namespace Columbia583.Android
 				season = Tseason.Text;
 				location = Tlocation.Text;
 
-				Data_Access_Layer_Common data_access_layer = new Data_Access_Layer_Common();
-				User getUser = data_access_layer.getActiveUser();
+				// Encapsulate the trail data.
+				Trail trail = new Trail(1, 1, 1, name,location,"","",distance,duration,discription,directions, getDifficulty, getRating,hazards,surface,landAccess,maintenance,season, getOpen, getActive,DateTime.Now,DateTime.Now,true);
 
-				Random num = new Random();
-				int getnum = num.Next();
-				Trail trail = new Trail(getnum,getUser.id ,getUser.orgId,name,location,"","",distance,duration,discription,directions, getDifficulty, getRating,hazards,surface,landAccess,maintenance,season, getOpen, getActive,DateTime.Now,DateTime.Now,true);
-				data_access_layer.insertTrail(trail);
-				//Console.Out.WriteLine(myView.getRating);
-				//Console.Out.WriteLine(myView.getDifficulty);
-
-				// TODO: Write the list of points to the database.
-
-				Trail list_trail = data_access_layer.getTrailID(getnum);
-				Console.Out.WriteLine(list_trail.directions);
-				Console.Out.WriteLine(list_trail.difficulty);
-
-				//				foreach(var i in list_comments){
-				//					Console.Out.WriteLine(i.text);
-				//				}
+				// Save and upload the trail.
+				Data_Access_Layer_Upload dataAccessLayerUpload = new Data_Access_Layer_Upload();
+				dataAccessLayerUpload.uploadTrail(trail, points.ToArray());
 
 				Toast.MakeText(this, "Trail has been uploaded", ToastLength.Short).Show();
 

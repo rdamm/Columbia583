@@ -244,7 +244,7 @@ namespace Columbia583.Android
 						commentsLayout.AddView(username);
 
 						TextView date = new TextView(this);
-						date.Text = comment.date.ToString();
+						date.Text = comment.createdAt.ToString();
 						commentsLayout.AddView(date);
 
 						TextView commentText = new TextView(this);
@@ -357,7 +357,7 @@ namespace Columbia583.Android
 				commentsLayout.AddView(username);
 
 				TextView date = new TextView(this);
-				date.Text = comment.date.ToString();
+				date.Text = comment.createdAt.ToString();
 				commentsLayout.AddView(date);
 
 				TextView commentText = new TextView(this);

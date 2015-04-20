@@ -294,10 +294,11 @@ namespace Columbia583
 					}
 
 					// Convert the API's times into datetime objects.
+					DateTime createdTime = convertTimeToDateTime(currentComment.created_at);
 					DateTime updatedTime = convertTimeToDateTime(currentComment.updated_at);
 
 					// Get base comment
-					comments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, username, updatedTime));
+					comments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, username, createdTime, updatedTime, false));
 				}
 
 				comments = comments.Distinct ().ToList ();
@@ -614,13 +615,14 @@ namespace Columbia583
 				foreach(Webservice_Comment currentComment in webserviceComments)
 				{
 					// Convert the API's times into datetime objects.
+					DateTime createdTime = convertTimeToDateTime(currentComment.created_at);
 					DateTime updatedTime = convertTimeToDateTime(currentComment.updated_at);
 
 					// Get base comment
 					if (dataLayer.getComment(currentComment.id) != null) {
-						updateComments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, updatedTime));
+						updateComments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, createdTime, updatedTime, false));
 					} else {
-						insertComments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, updatedTime));
+						insertComments.Add(new Comment(currentComment.id, currentComment.trail_id, currentComment.comment, currentComment.rating, currentComment.user.username, createdTime, updatedTime, false));
 					}
 				}
 

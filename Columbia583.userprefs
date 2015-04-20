@@ -1,22 +1,14 @@
-﻿<Properties StartupItem="Android\Columbia583.Android.csproj" GitUserInfo="UsingGIT">
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_21_x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\ViewTrailActivity.cs">
-    <Files>
-      <File FileName="Android\ViewTrailActivity.cs" Line="1" Column="1" />
-=======
+﻿<Properties StartupItem="Android\Columbia583.Android.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.09e56c26" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Android\ViewTrailActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Columbia583\Data_Access_Layer\Data_Access_Layer_Upload.cs">
     <Files>
-      <File FileName="Android\ViewTrailActivity.cs" Line="95" Column="50" />
->>>>>>> b83f28e3679215728ed10d9aebc65a17d96ded7e
+      <File FileName="Android\UploadTrail.cs" Line="182" Column="29" />
+      <File FileName="Columbia583\Data_Access_Layer\Data_Access_Layer_Upload.cs" Line="135" Column="4" />
+      <File FileName="Columbia583\Service_Access_Layer\Service_Access_Layer_Upload.cs" Line="17" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\RPrime\Documents\Projects\Columbia583\Android\SearchTrailPage2.cs" line="36" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Columbia583.Android AndroidDesignerPreferredDevice="Nexus 4" />
 </Properties>

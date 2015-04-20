@@ -145,7 +145,7 @@ namespace Columbia583.Android
 				DateTime recordTime = DateTime.Now;
 				foreach (Location location in recordedPoints)
 				{
-					points.Add (new Point (0, 0, 0, 0, "", "", location.Latitude, location.Longitude, first, recordTime));
+					points.Add (new Point (0, 0, 0, 0, "", "", location.Latitude, location.Longitude, first, recordTime, recordTime, true));
 				}
 
 				// Open the upload trail form, passing in the recorded points.

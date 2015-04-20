@@ -46,19 +46,16 @@ namespace Columbia583.Android
 			Trail trail = JsonConvert.DeserializeObject<Trail>(json);
 
 			buttonUpload.Click += (object sender, EventArgs e) => {
-				Data_Access_Layer_Common data_access_layer = new Data_Access_Layer_Common();
-				Random num = new Random();
-				Comment comment = new Comment(num.Next(0,1000000),trail.id,textbox.Text,(int) rating.Rating,"defaultUser",DateTime.Now);
-				data_access_layer.insertComment(comment);
 
-				List<Comment> list_comments = data_access_layer.getCommentID();
+				// Encapsulate the comment.
+				Comment comment = new Comment(1, trail.id, textbox.Text, (int)rating.Rating, "", DateTime.Now, DateTime.Now, true);
 
-				foreach(var i in list_comments){
-					Console.Out.WriteLine(i.text);
-				}
+				// Save and upload the comment.
+				Data_Access_Layer_Upload dataAccessLayerUpload = new Data_Access_Layer_Upload();
+				dataAccessLayerUpload.uploadComment(comment);
 
-				//Alert user the commen has been uploaded
-				Toast.MakeText(this, "Comment has been uploaded", ToastLength.Short).Show();
+				// Alert user the comment has been uploaded.
+				Toast.MakeText(this, "Comment has been uploaded.", ToastLength.Short).Show();
 
 				// Close the page.
 				Finish();

@@ -15,22 +15,28 @@ namespace Columbia583
 
 		// Data
 		public string text { get; set; }
-		public DateTime date { get; set; }
 		public int rating { get; set; }
 		public string username { get; set; }
+		public DateTime createdAt { get; set; }
+		public DateTime updatedAt { get; set; }
+		public bool pushToServer { get; set; }
 
 		public Comment ()
 		{
+			
 		}
 
-		public Comment(int id, int trailId, string text, int rating, string username, DateTime dt)
+		public Comment(int id, int trailId, string text, int rating, string username, DateTime createdAt, DateTime updatedAt, bool pushToServer)
 		{
 			this.id = id;
 			this.trailId = trailId;
 			this.text = text;
 			this.rating = rating;
 			this.username = username;
-			date = dt;
+
+			this.createdAt = createdAt;
+			this.updatedAt = updatedAt;
+			this.pushToServer = pushToServer;
 		}
 	}
 }
